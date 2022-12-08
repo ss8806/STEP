@@ -21,6 +21,7 @@
         <div class="container py-5">
             <div id="example"></div>
         </div>
+        <div id="calendar" data-calendar-meetings="{{ $meetings }}"></div>
     </div>
 </div>
 
