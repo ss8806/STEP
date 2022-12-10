@@ -139,6 +139,8 @@ var user = JSON.parse(str_user !== null && str_user !== void 0 ? str_user : "");
 var str_logout = targetDom === null || targetDom === void 0 ? void 0 : targetDom.dataset.logout;
 var logout = JSON.parse(str_logout !== null && str_logout !== void 0 ? str_logout : "");
 console.log(logout);
+var csrf = document // LaravelでPOSTメソッドを実行する際に必須のCSRF「トークン」を設定します。
+.querySelector('meta[name="csrf-token"]').getAttribute("content");
 
 // const inputRef = useRef();
 // const onSubmit = (e) => {
@@ -157,17 +159,20 @@ function DropDown() {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("ul", {
       className: "c-dropdown",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("form", {
-          id: "logout-form",
-          action: logout,
-          method: "POST",
-          className: "d-none",
-          children: "@csrf"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
           className: "dropdown-item",
           href: logout,
           onClick: lo,
           children: "Logout"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("form", {
+          id: "logout-form",
+          action: logout,
+          method: "POST",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+            type: "hidden",
+            name: "_token",
+            value: csrf
+          })
         })]
       })
     })]

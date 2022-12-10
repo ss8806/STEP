@@ -7,6 +7,9 @@ const user = JSON.parse(str_user ?? "");
 const str_logout = targetDom?.dataset.logout;
 const logout = JSON.parse(str_logout ?? "");
 console.log(logout);
+const csrf = document // LaravelでPOSTメソッドを実行する際に必須のCSRF「トークン」を設定します。
+    .querySelector('meta[name="csrf-token"]')
+    .getAttribute("content");
 
 // const inputRef = useRef();
 // const onSubmit = (e) => {
@@ -23,19 +26,15 @@ export default function DropDown() {
     return (
         <>
             <p>{user}</p>
+
             <ul className="c-dropdown">
                 <li>
-                    <form
-                        id="logout-form"
-                        action={logout}
-                        method="POST"
-                        className="d-none"
-                    >
-                        @csrf
-                    </form>
                     <a className="dropdown-item" href={logout} onClick={lo}>
                         Logout
                     </a>
+                    <form id="logout-form" action={logout} method="POST">
+                        <input type="hidden" name="_token" value={csrf} />
+                    </form>
                 </li>
             </ul>
         </>

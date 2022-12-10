@@ -52,9 +52,6 @@
                         @endif
                         @else
                        
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
                         <div id="dropdown" data-user="{{ json_encode(Auth::user()->name) }}" data-logout="{{ json_encode(route('logout')) }}" ></div>
 
                         <!-- <li class="nav-item dropdown">
