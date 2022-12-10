@@ -23,6 +23,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! ./components/Example */ "./resources/js/components/Example.js");
 __webpack_require__(/*! ./components/Calender */ "./resources/js/components/Calender.jsx");
+__webpack_require__(/*! ./components/DropDown */ "./resources/js/components/DropDown.jsx");
 
 /***/ }),
 
@@ -110,6 +111,69 @@ function Calendar() {
   });
 }
 (0,react_dom__WEBPACK_IMPORTED_MODULE_1__.render)( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Calendar, {}), targetDom);
+
+/***/ }),
+
+/***/ "./resources/js/components/DropDown.jsx":
+/*!**********************************************!*\
+  !*** ./resources/js/components/DropDown.jsx ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ DropDown)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+var targetDom = document.getElementById("dropdown");
+var str_user = targetDom === null || targetDom === void 0 ? void 0 : targetDom.dataset.user;
+var user = JSON.parse(str_user !== null && str_user !== void 0 ? str_user : "");
+var str_logout = targetDom === null || targetDom === void 0 ? void 0 : targetDom.dataset.logout;
+var logout = JSON.parse(str_logout !== null && str_logout !== void 0 ? str_logout : "");
+console.log(logout);
+
+// const inputRef = useRef();
+// const onSubmit = (e) => {
+//     e.preventDefault();
+//     console.log(inputRef.current.value);
+//     inputRef.current.value = "";
+// };
+var lo = function lo(e) {
+  event.preventDefault();
+  document.getElementById("logout-form").submit();
+};
+function DropDown() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+      children: user
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("ul", {
+      className: "c-dropdown",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("form", {
+          id: "logout-form",
+          action: logout,
+          method: "POST",
+          className: "d-none",
+          children: "@csrf"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+          className: "dropdown-item",
+          href: logout,
+          onClick: lo,
+          children: "Logout"
+        })]
+      })
+    })]
+  });
+}
+(0,react_dom__WEBPACK_IMPORTED_MODULE_1__.render)( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(DropDown, {}), targetDom);
 
 /***/ }),
 
