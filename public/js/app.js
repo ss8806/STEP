@@ -97,9 +97,16 @@ var targetDom = document.getElementById("calendar");
 var str_meetings = targetDom === null || targetDom === void 0 ? void 0 : targetDom.dataset.calendarMeetings;
 var meetings = JSON.parse(str_meetings !== null && str_meetings !== void 0 ? str_meetings : "");
 console.log(meetings);
+var str_user = targetDom === null || targetDom === void 0 ? void 0 : targetDom.dataset.user;
+var user = JSON.parse(str_user !== null && str_user !== void 0 ? str_user : "");
+console.log(user);
 function Calendar() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-    children: [" ", meetings[0].title, " "]
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+      children: meetings[0].title
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+      children: user
+    })]
   });
 }
 (0,react_dom__WEBPACK_IMPORTED_MODULE_1__.render)( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Calendar, {}), targetDom);

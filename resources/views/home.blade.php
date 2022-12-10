@@ -21,7 +21,7 @@
         <div class="container py-5">
             <div id="example"></div>
         </div>
-        <div id="calendar" data-calendar-meetings="{{ $meetings }}"></div>
+        <div id="calendar" data-calendar-meetings="{{ $meetings }}" data-user="{{ json_encode(Auth::user()->name) }}"></div>
     </div>
 </div>
 
