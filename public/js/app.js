@@ -23,7 +23,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! ./components/Example */ "./resources/js/components/Example.js");
 // require("./components/Calender");
-// require("./components/DropDown");
+__webpack_require__(/*! ./components/DropDown */ "./resources/js/components/DropDown.jsx");
 __webpack_require__(/*! ./components/Stock */ "./resources/js/components/Stock.jsx");
 
 /***/ }),
@@ -73,6 +73,70 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/components/DropDown.jsx":
+/*!**********************************************!*\
+  !*** ./resources/js/components/DropDown.jsx ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+var DropDown = function DropDown() {
+  var element = document.getElementById("dropdown");
+  var userName = [];
+  var logout = [];
+  if (element && element.dataset.user) {
+    userName = JSON.parse(element.dataset.user);
+    logout = JSON.parse(element.dataset.logout);
+  }
+  var csrf = document // LaravelでPOSTメソッドを実行する際に必須のCSRF「トークン」を設定します。
+  .querySelector('meta[name="csrf-token"]').getAttribute("content");
+  var lo = function lo(e) {
+    e.preventDefault();
+    document.getElementById("logout-form").submit();
+  };
+  console.log(userName);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    className: "App",
+    children: [userName, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("ul", {
+      className: "c-dropdown",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+          className: "dropdown-item",
+          href: logout,
+          onClick: lo,
+          children: "Logout"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("form", {
+          id: "logout-form",
+          action: logout,
+          method: "POST",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+            type: "hidden",
+            name: "_token",
+            value: csrf
+          })
+        })]
+      })
+    })]
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DropDown);
+if (document.getElementById("dropdown")) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(DropDown, {}), document.getElementById("dropdown"));
+}
 
 /***/ }),
 
@@ -158,7 +222,9 @@ var Stock = function Stock() {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     setStocks(stockList);
   }, []);
-  console.log(stocks);
+
+  // console.log(stocks);
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
     className: "App",
     children: stocks.map(function (stock) {

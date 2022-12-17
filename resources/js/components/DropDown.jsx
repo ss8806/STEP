@@ -1,31 +1,30 @@
-import React, { useReducer, useTransition, useRef } from "react";
-import { render } from "react-dom";
+import React, { useState, useEffect } from "react";
+import ReactDOM from "react-dom";
 
-const targetDom = document.getElementById("dropdown");
-const str_user = targetDom?.dataset.user;
-const user = JSON.parse(str_user ?? "");
-const str_logout = targetDom?.dataset.logout;
-const logout = JSON.parse(str_logout ?? "");
-console.log(logout);
-const csrf = document // LaravelでPOSTメソッドを実行する際に必須のCSRF「トークン」を設定します。
-    .querySelector('meta[name="csrf-token"]')
-    .getAttribute("content");
-// const inputRef = useRef();
-// const onSubmit = (e) => {
-//     e.preventDefault();
-//     console.log(inputRef.current.value);
-//     inputRef.current.value = "";
-// };
-const lo = (e) => {
-    e.preventDefault();
-    document.getElementById("logout-form").submit();
-};
+const DropDown = () => {
+    const element = document.getElementById("dropdown");
+    var userName = [];
+    var logout = [];
 
-export default function DropDown() {
+    if (element && element.dataset.user) {
+        userName = JSON.parse(element.dataset.user);
+        logout = JSON.parse(element.dataset.logout);
+    }
+
+    const csrf = document // LaravelでPOSTメソッドを実行する際に必須のCSRF「トークン」を設定します。
+        .querySelector('meta[name="csrf-token"]')
+        .getAttribute("content");
+
+    const lo = (e) => {
+        e.preventDefault();
+        document.getElementById("logout-form").submit();
+    };
+
+    console.log(userName);
+
     return (
-        <>
-            <p>{user}</p>
-
+        <div className="App">
+            {userName}
             <ul className="c-dropdown">
                 <li>
                     <a className="dropdown-item" href={logout} onClick={lo}>
@@ -36,7 +35,12 @@ export default function DropDown() {
                     </form>
                 </li>
             </ul>
-        </>
+        </div>
     );
+};
+
+export default DropDown;
+
+if (document.getElementById("dropdown")) {
+    ReactDOM.render(<DropDown />, document.getElementById("dropdown"));
 }
-render(<DropDown />, targetDom);

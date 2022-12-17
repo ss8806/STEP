@@ -15,7 +15,7 @@ const Stock = () => {
         setStocks(stockList);
     }, []);
 
-    console.log(stocks);
+    // console.log(stocks);
 
     return (
         <div className="App">
