@@ -10,7 +10,6 @@ console.log(logout);
 const csrf = document // LaravelでPOSTメソッドを実行する際に必須のCSRF「トークン」を設定します。
     .querySelector('meta[name="csrf-token"]')
     .getAttribute("content");
-
 // const inputRef = useRef();
 // const onSubmit = (e) => {
 //     e.preventDefault();
@@ -18,7 +17,7 @@ const csrf = document // LaravelでPOSTメソッドを実行する際に必須�
 //     inputRef.current.value = "";
 // };
 const lo = (e) => {
-    event.preventDefault();
+    e.preventDefault();
     document.getElementById("logout-form").submit();
 };
 
@@ -40,5 +39,4 @@ export default function DropDown() {
         </>
     );
 }
-
 render(<DropDown />, targetDom);

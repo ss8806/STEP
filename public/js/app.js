@@ -22,8 +22,9 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
  */
 
 __webpack_require__(/*! ./components/Example */ "./resources/js/components/Example.js");
-__webpack_require__(/*! ./components/Calender */ "./resources/js/components/Calender.jsx");
-__webpack_require__(/*! ./components/DropDown */ "./resources/js/components/DropDown.jsx");
+// require("./components/Calender");
+// require("./components/DropDown");
+__webpack_require__(/*! ./components/Stock */ "./resources/js/components/Stock.jsx");
 
 /***/ }),
 
@@ -75,113 +76,6 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-/***/ "./resources/js/components/Calender.jsx":
-/*!**********************************************!*\
-  !*** ./resources/js/components/Calender.jsx ***!
-  \**********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Calendar)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-
-
-var targetDom = document.getElementById("calendar");
-var str_meetings = targetDom === null || targetDom === void 0 ? void 0 : targetDom.dataset.calendarMeetings;
-var meetings = JSON.parse(str_meetings !== null && str_meetings !== void 0 ? str_meetings : "");
-console.log(meetings);
-var str_user = targetDom === null || targetDom === void 0 ? void 0 : targetDom.dataset.user;
-var user = JSON.parse(str_user !== null && str_user !== void 0 ? str_user : "");
-console.log(user);
-function Calendar() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-      children: meetings[0].title
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-      children: user
-    })]
-  });
-}
-(0,react_dom__WEBPACK_IMPORTED_MODULE_1__.render)( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Calendar, {}), targetDom);
-
-/***/ }),
-
-/***/ "./resources/js/components/DropDown.jsx":
-/*!**********************************************!*\
-  !*** ./resources/js/components/DropDown.jsx ***!
-  \**********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ DropDown)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-
-
-var targetDom = document.getElementById("dropdown");
-var str_user = targetDom === null || targetDom === void 0 ? void 0 : targetDom.dataset.user;
-var user = JSON.parse(str_user !== null && str_user !== void 0 ? str_user : "");
-var str_logout = targetDom === null || targetDom === void 0 ? void 0 : targetDom.dataset.logout;
-var logout = JSON.parse(str_logout !== null && str_logout !== void 0 ? str_logout : "");
-console.log(logout);
-var csrf = document // LaravelでPOSTメソッドを実行する際に必須のCSRF「トークン」を設定します。
-.querySelector('meta[name="csrf-token"]').getAttribute("content");
-
-// const inputRef = useRef();
-// const onSubmit = (e) => {
-//     e.preventDefault();
-//     console.log(inputRef.current.value);
-//     inputRef.current.value = "";
-// };
-var lo = function lo(e) {
-  event.preventDefault();
-  document.getElementById("logout-form").submit();
-};
-function DropDown() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-      children: user
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("ul", {
-      className: "c-dropdown",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
-          className: "dropdown-item",
-          href: logout,
-          onClick: lo,
-          children: "Logout"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("form", {
-          id: "logout-form",
-          action: logout,
-          method: "POST",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-            type: "hidden",
-            name: "_token",
-            value: csrf
-          })
-        })]
-      })
-    })]
-  });
-}
-(0,react_dom__WEBPACK_IMPORTED_MODULE_1__.render)( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(DropDown, {}), targetDom);
-
-/***/ }),
-
 /***/ "./resources/js/components/Example.js":
 /*!********************************************!*\
   !*** ./resources/js/components/Example.js ***!
@@ -224,6 +118,59 @@ function Example() {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Example);
 if (document.getElementById("example")) {
   react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Example, {}), document.getElementById("example"));
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/Stock.jsx":
+/*!*******************************************!*\
+  !*** ./resources/js/components/Stock.jsx ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0) { ; } } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+var Stock = function Stock() {
+  var element = document.getElementById("stock");
+  var stockList = [];
+  if (element && element.dataset.stocks) {
+    stockList = JSON.parse(element.dataset.stocks);
+  }
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState2 = _slicedToArray(_useState, 2),
+    stocks = _useState2[0],
+    setStocks = _useState2[1];
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    setStocks(stockList);
+  }, []);
+  console.log(stocks);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    className: "App",
+    children: stocks.map(function (stock) {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+        children: stock.name
+      }, stock.id);
+    })
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Stock);
+if (document.getElementById("stock")) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Stock, {}), document.getElementById("stock"));
 }
 
 /***/ }),

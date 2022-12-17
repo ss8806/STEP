@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Meeting;
+use App\Stock;
+
 
 class HomeController extends Controller
 {
@@ -27,8 +29,14 @@ class HomeController extends Controller
     {
         $meetings = Meeting::all();
 
+        $stocks = Stock::all();
+
+        // return view('home')->with(compact(
+        //     'meetings',
+        // ));
+
         return view('home')->with(compact(
-            'meetings',
+            'stocks',
         ));
     }
 }

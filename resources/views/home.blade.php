@@ -21,7 +21,13 @@
         <div class="container py-5">
             <div id="example"></div>
         </div>
-        <div id="calendar" data-calendar-meetings="{{ $meetings }}" data-user="{{ json_encode(Auth::user()->name) }}"></div>
+        <!-- @isset($meetings)
+            <div id="calendar" data-calendar-meetings="{{ $meetings }}" data-user="{{ json_encode(Auth::user()->name) }}"></div>
+        @endisset -->
+        
+        @isset($stocks)
+            <div id="stock" data-stocks='{{ $stocks }}'></div>
+        @endisset
     </div>
 </div>
 
