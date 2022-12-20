@@ -5,6 +5,11 @@ const DropDown = () => {
     const element = document.getElementById("dropdown");
     var userName = [];
     var logout = [];
+    const [open, setOpen] = useState(false);
+
+    const handleToggle = () => {
+        setOpen((prevOpen) => !prevOpen);
+    };
 
     if (element && element.dataset.user) {
         userName = JSON.parse(element.dataset.user);
@@ -24,17 +29,35 @@ const DropDown = () => {
 
     return (
         <div className="App">
-            {userName}
-            <ul className="c-dropdown">
-                <li>
-                    <a className="dropdown-item" href={logout} onClick={lo}>
-                        Logout
-                    </a>
-                    <form id="logout-form" action={logout} method="POST">
-                        <input type="hidden" name="_token" value={csrf} />
-                    </form>
-                </li>
-            </ul>
+            <li onMouseEnter={handleToggle} onMouseLeave={handleToggle}>
+                {userName}
+                {open ? (
+                    <ul className="c-dropdown">
+                        <li>
+                            <a
+                                className="dropdown-item"
+                                href={logout}
+                                onClick={lo}
+                            >
+                                Logout
+                            </a>
+                            <form
+                                id="logout-form"
+                                action={logout}
+                                method="POST"
+                            >
+                                <input
+                                    type="hidden"
+                                    name="_token"
+                                    value={csrf}
+                                />
+                            </form>
+                        </li>
+                    </ul>
+                ) : (
+                    <div></div>
+                )}
+            </li>
         </div>
     );
 };
