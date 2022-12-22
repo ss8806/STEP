@@ -51,8 +51,8 @@
                         </li>
                         @endif
                         @else
-                       
-                        <div id="dropdown" data-user="{{ json_encode(Auth::user()->name) }}" data-logout="{{ json_encode(route('logout')) }}" ></div>
+
+                        <div id="dropdown" data-user="{{ json_encode(Auth::user()->name) }}" data-logout="{{ json_encode(route('logout')) }}"></div>
 
                         <!-- <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -80,6 +80,22 @@
         <main class="py-4">
             @yield('content')
         </main>
+        
+        
+
+        <!-- フラッシュメッセージここから -->
+        @if (session('scc_message'))
+        <p >{{session('scc_message')}}</p>        
+        @endif
+        @if (session('err_message'))
+        <div id="message" class="p-message__container p-message__container--error">
+            <i class="fas fa-exclamation-circle p-message__icon"></i>
+            <div class="p-message__text">
+                <p>{{session('err_message')}}</p>
+            </div>
+        </div>
+        @endif
+        <!-- フラッシュメッセージここまで -->
     </div>
 </body>
 

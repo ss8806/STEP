@@ -29,7 +29,11 @@ const DropDown = () => {
 
     return (
         <div className="App">
-            <li onMouseEnter={handleToggle} onMouseLeave={handleToggle}>
+            <li
+                className="c-dropdown__user"
+                onMouseEnter={handleToggle}
+                onMouseLeave={handleToggle}
+            >
                 {userName}
                 {open ? (
                     <ul className="c-dropdown">

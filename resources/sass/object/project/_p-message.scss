@@ -1,0 +1,40 @@
+.p-message {
+    &__container {
+        width: 150px;
+        height: 150px;
+        padding: 10px;
+        box-sizing: border-box;
+        position: fixed;
+        top: calc(50% - 75px);
+        left: calc(50% - 75px);
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        background: aliceblue;
+        text-align: center;
+        z-index: 1;
+        opacity: 0;
+        transition: all 0.8s;
+
+        &--success {
+            color: blue;
+        }
+
+        &--error {
+            color: red;
+        }
+
+        &.is-active {
+            opacity: 1;
+        }
+    }
+
+    &__icon {
+        margin-bottom: 10px;
+        font-size: 32px;
+    }
+
+    &__text {
+        font-size: 20px;
+    }
+}

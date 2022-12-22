@@ -24,7 +24,7 @@ const lo = (e) => {
 export default function DropDown() {
     return (
         <>
-            <p>{user}</p>
+            <p class="c-dropdown__user">{user}</p>
 
             <ul className="c-dropdown">
                 <li>

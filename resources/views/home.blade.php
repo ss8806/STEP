@@ -24,11 +24,12 @@
         <!-- @isset($meetings)
             <div id="calendar" data-calendar-meetings="{{ $meetings }}" data-user="{{ json_encode(Auth::user()->name) }}"></div>
         @endisset -->
-        
+
         @isset($stocks)
-            <div id="stock" data-stocks='{{ $stocks }}'></div>
+        <div id="stock" data-stocks='{{ $stocks }}'></div>
         @endisset
     </div>
+   
 </div>
 
 <script src="{{ asset('js/app.js') }}"></script>

@@ -20,6 +20,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/home', 'HomeController@hpost')->name('hpost');
 
 Route::middleware('auth')
       ->group(function () {

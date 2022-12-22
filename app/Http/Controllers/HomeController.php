@@ -36,7 +36,18 @@ class HomeController extends Controller
         // ));
 
         return view('home')->with(compact(
-            'stocks',
+            'stocks'
         ));
+
+        // return view('home')->with('scc_message', '削除しました');
+
+        // return redirect()->route('home')->with('scc_message', '投稿しました');
+
+    }
+
+    public function hpost()
+    {
+        // session
+        return redirect()->route('hpost')->with('scc_message', '投稿しました');
     }
 }
