@@ -28,6 +28,8 @@
         @isset($stocks)
         <div id="stock" data-stocks='{{ $stocks }}'></div>
         @endisset
+
+        
     </div>
    
 </div>

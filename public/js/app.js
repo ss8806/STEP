@@ -231,20 +231,41 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var Message = function Message() {
   var element = document.getElementById("message");
+  var message = [];
+  message = JSON.parse(element.dataset.message);
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState2 = _slicedToArray(_useState, 2),
-    open = _useState2[0],
-    setOpen = _useState2[1];
+    close = _useState2[0],
+    setClose = _useState2[1];
   var handleToggle = function handleToggle() {
-    setOpen(function (prevOpen) {
-      return !prevOpen;
-    });
+    setClose(function (prevClose) {
+      return !prevClose;
+    }), 5000;
   };
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var timeoutId = setTimeout(function () {
+      // 5秒経過したら閉じる
+      handleToggle();
+    }, 3000);
+    // こういう処理を書く
+    return function () {
+      clearTimeout(timeoutId);
+    };
+  }, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-      children: "\u30B5\u30AF\u30BB\u30B9\u30EA\u30A2\u30AF\u30C8"
+    children: close ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      className: "p-message__container p-message__container--success",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+        className: "fas fa-check-circle p-message__icon"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "p-message__text",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+          children: message
+        })
+      })]
     })
   });
 };

@@ -13,15 +13,19 @@
         background: aliceblue;
         text-align: center;
         z-index: 1;
-        opacity: 0;
+        // opacity: 0;
         transition: all 0.8s;
 
         &--success {
-            color: blue;
+            color: green;
         }
 
         &--error {
             color: red;
+        }
+
+        &--close {
+            fopacity: 0;
         }
 
         &.is-active {
@@ -37,4 +41,5 @@
     &__text {
         font-size: 20px;
     }
+
 }

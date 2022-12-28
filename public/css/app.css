@@ -473,14 +473,16 @@ a:visited {
   background: aliceblue;
   text-align: center;
   z-index: 1;
-  opacity: 0;
   transition: all 0.8s;
 }
 .p-message__container--success {
-  color: blue;
+  color: green;
 }
 .p-message__container--error {
   color: red;
+}
+.p-message__container--close {
+  fopacity: 0;
 }
 .p-message__container.is-active {
   opacity: 1;

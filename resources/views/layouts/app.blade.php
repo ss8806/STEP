@@ -13,6 +13,9 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -80,13 +83,19 @@
         <main class="py-4">
             @yield('content')
         </main>
-        
-        
 
-        <!-- フラッシュメッセージここから -->
         @if (session('scc_message'))
-        <p >{{session('scc_message')}}</p>        
+        <!-- <div class="p-message__container p-message__container--success">
+            <i class="fas fa-check-circle p-message__icon"></i>
+            <div class="p-message__text">
+                <p>{{session('scc_message')}}</p>
+            </div>
+        </div> -->
+
+        <div id="message" data-message="{{ json_encode(session('scc_message')) }}">
+        </div>
         @endif
+
         @if (session('err_message'))
         <div id="message" class="p-message__container p-message__container--error">
             <i class="fas fa-exclamation-circle p-message__icon"></i>
