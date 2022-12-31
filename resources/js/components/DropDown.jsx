@@ -20,7 +20,7 @@ const DropDown = () => {
         .querySelector('meta[name="csrf-token"]')
         .getAttribute("content");
 
-    const lo = (e) => {
+    const lf = (e) => {
         e.preventDefault();
         document.getElementById("logout-form").submit();
     };
@@ -28,20 +28,19 @@ const DropDown = () => {
     console.log(userName);
 
     return (
-        <div className="App">
-            <li
+        <div className="c-dropdown">
+            <div
                 className="c-dropdown__user"
                 onMouseEnter={handleToggle}
                 onMouseLeave={handleToggle}
             >
                 {userName}
                 {open ? (
-                    <ul className="c-dropdown">
-                        <li>
+                    <div className="c-dropdown--content">
                             <a
-                                className="dropdown-item"
+                                className="c-dropdown__menu"
                                 href={logout}
-                                onClick={lo}
+                                onClick={lf}
                             >
                                 Logout
                             </a>
@@ -56,12 +55,11 @@ const DropDown = () => {
                                     value={csrf}
                                 />
                             </form>
-                        </li>
-                    </ul>
+                    </div>
                 ) : (
                     <div></div>
                 )}
-            </li>
+            </div>
         </div>
     );
 };

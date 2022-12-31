@@ -40,3 +40,6 @@ Route::middleware('auth')
         Route::post('ideas/{idea}/review', 'ContentController@review')->name('review');
         
     });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
