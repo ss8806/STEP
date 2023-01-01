@@ -101,6 +101,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var DropDown = function DropDown() {
   var element = document.getElementById("dropdown");
   var userName = [];
@@ -120,7 +121,7 @@ var DropDown = function DropDown() {
   }
   var csrf = document // LaravelでPOSTメソッドを実行する際に必須のCSRF「トークン」を設定します。
   .querySelector('meta[name="csrf-token"]').getAttribute("content");
-  var lf = function lf(e) {
+  var lof = function lof(e) {
     e.preventDefault();
     document.getElementById("logout-form").submit();
   };
@@ -131,12 +132,16 @@ var DropDown = function DropDown() {
       className: "c-dropdown__user",
       onMouseEnter: handleToggle,
       onMouseLeave: handleToggle,
-      children: [userName, open ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      children: ["\u3088\u3046\u3053\u305D\u3000", userName, " \u69D8", open ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         className: "c-dropdown--content",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
           className: "c-dropdown__menu",
+          href: "",
+          children: "\u30DE\u30A4\u30DA\u30FC\u30B8"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+          className: "c-dropdown__menu",
           href: logout,
-          onClick: lf,
+          onClick: lof,
           children: "Logout"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("form", {
           id: "logout-form",
@@ -148,7 +153,7 @@ var DropDown = function DropDown() {
             value: csrf
           })
         })]
-      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {})]
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {})]
     })
   });
 };
