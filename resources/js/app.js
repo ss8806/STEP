@@ -17,3 +17,4 @@ require("./components/Example");
 require("./components/DropDown");
 require("./components/Stock");
 require("./components/Message");
+require("./components/Hamberger");

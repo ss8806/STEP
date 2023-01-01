@@ -20,7 +20,7 @@ const DropDown = () => {
         .querySelector('meta[name="csrf-token"]')
         .getAttribute("content");
 
-    const lf = (e) => {
+    const lof = (e) => {
         e.preventDefault();
         document.getElementById("logout-form").submit();
     };
@@ -34,13 +34,19 @@ const DropDown = () => {
                 onMouseEnter={handleToggle}
                 onMouseLeave={handleToggle}
             >
-                {userName}
+                menu　　　
                 {open ? (
                     <div className="c-dropdown--content">
                             <a
                                 className="c-dropdown__menu"
+                                href="/mypage"   
+                            >
+                                マイページ 
+                                                       </a>
+                            <a
+                                className="c-dropdown__menu"
                                 href={logout}
-                                onClick={lf}
+                                onClick={lof}
                             >
                                 Logout
                             </a>
@@ -57,7 +63,7 @@ const DropDown = () => {
                             </form>
                     </div>
                 ) : (
-                    <div></div>
+                    <></>
                 )}
             </div>
         </div>
