@@ -1,0 +1,10 @@
+diff a/public/css/app.css b/public/css/app.css	(rejected hunks)
+@@ -357,7 +357,7 @@
+ @media screen and (max-width: 414px) {
+   .p-nav__dropdown {
+     float: right;
+-    display: block;
++    display: flex;
+   }
+ }
+ 

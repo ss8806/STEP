@@ -34,12 +34,14 @@ const DropDown = () => {
                 onMouseEnter={handleToggle}
                 onMouseLeave={handleToggle}
             >
-                menu　　　
+
+                ようこそ　{userName} 様
                 {open ? (
                     <div className="c-dropdown--content">
                             <a
                                 className="c-dropdown__menu"
-                                href="/mypage"   
+
+                                href=""   
                             >
                                 マイページ 
                                                        </a>

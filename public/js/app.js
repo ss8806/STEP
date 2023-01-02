@@ -133,11 +133,11 @@ var DropDown = function DropDown() {
       className: "c-dropdown__user",
       onMouseEnter: handleToggle,
       onMouseLeave: handleToggle,
-      children: ["menu\u3000\u3000\u3000", open ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      children: ["\u3088\u3046\u3053\u305D\u3000", userName, " \u69D8", open ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         className: "c-dropdown--content",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
           className: "c-dropdown__menu",
-          href: "/mypage",
+          href: "",
           children: "\u30DE\u30A4\u30DA\u30FC\u30B8"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
           className: "c-dropdown__menu",
