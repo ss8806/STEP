@@ -28,7 +28,7 @@
         }
     }
 
-    &__dropdown{
+    &__hamberger{
         display: none;
         @include sm() {
             display: flex;

@@ -3,7 +3,7 @@
 
         <div class="p-nav--left">
             <a  href="{{ url('home') }}">
-                <div class="c-title__main">Inspiration</div>
+                <div class="c-title__main">Sample2212</div>
             </a>
         </div>
 
@@ -25,7 +25,7 @@
                     </li>
                     <li>ようこそ {{ Auth::user()->name }}様</li>
                     <li><a class="p-nav__menu">マイページ</a></li>
-                    <li><a class="p-nav__menu">アイディアを投稿する</a></li>
+                    <li><a class="p-nav__menu">投稿する</a></li>
                     <li><a class="p-nav__menu" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
@@ -39,21 +39,11 @@
             </ul>
 
             {{-- ドロップダウンメニュー（レスポンシブ用） --}}
-            <div class="p-nav p-nav__dropdown">
+            <div class="p-nav p-nav__hamberger">
                 @guest
-                   {{-- ログインしてないなら何も表示しない --}}
                 @else
                 <div id="hamberger" data-user="{{ json_encode(Auth::user()->name) }}" data-logout="{{ json_encode(route('logout')) }}"></div>
-
-                <!-- <ul class="c-dropdown">
-                {{-- ログイン済み --}}
-                    {{-- ログイン情報 --}}
-                    <li>
-                        {{-- ドロップダウンメニュー --}}
-                            <div id="dropdown" data-user="{{ json_encode(Auth::user()->name) }}" data-logout="{{ json_encode(route('logout')) }}"></div>
-                        @endguest
-                    </li>
-                </ul> -->
+                @endguest
             </div>           
         </div>
     </nav>  

@@ -7,35 +7,27 @@ const Hamberger = () => {
     var logout = [];
     const [open, setOpen] = useState(false);
 
-    // document.querySelector('.hamburger').addEventListener('click', function(){
-    //     this.classList.toggle('active');
-    //     document.querySelector('.slide-menu').classList.toggle('active');
-    // })
-
     const handleToggle = () => {
         setOpen((prevOpen) => !prevOpen);
     };
 
-    //     if (element && element.dataset.user) {
-    //         userName = JSON.parse(element.dataset.user);
-    //         logout = JSON.parse(element.dataset.logout);
-    //     }
+    if (element && element.dataset.user) {
+        userName = JSON.parse(element.dataset.user);
+        logout = JSON.parse(element.dataset.logout);
+    }
 
-    //     const csrf = document // LaravelでPOSTメソッドを実行する際に必須のCSRF「トークン」を設定します。
-    //     .querySelector('meta[name="csrf-token"]')
-    //     .getAttribute("content");
+    const csrf = document // LaravelでPOSTメソッドを実行する際に必須のCSRF「トークン」を設定します。
+        .querySelector('meta[name="csrf-token"]')
+        .getAttribute("content");
 
-    // const lof = (e) => {
-    //     e.preventDefault();
-    //     document.getElementById("logout-form").submit();
-    // };
+    const lof = (e) => {
+        e.preventDefault();
+        document.getElementById("logout-form").submit();
+    };
 
 
     return (
         <>
-
-
-
             {open ? (
                 <>
                     <div className="hamburger--active" onClick={handleToggle}>
@@ -44,10 +36,24 @@ const Hamberger = () => {
                         <span></span>
                     </div>
                     <ul className="slide-menu">
-                        <li>メニュー</li>
-                        <li>メニュー2</li>
-                        <li>メニュー3</li>
-                        <li>メニュー4</li>
+                        <li> <a href="mypage">マイページ</a> </li>
+                        <li> <a
+                            href={logout}
+                            onClick={lof}
+                        >
+                            Logout
+                        </a>
+                            <form
+                                id="logout-form"
+                                action={logout}
+                                method="POST"
+                            >
+                                <input
+                                    type="hidden"
+                                    name="_token"
+                                    value={csrf}
+                                />
+                            </form></li>
                     </ul>
                 </>
             ) : (
@@ -58,8 +64,6 @@ const Hamberger = () => {
                         <span></span>
                         <span></span>
                     </div>
-
-
                 </>
             )}
         </>

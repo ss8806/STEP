@@ -351,11 +351,11 @@ a:visited {
 .p-nav__menu--name {
   color: black;
 }
-.p-nav__dropdown {
+.p-nav__hamberger {
   display: none;
 }
 @media screen and (max-width: 414px) {
-  .p-nav__dropdown {
+  .p-nav__hamberger {
     display: flex;
   }
 }

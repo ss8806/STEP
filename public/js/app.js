@@ -244,32 +244,21 @@ var Hamberger = function Hamberger() {
     _useState2 = _slicedToArray(_useState, 2),
     open = _useState2[0],
     setOpen = _useState2[1];
-
-  // document.querySelector('.hamburger').addEventListener('click', function(){
-  //     this.classList.toggle('active');
-  //     document.querySelector('.slide-menu').classList.toggle('active');
-  // })
-
   var handleToggle = function handleToggle() {
     setOpen(function (prevOpen) {
       return !prevOpen;
     });
   };
-
-  //     if (element && element.dataset.user) {
-  //         userName = JSON.parse(element.dataset.user);
-  //         logout = JSON.parse(element.dataset.logout);
-  //     }
-
-  //     const csrf = document // LaravelでPOSTメソッドを実行する際に必須のCSRF「トークン」を設定します。
-  //     .querySelector('meta[name="csrf-token"]')
-  //     .getAttribute("content");
-
-  // const lof = (e) => {
-  //     e.preventDefault();
-  //     document.getElementById("logout-form").submit();
-  // };
-
+  if (element && element.dataset.user) {
+    userName = JSON.parse(element.dataset.user);
+    logout = JSON.parse(element.dataset.logout);
+  }
+  var csrf = document // LaravelでPOSTメソッドを実行する際に必須のCSRF「トークン」を設定します。
+  .querySelector('meta[name="csrf-token"]').getAttribute("content");
+  var lof = function lof(e) {
+    e.preventDefault();
+    document.getElementById("logout-form").submit();
+  };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
     children: open ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
@@ -278,14 +267,26 @@ var Hamberger = function Hamberger() {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {})]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("ul", {
         className: "slide-menu",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
-          children: "\u30E1\u30CB\u30E5\u30FC"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
-          children: "\u30E1\u30CB\u30E5\u30FC2"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
-          children: "\u30E1\u30CB\u30E5\u30FC3"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
-          children: "\u30E1\u30CB\u30E5\u30FC4"
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
+          children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+            href: "mypage",
+            children: "\u30DE\u30A4\u30DA\u30FC\u30B8"
+          }), " "]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
+          children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+            href: logout,
+            onClick: lof,
+            children: "Logout"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("form", {
+            id: "logout-form",
+            action: logout,
+            method: "POST",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+              type: "hidden",
+              name: "_token",
+              value: csrf
+            })
+          })]
         })]
       })]
     }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
