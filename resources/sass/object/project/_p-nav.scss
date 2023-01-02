@@ -31,7 +31,6 @@
     &__dropdown{
         display: none;
         @include sm() {
-            float: right;
             display: flex;
         }
     }
