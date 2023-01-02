@@ -24,7 +24,7 @@
                         @endif
                     </li>
                     <li>ようこそ {{ Auth::user()->name }}様</li>
-                    <li><a class="p-nav__menu">マイページ</a></li>
+                    <li><a class="p-nav__menu" href="{{ route('mypage') }}">マイページ</a></li>
                     <li><a class="p-nav__menu">投稿する</a></li>
                     <li><a class="p-nav__menu" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
