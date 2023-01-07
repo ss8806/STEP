@@ -12,7 +12,7 @@ const Message = () => {
 
     useEffect(() => {
         let timeoutId = setTimeout(() => {
-            // 5秒経過したら閉じる
+            // ３秒経過したら閉じる
             handleToggle();
         }, 3000);
         // こういう処理を書く

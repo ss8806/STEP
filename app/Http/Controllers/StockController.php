@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\stock;
 use Illuminate\Http\Request;
 
+
 class StockController extends Controller
 {
     /**
@@ -12,13 +13,52 @@ class StockController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $stocks = Stock::all();
+        // $stocks = Stock::all();
 
-        return view('web.top.index')->with(compact(
-            'stocks',
+        $query = Stock::query();
+
+          // 投稿日 以上で絞り込み
+          if ($request->filled('aboveday')) {
+            $updateIdea = $this->escape($request->input('aboveday'));
+            $query->whereDate('updated_at','>=', $updateIdea);
+        }
+
+          // 投稿日 以下で絞り込み
+          if ($request->filled('belowday')) {
+            $updateIdea = $this->escape($request->input('belowday'));
+            $query->whereDate('updated_at','<=', $updateIdea);
+        }
+
+        // 価格 以上で絞り込み
+        if ($request->filled('aboveprice')) {
+            $abovePrice = $this->escape($request->input('aboveprice'));
+            $query->where('price','>=', $abovePrice);
+        }
+
+        // 価格 以下で絞り込み
+        if ($request->filled('belowprice')) {
+            $belowPrice = $this->escape($request->input('belowprice'));
+            $query->where('price','<=', $belowPrice);
+        }
+
+         // ページャー
+        $stocks = $query->orderBy('id', 'DESC')->paginate(8);
+
+
+        return view('home')->with(compact(
+            'stocks'
         ));
+    }
+
+    private function escape(string $value)
+    {
+         return str_replace(
+             ['\\', '%', '_'],
+             ['\\\\', '\\%', '\\_'],
+             $value
+         );
     }
 
     /**

@@ -88,7 +88,7 @@ a:visited {
 .c-btn {
   margin: 10px auto;
 }
-.c-btn__serch {
+.c-btn__search {
   margin: 0px;
 }
 .c-btn__like {
@@ -457,13 +457,13 @@ a:visited {
   }
 }
 
-.p-serch {
+.p-search {
   margin-bottom: 10px;
   display: table;
   margin: 0px auto;
 }
 @media screen and (max-width: 414px) {
-  .p-serch {
+  .p-search {
     float: left;
     margin-left: 5px;
   }

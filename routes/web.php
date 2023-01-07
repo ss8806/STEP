@@ -23,7 +23,8 @@ Auth::routes();
 
 Route::middleware('auth')
     ->group(function () {
-        Route::get('/home', 'HomeController@index')->name('home');
+        // Route::get('/home', 'HomeController@index')->name('home');
+        Route::get('/home', 'StockController@index')->name('home');
         Route::post('/home', 'HomeController@hpost')->name('hpost');
         Route::get('/mypage', 'MypageController@index')->name('mypage');
     });

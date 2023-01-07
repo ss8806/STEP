@@ -345,7 +345,7 @@ var Message = function Message() {
   };
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     var timeoutId = setTimeout(function () {
-      // 5秒経過したら閉じる
+      // ３秒経過したら閉じる
       handleToggle();
     }, 3000);
     // こういう処理を書く
