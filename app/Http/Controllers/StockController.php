@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\stock;
 use Illuminate\Http\Request;
+use App\Http\Requests\SearchRequest;
+use Illuminate\Validation\Validator;
+
 
 
 class StockController extends Controller
@@ -13,29 +16,34 @@ class StockController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(SearchRequest $request)
     {
         // $stocks = Stock::all();
 
         $query = Stock::query();
 
+        // $validated = $request->validate([
+        //     'aboveprice' => ['required', 'max:2'],
+        // ]);
+
+
           // 投稿日 以上で絞り込み
           if ($request->filled('aboveday')) {
-            $updateIdea = $this->escape($request->input('aboveday'));
-            $query->whereDate('updated_at','>=', $updateIdea);
+            $updateDay = $this->escape($request->input('aboveday'));
+            $query->whereDate('updated_at','>=', $updateDay);
         }
 
           // 投稿日 以下で絞り込み
           if ($request->filled('belowday')) {
-            $updateIdea = $this->escape($request->input('belowday'));
-            $query->whereDate('updated_at','<=', $updateIdea);
+            $updateDay = $this->escape($request->input('belowday'));
+            $query->whereDate('updated_at','<=', $updateDay);
         }
 
         // 価格 以上で絞り込み
         if ($request->filled('aboveprice')) {
-            $abovePrice = $this->escape($request->input('aboveprice'));
+            $abovePrice =$this->escape($request->input('aboveprice'));
             $query->where('price','>=', $abovePrice);
-        }
+        } 
 
         // 価格 以下で絞り込み
         if ($request->filled('belowprice')) {

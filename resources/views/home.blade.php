@@ -14,6 +14,9 @@
                             <p>投稿日</p> {{ date('Y年m月d日', strtotime($stock->updated_at)) }}
                         </td>
                     </table>
+                    <table class="p-table p-table--index u-border__none--top">
+                        <td>{{number_format($stock->price)}}円</td>
+                    </table>
                 </div>
             </div>
             @endforeach
