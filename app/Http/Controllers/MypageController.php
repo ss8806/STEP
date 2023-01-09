@@ -12,7 +12,6 @@ class MypageController extends Controller
     {
         $user = Auth::user();
        
-
         return view('mypage')
             ->with('user', $user); 
     }

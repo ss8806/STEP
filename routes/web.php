@@ -27,4 +27,6 @@ Route::middleware('auth')
         Route::get('/home', 'StockController@index')->name('home');
         Route::post('/home', 'HomeController@hpost')->name('hpost');
         Route::get('/mypage', 'MypageController@index')->name('mypage');
+        Route::get('/profile', 'ProfileController@index')->name('profile');
+        Route::put('/editEmail', 'ProfileController@editEmail')->name('editEmail');
     });
