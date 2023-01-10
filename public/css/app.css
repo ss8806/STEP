@@ -242,6 +242,11 @@ a:visited {
   margin: 10px;
 }
 
+.c-sucess {
+  color: green;
+  margin: 10px;
+}
+
 .c-price {
   font-size: 24px;
   margin: 20px;

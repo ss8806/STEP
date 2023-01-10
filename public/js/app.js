@@ -203,8 +203,12 @@ var Email = function Email() {
     setEmail = _useState2[1];
   var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
     _useState4 = _slicedToArray(_useState3, 2),
-    error = _useState4[0],
-    setError = _useState4[1];
+    sucess = _useState4[0],
+    setSucess = _useState4[1];
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+    _useState6 = _slicedToArray(_useState5, 2),
+    error = _useState6[0],
+    setError = _useState6[1];
   var onHandleChangeEmail = function onHandleChangeEmail(e) {
     setEmail(e.target.value);
   };
@@ -214,14 +218,29 @@ var Email = function Email() {
       editEmail: Email
     }).then(function (response) {
       console.log(response.config.data);
+      setSucess("更新しました");
       setError("");
     })["catch"](function (error) {
-      console.log(error.response.data.errors.editEmail);
-      setError(error.response.data.errors.editEmail);
+      {
+        var _error$response;
+        // 失敗時の処理
+        switch ((_error$response = error.response) === null || _error$response === void 0 ? void 0 : _error$response.status) {
+          case 401:
+            setError("更新できませんでした");
+          case 403:
+            setError("更新できませんでした");
+          case 500:
+            setError("更新できませんでした");
+          default:
+            console.log(error.response.data);
+            setSucess("");
+            setError(error.response.data.errors.editEmail);
+        }
+      }
     });
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
       className: "",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
         htmlFor: "inputEmail",
@@ -235,12 +254,18 @@ var Email = function Email() {
         defaultValue: Email,
         required: true,
         onChange: onHandleChangeEmail
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        className: "c-sucess",
+        children: [" ", sucess]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        className: "c-error",
+        children: [" ", error]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
         className: "",
         onClick: handleSubmitEmail,
         children: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u3092\u5909\u66F4"
       })]
-    }), error]
+    })
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Email);

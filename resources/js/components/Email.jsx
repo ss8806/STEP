@@ -8,6 +8,7 @@ const Email = () => {
     email = JSON.parse(element.dataset.email);
 
     const [Email, setEmail] = useState(email);
+    const [sucess, setSucess] = useState();
     const [error, setError] = useState();
 
     const onHandleChangeEmail = (e) => {
@@ -21,11 +22,25 @@ const Email = () => {
             .put("/editEmail", { editEmail: Email })
             .then((response) => {
                 console.log(response.config.data);
+                setSucess("更新しました");
                 setError("");
             })
             .catch((error) => {
-                console.log(error.response.data.errors.editEmail);
-                setError(error.response.data.errors.editEmail);
+                {
+                    // 失敗時の処理
+                    switch (error.response?.status) {
+                        case 401:
+                            setError("更新できませんでした");
+                        case 403:
+                            setError("更新できませんでした");
+                        case 500:
+                            setError("更新できませんでした");
+                        default:
+                            console.log(error.response.data);
+                            setSucess("");
+                            setError(error.response.data.errors.editEmail);
+                    }
+                }
             });
     };
 
@@ -43,11 +58,12 @@ const Email = () => {
                     required
                     onChange={onHandleChangeEmail}
                 />
+                <div className="c-sucess"> {sucess}</div>
+                <div className="c-error"> {error}</div>
                 <button className="" onClick={handleSubmitEmail}>
                     メールアドレスを変更
                 </button>
             </section>
-            {error}
         </>
     );
 };
