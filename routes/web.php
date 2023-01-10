@@ -29,4 +29,6 @@ Route::middleware('auth')
         Route::get('/mypage', 'MypageController@index')->name('mypage');
         Route::get('/profile', 'ProfileController@index')->name('profile');
         Route::put('/editEmail', 'ProfileController@editEmail')->name('editEmail');
+        Route::put('/editPassword', 'ProfileController@editPassword')->name('editPassword');
+
     });

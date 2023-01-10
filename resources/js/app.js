@@ -19,3 +19,4 @@ require("./components/Stock");
 require("./components/Message");
 require("./components/Hamberger");
 require("./components/Email");
+require("./components/Password");
