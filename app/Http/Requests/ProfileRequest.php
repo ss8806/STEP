@@ -24,7 +24,7 @@ class ProfileRequest extends FormRequest
     public function rules()
     {
         return [
-            'editEmail'   => 'max:10',
+            'editEmail'   => 'max:10|email',
         ];
     }
 
