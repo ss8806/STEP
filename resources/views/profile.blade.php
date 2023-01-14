@@ -27,12 +27,12 @@
 
         {{-- email --}}
         <div class="p-form p-form__group">
-            <div id="email" data-email="{{ json_encode(Auth::user()->email) }}"></div>
+            <div id="editEmail" data-email="{{ json_encode(Auth::user()->email) }}"></div>
         </div>
         
         {{-- password --}}
         <div class="p-form p-form__group">
-            <div id="password"}}></div>
+            <div id="editPassword"}}></div>
         </div>
     </div>
 </div>

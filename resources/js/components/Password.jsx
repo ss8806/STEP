@@ -63,6 +63,6 @@ const Password = () => {
 
 export default Password;
 
-if (document.getElementById("password")) {
-    ReactDOM.render(<Password />, document.getElementById("password"));
+if (document.getElementById("editPassword")) {
+    ReactDOM.render(<Password />, document.getElementById("editPassword"));
 }

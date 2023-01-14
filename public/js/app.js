@@ -195,7 +195,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var Email = function Email() {
-  var element = document.getElementById("email");
+  var element = document.getElementById("editEmail");
   var email = [];
   email = JSON.parse(element.dataset.email);
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(email),
@@ -270,8 +270,8 @@ var Email = function Email() {
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Email);
-if (document.getElementById("email")) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Email, {}), document.getElementById("email"));
+if (document.getElementById("editEmail")) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Email, {}), document.getElementById("editEmail"));
 }
 
 /***/ }),
@@ -582,8 +582,8 @@ var Password = function Password() {
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Password);
-if (document.getElementById("password")) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Password, {}), document.getElementById("password"));
+if (document.getElementById("editPassword")) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Password, {}), document.getElementById("editPassword"));
 }
 
 /***/ }),

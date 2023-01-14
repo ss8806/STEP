@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import axios from "axios";
 
 const Email = () => {
-    const element = document.getElementById("email");
+    const element = document.getElementById("editEmail");
     var email = [];
     email = JSON.parse(element.dataset.email);
 
@@ -70,6 +70,6 @@ const Email = () => {
 
 export default Email;
 
-if (document.getElementById("email")) {
-    ReactDOM.render(<Email />, document.getElementById("email"));
+if (document.getElementById("editEmail")) {
+    ReactDOM.render(<Email />, document.getElementById("editEmail"));
 }
