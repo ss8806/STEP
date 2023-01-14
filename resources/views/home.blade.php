@@ -2,7 +2,7 @@
 
 @section('content')
 <x-search></x-search>
-<div class="p-card">
+<!-- <div class="p-card">
     <div class="c-flexbox--index">
         <div class="c-flexbox__flexcontainer c-flexbox__flexcontainer--index">
             @foreach ($stocks as $stock)
@@ -22,7 +22,11 @@
             @endforeach
         </div>
     </div>
-</div>
+</div> -->
+
+@isset($stocks)
+            <div id="stock" data-stocks='{{ json_encode($stocks) }}'></div>
+@endisset
 
 <script src="{{ asset('js/app.js') }}"></script>
 @endsection
