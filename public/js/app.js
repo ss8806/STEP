@@ -612,6 +612,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var Stock = function Stock() {
   var element = document.getElementById("stock");
   var stockList = [];
@@ -632,46 +633,41 @@ var Stock = function Stock() {
     var sdata = stocks.data;
     console.log(sdata);
   }
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    className: "App",
-    children: sdata ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-      children: sdata.map(function (stock, i) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("ul", {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
-            children: stock.name
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      className: "App",
+      children: sdata ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "p-card",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            className: "c-flexbox--index",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "c-flexbox__flexcontainer c-flexbox__flexcontainer--index",
+              children: sdata.map(function (stock, i) {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("ul", {
+                  className: "c-flexbox__flexitem c-flexbox__flexitem--index",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+                    className: "p-card p-card__header--index u-overflow",
+                    children: stock.name
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
+                    className: "p-card__body",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+                      children: "\u6295\u7A3F\u65E5"
+                    }), " ", stock.updated_at]
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
+                    children: [stock.price, "\u5186"]
+                  })]
+                }, i);
+              })
+            })
           })
-        }, i);
+        })
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+        children: "\u53D6\u5F97\u3067\u304D\u307E\u305B\u3093\u3067\u3057\u305F\u3002"
       })
-    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-      children: "\u53D6\u5F97\u3067\u304D\u307E\u305B\u3093\u3067\u3057\u305F\u3002"
     })
-  })
-  // <div className="p-card">
-  //     <div className="c-flexbox--index">
-  //         <div className="c-flexbox__flexcontainer c-flexbox__flexcontainer--index">
-  //             {stocks.map((stock) => (
-  //                 <div className="c-flexbox__flexitem c-flexbox__flexitem--index">
-  //                     <div className="p-card p-card__header--index u-overflow">
-  //                         {stock.name}
-  //                     </div>
-  //                     <div className="p-card__body">
-  //                         <table className="p-table p-table--index u-border__none--top">
-  //                             <td>
-  //                                 <p>投稿日</p> {stock.updated_at}
-  //                             </td>
-  //                         </table>
-  //                         <table className="p-table p-table--index u-border__none--top">
-  //                             <td>{stock.price}円</td>
-  //                         </table>
-  //                     </div>
-  //                 </div>
-  //             ))}
-  //         </div>
-  //     </div>
-  // </div>
-  ;
+  });
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Stock);
 if (document.getElementById("stock")) {
   react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Stock, {}), document.getElementById("stock"));
