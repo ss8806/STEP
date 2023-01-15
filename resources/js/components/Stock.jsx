@@ -19,7 +19,7 @@ const Stock = () => {
 
     if (stocks.data !== undefined) {
         var sdata = stocks.data;
-        console.log(sdata);
+        //console.log(sdata);
     }
 
     return (

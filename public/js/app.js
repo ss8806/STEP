@@ -631,8 +631,9 @@ var Stock = function Stock() {
 
   if (stocks.data !== undefined) {
     var sdata = stocks.data;
-    console.log(sdata);
+    //console.log(sdata);
   }
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
       className: "App",
