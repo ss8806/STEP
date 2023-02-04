@@ -32,7 +32,7 @@
         
         {{-- password --}}
         <div class="p-form p-form__group">
-            <div id="editPassword"}}></div>
+            <div id="editPassword"></div>
         </div>
     </div>
 </div>

@@ -2,6 +2,7 @@
 
 @section('content')
 <x-search></x-search>
+
 <!-- <div class="p-card">
     <div class="c-flexbox--index">
         <div class="c-flexbox__flexcontainer c-flexbox__flexcontainer--index">
@@ -25,8 +26,12 @@
 </div> -->
 
 @isset($stocks)
-            <div id="stock" data-stocks='{{ json_encode($stocks) }}'></div>
+<div id="stock" data-stocks='{{ json_encode($stocks) }}'></div>
 @endisset
+
+<?php
+// var_dump($stocks);
+?>
 
 <script src="{{ asset('js/app.js') }}"></script>
 @endsection

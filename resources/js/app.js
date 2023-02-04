@@ -20,3 +20,4 @@ require("./components/Message");
 require("./components/Hamberger");
 require("./components/Email");
 require("./components/Password");
+require("./components/Search");

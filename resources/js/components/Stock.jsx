@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
+import moment from "moment";
 
 const Stock = () => {
     const element = document.getElementById("stock");
@@ -19,7 +20,7 @@ const Stock = () => {
 
     if (stocks.data !== undefined) {
         var sdata = stocks.data;
-        // console.log(sdata);
+        console.log(sdata);
     }
 
     return (
@@ -44,7 +45,10 @@ const Stock = () => {
                                                 {stock.name}
                                             </li>
                                             <li className="p-card__body">
-                                                <p>投稿日</p> {stock.updated_at}
+                                                <p>投稿日</p>
+                                                {moment(
+                                                    stock.updated_at
+                                                ).format("YYYY年MM月DD日")}
                                             </li>
                                             <li>{stock.price}円</li>
                                         </ul>
