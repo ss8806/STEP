@@ -19,8 +19,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-
-
 Route::middleware('auth')
     ->group(function () {
         // Route::get('/home', 'HomeController@index')->name('home');
@@ -28,6 +26,7 @@ Route::middleware('auth')
         Route::post('/home', 'HomeController@hpost')->name('hpost');
         Route::get('/mypage', 'MypageController@index')->name('mypage');
         Route::get('/profile', 'ProfileController@index')->name('profile');
+        Route::put('/editUserName', 'ProfileController@editUserName')->name('editUserName');
         Route::put('/editEmail', 'ProfileController@editEmail')->name('editEmail');
         Route::put('/editPassword', 'ProfileController@editPassword')->name('editPassword');
 

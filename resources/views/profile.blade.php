@@ -18,11 +18,7 @@
     <div class="p-card p-card__body">
         {{-- ニックネーム --}}
         <div class="p-form p-form__group">
-            <label for="name">ニックネーム:</label>
-            <span class="u-br"><!-- レスポンシブで改行 -->
-                {{$user->name}}
-                <span class="u-br"><!-- レスポンシブで改行 -->
-                    <button id="name" class="c-btn" type=“button” onclick="location.href='edit-name'">編集</button>
+            <div id="editUserName" data-username="{{ json_encode(Auth::user()->name) }}"></div>
         </div>
 
         {{-- email --}}

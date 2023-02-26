@@ -15,13 +15,36 @@ const Search = () => {
         belowprice = JSON.parse(element.dataset.belowprice);
     }
 
-    let [ad, setAboveday] = useState(aboveday);
+    if (aboveprice === null) {
+        aboveprice = undefined;
+    }
+
+    if (belowprice === null) {
+        belowprice = undefined;
+    }
+
     let [ap, setAboveprice] = useState(aboveprice);
+    let [bp, setBelowprice] = useState(belowprice);
 
     const onHandleChangeAboveprice = (e) => {
-        let ab = e.target.value;
-        ab = ab.slice(0, 3);
-        setAboveprice(ab);
+        let tv = e.target.value;
+        tv = tv.slice(0, 3);
+        setAboveprice(tv);
+        // if (ap > bp) {
+        //     console.log("価格エラー");
+        // }
+    };
+
+    const onHandleChangeBelowprice = (e) => {
+        let tv = e.target.value;
+        tv = tv.slice(0, 3);
+        setBelowprice(tv);
+    };
+
+    const onHandleBlurBelowprice = (e) => {
+        if (ap > bp) {
+            console.log("価格エラー");
+        }
     };
 
     return (
@@ -32,7 +55,7 @@ const Search = () => {
                 type="date"
                 name="aboveday"
                 className="c-input__day"
-                defaultValue={ad}
+                defaultValue={aboveday}
             />
             <span>~</span>
             <input
@@ -60,7 +83,9 @@ const Search = () => {
                     name="belowprice"
                     className="c-input__price"
                     placeholder="価格検索 以下"
-                    defaultValue={belowprice}
+                    value={bp}
+                    onChange={onHandleChangeBelowprice}
+                    onBlur={onHandleBlurBelowprice}
                 />
             </div>
 

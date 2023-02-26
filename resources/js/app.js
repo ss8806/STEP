@@ -18,6 +18,7 @@ require("./components/DropDown");
 require("./components/Stock");
 require("./components/Message");
 require("./components/Hamberger");
+require("./components/UserName");
 require("./components/Email");
 require("./components/Password");
 require("./components/Search");
