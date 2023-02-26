@@ -19,6 +19,13 @@ class ProfileController extends Controller
             ->with('user', Auth::user());
     }
 
+    public function editUserName(ProfileRequest $request)
+    {
+        $user = Auth::user();
+        $user->name = $request->input('editUserName');
+        $user->update();
+    }
+
     public function editEmail(ProfileRequest $request)
     {
         $user = Auth::user();

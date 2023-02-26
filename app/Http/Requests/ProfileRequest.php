@@ -24,6 +24,7 @@ class ProfileRequest extends FormRequest
     public function rules()
     {
         return [
+            'editUserName'   => 'max:10',
             'editEmail'   => 'max:10|email',
         ];
     }
@@ -31,6 +32,7 @@ class ProfileRequest extends FormRequest
     public function messages()
     {
         return [
+            'editUserName.max'   => '10文字以下で入力してください',
             'editEmail.max'   => '10文字以下で入力してください',
         ];
     }
@@ -38,6 +40,7 @@ class ProfileRequest extends FormRequest
     public function attributes()
     {
         return [
+            'editUserName'   => '名前',
             'editEmail'   => 'メール',
         ];
     }

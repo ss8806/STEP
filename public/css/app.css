@@ -209,6 +209,8 @@ a:visited {
   border-radius: 3px; /*ボックス角の丸み*/
   border: 2px solid #ddd; /*枠線*/
   box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
+  height: 30px;
+  font-size: 18px;
 }
 @media screen and (max-width: 414px) {
   .c-input__day {
@@ -220,6 +222,8 @@ a:visited {
   border-radius: 3px; /*ボックス角の丸み*/
   border: 2px solid #ddd; /*枠線*/
   box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
+  height: 30px;
+  font-size: 18px;
 }
 @media screen and (max-width: 414px) {
   .c-input__price {
