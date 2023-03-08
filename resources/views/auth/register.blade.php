@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    会員登録
+会員登録
 @endsection
 
 @section('content')
@@ -20,21 +20,21 @@
                         <input id="name" type="text" class="c-input__profile @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="お名前">
                     </div>
                     @error('name')
-                        <div class="c-error" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </div>
+                    <div class="c-error" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </div>
                     @enderror
                 </div>
-            
+
                 <div class="p-form__group">
                     <label for="email">メールアドレス</label>
                     <div class="c-input">
                         <input id="email" type="email" class="c-input__profile @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="メールアドレス">
                     </div>
                     @error('email')
-                        <div class="c-error" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </div>
+                    <div class="c-error" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </div>
                     @enderror
                 </div>
 
@@ -44,7 +44,7 @@
                         <input id="password" type="password" class="c-input__profile @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="パスワード">
                     </div>
                     @error('password')
-                    <div class="c-erorr" role="alert">
+                    <div class="c-error" role="alert">
                         <strong>{{ $message }}</strong>
                     </div>
                     @enderror

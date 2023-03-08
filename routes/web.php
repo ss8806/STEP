@@ -17,11 +17,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/top', function () {
+    return view('top');
+});
+
 Auth::routes();
 
 Route::middleware('auth')
     ->group(function () {
-        // Route::get('/home', 'HomeController@index')->name('home');
         Route::get('/home', 'StockController@index')->name('home');
         Route::get('stock/{stock}/show', 'StockController@show')->name('show');
         Route::post('/home', 'HomeController@hpost')->name('hpost');

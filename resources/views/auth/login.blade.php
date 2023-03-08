@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    ログイン
+ログイン
 @endsection
 
 @section('content')
@@ -21,9 +21,9 @@
                             <input id="email" type="email" class="c-input__profile @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                         </div>
                         @error('email')
-                            <div class="c-error" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </div>
+                        <div class="c-error" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </div>
                         @enderror
                     </div>
 
@@ -32,11 +32,12 @@
                         <div class=c-input>
                             <input id="password" type="password" class="c-input__profile @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
                         </div>
-                        @error('password')         
+                        @error('password')
                         <div class="c-error" role="alert">
                             <strong>{{ $message }}</strong>
                         </div>
                         @enderror
+                    </div>
 
                     <div class="p-card__form--group">
                         <div class="c-form-check">
@@ -52,22 +53,22 @@
                             ログイン
                         </button>
                     </div>
-                    
+
                 </form>
             </div>
         </div>
 
         <div class="p-card__footer">
-                <div class="c-link__signup">
-                    <p>アカウントをお持ちでない方は</p>
-                    <a href="{{ route('register') }}">こちら</a>
-                </div>
-                <div class="c-link__login">
-                    <p>パスワードをお忘れの方は</p>
-                    <a href="{{ route('password.request') }}">こちら</a>
-                </div>
+            <div class="c-link__signup">
+                <p>アカウントをお持ちでない方は</p>
+                <a href="{{ route('register') }}">こちら</a>
+            </div>
+            <div class="c-link__login">
+                <p>パスワードをお忘れの方は</p>
+                <a href="{{ route('password.request') }}">こちら</a>
             </div>
         </div>
+    </div>
     </div>
 </main>
 @endsection
