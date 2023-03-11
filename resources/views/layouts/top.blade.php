@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,7 +11,7 @@
     <title>@yield('title') | {{ config('app.name', 'Laravel') }}</title>
 
     <link rel="shortcut icon" href="/images/logo.ico">
-  
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -18,19 +19,19 @@
 
     <!-- Styles -->
     @if(app('env') == 'production')
-        <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
     @else
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @endif
-    
 </head>
-<body class="p-body--logo">
-    <div class="original-content">
+
+<body class="">
+    <div class="">
         {{-- コンテンツ部分 --}}
         <div class="content">
             @yield('content')
         </div>
     </div>
-<script src="{{ mix('js/app.js') }}"></script>
 </body>
+
 </html>

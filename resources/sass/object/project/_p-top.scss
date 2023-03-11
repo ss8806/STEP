@@ -1,0 +1,19 @@
+header {
+	height: 100%;
+  width: 100%;
+	overflow: auto;
+  position: relative;
+  min-height: 100vh;
+	background: url(../../../../public/images/mainimg.jpg) ;	/*背景画像の読み込み*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*ロゴ画像*/
+header #logo img {
+	width: 100%;	/*画像の幅*/
+}
+
+
+

@@ -1,28 +1,24 @@
 @extends('layouts.top')
 
 @section('title')
-    TOP
+TOP
 @endsection
 
 @section('content')
-<main class="l-main l-main__base">
-    <div class="p-card--top">
-        <div class="p-card__header">
-            <div class="c-title__top">Sample2212</div>
-            <p style="font-size: 18px;">sample<span class="u-br">2212</p>
-        </div>
-
-        <div class="p-card__body">
-            <div class="c-link">
-                <a href="{{route('register')}}" class="c-link__signup">新規会員登録</a>
-            </div>
-
-            <p>既に会員の方はこちら</p>
-
-            <div class="c-link">
-                    <a href="{{route('login')}}" class="c-link__login">ログイン</a>
-            </div>
-        </div>
-    </div>
-</main>
+<header>
+    <h1 id="logo">
+        <a href="index.html"><img src="images/logo.png" alt="SAMPLE COMPANY" /></a>
+    </h1>
+    <nav id="menubar">
+        <ul>
+            <li><a href="#service">Service</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+<footer>
+    <small>Copyright&copy; <a href="index.html">SAMPLE COMPANY</a> All Rights
+        Reserved.</small>
+    <span class="pr">《<a href="https://template-party.com/" target="_blank">Web Design:Template-Party</a>》</span>
+</footer>
 @endsection
