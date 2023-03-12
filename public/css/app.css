@@ -236,13 +236,13 @@ a:visited {
   text-align: center;
 }
 .c-link__signup {
-  margin: 30px;
-  font-size: 18px;
   display: block;
+  margin: 20px;
+  font-size: 18px;
 }
 .c-link__login {
   display: block;
-  margin: 10px;
+  margin: 20px;
   font-size: 18px;
 }
 
@@ -594,21 +594,28 @@ a:visited {
   transform: rotate(-45deg);
 }
 
-header {
+.p-top__header {
   height: 100%;
   width: 100%;
   overflow: auto;
   position: relative;
+  min-width: 100vh;
   min-height: 100vh;
   background: url(/images/mainimg.jpg?19ba3bd081a311fa2983ef36a5bdad60); /*背景画像の読み込み*/
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-/*ロゴ画像*/
-header #logo img {
-  width: 100%; /*画像の幅*/
+.p-top__logo {
+  width: 50%; /*画像の幅*/
+  height: 50%;
+}
+
+.p-top__menubar {
+  display: flex;
+  justify-content: center;
 }
 
 .u-border__none--top {

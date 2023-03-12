@@ -1,18 +1,26 @@
-header {
+.p-top__header {
 	height: 100%;
   width: 100%;
 	overflow: auto;
   position: relative;
+  min-width: 100vh;
   min-height: 100vh;
 	background: url(../../../../public/images/mainimg.jpg) ;	/*背景画像の読み込み*/
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-/*ロゴ画像*/
-header #logo img {
-	width: 100%;	/*画像の幅*/
+// /*ロゴ画像*/
+.p-top__logo {
+	width: 50%;	/*画像の幅*/
+  height: 50%;
+}
+
+.p-top__menubar {
+  display: flex;
+  justify-content: center;
 }
 
 
