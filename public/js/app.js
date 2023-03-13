@@ -307,14 +307,16 @@ var Email = function Email() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
       className: "",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
-        htmlFor: "inputEmail",
-        children: "Email"
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+          htmlFor: "inputEmail",
+          children: "Email"
+        })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
         id: "inputEmail",
         type: "email",
         name: "editEmail",
-        className: "",
+        className: "c-input__email",
         placeholder: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9",
         defaultValue: Email,
         required: true,
@@ -326,7 +328,7 @@ var Email = function Email() {
         className: "c-error",
         children: [" ", error]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-        className: "",
+        className: "c-btn c-btn__edit",
         onClick: handleSubmitEmail,
         children: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u3092\u5909\u66F4"
       })]
@@ -726,13 +728,15 @@ var Password = function Password() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
       className: "",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
-        htmlFor: "inputEmail",
-        children: "Password"
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+          htmlFor: "inputEmail",
+          children: "Password"
+        })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
         type: "password",
         name: "editPassword",
-        className: "",
+        className: "c-input__password",
         placeholder: "\u30D1\u30B9\u30EF\u30FC\u30C9",
         required: true,
         onChange: onHandleChangePassword
@@ -743,7 +747,7 @@ var Password = function Password() {
         className: "c-error",
         children: [" ", error]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-        className: "",
+        className: "c-btn c-btn__edit",
         onClick: handleSubmitPassword,
         children: "\u30D1\u30B9\u30EF\u30FC\u30C9\u3092\u5909\u66F4"
       })]
@@ -1058,14 +1062,16 @@ var UserName = function UserName() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
       className: "",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
-        htmlFor: "inputUserName",
-        children: "\u540D\u524D"
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+          htmlFor: "inputUserName",
+          children: "\u540D\u524D"
+        })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
         id: "inputUserName",
         type: "username",
         name: "editUserName",
-        className: "",
+        className: "c-input__name",
         placeholder: "\u30E6\u30FC\u30B6\u30FC\u30CD\u30FC\u30E0",
         defaultValue: UserName,
         required: true,

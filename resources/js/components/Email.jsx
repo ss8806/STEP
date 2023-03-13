@@ -47,12 +47,14 @@ const Email = () => {
     return (
         <>
             <section className="">
-                <label htmlFor="inputEmail">Email</label>
+                <p>
+                    <label htmlFor="inputEmail">Email</label>
+                </p>
                 <input
                     id="inputEmail"
                     type="email"
                     name="editEmail"
-                    className=""
+                    className="c-input__email"
                     placeholder="メールアドレス"
                     defaultValue={Email}
                     required
@@ -60,7 +62,10 @@ const Email = () => {
                 />
                 <div className="c-sucess"> {sucess}</div>
                 <div className="c-error"> {error}</div>
-                <button className="" onClick={handleSubmitEmail}>
+                <button
+                    className="c-btn c-btn__edit"
+                    onClick={handleSubmitEmail}
+                >
                     メールアドレスを変更
                 </button>
             </section>
