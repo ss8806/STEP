@@ -3,7 +3,7 @@
 
         <div class="p-nav--left">
             <a  href="{{ url('home') }}">
-                <div class="c-title__main">Sample2212</div>
+                <div class="c-title__main">STEP</div>
             </a>
         </div>
 
