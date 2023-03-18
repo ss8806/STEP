@@ -45,5 +45,53 @@
             width:  44%;
         }
     }
+
+    &__name{
+        width: 200px;
+        border-radius: 3px; /*ボックス角の丸み*/
+        border: 2px solid #ddd; /*枠線*/
+        box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
+        height: 30px;
+        font-size: 18px;
+        margin-top: 10px;
+        // @include mq() {
+        //     width: 200px;
+        // }
+        @include sm() {
+            width:  44%;
+        }
+    }
+
+    &__email{
+        width: 200px;
+        border-radius: 3px; /*ボックス角の丸み*/
+        border: 2px solid #ddd; /*枠線*/
+        box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
+        height: 30px;
+        font-size: 18px;
+        margin-top: 10px;
+        // @include mq() {
+        //     width: 200px;
+        // }
+        @include sm() {
+            width:  44%;
+        }
+    }
+
+    &__password{
+        width: 200px;
+        border-radius: 3px; /*ボックス角の丸み*/
+        border: 2px solid #ddd; /*枠線*/
+        box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
+        height: 30px;
+        font-size: 18px;
+        margin-top: 10px;
+        // @include mq() {
+        //     width: 200px;
+        // }
+        @include sm() {
+            width:  44%;
+        }
+    }
 }
     

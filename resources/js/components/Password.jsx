@@ -42,18 +42,23 @@ const Password = () => {
     return (
         <>
             <section className="">
-                <label htmlFor="inputEmail">Password</label>
+                <p>
+                    <label htmlFor="inputEmail">Password</label>
+                </p>
                 <input
                     type="password"
                     name="editPassword"
-                    className=""
+                    className="c-input__password"
                     placeholder="パスワード"
                     required
                     onChange={onHandleChangePassword}
                 />
                 <div className="c-sucess"> {sucess}</div>
                 <div className="c-error"> {error}</div>
-                <button className="" onClick={handleSubmitPassword}>
+                <button
+                    className="c-btn c-btn__edit"
+                    onClick={handleSubmitPassword}
+                >
                     パスワードを変更
                 </button>
             </section>

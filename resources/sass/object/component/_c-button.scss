@@ -8,7 +8,7 @@
     &__like{
         margin: 10px;
         border: none;
-        background-color: white;
+        background-color: rgb(246,245,244);
 
     }
     &__fa--red{
@@ -25,6 +25,7 @@
         background-color: green;
         display: inline-block;
         border-radius: 10px;
+        width: 160px;
     }
     &__delete{
         color: white;

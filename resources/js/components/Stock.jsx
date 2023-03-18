@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import ReactDOM from "react-dom";
 import moment from "moment";
+import LikeButton from "./LikeButton";
 
 const Stock = () => {
     const element = document.getElementById("stock");
@@ -51,6 +52,17 @@ const Stock = () => {
                                                 ).format("YYYY年MM月DD日")}
                                             </li>
                                             <li>{stock.price}円</li>
+                                            <div className="c-link--detail">
+                                                <a
+                                                    href={
+                                                        "/stock/" +
+                                                        stock.id +
+                                                        "/show"
+                                                    }
+                                                >
+                                                    詳細をみる
+                                                </a>
+                                            </div>
                                         </ul>
                                     ))}
                                 </div>

@@ -47,12 +47,14 @@ const UserName = () => {
     return (
         <>
             <section className="">
-                <label htmlFor="inputUserName">名前</label>
+                <p>
+                    <label htmlFor="inputUserName">名前</label>
+                </p>
                 <input
                     id="inputUserName"
                     type="username"
                     name="editUserName"
-                    className=""
+                    className="c-input__name"
                     placeholder="ユーザーネーム"
                     defaultValue={UserName}
                     required

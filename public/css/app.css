@@ -94,7 +94,7 @@ a:visited {
 .c-btn__like {
   margin: 10px;
   border: none;
-  background-color: white;
+  background-color: rgb(246, 245, 244);
 }
 .c-btn__fa--red {
   color: red;
@@ -110,6 +110,7 @@ a:visited {
   background-color: green;
   display: inline-block;
   border-radius: 10px;
+  width: 160px;
 }
 .c-btn__delete {
   color: white;
@@ -230,19 +231,61 @@ a:visited {
     width: 44%;
   }
 }
+.c-input__name {
+  width: 200px;
+  border-radius: 3px; /*ボックス角の丸み*/
+  border: 2px solid #ddd; /*枠線*/
+  box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
+  height: 30px;
+  font-size: 18px;
+  margin-top: 10px;
+}
+@media screen and (max-width: 414px) {
+  .c-input__name {
+    width: 44%;
+  }
+}
+.c-input__email {
+  width: 200px;
+  border-radius: 3px; /*ボックス角の丸み*/
+  border: 2px solid #ddd; /*枠線*/
+  box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
+  height: 30px;
+  font-size: 18px;
+  margin-top: 10px;
+}
+@media screen and (max-width: 414px) {
+  .c-input__email {
+    width: 44%;
+  }
+}
+.c-input__password {
+  width: 200px;
+  border-radius: 3px; /*ボックス角の丸み*/
+  border: 2px solid #ddd; /*枠線*/
+  box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
+  height: 30px;
+  font-size: 18px;
+  margin-top: 10px;
+}
+@media screen and (max-width: 414px) {
+  .c-input__password {
+    width: 44%;
+  }
+}
 
 .c-link__show--all {
   display: block;
   text-align: center;
 }
 .c-link__signup {
-  margin: 30px;
-  font-size: 18px;
   display: block;
+  margin: 20px;
+  font-size: 18px;
 }
 .c-link__login {
   display: block;
-  margin: 10px;
+  margin: 20px;
   font-size: 18px;
 }
 
@@ -592,6 +635,30 @@ a:visited {
 .hamburger--active span:last-of-type { /* ハンバーガーメニューの3番目の線 */
   top: 50%;
   transform: rotate(-45deg);
+}
+
+.p-top__header {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  position: relative;
+  min-width: 100vh;
+  min-height: 100vh;
+  background: url(/images/mainimg.jpg?19ba3bd081a311fa2983ef36a5bdad60); /*背景画像の読み込み*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.p-top__logo {
+  width: 50%; /*画像の幅*/
+  height: 50%;
+}
+
+.p-top__menubar {
+  display: flex;
+  justify-content: center;
 }
 
 .u-border__none--top {
