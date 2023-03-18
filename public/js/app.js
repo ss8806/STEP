@@ -107,10 +107,6 @@ __webpack_require__.r(__webpack_exports__);
 
 var Detail = function Detail() {
   var element = document.getElementById("detail");
-
-  // if (element && element.dataset.detail) {
-  // detail = JSON.parse(element.dataset.detail);
-  // }
   var detail;
   var is_liked;
   if (element && element.dataset.detail) {

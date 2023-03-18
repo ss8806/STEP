@@ -6,9 +6,6 @@ import LikeButton from "./LikeButton";
 const Detail = () => {
     const element = document.getElementById("detail");
 
-    // if (element && element.dataset.detail) {
-    // detail = JSON.parse(element.dataset.detail);
-    // }
     var detail;
     var is_liked;
 
