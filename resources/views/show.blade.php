@@ -6,10 +6,6 @@
 
 @section('content')
 
-<div id="detail" data-detail="{{ json_encode($detail) }}" data-is_liked="{{ json_encode($is_liked) }}"></div>
+<div id="detail" data-detail="{{ json_encode($detail) }}" "></div>
 
-<?php
-// var_dump($detail->name);
-// var_dump($initial_is_liked);
-?>
 @endsection

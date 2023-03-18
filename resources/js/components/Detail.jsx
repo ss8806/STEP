@@ -24,11 +24,10 @@ const Detail = () => {
         <>
             <div className="App">
                 <div>{detail.name}</div>
-                <div>{detail.price}</div>
                 <div> {moment(detail.updated_at).format("YYYY年MM月DD日")}</div>
                 <LikeButton
                     is_liked={is_liked}
-                    endpoint={"/stock/" + detail.id + "/like"}
+                    endpoint={"/step/" + detail.id + "/like"}
                 ></LikeButton>
             </div>
         </>

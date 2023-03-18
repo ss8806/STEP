@@ -21,7 +21,7 @@ Auth::routes();
 
 Route::middleware('auth')
     ->group(function () {
-        Route::get('stock/{stock}/show', 'StockController@show')->name('show');
+        Route::get('step/{step}/show', 'StepController@show')->name('show');
         Route::get('/mypage', 'MypageController@index')->name('mypage');
         Route::get('/profile', 'ProfileController@index')->name('profile');
         Route::put('/editUserName', 'ProfileController@editUserName')->name('editUserName');
@@ -29,6 +29,6 @@ Route::middleware('auth')
         Route::put('/editPassword', 'ProfileController@editPassword')->name('editPassword');
 
         // like
-        Route::put('/stock/{stock}/like', 'StockController@like')->name('like')->middleware('auth');
-        Route::delete('/stock/{stock}/like', 'StockController@unlike')->name('unlike')->middleware('auth');
+        Route::put('/step/{step}/like', 'StepController@like')->name('like')->middleware('auth');
+        Route::delete('/step/{step}/like', 'StepController@unlike')->name('unlike')->middleware('auth');
     });

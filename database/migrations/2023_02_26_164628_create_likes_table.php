@@ -16,12 +16,12 @@ class CreateLikesTable extends Migration
         Schema::create('likes', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('stock_id');
+            $table->unsignedBigInteger('step_id');
             
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('stock_id')->references('id')->on('stocks')->onDelete('cascade');
+            $table->foreign('step_id')->references('id')->on('steps')->onDelete('cascade');
         });
     }
 

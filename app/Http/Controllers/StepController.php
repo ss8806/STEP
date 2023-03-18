@@ -81,9 +81,15 @@ class StepController extends Controller
      * @param  \App\Step  $step
      * @return \Illuminate\Http\Response
      */
-    public function show(Step $step)
-    {
-        //
+    public function show(Request $request, $id)
+    {     
+        $detail = Step::find($id);
+        $is_liked = $detail->isLikedBy(Auth::user());
+
+        return view('show')
+            ->with('detail', $detail)
+            ->with('is_liked', $is_liked)
+            ;
     }
 
     /**
@@ -119,4 +125,19 @@ class StepController extends Controller
     {
         //
     }
+
+     // 気になるリストに登録する処理
+     public function like(Request $request, Step $step)
+     {
+         //モデルを結びつけている中間テーブルにレコードを削除する。 
+         $step->likes()->detach($request->user()->id);
+         // モデルを結びつけている中間テーブルにレコードを挿入する。 
+         $step->likes()->attach($request->user()->id);
+     }
+ 
+     // 気になるリストから削除する処理
+     public function unlike(Request $request, Step $step)
+     {
+         $step->likes()->detach($request->user()->id);
+     }
 }

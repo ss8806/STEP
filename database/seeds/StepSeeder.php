@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Step;
+
 
 class StepSeeder extends Seeder
 {
@@ -11,6 +13,9 @@ class StepSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(Step::class)->create([
+            'id' => '1',
+            'name' => 'テスト1',           
+        ]);
     }
 }
