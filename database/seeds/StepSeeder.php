@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class StockSeeder extends Seeder
+class StepSeeder extends Seeder
 {
     /**
      * Run the database seeds.

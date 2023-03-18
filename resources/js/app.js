@@ -15,7 +15,7 @@ require("./bootstrap");
 require("./components/Example");
 // require("./components/Calender");
 require("./components/DropDown");
-require("./components/Stock");
+require("./components/Step");
 require("./components/Message");
 require("./components/Hamberger");
 require("./components/UserName");

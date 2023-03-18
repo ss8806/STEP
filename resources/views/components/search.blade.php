@@ -1,11 +1,9 @@
 {{-- 検索ボックス --}}
 <div class="p-serch">
-    <form class="p-form" method="GET" action="{{ route('home') }}">
+    <form class="p-form" method="GET" action="{{ route('steps') }}">
         <div id="search" 
         data-aboveday="{{ json_encode($defaults['aboveday']) }}"
         data-belowday="{{ json_encode($defaults['belowday']) }}"
-        data-aboveprice="{{ json_encode($defaults['aboveprice']) }}"
-        data-belowprice="{{ json_encode($defaults['belowprice']) }}"
         >
         </div>
     </form>

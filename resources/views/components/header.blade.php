@@ -2,7 +2,7 @@
     <nav class="p-nav">
 
         <div class="p-nav--left">
-            <a  href="{{ url('home') }}">
+            <a  href="{{ url('steps') }}">
                 <div class="c-title__main">STEP</div>
             </a>
         </div>

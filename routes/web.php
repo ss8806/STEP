@@ -13,21 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/top', function () {
-    return view('top');
-});
+Route::view('/', 'top', ['name' => 'top']);
+Route::get('/steps', 'StepController@index')->name('steps');
+Route::post('/steps', 'StepController@hpost')->name('hpost');
 
 Auth::routes();
 
 Route::middleware('auth')
     ->group(function () {
-        Route::get('/home', 'StockController@index')->name('home');
         Route::get('stock/{stock}/show', 'StockController@show')->name('show');
-        Route::post('/home', 'HomeController@hpost')->name('hpost');
         Route::get('/mypage', 'MypageController@index')->name('mypage');
         Route::get('/profile', 'ProfileController@index')->name('profile');
         Route::put('/editUserName', 'ProfileController@editUserName')->name('editUserName');

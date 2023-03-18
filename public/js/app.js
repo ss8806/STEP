@@ -24,7 +24,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 __webpack_require__(/*! ./components/Example */ "./resources/js/components/Example.js");
 // require("./components/Calender");
 __webpack_require__(/*! ./components/DropDown */ "./resources/js/components/DropDown.jsx");
-__webpack_require__(/*! ./components/Stock */ "./resources/js/components/Stock.jsx");
+__webpack_require__(/*! ./components/Step */ "./resources/js/components/Step.jsx");
 __webpack_require__(/*! ./components/Message */ "./resources/js/components/Message.jsx");
 __webpack_require__(/*! ./components/Hamberger */ "./resources/js/components/Hamberger.jsx");
 __webpack_require__(/*! ./components/UserName */ "./resources/js/components/UserName.jsx");
@@ -775,12 +775,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0) { ; } } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
@@ -789,28 +783,10 @@ var Search = function Search() {
   var element = document.getElementById("search");
   var aboveday;
   var belowday;
-  var aboveprice;
-  var belowprice;
   if (element && element.dataset.aboveday) {
     aboveday = JSON.parse(element.dataset.aboveday);
     belowday = JSON.parse(element.dataset.belowday);
-    aboveprice = JSON.parse(element.dataset.aboveprice);
-    belowprice = JSON.parse(element.dataset.belowprice);
   }
-  if (aboveprice === null) {
-    aboveprice = undefined;
-  }
-  if (belowprice === null) {
-    belowprice = undefined;
-  }
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(aboveprice),
-    _useState2 = _slicedToArray(_useState, 2),
-    ap = _useState2[0],
-    setAboveprice = _useState2[1];
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(belowprice),
-    _useState4 = _slicedToArray(_useState3, 2),
-    bp = _useState4[0],
-    setBelowprice = _useState4[1];
   var onHandleChangeAboveprice = function onHandleChangeAboveprice(e) {
     var tv = e.target.value;
     tv = tv.slice(0, 3);
@@ -848,30 +824,6 @@ var Search = function Search() {
       name: "belowday",
       className: "c-input__day",
       defaultValue: belowday
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-      className: "c-serch-group",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-        children: "\u4FA1\u683C\u691C\u7D22\u3000\u3000\u3000"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-        className: "u-br"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-        type: "number",
-        name: "aboveprice",
-        className: "c-input__price",
-        placeholder: "\u4FA1\u683C\u691C\u7D22 \u4EE5\u4E0A",
-        value: ap,
-        onChange: onHandleChangeAboveprice
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-        children: "~"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-        type: "number",
-        name: "belowprice",
-        className: "c-input__price",
-        placeholder: "\u4FA1\u683C\u691C\u7D22 \u4EE5\u4E0B",
-        value: bp,
-        onChange: onHandleChangeBelowprice,
-        onBlur: onHandleBlurBelowprice
-      })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
       type: "submit",
       className: "c-btn c-btn__serch",
@@ -888,10 +840,10 @@ if (document.getElementById("search")) {
 
 /***/ }),
 
-/***/ "./resources/js/components/Stock.jsx":
-/*!*******************************************!*\
-  !*** ./resources/js/components/Stock.jsx ***!
-  \*******************************************/
+/***/ "./resources/js/components/Step.jsx":
+/*!******************************************!*\
+  !*** ./resources/js/components/Step.jsx ***!
+  \******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -903,8 +855,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _LikeButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./LikeButton */ "./resources/js/components/LikeButton.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
@@ -917,71 +868,60 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-
-var Stock = function Stock() {
-  var element = document.getElementById("stock");
-  var stockList = [];
-  if (element && element.dataset.stocks) {
-    stockList = JSON.parse(element.dataset.stocks);
+var Step = function Step() {
+  var element = document.getElementById("step");
+  var stepList = [];
+  if (element && element.dataset.steps) {
+    stepList = JSON.parse(element.dataset.steps);
   }
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState2 = _slicedToArray(_useState, 2),
-    stocks = _useState2[0],
-    setStocks = _useState2[1];
+    steps = _useState2[0],
+    setSteps = _useState2[1];
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    setStocks(stockList);
+    setSteps(stepList);
   }, []);
-
-  // console.log(stocks);
-
-  if (stocks.data !== undefined) {
-    var sdata = stocks.data;
-    console.log(sdata);
+  if (steps.data !== undefined) {
+    var sdata = steps.data;
   }
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-      className: "App",
-      children: sdata ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-          className: "p-card",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-            className: "c-flexbox--index",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-              className: "c-flexbox__flexcontainer c-flexbox__flexcontainer--index",
-              children: sdata.map(function (stock, i) {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("ul", {
-                  className: "c-flexbox__flexitem c-flexbox__flexitem--index",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
-                    className: "p-card p-card__header--index u-overflow",
-                    children: stock.name
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
-                    className: "p-card__body",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
-                      children: "\u6295\u7A3F\u65E5"
-                    }), moment__WEBPACK_IMPORTED_MODULE_2___default()(stock.updated_at).format("YYYY年MM月DD日")]
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
-                    children: [stock.price, "\u5186"]
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-                    className: "c-link--detail",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
-                      href: "/stock/" + stock.id + "/show",
-                      children: "\u8A73\u7D30\u3092\u307F\u308B"
-                    })
-                  })]
-                }, i);
-              })
-            })
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+    className: "App",
+    children: sdata ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "p-card",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        className: "c-flexbox--index",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "c-flexbox__flexcontainer c-flexbox__flexcontainer--index",
+          children: sdata.map(function (step, i) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("ul", {
+              className: "c-flexbox__flexitem c-flexbox__flexitem--index",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
+                className: "p-card p-card__header--index u-overflow",
+                children: step.name
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("li", {
+                className: "p-card__body",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+                  children: "\u6295\u7A3F\u65E5"
+                }), moment__WEBPACK_IMPORTED_MODULE_2___default()(step.updated_at).format("YYYY年MM月DD日")]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                className: "c-link--detail",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+                  href: "/step/" + step.id + "/show",
+                  children: "\u8A73\u7D30\u3092\u307F\u308B"
+                })
+              })]
+            }, i);
           })
         })
-      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
-        children: "\u30C7\u30FC\u30BF\u3092\u53D6\u5F97\u3067\u304D\u307E\u305B\u3093\u3067\u3057\u305F\u3002"
       })
+    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+      children: "\u30C7\u30FC\u30BF\u3092\u53D6\u5F97\u3067\u304D\u307E\u305B\u3093\u3067\u3057\u305F\u3002"
     })
   });
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Stock);
-if (document.getElementById("stock")) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(Stock, {}), document.getElementById("stock"));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Step);
+if (document.getElementById("step")) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Step, {}), document.getElementById("step"));
 }
 
 /***/ }),

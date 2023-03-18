@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Stock;
+use App\Step;
 use Illuminate\Http\Request;
 use App\Http\Requests\SearchRequest;
 use Illuminate\Validation\Validator;
 use Illuminate\Support\Facades\Auth;
 
-class StockController extends Controller
+class StepController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +17,7 @@ class StockController extends Controller
      */
     public function index(SearchRequest $request)
     {
-        $query = Stock::query();
+        $query = Step::query();
 
         // 投稿日 以上で絞り込み
         if ($request->filled('aboveday')) {
@@ -31,23 +31,11 @@ class StockController extends Controller
             $query->whereDate('updated_at', '<=', $updateDay);
         }
 
-        // 価格 以上で絞り込み
-        if ($request->filled('aboveprice')) {
-            $abovePrice = $this->escape($request->input('aboveprice'));
-            $query->where('price', '>=', $abovePrice);
-        }
-
-        // 価格 以下で絞り込み
-        if ($request->filled('belowprice')) {
-            $belowPrice = $this->escape($request->input('belowprice'));
-            $query->where('price', '<=', $belowPrice);
-        }
-
         // ページャー
-        $stocks = $query->orderBy('id', 'DESC')->paginate(8);
+        $steps = $query->orderBy('id', 'DESC')->paginate(8);
 
         return view('steps')->with(compact(
-            'stocks'
+            'steps'
         ));
     }
 
@@ -59,20 +47,11 @@ class StockController extends Controller
             $value
         );
     }
-
-    // 気になるリストに登録する処理
-    public function like(Request $request, Stock $stock)
+    
+    public function hpost()
     {
-        //モデルを結びつけている中間テーブルにレコードを削除する。 
-        $stock->likes()->detach($request->user()->id);
-        // モデルを結びつけている中間テーブルにレコードを挿入する。 
-        $stock->likes()->attach($request->user()->id);
-    }
-
-    // 気になるリストから削除する処理
-    public function unlike(Request $request, Stock $stock)
-    {
-        $stock->likes()->detach($request->user()->id);
+        // session
+        return redirect()->route('hpost')->with('scc_message', '投稿しました');
     }
 
     /**
@@ -99,26 +78,21 @@ class StockController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\stock  $stock
+     * @param  \App\Step  $step
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, $id)
-    {     
-        $detail = Stock::find($id);
-        $is_liked = $detail->isLikedBy(Auth::user());
-
-        return view('show') // ideas/idea_detail.blade.php
-            ->with('detail', $detail)
-            ->with('is_liked', $is_liked);
+    public function show(Step $step)
+    {
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\stock  $stock
+     * @param  \App\Step  $step
      * @return \Illuminate\Http\Response
      */
-    public function edit(stock $stock)
+    public function edit(Step $step)
     {
         //
     }
@@ -127,10 +101,10 @@ class StockController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\stock  $stock
+     * @param  \App\Step  $step
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, stock $stock)
+    public function update(Request $request, Step $step)
     {
         //
     }
@@ -138,10 +112,10 @@ class StockController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\stock  $stock
+     * @param  \App\Step  $step
      * @return \Illuminate\Http\Response
      */
-    public function destroy(stock $stock)
+    public function destroy(Step $step)
     {
         //
     }

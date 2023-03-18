@@ -5,26 +5,11 @@ const Search = () => {
     const element = document.getElementById("search");
     var aboveday;
     var belowday;
-    var aboveprice;
-    var belowprice;
 
     if (element && element.dataset.aboveday) {
         aboveday = JSON.parse(element.dataset.aboveday);
         belowday = JSON.parse(element.dataset.belowday);
-        aboveprice = JSON.parse(element.dataset.aboveprice);
-        belowprice = JSON.parse(element.dataset.belowprice);
     }
-
-    if (aboveprice === null) {
-        aboveprice = undefined;
-    }
-
-    if (belowprice === null) {
-        belowprice = undefined;
-    }
-
-    let [ap, setAboveprice] = useState(aboveprice);
-    let [bp, setBelowprice] = useState(belowprice);
 
     const onHandleChangeAboveprice = (e) => {
         let tv = e.target.value;
@@ -64,30 +49,6 @@ const Search = () => {
                 className="c-input__day"
                 defaultValue={belowday}
             />
-
-            <div className="c-serch-group">
-                <span>価格検索　　　</span>
-                <span className="u-br" />
-                <input
-                    type="number"
-                    name="aboveprice"
-                    className="c-input__price"
-                    placeholder="価格検索 以上"
-                    value={ap}
-                    onChange={onHandleChangeAboveprice}
-                />
-
-                <span>~</span>
-                <input
-                    type="number"
-                    name="belowprice"
-                    className="c-input__price"
-                    placeholder="価格検索 以下"
-                    value={bp}
-                    onChange={onHandleChangeBelowprice}
-                    onBlur={onHandleBlurBelowprice}
-                />
-            </div>
 
             <button type="submit" className="c-btn c-btn__serch">
                 <i className="fas fa-search"></i>

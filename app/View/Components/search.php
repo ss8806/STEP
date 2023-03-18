@@ -29,8 +29,6 @@ class search extends Component
             'keyword'       => Request::input('keyword', ''),
             'aboveday'      => Request::input('aboveday', ''),
             'belowday'      => Request::input('belowday', ''),
-            'aboveprice'    => Request::input('aboveprice', ''),
-            'belowprice'    => Request::input('belowprice', ''),
         ];
 
         return view('components.search')
