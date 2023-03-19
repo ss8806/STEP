@@ -21,7 +21,8 @@ Auth::routes();
 
 Route::middleware('auth')
     ->group(function () {
-        Route::get('step/{step}/show', 'StepController@show')->name('show');
+        Route::get('step/{id}/show', 'StepController@show')->name('showDetail');
+        Route::get('child/{id}/show', 'ChildController@show')->name('showChild');
         Route::get('/mypage', 'MypageController@index')->name('mypage');
         Route::get('/profile', 'ProfileController@index')->name('profile');
         Route::put('/editUserName', 'ProfileController@editUserName')->name('editUserName');
@@ -29,6 +30,6 @@ Route::middleware('auth')
         Route::put('/editPassword', 'ProfileController@editPassword')->name('editPassword');
 
         // like
-        Route::put('/step/{step}/like', 'StepController@like')->name('like')->middleware('auth');
-        Route::delete('/step/{step}/like', 'StepController@unlike')->name('unlike')->middleware('auth');
+        Route::put('/child/{child}/like', 'ChildController@like')->name('like')->middleware('auth');
+        Route::delete('/child/{child}/like', 'ChildController@unlike')->name('unlike')->middleware('auth');
     });

@@ -1,64 +1,39 @@
 import React, { useState, useEffect, Suspense } from "react";
 import ReactDOM from "react-dom";
 import moment from "moment";
+import LikeButton from "./LikeButton";
 
 const Child = () => {
-    const element = document.getElementById("step");
-    var stepList = [];
+    const element = document.getElementById("child");
 
-    if (element && element.dataset.steps) {
-        stepList = JSON.parse(element.dataset.steps);
+    var child;
+    var is_liked;
+
+    if (element && element.dataset.child) {
+        child = JSON.parse(element.dataset.child);
     }
 
-    const [steps, setSteps] = useState([]);
-
-    useEffect(() => {
-        setSteps(stepList);
-    }, []);
-
-    if (steps.data !== undefined) {
-        var sdata = steps.data;
+    if (element && element.dataset.is_liked) {
+        is_liked = JSON.parse(element.dataset.is_liked);
     }
 
     return (
         <>
-            {sdata ? (
-                <div className="p-card">
-                    <div className="c-flexbox--index">
-                        <div className="c-flexbox__flexcontainer c-flexbox__flexcontainer--index">
-                            {sdata.map((step, i) => (
-                                <ul
-                                    key={i}
-                                    className="c-flexbox__flexitem c-flexbox__flexitem--index"
-                                >
-                                    <li className="p-card p-card__header--index u-overflow">
-                                        {step.name}
-                                    </li>
-                                    <li className="p-card__body">
-                                        <p>投稿日</p>
-                                        {moment(step.updated_at).format(
-                                            "YYYY年MM月DD日"
-                                        )}
-                                    </li>
-                                    <div className="c-link--detail">
-                                        <a href={"/step/" + step.id + "/show"}>
-                                            詳細をみる
-                                        </a>
-                                    </div>
-                                </ul>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            ) : (
-                <>データを取得できませんでした。</>
-            )}
+            <div>
+                <div>{child.name}</div>
+                <div>{child.content}</div>
+                <div> {moment(child.updated_at).format("YYYY年MM月DD日")}</div>
+                <LikeButton
+                    is_liked={is_liked}
+                    endpoint={"/child/" + child.id + "/like"}
+                ></LikeButton>
+            </div>
         </>
     );
 };
 
 export default Child;
 
-if (document.getElementById("step")) {
-    ReactDOM.render(<Step />, document.getElementById("step"));
+if (document.getElementById("child")) {
+    ReactDOM.render(<Child />, document.getElementById("child"));
 }

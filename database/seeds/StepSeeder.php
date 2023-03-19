@@ -19,5 +19,11 @@ class StepSeeder extends Seeder
             'content' => 'プログラミングを学習するメリット',
             'user_id' => '1',
         ]);
+        factory(Step::class)->create([
+            'id' => '2',
+            'name' => '英語を学習する',
+            'content' => '英語を学習するメリット',
+            'user_id' => '1',
+        ]);
     }
 }

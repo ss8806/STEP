@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Child;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class ChildController extends Controller
 {
@@ -44,9 +46,14 @@ class ChildController extends Controller
      * @param  \App\Child  $child
      * @return \Illuminate\Http\Response
      */
-    public function show(Child $child)
+    public function show(Child $child, $id)
     {
-        //
+        $child = Child::find($id);
+        $is_liked = $child->isLikedBy(Auth::user());
+
+        return view('child')
+            ->with('child', $child)
+            ->with('is_liked', $is_liked);
     }
 
     /**
@@ -81,5 +88,20 @@ class ChildController extends Controller
     public function destroy(Child $child)
     {
         //
+    }
+
+    // 気になるリストに登録する処理
+    public function like(Request $request, Child $child)
+    {
+        //モデルを結びつけている中間テーブルにレコードを削除する。 
+        $child->likes()->detach($request->user()->id);
+        // モデルを結びつけている中間テーブルにレコードを挿入する。 
+        $child->likes()->attach($request->user()->id);
+    }
+
+    // 気になるリストから削除する処理
+    public function unlike(Request $request, Child $child)
+    {
+        $child->likes()->detach($request->user()->id);
     }
 }

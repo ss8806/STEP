@@ -30,6 +30,7 @@ __webpack_require__(/*! ./components/Email */ "./resources/js/components/Email.j
 __webpack_require__(/*! ./components/Password */ "./resources/js/components/Password.jsx");
 __webpack_require__(/*! ./components/Search */ "./resources/js/components/Search.jsx");
 __webpack_require__(/*! ./components/Detail */ "./resources/js/components/Detail.jsx");
+__webpack_require__(/*! ./components/Child */ "./resources/js/components/Child.jsx");
 
 /***/ }),
 
@@ -81,6 +82,62 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+/***/ "./resources/js/components/Child.jsx":
+/*!*******************************************!*\
+  !*** ./resources/js/components/Child.jsx ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _LikeButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./LikeButton */ "./resources/js/components/LikeButton.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+
+var Child = function Child() {
+  var element = document.getElementById("child");
+  var child;
+  var is_liked;
+  if (element && element.dataset.child) {
+    child = JSON.parse(element.dataset.child);
+  }
+  if (element && element.dataset.is_liked) {
+    is_liked = JSON.parse(element.dataset.is_liked);
+  }
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        children: child.name
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        children: child.content
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        children: [" ", moment__WEBPACK_IMPORTED_MODULE_2___default()(child.updated_at).format("YYYY年MM月DD日")]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_LikeButton__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        is_liked: is_liked,
+        endpoint: "/child/" + child.id + "/like"
+      })]
+    })
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Child);
+if (document.getElementById("child")) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(Child, {}), document.getElementById("child"));
+}
+
+/***/ }),
+
 /***/ "./resources/js/components/Detail.jsx":
 /*!********************************************!*\
   !*** ./resources/js/components/Detail.jsx ***!
@@ -115,6 +172,7 @@ var Detail = function Detail() {
   }
   if (element && element.dataset.children) {
     children = JSON.parse(element.dataset.children);
+    console.log(children);
   }
   if (element && element.dataset.is_liked) {
     is_liked = JSON.parse(element.dataset.is_liked);
@@ -153,8 +211,8 @@ var Detail = function Detail() {
                     children: "\u8A73\u7D30\u3092\u307F\u308B"
                   })
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_LikeButton__WEBPACK_IMPORTED_MODULE_3__["default"], {
-                  is_liked: is_liked,
-                  endpoint: "/step/" + detail.id + "/like"
+                  is_liked: child.likes[0],
+                  endpoint: "/child/" + child.id + "/like"
                 })]
               }, i);
             })

@@ -16,6 +16,7 @@ const Detail = () => {
 
     if (element && element.dataset.children) {
         children = JSON.parse(element.dataset.children);
+        console.log(children);
     }
 
     if (element && element.dataset.is_liked) {
@@ -60,9 +61,9 @@ const Detail = () => {
                                             </a>
                                         </div>
                                         <LikeButton
-                                            is_liked={is_liked}
+                                            is_liked={child.likes[0]}
                                             endpoint={
-                                                "/step/" + detail.id + "/like"
+                                                "/child/" + child.id + "/like"
                                             }
                                         ></LikeButton>
                                     </ul>

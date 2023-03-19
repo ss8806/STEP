@@ -85,13 +85,15 @@ class StepController extends Controller
     public function show(Request $request, $id)
     {     
         $detail = Step::find($id);
-        $children = Child::where('detail_id', $id)->get();
-        $is_liked = $detail->isLikedBy(Auth::user());
+        $children = Child::where('detail_id', $id)->get(); 
+        foreach ($children as $child) {
+            $child->isLikedBy(Auth::user());
+        }
+        //dd($children);
 
-        return view('show')
+        return view('detail')
             ->with('detail', $detail)
-            ->with('children', $children)
-            ->with('is_liked', $is_liked);
+            ->with('children', $children);
     }
 
     /**
@@ -128,18 +130,4 @@ class StepController extends Controller
         //
     }
 
-     // 気になるリストに登録する処理
-     public function like(Request $request, Step $step)
-     {
-         //モデルを結びつけている中間テーブルにレコードを削除する。 
-         $step->likes()->detach($request->user()->id);
-         // モデルを結びつけている中間テーブルにレコードを挿入する。 
-         $step->likes()->attach($request->user()->id);
-     }
- 
-     // 気になるリストから削除する処理
-     public function unlike(Request $request, Step $step)
-     {
-         $step->likes()->detach($request->user()->id);
-     }
 }
