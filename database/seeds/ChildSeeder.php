@@ -18,5 +18,11 @@ class ChildSeeder extends Seeder
             'content' => 'HTMLを学習するメリット',
             'detail_id' => '1',
         ]);
+        factory(Child::class)->create([
+            'id' => '2',
+            'name' => 'CSSを学習する',
+            'content' => 'CSSを学習するメリット',
+            'detail_id' => '1',
+        ]);
     }
 }

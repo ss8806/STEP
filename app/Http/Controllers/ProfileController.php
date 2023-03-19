@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\PasswordRequest;
 use App\Http\Requests\ProfileRequest;
-use Illuminate\Validation\Rules;
 use Illuminate\Support\Facades\Log;
 
 
@@ -35,9 +34,6 @@ class ProfileController extends Controller
 
     public function editPassword(PasswordRequest $request)
     {
-        // $request->validate([
-        //     'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        // ]);
         try{
         $user = Auth::user();
         // $request->only('password', 'password_confirmation');

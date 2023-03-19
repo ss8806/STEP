@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Step;
+use App\Child;
 use Illuminate\Http\Request;
 use App\Http\Requests\SearchRequest;
 use Illuminate\Validation\Validator;
@@ -84,12 +85,13 @@ class StepController extends Controller
     public function show(Request $request, $id)
     {     
         $detail = Step::find($id);
+        $children = Child::where('detail_id', $id)->get();
         $is_liked = $detail->isLikedBy(Auth::user());
 
         return view('show')
             ->with('detail', $detail)
-            ->with('is_liked', $is_liked)
-            ;
+            ->with('children', $children)
+            ->with('is_liked', $is_liked);
     }
 
     /**

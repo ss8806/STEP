@@ -108,25 +108,62 @@ __webpack_require__.r(__webpack_exports__);
 var Detail = function Detail() {
   var element = document.getElementById("detail");
   var detail;
+  var children;
   var is_liked;
   if (element && element.dataset.detail) {
     detail = JSON.parse(element.dataset.detail);
   }
+  if (element && element.dataset.children) {
+    children = JSON.parse(element.dataset.children);
+  }
   if (element && element.dataset.is_liked) {
     is_liked = JSON.parse(element.dataset.is_liked);
   }
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-      className: "App",
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         children: detail.name
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         children: [" ", moment__WEBPACK_IMPORTED_MODULE_2___default()(detail.updated_at).format("YYYY年MM月DD日")]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_LikeButton__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        is_liked: is_liked,
-        endpoint: "/step/" + detail.id + "/like"
       })]
-    })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+      children: children ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: "p-card",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: "c-flexbox--index",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            className: "c-flexbox__flexcontainer c-flexbox__flexcontainer--index",
+            children: children.map(function (child, i) {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("ul", {
+                className: "c-flexbox__flexitem c-flexbox__flexitem--index",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
+                  className: "p-card p-card__header--index u-overflow",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
+                    children: [" STEP", i + 1]
+                  }), child.name]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
+                  className: "p-card__body",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                    children: "\u6295\u7A3F\u65E5"
+                  }), moment__WEBPACK_IMPORTED_MODULE_2___default()(child.updated_at).format("YYYY年MM月DD日")]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                  className: "c-link--detail",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
+                    href: "/child/" + child.id + "/show",
+                    children: "\u8A73\u7D30\u3092\u307F\u308B"
+                  })
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_LikeButton__WEBPACK_IMPORTED_MODULE_3__["default"], {
+                  is_liked: is_liked,
+                  endpoint: "/step/" + detail.id + "/like"
+                })]
+              }, i);
+            })
+          })
+        })
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+        children: "\u30C7\u30FC\u30BF\u3092\u53D6\u5F97\u3067\u304D\u307E\u305B\u3093\u3067\u3057\u305F\u3002"
+      })
+    })]
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Detail);
