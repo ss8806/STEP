@@ -6,6 +6,6 @@
 
 @section('content')
 
-<div id="detail" data-detail="{{ json_encode($detail) }}" data-children="{{ json_encode($children) }}" }}></div>
+<div id="detail" data-step="{{ json_encode($step) }}" data-children="{{ json_encode($children) }}"  ></div>
 
 @endsection

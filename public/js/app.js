@@ -164,34 +164,31 @@ __webpack_require__.r(__webpack_exports__);
 
 var Detail = function Detail() {
   var element = document.getElementById("detail");
-  var detail;
+  var step;
   var children;
-  var is_liked;
-  if (element && element.dataset.detail) {
-    detail = JSON.parse(element.dataset.detail);
+  if (element && element.dataset.step) {
+    step = JSON.parse(element.dataset.step);
+    console.log(step);
   }
   if (element && element.dataset.children) {
     children = JSON.parse(element.dataset.children);
     console.log(children);
   }
-  if (element && element.dataset.is_liked) {
-    is_liked = JSON.parse(element.dataset.is_liked);
-  }
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-        children: detail.name
+        children: step.name
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-        children: [" ", moment__WEBPACK_IMPORTED_MODULE_2___default()(detail.updated_at).format("YYYY年MM月DD日")]
+        children: [" ", moment__WEBPACK_IMPORTED_MODULE_2___default()(step.updated_at).format("YYYY年MM月DD日")]
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
-      children: children ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      children: children.data ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "p-card",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "c-flexbox--index",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
             className: "c-flexbox__flexcontainer c-flexbox__flexcontainer--index",
-            children: children.map(function (child, i) {
+            children: children.data.map(function (child, i) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("ul", {
                 className: "c-flexbox__flexitem c-flexbox__flexitem--index",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
@@ -873,6 +870,7 @@ var Step = function Step() {
   var stepList = [];
   if (element && element.dataset.steps) {
     stepList = JSON.parse(element.dataset.steps);
+    console.log(stepList);
   }
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState2 = _slicedToArray(_useState, 2),
@@ -883,7 +881,9 @@ var Step = function Step() {
   }, []);
   if (steps.data !== undefined) {
     var sdata = steps.data;
+    // console.log(sdata);
   }
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
     className: "App",
     children: sdata ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {

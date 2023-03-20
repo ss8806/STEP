@@ -8,13 +8,13 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Step extends Model
 {
      // 気になるリストについての処理
-     public function likes(): BelongsToMany
+     public function challenges(): BelongsToMany
      {
          // likesにおけるideaモデルとuserモデルの関係は多対多となる。 第二引数には中間テーブルlikesを指定
-         return $this->belongsToMany('App\User', 'likes')->withTimestamps();
+         return $this->belongsToMany('App\User', 'challenges')->withTimestamps();
      }
  
-     public function isLikedBy(?User $user): bool
+     public function isChallenged(?User $user): bool
      {
          // $this->likesにより、ideaモデルからlikesテーブル経由で紐付くユーザーモデルが、コレクションで返る。
          // countメソッドは、コレクションの要素数を数えて、数値を返す

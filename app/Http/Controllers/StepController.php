@@ -6,7 +6,6 @@ use App\Step;
 use App\Child;
 use Illuminate\Http\Request;
 use App\Http\Requests\SearchRequest;
-use Illuminate\Validation\Validator;
 use Illuminate\Support\Facades\Auth;
 
 class StepController extends Controller
@@ -17,8 +16,14 @@ class StepController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(SearchRequest $request)
-    {
+    {        
         $query = Step::query();
+
+        $all = Step::all();
+        foreach ($query as $step) {
+            $step->isChallenged(Auth::user());
+        }
+
 
         // 投稿日 以上で絞り込み
         if ($request->filled('aboveday')) {
@@ -32,12 +37,21 @@ class StepController extends Controller
             $query->whereDate('updated_at', '<=', $updateDay);
         }
 
+        foreach ($query as $step) {
+            $step->isChallenged(Auth::user());
+        }
+
         // ページャー
         $steps = $query->orderBy('id', 'DESC')->paginate(8);
 
-        return view('steps')->with(compact(
-            'steps'
-        ));
+    
+        // return view('steps')->with(compact(
+        //     'steps'
+        // ));
+
+        return view('steps')
+        ->with('all', $all)
+        ->with('steps', $steps);
     }
 
     private function escape(string $value)
@@ -48,7 +62,7 @@ class StepController extends Controller
             $value
         );
     }
-    
+
     public function hpost()
     {
         // session
@@ -83,17 +97,18 @@ class StepController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request, $id)
-    {     
-        $detail = Step::find($id);
-        $children = Child::where('detail_id', $id)->get(); 
+    {
+        $step = Step::find($id);
+        // $is_challenged = $detail->isChallenged(Auth::user());
+        $children = Child::where('detail_id', $id)->paginate(8);
         foreach ($children as $child) {
-            $child->isLikedBy(Auth::user());
+            $child->islikedBy(Auth::user());
         }
-        //dd($children);
 
         return view('detail')
-            ->with('detail', $detail)
+            ->with('step', $step)
             ->with('children', $children);
+            // ->with('is_challenged', $is_challenged);
     }
 
     /**
@@ -130,4 +145,18 @@ class StepController extends Controller
         //
     }
 
+    // 気になるリストに登録する処理
+    public function challenge(Request $request, Step $step)
+    {
+        //モデルを結びつけている中間 テーブルにレコードを削除する。 
+        $step->challenges()->detach($request->user()->id);
+        // モデルを結びつけている中間テーブルにレコードを挿入する。 
+        $step->challenges()->attach($request->user()->id);
+    }
+
+    // 気になるリストから削除する処理
+    public function unchallenge(Request $request, Step $step)
+    {
+        $step->challenges()->detach($request->user()->id);
+    }
 }

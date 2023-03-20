@@ -6,12 +6,12 @@ import LikeButton from "./LikeButton";
 const Detail = () => {
     const element = document.getElementById("detail");
 
-    var detail;
+    var step;
     var children;
-    var is_liked;
 
-    if (element && element.dataset.detail) {
-        detail = JSON.parse(element.dataset.detail);
+    if (element && element.dataset.step) {
+        step = JSON.parse(element.dataset.step);
+        console.log(step);
     }
 
     if (element && element.dataset.children) {
@@ -19,22 +19,18 @@ const Detail = () => {
         console.log(children);
     }
 
-    if (element && element.dataset.is_liked) {
-        is_liked = JSON.parse(element.dataset.is_liked);
-    }
-
     return (
         <>
             <div>
-                <div>{detail.name}</div>
-                <div> {moment(detail.updated_at).format("YYYY年MM月DD日")}</div>
+                <div>{step.name}</div>
+                <div> {moment(step.updated_at).format("YYYY年MM月DD日")}</div>
             </div>
             <>
-                {children ? (
+                {children.data ? (
                     <div className="p-card">
                         <div className="c-flexbox--index">
                             <div className="c-flexbox__flexcontainer c-flexbox__flexcontainer--index">
-                                {children.map((child, i) => (
+                                {children.data.map((child, i) => (
                                     <ul
                                         key={i}
                                         className="c-flexbox__flexitem c-flexbox__flexitem--index"

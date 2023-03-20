@@ -28,7 +28,9 @@ Route::middleware('auth')
         Route::put('/editUserName', 'ProfileController@editUserName')->name('editUserName');
         Route::put('/editEmail', 'ProfileController@editEmail')->name('editEmail');
         Route::put('/editPassword', 'ProfileController@editPassword')->name('editPassword');
-
+        // step/2/challenge 
+        Route::put('/step/{step}/challenge', 'StepController@challenge')->name('challenge')->middleware('auth');
+        Route::delete('/step/{step}/challenge', 'StepController@unchallenge')->name('unchallenge')->middleware('auth');
         // like
         Route::put('/child/{child}/like', 'ChildController@like')->name('like')->middleware('auth');
         Route::delete('/child/{child}/like', 'ChildController@unlike')->name('unlike')->middleware('auth');

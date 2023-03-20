@@ -46,7 +46,7 @@ class ChildController extends Controller
      * @param  \App\Child  $child
      * @return \Illuminate\Http\Response
      */
-    public function show(Child $child, $id)
+    public function show(Request $request, $id)
     {
         $child = Child::find($id);
         $is_liked = $child->isLikedBy(Auth::user());
