@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Suspense } from "react";
 import ReactDOM from "react-dom";
 import moment from "moment";
+import ChallengeButton from "./ChallengeButton";
 import LikeButton from "./LikeButton";
 
 const Detail = () => {
@@ -8,15 +9,21 @@ const Detail = () => {
 
     var step;
     var children;
+    var is_challenged;
 
     if (element && element.dataset.step) {
         step = JSON.parse(element.dataset.step);
-        console.log(step);
+        // console.log(step);
     }
 
     if (element && element.dataset.children) {
         children = JSON.parse(element.dataset.children);
-        console.log(children);
+        // console.log(children);
+    }
+
+    if (element && element.dataset.is_challenged) {
+        is_challenged = JSON.parse(element.dataset.is_challenged);
+        console.log(is_challenged);
     }
 
     return (
@@ -24,6 +31,10 @@ const Detail = () => {
             <div>
                 <div>{step.name}</div>
                 <div> {moment(step.updated_at).format("YYYY年MM月DD日")}</div>
+                <ChallengeButton
+                    is_challenged={is_challenged}
+                    endpoint={"/step/" + step.id + "/challenge"}
+                ></ChallengeButton>
             </div>
             <>
                 {children.data ? (

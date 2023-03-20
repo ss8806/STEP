@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 
 const ChallengeButton = (props) => {
     let is_challenged = props.is_challenged;
-    console.log(is_challenged);
+    // console.log(is_challenged);
     let endpoint = props.endpoint;
     // console.log(endpoint);
 
