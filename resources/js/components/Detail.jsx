@@ -2,7 +2,7 @@ import React, { useState, useEffect, Suspense } from "react";
 import ReactDOM from "react-dom";
 import moment from "moment";
 import ChallengeButton from "./ChallengeButton";
-import LikeButton from "./LikeButton";
+import CheckButton from "./CheckButton";
 
 const Detail = () => {
     const element = document.getElementById("detail");
@@ -76,13 +76,13 @@ const Detail = () => {
                                             </a>
                                         </div>
 
-                                        <LikeButton
-                                            is_liked={child.likes[0]}
+                                        <CheckButton
+                                            is_checked={child.checks[0]}
                                             endpoint={
-                                                "/child/" + child.id + "/like"
+                                                "/child/" + child.id + "/check"
                                             }
                                             show={show}
-                                        ></LikeButton>
+                                        ></CheckButton>
                                     </ul>
                                 ))}
                             </div>

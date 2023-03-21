@@ -31,7 +31,7 @@ Route::middleware('auth')
         // step/2/challenge 
         Route::put('/step/{step}/challenge', 'StepController@challenge')->name('challenge')->middleware('auth');
         Route::delete('/step/{step}/challenge', 'StepController@unchallenge')->name('unchallenge')->middleware('auth');
-        // like
-        Route::put('/child/{child}/like', 'ChildController@like')->name('like')->middleware('auth');
-        Route::delete('/child/{child}/like', 'ChildController@unlike')->name('unlike')->middleware('auth');
+        // check
+        Route::put('/child/{child}/check', 'ChildController@check')->name('check')->middleware('auth');
+        Route::delete('/child/{child}/check', 'ChildController@uncheck')->name('uncheck')->middleware('auth');
     });

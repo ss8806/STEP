@@ -13,7 +13,7 @@ const ChallengeButton = (props) => {
     let [challenged, setChallenged] = useState(is_challenged);
 
     const handleChallenge = async () => {
-        // web.phpよりarticle/{article}/like ルートパラメータに注意
+        // web.phpよりstep/{step}/challeng ルートパラメータに注意
         // awaitでレスポンスを待つ
         await axios.put(endpoint);
         setChallenged(!challenged);

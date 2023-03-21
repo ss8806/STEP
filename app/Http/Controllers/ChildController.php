@@ -50,14 +50,14 @@ class ChildController extends Controller
     public function show(Request $request, $id)
     {
         $child = Child::find($id);
-        $is_liked = $child->isLikedBy(Auth::user());
+        $is_checked = $child->isCheckedBy(Auth::user());
 
         $show = Challenge::where('step_id', $child->detail_id)
             ->where('user_id', Auth::user()->id)->first();
         
         return view('child')
             ->with('child', $child)
-            ->with('is_liked', $is_liked)
+            ->with('is_checked', $is_checked)
             ->with('show', $show);;
     }
 
@@ -96,17 +96,17 @@ class ChildController extends Controller
     }
 
     // 気になるリストに登録する処理
-    public function like(Request $request, Child $child)
+    public function check(Request $request, Child $child)
     {
         //モデルを結びつけている中間テーブルにレコードを削除する。 
-        $child->likes()->detach($request->user()->id);
+        $child->checks()->detach($request->user()->id);
         // モデルを結びつけている中間テーブルにレコードを挿入する。 
-        $child->likes()->attach($request->user()->id);
+        $child->checks()->attach($request->user()->id);
     }
 
     // 気になるリストから削除する処理
-    public function unlike(Request $request, Child $child)
+    public function uncheck(Request $request, Child $child)
     {
-        $child->likes()->detach($request->user()->id);
+        $child->checks()->detach($request->user()->id);
     }
 }

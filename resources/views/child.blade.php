@@ -5,5 +5,5 @@
 @endsection
 
 @section('content')
-<div id="child" data-child="{{ json_encode($child) }}" data-is_liked="{{ json_encode($is_liked) }}" data-show="{{ json_encode($show) }}"></div>
+<div id="child" data-child="{{ json_encode($child) }}" data-is_checked="{{ json_encode($is_checked) }}" data-show="{{ json_encode($show) }}"></div>
 @endsection

@@ -1,41 +1,41 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 
-const LikeButton = (props) => {
-    let is_liked = props.is_liked;
-    // console.log(is_liked);
+const CheckButton = (props) => {
+    let is_checked = props.is_checked;
+    // console.log(is_checked);
     let endpoint = props.endpoint;
     // console.log(endpoint);
     let show = props.show;
 
-    let [liked, setLiked] = useState(is_liked);
+    let [checked, setchecked] = useState(is_checked);
 
     useEffect(() => {
-        setLiked(is_liked);
+        setchecked(is_checked);
     }, []);
 
-    const handleLike = async () => {
-        // web.phpよりarticle/{article}/like ルートパラメータに注意
+    const handleCheck = async () => {
+        // web.phpよりchild/{child}/check ルートパラメータに注意
         // awaitでレスポンスを待つ
         await axios.put(endpoint);
-        setLiked(!liked);
+        setchecked(!checked);
     };
 
-    const handleUnLike = async () => {
+    const handleUnCheck = async () => {
         await axios.delete(endpoint);
-        setLiked(!liked);
+        setchecked(!checked);
     };
 
-    const handleClickLike = liked ? handleUnLike : handleLike;
+    const handleClickCheck = checked ? handleUnCheck : handleCheck;
 
     return (
         <button
             type="button"
             className="c-btn c-btn__like "
-            onClick={handleClickLike}
+            onClick={handleClickCheck}
             style={{ visibility: show ? "visible" : "hidden" }}
         >
-            {liked ? (
+            {checked ? (
                 <i className="fas fa-heart fa-2x c-btn__fa--red" />
             ) : (
                 <i className="fas fa-heart fa-2x" />
@@ -44,4 +44,4 @@ const LikeButton = (props) => {
     );
 };
 
-export default LikeButton;
+export default CheckButton;

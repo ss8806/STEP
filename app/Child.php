@@ -9,19 +9,19 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Child extends Model
 {
     // 気になるリストについての処理
-    public function likes(): BelongsToMany
+    public function checks(): BelongsToMany
     {
-        // likesにおけるideaモデルとuserモデルの関係は多対多となる。 第二引数には中間テーブルlikesを指定
-        return $this->belongsToMany('App\User', 'likes')->withTimestamps();
+        // checksにおけるideaモデルとuserモデルの関係は多対多となる。 第二引数には中間テーブルchecksを指定
+        return $this->belongsToMany('App\User', 'checks')->withTimestamps();
     }
 
-    public function isLikedBy(?User $user): bool
+    public function ischeckedBy(?User $user): bool
     {
-        // $this->likesにより、ideaモデルからlikesテーブル経由で紐付くユーザーモデルが、コレクションで返る。
+        // $this->checksにより、ideaモデルからchecksテーブル経由で紐付くユーザーモデルが、コレクションで返る。
         // countメソッドは、コレクションの要素数を数えて、数値を返す
         return $user //三項演算子
             // このアイデアををお気に入りにしたユーザーの中に、引数として渡された$userがいれば、1かそれより大きい数値が返る
-            ? (bool)$this->likes->where('id', $user->id)->count()
+            ? (bool)$this->checks->where('id', $user->id)->count()
             // このアイデアをいいねしたユーザーの中に、引数として渡された$userがいなければ、0が返る
             : false;
     }
