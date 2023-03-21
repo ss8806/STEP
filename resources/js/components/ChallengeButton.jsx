@@ -6,23 +6,32 @@ const ChallengeButton = (props) => {
     // console.log(is_challenged);
     let endpoint = props.endpoint;
     // console.log(endpoint);
+    let show = props.show;
+    // console.log(show);
+    let setShow = props.setShow;
 
     let [challenged, setChallenged] = useState(is_challenged);
 
+    // useEffect(() => {
+    //     setChallenged(is_challenged);
+    // }, []);
+
     useEffect(() => {
-        setChallenged(is_challenged);
-    }, []);
+        console.log(show);
+    });
 
     const handleChallenge = async () => {
         // web.phpよりarticle/{article}/like ルートパラメータに注意
         // awaitでレスポンスを待つ
         await axios.put(endpoint);
         setChallenged(!challenged);
+        setShow(!show);
     };
 
     const handleUnchallenge = async () => {
         await axios.delete(endpoint);
         setChallenged(!challenged);
+        setShow(!show);
     };
 
     const handleClickChallenge = challenged

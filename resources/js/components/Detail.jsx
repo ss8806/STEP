@@ -26,6 +26,12 @@ const Detail = () => {
         console.log(is_challenged);
     }
 
+    let [show, setShow] = useState(is_challenged);
+
+    // useEffect(() => {
+    //     console.log(show);
+    // }, [show]);
+
     return (
         <>
             <div>
@@ -34,6 +40,8 @@ const Detail = () => {
                 <ChallengeButton
                     is_challenged={is_challenged}
                     endpoint={"/step/" + step.id + "/challenge"}
+                    show={show}
+                    setShow={setShow}
                 ></ChallengeButton>
             </div>
             <>
@@ -67,12 +75,16 @@ const Detail = () => {
                                                 詳細をみる
                                             </a>
                                         </div>
-                                        <LikeButton
-                                            is_liked={child.likes[0]}
-                                            endpoint={
-                                                "/child/" + child.id + "/like"
-                                            }
-                                        ></LikeButton>
+                                        {show && (
+                                            <LikeButton
+                                                is_liked={child.likes[0]}
+                                                endpoint={
+                                                    "/child/" +
+                                                    child.id +
+                                                    "/like"
+                                                }
+                                            ></LikeButton>
+                                        )}
                                     </ul>
                                 ))}
                             </div>
