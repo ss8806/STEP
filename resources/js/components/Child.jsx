@@ -8,6 +8,7 @@ const Child = () => {
 
     var child;
     var is_liked;
+    var show;
 
     if (element && element.dataset.child) {
         child = JSON.parse(element.dataset.child);
@@ -15,6 +16,10 @@ const Child = () => {
 
     if (element && element.dataset.is_liked) {
         is_liked = JSON.parse(element.dataset.is_liked);
+    }
+
+    if (element && element.dataset.show) {
+        show = JSON.parse(element.dataset.show);
     }
 
     return (
@@ -26,6 +31,7 @@ const Child = () => {
                 <LikeButton
                     is_liked={is_liked}
                     endpoint={"/child/" + child.id + "/like"}
+                    show={show}
                 ></LikeButton>
             </div>
         </>

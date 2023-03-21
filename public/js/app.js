@@ -216,11 +216,15 @@ var Child = function Child() {
   var element = document.getElementById("child");
   var child;
   var is_liked;
+  var show;
   if (element && element.dataset.child) {
     child = JSON.parse(element.dataset.child);
   }
   if (element && element.dataset.is_liked) {
     is_liked = JSON.parse(element.dataset.is_liked);
+  }
+  if (element && element.dataset.show) {
+    show = JSON.parse(element.dataset.show);
   }
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
@@ -232,7 +236,8 @@ var Child = function Child() {
         children: [" ", moment__WEBPACK_IMPORTED_MODULE_2___default()(child.updated_at).format("YYYY年MM月DD日")]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_LikeButton__WEBPACK_IMPORTED_MODULE_3__["default"], {
         is_liked: is_liked,
-        endpoint: "/child/" + child.id + "/like"
+        endpoint: "/child/" + child.id + "/like",
+        show: show
       })]
     })
   });

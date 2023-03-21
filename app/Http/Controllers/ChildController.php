@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Child;
+use App\Challenge;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -51,9 +52,13 @@ class ChildController extends Controller
         $child = Child::find($id);
         $is_liked = $child->isLikedBy(Auth::user());
 
+        $show = Challenge::where('step_id', $child->detail_id)
+            ->where('user_id', Auth::user()->id)->first();
+        
         return view('child')
             ->with('child', $child)
-            ->with('is_liked', $is_liked);
+            ->with('is_liked', $is_liked)
+            ->with('show', $show);;
     }
 
     /**
