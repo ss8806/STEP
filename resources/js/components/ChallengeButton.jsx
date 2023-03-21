@@ -12,14 +12,6 @@ const ChallengeButton = (props) => {
 
     let [challenged, setChallenged] = useState(is_challenged);
 
-    // useEffect(() => {
-    //     setChallenged(is_challenged);
-    // }, []);
-
-    useEffect(() => {
-        console.log(show);
-    });
-
     const handleChallenge = async () => {
         // web.phpよりarticle/{article}/like ルートパラメータに注意
         // awaitでレスポンスを待つ

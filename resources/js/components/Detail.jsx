@@ -75,16 +75,14 @@ const Detail = () => {
                                                 詳細をみる
                                             </a>
                                         </div>
-                                        {show && (
-                                            <LikeButton
-                                                is_liked={child.likes[0]}
-                                                endpoint={
-                                                    "/child/" +
-                                                    child.id +
-                                                    "/like"
-                                                }
-                                            ></LikeButton>
-                                        )}
+
+                                        <LikeButton
+                                            is_liked={child.likes[0]}
+                                            endpoint={
+                                                "/child/" + child.id + "/like"
+                                            }
+                                            show={show}
+                                        ></LikeButton>
                                     </ul>
                                 ))}
                             </div>

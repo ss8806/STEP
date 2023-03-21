@@ -6,6 +6,7 @@ const LikeButton = (props) => {
     // console.log(is_liked);
     let endpoint = props.endpoint;
     // console.log(endpoint);
+    let show = props.show;
 
     let [liked, setLiked] = useState(is_liked);
 
@@ -32,18 +33,13 @@ const LikeButton = (props) => {
             type="button"
             className="c-btn c-btn__like "
             onClick={handleClickLike}
+            style={{ visibility: show ? "visible" : "hidden" }}
         >
-            <div>
-                {liked ? (
-                    <>
-                        <i className="fas fa-heart fa-2x c-btn__fa--red" />
-                    </>
-                ) : (
-                    <>
-                        <i className="fas fa-heart fa-2x" />
-                    </>
-                )}
-            </div>
+            {liked ? (
+                <i className="fas fa-heart fa-2x c-btn__fa--red" />
+            ) : (
+                <i className="fas fa-heart fa-2x" />
+            )}
         </button>
     );
 };

@@ -122,14 +122,6 @@ var ChallengeButton = function ChallengeButton(props) {
     _useState2 = _slicedToArray(_useState, 2),
     challenged = _useState2[0],
     setChallenged = _useState2[1];
-
-  // useEffect(() => {
-  //     setChallenged(is_challenged);
-  // }, []);
-
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    console.log(show);
-  });
   var handleChallenge = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
       return _regeneratorRuntime().wrap(function _callee$(_context) {
@@ -350,9 +342,10 @@ var Detail = function Detail() {
                     href: "/child/" + child.id + "/show",
                     children: "\u8A73\u7D30\u3092\u307F\u308B"
                   })
-                }), show && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_LikeButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_LikeButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
                   is_liked: child.likes[0],
-                  endpoint: "/child/" + child.id + "/like"
+                  endpoint: "/child/" + child.id + "/like",
+                  show: show
                 })]
               }, i);
             })
@@ -649,13 +642,12 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-
 var LikeButton = function LikeButton(props) {
   var is_liked = props.is_liked;
   // console.log(is_liked);
   var endpoint = props.endpoint;
   // console.log(endpoint);
-
+  var show = props.show;
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(is_liked),
     _useState2 = _slicedToArray(_useState, 2),
     liked = _useState2[0],
@@ -710,16 +702,13 @@ var LikeButton = function LikeButton(props) {
     type: "button",
     className: "c-btn c-btn__like ",
     onClick: handleClickLike,
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-      children: liked ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-          className: "fas fa-heart fa-2x c-btn__fa--red"
-        })
-      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-          className: "fas fa-heart fa-2x"
-        })
-      })
+    style: {
+      visibility: show ? "visible" : "hidden"
+    },
+    children: liked ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+      className: "fas fa-heart fa-2x c-btn__fa--red"
+    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+      className: "fas fa-heart fa-2x"
     })
   });
 };
