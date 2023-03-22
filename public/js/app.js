@@ -318,6 +318,7 @@ var Child = function Child() {
   var child;
   var is_checked;
   var show;
+  var auth;
   if (element && element.dataset.child) {
     child = JSON.parse(element.dataset.child);
   }
@@ -327,6 +328,9 @@ var Child = function Child() {
   if (element && element.dataset.show) {
     show = JSON.parse(element.dataset.show);
   }
+  if (element && element.dataset.auth) {
+    auth = JSON.parse(element.dataset.auth);
+  }
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
@@ -335,7 +339,7 @@ var Child = function Child() {
         children: child.content
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         children: [" ", moment__WEBPACK_IMPORTED_MODULE_2___default()(child.updated_at).format("YYYY年MM月DD日")]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_CheckButton__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      }), auth && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_CheckButton__WEBPACK_IMPORTED_MODULE_3__["default"], {
         is_checked: is_checked,
         endpoint: "/child/" + child.id + "/check",
         show: show
@@ -387,36 +391,30 @@ var Detail = function Detail() {
   var step;
   var children;
   var is_challenged;
+  var auth;
   if (element && element.dataset.step) {
     step = JSON.parse(element.dataset.step);
-    // console.log(step);
   }
-
   if (element && element.dataset.children) {
     children = JSON.parse(element.dataset.children);
-    // console.log(children);
   }
-
   if (element && element.dataset.is_challenged) {
     is_challenged = JSON.parse(element.dataset.is_challenged);
-    console.log(is_challenged);
+  }
+  if (element && element.dataset.auth) {
+    auth = JSON.parse(element.dataset.auth);
   }
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(is_challenged),
     _useState2 = _slicedToArray(_useState, 2),
     show = _useState2[0],
     setShow = _useState2[1];
-
-  // useEffect(() => {
-  //     console.log(show);
-  // }, [show]);
-
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         children: step.name
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
         children: [" ", moment__WEBPACK_IMPORTED_MODULE_2___default()(step.updated_at).format("YYYY年MM月DD日")]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_ChallengeButton__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      }), auth && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_ChallengeButton__WEBPACK_IMPORTED_MODULE_3__["default"], {
         is_challenged: is_challenged,
         endpoint: "/step/" + step.id + "/challenge",
         show: show,
@@ -448,7 +446,7 @@ var Detail = function Detail() {
                     href: "/child/" + child.id + "/show",
                     children: "\u8A73\u7D30\u3092\u307F\u308B"
                   })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_CheckButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                }), auth && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_CheckButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
                   is_checked: child.checks[0],
                   endpoint: "/child/" + child.id + "/check",
                   show: show

@@ -100,8 +100,10 @@ class StepController extends Controller
     {
         $step = Step::find($id);
         $children = Child::where('detail_id', $id)->paginate(8);
-        foreach ($children as $child) {
-            $child->ischeckedBy(Auth::user());
+        if(Auth::user()){
+            foreach ($children as $child) {
+                $child->ischeckedBy(Auth::user());
+            }
         }
         $is_challenged = $step->isChallenged(Auth::user());
 

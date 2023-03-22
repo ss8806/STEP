@@ -6,6 +6,12 @@
 
 @section('content')
 
-<div id="detail" data-step="{{ json_encode($step) }}" data-children="{{ json_encode($children) }}" data-is_challenged="{{ json_encode($is_challenged)}}" ></div>
+<div 
+  id="detail" 
+  data-step="{{ json_encode($step) }}" 
+  data-children="{{ json_encode($children) }}" 
+  data-is_challenged="{{ json_encode($is_challenged)}}" 
+  data-auth="{{ json_encode(Auth::user()) }}"
+></div>
 
 @endsection

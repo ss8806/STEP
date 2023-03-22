@@ -9,6 +9,7 @@ const Child = () => {
     var child;
     var is_checked;
     var show;
+    var auth;
 
     if (element && element.dataset.child) {
         child = JSON.parse(element.dataset.child);
@@ -22,17 +23,23 @@ const Child = () => {
         show = JSON.parse(element.dataset.show);
     }
 
+    if (element && element.dataset.auth) {
+        auth = JSON.parse(element.dataset.auth);
+    }
+
     return (
         <>
             <div>
                 <div>{child.name}</div>
                 <div>{child.content}</div>
                 <div> {moment(child.updated_at).format("YYYY年MM月DD日")}</div>
-                <CheckButton
-                    is_checked={is_checked}
-                    endpoint={"/child/" + child.id + "/check"}
-                    show={show}
-                ></CheckButton>
+                {auth && (
+                    <CheckButton
+                        is_checked={is_checked}
+                        endpoint={"/child/" + child.id + "/check"}
+                        show={show}
+                    ></CheckButton>
+                )}
             </div>
         </>
     );

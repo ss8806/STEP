@@ -10,39 +10,39 @@ const Detail = () => {
     var step;
     var children;
     var is_challenged;
+    var auth;
 
     if (element && element.dataset.step) {
         step = JSON.parse(element.dataset.step);
-        // console.log(step);
     }
 
     if (element && element.dataset.children) {
         children = JSON.parse(element.dataset.children);
-        // console.log(children);
     }
 
     if (element && element.dataset.is_challenged) {
         is_challenged = JSON.parse(element.dataset.is_challenged);
-        console.log(is_challenged);
+    }
+
+    if (element && element.dataset.auth) {
+        auth = JSON.parse(element.dataset.auth);
     }
 
     let [show, setShow] = useState(is_challenged);
-
-    // useEffect(() => {
-    //     console.log(show);
-    // }, [show]);
 
     return (
         <>
             <div>
                 <div>{step.name}</div>
                 <div> {moment(step.updated_at).format("YYYY年MM月DD日")}</div>
-                <ChallengeButton
-                    is_challenged={is_challenged}
-                    endpoint={"/step/" + step.id + "/challenge"}
-                    show={show}
-                    setShow={setShow}
-                ></ChallengeButton>
+                {auth && (
+                    <ChallengeButton
+                        is_challenged={is_challenged}
+                        endpoint={"/step/" + step.id + "/challenge"}
+                        show={show}
+                        setShow={setShow}
+                    ></ChallengeButton>
+                )}
             </div>
             <>
                 {children.data ? (
@@ -75,14 +75,17 @@ const Detail = () => {
                                                 詳細をみる
                                             </a>
                                         </div>
-
-                                        <CheckButton
-                                            is_checked={child.checks[0]}
-                                            endpoint={
-                                                "/child/" + child.id + "/check"
-                                            }
-                                            show={show}
-                                        ></CheckButton>
+                                        {auth && (
+                                            <CheckButton
+                                                is_checked={child.checks[0]}
+                                                endpoint={
+                                                    "/child/" +
+                                                    child.id +
+                                                    "/check"
+                                                }
+                                                show={show}
+                                            ></CheckButton>
+                                        )}
                                     </ul>
                                 ))}
                             </div>

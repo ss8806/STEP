@@ -5,5 +5,12 @@
 @endsection
 
 @section('content')
-<div id="child" data-child="{{ json_encode($child) }}" data-is_checked="{{ json_encode($is_checked) }}" data-show="{{ json_encode($show) }}"></div>
+<div 
+  id="child" 
+  data-child="{{ json_encode($child) }}" 
+  data-is_checked="{{ json_encode($is_checked) }}" 
+  data-show="{{ json_encode($show) }}"
+  data-auth="{{ json_encode(Auth::user()) }}"
+>
+</div>
 @endsection
