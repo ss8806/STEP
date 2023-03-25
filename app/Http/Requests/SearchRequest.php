@@ -28,8 +28,8 @@ class SearchRequest extends FormRequest
             // 'aboveprice'   => ['min:1']
             // lt: 対象の数値より小さいかどうか(<)
             // 'aboveprice'   => 'nullable|lte:belowprice|max:1000',
-            'aboveprice'   => 'max:2',
-            'belowprice'   => 'max:3',
+            // 'aboveprice'   => 'max:2',
+            // 'belowprice'   => 'max:3',
             // 'belowprice'   => 'nullable|gte:aboveprice|max:3',          
         ];
     }

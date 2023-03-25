@@ -38,7 +38,13 @@ class ChildController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $child = new Child();
+        $child->name = $request->input('name');
+        $child->content = $request->input('content');
+        $child->user_id = Auth::user()->id;
+        $child->save();
+        return redirect()->route('steps')->with('scc_message', '投稿しました');
+
     }
 
     /**

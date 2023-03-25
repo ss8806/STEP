@@ -925,50 +925,52 @@ __webpack_require__.r(__webpack_exports__);
 
 var PostStep = function PostStep() {
   var element = document.getElementById("postStep");
-  // var aboveday;
-  // var belowday;
-
-  // if (element && element.dataset.aboveday) {
-  //     aboveday = JSON.parse(element.dataset.aboveday);
-  //     belowday = JSON.parse(element.dataset.belowday);
-  // }
-
+  var errors;
+  if (element && element.dataset.errors) {
+    errors = JSON.parse(element.dataset.errors);
+  }
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-      "class": "p-form p-form__group",
+      className: "p-form p-form__group",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
-        "for": "name",
-        "class": "c-label",
-        children: "\u30A2\u30A4\u30C7\u30A3\u30A2\u540D"
+        htmlFor: "name",
+        className: "c-label",
+        children: "\u30B9\u30C6\u30C3\u30D7\u540D"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+        className: "c-error",
+        children: errors.name
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        "class": "c-input",
+        className: "c-input",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
           id: "name",
           type: "text",
-          "class": "c-input__product",
+          className: "c-input__product",
           name: "name",
           required: true
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        "class": "p-form p-form__group",
+        className: "p-form p-form__group",
         children: " "
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
-        "for": "content",
-        "class": "c-label",
-        children: "\u30A2\u30A4\u30C7\u30A3\u30A2\u306E\u5185\u5BB9"
+        htmlFor: "content",
+        className: "c-label",
+        children: "\u30B9\u30C6\u30C3\u30D7\u306E\u5185\u5BB9"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+        className: "c-error",
+        children: errors.content
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        "class": "c-textarea",
+        className: "c-textarea",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("textarea", {
           id: "content",
-          "class": "c-textarea__product",
+          className: "c-textarea__product",
           name: "content",
           required: true
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        "class": "p-form__group",
+        className: "p-form__group",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
           type: "submit",
-          "class": "c-btn",
+          className: "c-btn",
           children: "\u6295\u7A3F\u3059\u308B"
         })
       })]

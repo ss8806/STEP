@@ -7,6 +7,7 @@ use App\Child;
 use Illuminate\Http\Request;
 use App\Http\Requests\SearchRequest;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\StepRequest;
 
 class StepController extends Controller
 {
@@ -63,12 +64,6 @@ class StepController extends Controller
         );
     }
 
-    public function hpost()
-    {
-        // session
-        return redirect()->route('hpost')->with('scc_message', '投稿しました');
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -85,7 +80,7 @@ class StepController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StepRequest $request)
     {
         $step = new Step();
         $step->name = $request->input('name');
