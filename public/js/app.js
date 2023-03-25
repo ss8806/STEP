@@ -128,12 +128,16 @@ var ChallengeButton = function ChallengeButton(props) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              _context.next = 2;
+              if (!confirm("チャレンジしますか?")) {
+                _context.next = 5;
+                break;
+              }
+              _context.next = 3;
               return axios.put(endpoint);
-            case 2:
+            case 3:
               setChallenged(!challenged);
               setShow(!show);
-            case 4:
+            case 5:
             case "end":
               return _context.stop();
           }
@@ -150,12 +154,16 @@ var ChallengeButton = function ChallengeButton(props) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
-              _context2.next = 2;
+              if (!confirm("チャレンジを諦めますか?")) {
+                _context2.next = 5;
+                break;
+              }
+              _context2.next = 3;
               return axios["delete"](endpoint);
-            case 2:
+            case 3:
               setChallenged(!challenged);
               setShow(!show);
-            case 4:
+            case 5:
             case "end":
               return _context2.stop();
           }
@@ -174,11 +182,11 @@ var ChallengeButton = function ChallengeButton(props) {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
       children: challenged ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-          className: "fas fa-heart fa-2x c-btn__fa--red"
+          className: "fa fa-fire fa-4x c-btn__fa--red"
         })
       }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-          className: "fas fa-heart fa-2x"
+          className: "fa fa-fire fa-4x"
         })
       })
     })
@@ -237,8 +245,9 @@ var CheckButton = function CheckButton(props) {
               _context.next = 2;
               return axios.put(endpoint);
             case 2:
+              alert("クリアしました。");
               setchecked(!checked);
-            case 3:
+            case 4:
             case "end":
               return _context.stop();
           }
@@ -258,8 +267,9 @@ var CheckButton = function CheckButton(props) {
               _context2.next = 2;
               return axios["delete"](endpoint);
             case 2:
+              alert("クリアを取り消しました。");
               setchecked(!checked);
-            case 3:
+            case 4:
             case "end":
               return _context2.stop();
           }
@@ -279,9 +289,9 @@ var CheckButton = function CheckButton(props) {
       visibility: show ? "visible" : "hidden"
     },
     children: checked ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-      className: "fas fa-heart fa-2x c-btn__fa--red"
+      className: "fa fa-check fa-2x c-btn__fa--green"
     }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-      className: "fas fa-heart fa-2x"
+      className: "fa fa-check fa-2x"
     })
   });
 };

@@ -18,11 +18,13 @@ const CheckButton = (props) => {
         // web.phpよりchild/{child}/check ルートパラメータに注意
         // awaitでレスポンスを待つ
         await axios.put(endpoint);
+        alert("クリアしました。");
         setchecked(!checked);
     };
 
     const handleUnCheck = async () => {
         await axios.delete(endpoint);
+        alert("クリアを取り消しました。");
         setchecked(!checked);
     };
 
@@ -36,9 +38,9 @@ const CheckButton = (props) => {
             style={{ visibility: show ? "visible" : "hidden" }}
         >
             {checked ? (
-                <i className="fas fa-heart fa-2x c-btn__fa--red" />
+                <i className="fa fa-check fa-2x c-btn__fa--green" />
             ) : (
-                <i className="fas fa-heart fa-2x" />
+                <i className="fa fa-check fa-2x" />
             )}
         </button>
     );

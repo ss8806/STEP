@@ -51,10 +51,12 @@ class ChildController extends Controller
     {
         $child = Child::find($id);
         $is_checked = $child->isCheckedBy(Auth::user());
+        $show = 0;
 
+        if(Auth::user()){
         $show = Challenge::where('step_id', $child->detail_id)
             ->where('user_id', Auth::user()->id)->first();
-        
+        }
         return view('child')
             ->with('child', $child)
             ->with('is_checked', $is_checked)

@@ -15,15 +15,19 @@ const ChallengeButton = (props) => {
     const handleChallenge = async () => {
         // web.phpよりstep/{step}/challeng ルートパラメータに注意
         // awaitでレスポンスを待つ
-        await axios.put(endpoint);
-        setChallenged(!challenged);
-        setShow(!show);
+        if (confirm("チャレンジしますか?")) {
+            await axios.put(endpoint);
+            setChallenged(!challenged);
+            setShow(!show);
+        }
     };
 
     const handleUnchallenge = async () => {
-        await axios.delete(endpoint);
-        setChallenged(!challenged);
-        setShow(!show);
+        if (confirm("チャレンジを諦めますか?")) {
+            await axios.delete(endpoint);
+            setChallenged(!challenged);
+            setShow(!show);
+        }
     };
 
     const handleClickChallenge = challenged
@@ -39,11 +43,11 @@ const ChallengeButton = (props) => {
             <div>
                 {challenged ? (
                     <>
-                        <i className="fas fa-heart fa-2x c-btn__fa--red" />
+                        <i className="fa fa-fire fa-4x c-btn__fa--red" />
                     </>
                 ) : (
                     <>
-                        <i className="fas fa-heart fa-2x" />
+                        <i className="fa fa-fire fa-4x" />
                     </>
                 )}
             </div>

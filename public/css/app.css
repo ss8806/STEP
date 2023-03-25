@@ -99,6 +99,9 @@ a:visited {
 .c-btn__fa--red {
   color: red;
 }
+.c-btn__fa--green {
+  color: green;
+}
 .c-btn__mypage {
   display: block;
   margin: 0px auto;
