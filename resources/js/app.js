@@ -22,3 +22,4 @@ require("./components/Password");
 require("./components/Search");
 require("./components/Detail");
 require("./components/Child");
+require("./components/PostStep");

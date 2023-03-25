@@ -31,6 +31,7 @@ __webpack_require__(/*! ./components/Password */ "./resources/js/components/Pass
 __webpack_require__(/*! ./components/Search */ "./resources/js/components/Search.jsx");
 __webpack_require__(/*! ./components/Detail */ "./resources/js/components/Detail.jsx");
 __webpack_require__(/*! ./components/Child */ "./resources/js/components/Child.jsx");
+__webpack_require__(/*! ./components/PostStep */ "./resources/js/components/PostStep.jsx");
 
 /***/ }),
 
@@ -903,6 +904,84 @@ if (document.getElementById("editPassword")) {
 
 /***/ }),
 
+/***/ "./resources/js/components/PostStep.jsx":
+/*!**********************************************!*\
+  !*** ./resources/js/components/PostStep.jsx ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+var PostStep = function PostStep() {
+  var element = document.getElementById("postStep");
+  // var aboveday;
+  // var belowday;
+
+  // if (element && element.dataset.aboveday) {
+  //     aboveday = JSON.parse(element.dataset.aboveday);
+  //     belowday = JSON.parse(element.dataset.belowday);
+  // }
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      "class": "p-form p-form__group",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+        "for": "name",
+        "class": "c-label",
+        children: "\u30A2\u30A4\u30C7\u30A3\u30A2\u540D"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        "class": "c-input",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+          id: "name",
+          type: "text",
+          "class": "c-input__product",
+          name: "name",
+          required: true
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        "class": "p-form p-form__group",
+        children: " "
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+        "for": "content",
+        "class": "c-label",
+        children: "\u30A2\u30A4\u30C7\u30A3\u30A2\u306E\u5185\u5BB9"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        "class": "c-textarea",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("textarea", {
+          id: "content",
+          "class": "c-textarea__product",
+          name: "content",
+          required: true
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        "class": "p-form__group",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+          type: "submit",
+          "class": "c-btn",
+          children: "\u6295\u7A3F\u3059\u308B"
+        })
+      })]
+    })
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PostStep);
+if (document.getElementById("postStep")) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(PostStep, {}), document.getElementById("postStep"));
+}
+
+/***/ }),
+
 /***/ "./resources/js/components/Search.jsx":
 /*!********************************************!*\
   !*** ./resources/js/components/Search.jsx ***!
@@ -929,25 +1008,6 @@ var Search = function Search() {
     aboveday = JSON.parse(element.dataset.aboveday);
     belowday = JSON.parse(element.dataset.belowday);
   }
-  var onHandleChangeAboveprice = function onHandleChangeAboveprice(e) {
-    var tv = e.target.value;
-    tv = tv.slice(0, 3);
-    setAboveprice(tv);
-    // if (ap > bp) {
-    //     console.log("価格エラー");
-    // }
-  };
-
-  var onHandleChangeBelowprice = function onHandleChangeBelowprice(e) {
-    var tv = e.target.value;
-    tv = tv.slice(0, 3);
-    setBelowprice(tv);
-  };
-  var onHandleBlurBelowprice = function onHandleBlurBelowprice(e) {
-    if (ap > bp) {
-      console.log("価格エラー");
-    }
-  };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
     className: "p-serch__group",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {

@@ -11,27 +11,6 @@ const Search = () => {
         belowday = JSON.parse(element.dataset.belowday);
     }
 
-    const onHandleChangeAboveprice = (e) => {
-        let tv = e.target.value;
-        tv = tv.slice(0, 3);
-        setAboveprice(tv);
-        // if (ap > bp) {
-        //     console.log("価格エラー");
-        // }
-    };
-
-    const onHandleChangeBelowprice = (e) => {
-        let tv = e.target.value;
-        tv = tv.slice(0, 3);
-        setBelowprice(tv);
-    };
-
-    const onHandleBlurBelowprice = (e) => {
-        if (ap > bp) {
-            console.log("価格エラー");
-        }
-    };
-
     return (
         <div className="p-serch__group">
             <span>投稿日検索　　</span>

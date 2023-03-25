@@ -76,7 +76,7 @@ class StepController extends Controller
      */
     public function create()
     {
-        //
+       
     }
 
     /**
@@ -87,7 +87,12 @@ class StepController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $step = new Step();
+        $step->name = $request->input('name');
+        $step->content = $request->input('content');
+        $step->user_id = Auth::user()->id;
+        $step->save();
+        return redirect()->route('steps')->with('scc_message', '投稿しました');
     }
 
     /**

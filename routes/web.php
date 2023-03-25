@@ -13,9 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'top', ['name' => 'top']);
+Route::view('/', 'top')->name('top');
 Route::get('/steps', 'StepController@index')->name('steps');
-Route::post('/steps', 'StepController@hpost')->name('hpost');
 Route::get('step/{id}/show', 'StepController@show')->name('showDetail');
 Route::get('child/{id}/show', 'ChildController@show')->name('showChild');
 
@@ -24,6 +23,9 @@ Auth::routes();
 
 Route::middleware('auth')
     ->group(function () {
+        Route::view('/postStep', 'postStep')->name('postStep');
+        Route::post('/storeStep', 'StepController@store')->name('storeStep');
+
         // profile
         Route::get('/mypage', 'MypageController@index')->name('mypage');
         Route::get('/profile', 'ProfileController@index')->name('profile');
