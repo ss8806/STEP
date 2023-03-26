@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<div class="p-card--product">
+<div class="p-card p-card--step">
     <div class="p-card p-card__header">
         <p>アイディアを投稿する</p>
     </div>
@@ -17,7 +17,4 @@
         </form>
     </div>
 </div>
-<?php
-var_dump($errors);
-?>
 @endsection

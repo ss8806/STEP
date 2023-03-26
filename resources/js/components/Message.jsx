@@ -15,7 +15,6 @@ const Message = () => {
             // ３秒経過したら閉じる
             handleToggle();
         }, 3000);
-        // こういう処理を書く
         return () => {
             clearTimeout(timeoutId);
         };

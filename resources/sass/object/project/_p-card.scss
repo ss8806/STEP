@@ -2,7 +2,6 @@
     width:100%;
     &--top{
         display: table;
-        text-align: center;
         width: 80%;
         margin: 100px auto;
         margin-bottom: 20px;
@@ -26,14 +25,13 @@
         }
     }
 
-    &--product{
+    &--step{
         display: table;
-        text-align: center;
-        width: 80%;
+        width: 60%;
         margin: 0 auto;
         margin-bottom: 80px;
         background-color:white;
-        padding: 10px 0;
+        padding: 10px 20px;
     }
 
     &__header{

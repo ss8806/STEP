@@ -48,11 +48,6 @@ body {
   color: #333;
 }
 
-textarea {
-  margin: 10px;
-  width: 60%;
-}
-
 .alert {
   color: red;
 }
@@ -122,6 +117,10 @@ a:visited {
   display: block;
   border-radius: 10px;
   text-align: center;
+}
+
+.c-count__right {
+  float: right;
 }
 
 .c-dropdown {
@@ -199,14 +198,9 @@ a:visited {
     width: 60%;
   }
 }
-.c-input__product {
-  width: 30%;
+.c-input__step {
+  width: 100%;
   margin-bottom: 10px;
-}
-@media screen and (max-width: 768px) {
-  .c-input__product {
-    width: 60%;
-  }
 }
 .c-input__day {
   width: 200px;
@@ -219,19 +213,6 @@ a:visited {
 @media screen and (max-width: 414px) {
   .c-input__day {
     width: 45%;
-  }
-}
-.c-input__price {
-  width: 200px;
-  border-radius: 3px; /*ボックス角の丸み*/
-  border: 2px solid #ddd; /*枠線*/
-  box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
-  height: 30px;
-  font-size: 18px;
-}
-@media screen and (max-width: 414px) {
-  .c-input__price {
-    width: 44%;
   }
 }
 .c-input__name {
@@ -273,6 +254,75 @@ a:visited {
 }
 @media screen and (max-width: 414px) {
   .c-input__password {
+    width: 44%;
+  }
+}
+
+.c-textarea__profile {
+  width: 30%;
+  margin-bottom: 10px;
+}
+@media screen and (max-width: 768px) {
+  .c-textarea__profile {
+    width: 60%;
+  }
+}
+.c-textarea__step {
+  width: 100%;
+  margin-bottom: 10px;
+}
+.c-textarea__day {
+  width: 200px;
+  border-radius: 3px; /*ボックス角の丸み*/
+  border: 2px solid #ddd; /*枠線*/
+  box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
+  height: 30px;
+  font-size: 18px;
+}
+@media screen and (max-width: 414px) {
+  .c-textarea__day {
+    width: 45%;
+  }
+}
+.c-textarea__name {
+  width: 200px;
+  border-radius: 3px; /*ボックス角の丸み*/
+  border: 2px solid #ddd; /*枠線*/
+  box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
+  height: 30px;
+  font-size: 18px;
+  margin-top: 10px;
+}
+@media screen and (max-width: 414px) {
+  .c-textarea__name {
+    width: 44%;
+  }
+}
+.c-textarea__email {
+  width: 200px;
+  border-radius: 3px; /*ボックス角の丸み*/
+  border: 2px solid #ddd; /*枠線*/
+  box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
+  height: 30px;
+  font-size: 18px;
+  margin-top: 10px;
+}
+@media screen and (max-width: 414px) {
+  .c-textarea__email {
+    width: 44%;
+  }
+}
+.c-textarea__password {
+  width: 200px;
+  border-radius: 3px; /*ボックス角の丸み*/
+  border: 2px solid #ddd; /*枠線*/
+  box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
+  height: 30px;
+  font-size: 18px;
+  margin-top: 10px;
+}
+@media screen and (max-width: 414px) {
+  .c-textarea__password {
     width: 44%;
   }
 }
@@ -426,7 +476,6 @@ a:visited {
 }
 .p-card--top {
   display: table;
-  text-align: center;
   width: 80%;
   margin: 100px auto;
   margin-bottom: 20px;
@@ -452,14 +501,13 @@ a:visited {
     width: 100%;
   }
 }
-.p-card--product {
+.p-card--step {
   display: table;
-  text-align: center;
-  width: 80%;
+  width: 60%;
   margin: 0 auto;
   margin-bottom: 80px;
   background-color: white;
-  padding: 10px 0;
+  padding: 10px 20px;
 }
 .p-card__header {
   font-size: 24px;
@@ -473,6 +521,10 @@ a:visited {
   .p-card__header--index {
     font-size: 16px;
   }
+}
+
+.p-form__group {
+  margin: 20px;
 }
 
 .p-panel__product {
