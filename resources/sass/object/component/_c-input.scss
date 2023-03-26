@@ -11,6 +11,10 @@
     &__step{
         width: 100%;
         margin-bottom: 10px;
+        height: 30px;
+        border: 2px solid #ddd; /*枠線*/
+        font-size: 18px;
+        margin-top: 10px;
     }
 
     &__day{

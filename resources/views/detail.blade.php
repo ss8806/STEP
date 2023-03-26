@@ -14,4 +14,7 @@
   data-auth="{{ json_encode(Auth::user()) }}"
 ></div>
 
+<div class="c-pager">
+  {{ $children->appends(request()->input())->links() }}
+</div>
 @endsection

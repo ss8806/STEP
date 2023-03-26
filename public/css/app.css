@@ -201,6 +201,10 @@ a:visited {
 .c-input__step {
   width: 100%;
   margin-bottom: 10px;
+  height: 30px;
+  border: 2px solid #ddd; /*枠線*/
+  font-size: 18px;
+  margin-top: 10px;
 }
 .c-input__day {
   width: 200px;
@@ -258,73 +262,17 @@ a:visited {
   }
 }
 
-.c-textarea__profile {
-  width: 30%;
-  margin-bottom: 10px;
-}
-@media screen and (max-width: 768px) {
-  .c-textarea__profile {
-    width: 60%;
-  }
-}
 .c-textarea__step {
   width: 100%;
   margin-bottom: 10px;
-}
-.c-textarea__day {
-  width: 200px;
-  border-radius: 3px; /*ボックス角の丸み*/
+  height: 200px;
   border: 2px solid #ddd; /*枠線*/
-  box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
-  height: 30px;
-  font-size: 18px;
 }
-@media screen and (max-width: 414px) {
-  .c-textarea__day {
-    width: 45%;
-  }
-}
-.c-textarea__name {
-  width: 200px;
-  border-radius: 3px; /*ボックス角の丸み*/
+.c-textarea__profile {
+  width: 100%;
+  margin-bottom: 10px;
+  height: 200px;
   border: 2px solid #ddd; /*枠線*/
-  box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
-  height: 30px;
-  font-size: 18px;
-  margin-top: 10px;
-}
-@media screen and (max-width: 414px) {
-  .c-textarea__name {
-    width: 44%;
-  }
-}
-.c-textarea__email {
-  width: 200px;
-  border-radius: 3px; /*ボックス角の丸み*/
-  border: 2px solid #ddd; /*枠線*/
-  box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
-  height: 30px;
-  font-size: 18px;
-  margin-top: 10px;
-}
-@media screen and (max-width: 414px) {
-  .c-textarea__email {
-    width: 44%;
-  }
-}
-.c-textarea__password {
-  width: 200px;
-  border-radius: 3px; /*ボックス角の丸み*/
-  border: 2px solid #ddd; /*枠線*/
-  box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
-  height: 30px;
-  font-size: 18px;
-  margin-top: 10px;
-}
-@media screen and (max-width: 414px) {
-  .c-textarea__password {
-    width: 44%;
-  }
 }
 
 .c-link__show--all {

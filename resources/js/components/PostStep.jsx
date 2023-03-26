@@ -5,12 +5,19 @@ import LengthValidation from "./LengthValidation";
 const PostStep = () => {
     const element = document.getElementById("postStep");
     var errors;
+    var oldname;
 
     if (element && element.dataset.errors) {
         errors = JSON.parse(element.dataset.errors);
     }
+    if (element && element.dataset.oldname) {
+        oldname = JSON.parse(element.dataset.oldname);
+        if (!oldname) {
+            oldname = "";
+        }
+    }
 
-    const [inputName, setInputName] = useState("");
+    const [inputName, setInputName] = useState(oldname);
     const [inputContent, setInputContent] = useState("");
     const [showNameVali, setShowNameVali] = useState(false);
     const [showContentVali, setShowContentVali] = useState(false);
@@ -53,7 +60,7 @@ const PostStep = () => {
                     required
                     onChange={onChangeInputName}
                     onClick={onClickInputName}
-                    value={inputName}
+                    defaultValue={inputName}
                 />
                 <span className="c-count__right">
                     文字数: {inputName.length}
@@ -87,11 +94,7 @@ const PostStep = () => {
             </div>
 
             <div className="p-form__group">
-                <button
-                    type="submit"
-                    className="c-btn"
-                    // onClick={}
-                >
+                <button type="submit" className="c-btn__edit">
                     投稿する
                 </button>
             </div>

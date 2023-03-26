@@ -21,7 +21,6 @@ class CreateChildrenTable extends Migration
             $table->timestamps();
 
             $table->foreign('detail_id')->references('id')->on('steps')->onDelete('cascade');
-
         });
     }
 

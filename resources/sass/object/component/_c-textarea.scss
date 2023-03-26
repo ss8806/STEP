@@ -1,79 +1,16 @@
-.c-textarea
-    {        
-    &__profile{
-    width: 30%;
-    margin-bottom: 10px;
-        @include mq() {
-            width: 60%;
-        }
-    }
-                
-    &__step{
+.c-textarea {
+    &__step {
         width: 100%;
         margin-bottom: 10px;
-    }
-
-    &__day{
-        width: 200px;
-        border-radius: 3px; /*ボックス角の丸み*/
+        height: 200px;
         border: 2px solid #ddd; /*枠線*/
-        box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
-        height: 30px;
-        font-size: 18px;
-        // @include mq() {
-        //     width: 200px;
-        // }
-        @include sm() {
-            width:  45%;
-        }
-    }
 
-    &__name{
-        width: 200px;
-        border-radius: 3px; /*ボックス角の丸み*/
-        border: 2px solid #ddd; /*枠線*/
-        box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
-        height: 30px;
-        font-size: 18px;
-        margin-top: 10px;
-        // @include mq() {
-        //     width: 200px;
-        // }
-        @include sm() {
-            width:  44%;
-        }
     }
-
-    &__email{
-        width: 200px;
-        border-radius: 3px; /*ボックス角の丸み*/
+    &__profile {
+        width: 100%;
+        margin-bottom: 10px;
+        height: 200px;
         border: 2px solid #ddd; /*枠線*/
-        box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
-        height: 30px;
-        font-size: 18px;
-        margin-top: 10px;
-        // @include mq() {
-        //     width: 200px;
-        // }
-        @include sm() {
-            width:  44%;
-        }
-    }
 
-    &__password{
-        width: 200px;
-        border-radius: 3px; /*ボックス角の丸み*/
-        border: 2px solid #ddd; /*枠線*/
-        box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
-        height: 30px;
-        font-size: 18px;
-        margin-top: 10px;
-        // @include mq() {
-        //     width: 200px;
-        // }
-        @include sm() {
-            width:  44%;
-        }
     }
 }
-    

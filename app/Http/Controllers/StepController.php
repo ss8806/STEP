@@ -20,7 +20,6 @@ class StepController extends Controller
     {        
         $query = Step::query();
 
-        $all = Step::all();
         foreach ($query as $step) {
             $step->isChallenged(Auth::user());
         }
@@ -45,13 +44,8 @@ class StepController extends Controller
         // ページャー
         $steps = $query->orderBy('id', 'DESC')->paginate(8);
 
-    
-        // return view('steps')->with(compact(
-        //     'steps'
-        // ));
 
         return view('steps')
-        ->with('all', $all)
         ->with('steps', $steps);
     }
 
@@ -69,9 +63,10 @@ class StepController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-       
+        $oldName = old('name');
+        return view('postStep')->with('oldName', $oldName);
     }
 
     /**
@@ -119,9 +114,12 @@ class StepController extends Controller
      * @param  \App\Step  $step
      * @return \Illuminate\Http\Response
      */
-    public function edit(Step $step)
+    public function edit(Step $step, $id)
     {
-        //
+        $step = Step::find($id);
+        if($step->detail_id == Auth::user()->id){
+            return view('detail')->with('step', $step);
+        }    
     }
 
     /**

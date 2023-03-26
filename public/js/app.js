@@ -759,7 +759,6 @@ var LengthValidation = function LengthValidation(props) {
   var min = props.min;
   var errors = props.errors;
   var show = props.show;
-  console.log(show);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
     children: [show && show && input.length <= 3 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
       className: "c-error",
@@ -980,10 +979,17 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var PostStep = function PostStep() {
   var element = document.getElementById("postStep");
   var errors;
+  var oldname;
   if (element && element.dataset.errors) {
     errors = JSON.parse(element.dataset.errors);
   }
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+  if (element && element.dataset.oldname) {
+    oldname = JSON.parse(element.dataset.oldname);
+    if (!oldname) {
+      oldname = "";
+    }
+  }
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(oldname),
     _useState2 = _slicedToArray(_useState, 2),
     inputName = _useState2[0],
     setInputName = _useState2[1];
@@ -1033,7 +1039,7 @@ var PostStep = function PostStep() {
         required: true,
         onChange: onChangeInputName,
         onClick: onClickInputName,
-        value: inputName
+        defaultValue: inputName
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
         className: "c-count__right",
         children: ["\u6587\u5B57\u6570: ", inputName.length]
@@ -1067,9 +1073,7 @@ var PostStep = function PostStep() {
       className: "p-form__group",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
         type: "submit",
-        className: "c-btn"
-        // onClick={}
-        ,
+        className: "c-btn__edit",
         children: "\u6295\u7A3F\u3059\u308B"
       })
     })]

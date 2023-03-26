@@ -13,8 +13,16 @@
     <div class="p-card p-card__body">
         <form method="POST" action="{{ route('storeStep') }}" class="p-from">
             @csrf
-            <div id="postStep" data-errors="{{ $errors }}" ></div>
+            <div 
+            id="postStep" 
+            data-errors="{{ $errors }}" 
+            data-oldname="{{ json_encode($oldName) }}" 
+            ></div>
         </form>
     </div>
 </div>
+<?php
+var_dump($oldName);
+?>
 @endsection
+

@@ -23,9 +23,13 @@ Auth::routes();
 
 Route::middleware('auth')
     ->group(function () {
-        Route::view('/postStep', 'postStep')->name('postStep');
+        // step
+        Route::get('/postStep', 'StepController@create')->name('postStep');
         Route::post('/storeStep', 'StepController@store')->name('storeStep');
-        Route::view('/postChild', 'postChild')->name('postChild');
+        Route::get('/editStep', 'StepController@update')->name('editStep');
+        Route::post('/updateStep', 'StepController@update')->name('updateStep');
+        // child
+        Route::get('/postChild', 'ChildController@create')->name('postChild');
         Route::post('/storeChild', 'ChildController@store')->name('storeChild');
 
         // profile

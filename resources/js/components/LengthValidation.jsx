@@ -9,7 +9,6 @@ const LengthValidation = (props) => {
     let min = props.min;
     let errors = props.errors;
     let show = props.show;
-    console.log(show);
 
     return (
         <>
