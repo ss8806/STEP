@@ -2,30 +2,20 @@ import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import LengthValidation from "./LengthValidation";
 
-const PostStep = () => {
-    const element = document.getElementById("postStep");
+const EditStep = () => {
+    const element = document.getElementById("editStep");
     var errors;
-    var oldname;
-    var oldcontent;
+    var step;
 
     if (element && element.dataset.errors) {
         errors = JSON.parse(element.dataset.errors);
     }
-    if (element && element.dataset.oldname) {
-        oldname = JSON.parse(element.dataset.oldname);
-        if (!oldname) {
-            oldname = "";
-        }
-    }
-    if (element && element.dataset.oldcontent) {
-        oldcontent = JSON.parse(element.dataset.oldcontent);
-        if (!oldcontent) {
-            oldcontent = "";
-        }
+    if (element && element.dataset.step) {
+        step = JSON.parse(element.dataset.step);
     }
 
-    const [inputName, setInputName] = useState(oldname);
-    const [inputContent, setInputContent] = useState(oldcontent);
+    const [inputName, setInputName] = useState(step.name);
+    const [inputContent, setInputContent] = useState(step.content);
     const [showNameVali, setShowNameVali] = useState(false);
     const [showContentVali, setShowContentVali] = useState(false);
 
@@ -109,8 +99,8 @@ const PostStep = () => {
     );
 };
 
-export default PostStep;
+export default EditStep;
 
-if (document.getElementById("postStep")) {
-    ReactDOM.render(<PostStep />, document.getElementById("postStep"));
+if (document.getElementById("editStep")) {
+    ReactDOM.render(<EditStep />, document.getElementById("editStep"));
 }

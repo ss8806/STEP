@@ -23,7 +23,7 @@ class StepSeeder extends Seeder
             'id' => '2',
             'name' => '英語を学習する',
             'content' => '英語を学習するメリット',
-            'user_id' => '1',
+            'user_id' => '2',
         ]);
     }
 }

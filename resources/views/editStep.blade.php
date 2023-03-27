@@ -7,17 +7,16 @@
 @section('content')
 <div class="p-card p-card--step">
     <div class="p-card p-card__header">
-        <p>アイディアを投稿する</p>
+        <p>アイディアを編集する</p>
     </div>
 
-    <div class="p-card p-card__body">
-        <form method="POST" action="{{ route('storeStep') }}" class="p-from">
+    <div class="p-card p-card__body">  
+        <form method="POST" action="{{ route('updateStep', $step->id) }}" class="p-from">
             @csrf
             <div 
-            id="postStep" 
+            id="editStep" 
             data-errors="{{ $errors }}" 
-            data-oldname="{{ json_encode($oldname) }}" 
-            data-oldcontent="{{ json_encode($oldcontent) }}" 
+            data-step="{{ json_encode($step) }}" 
             ></div>
         </form>
     </div>

@@ -65,8 +65,11 @@ class StepController extends Controller
      */
     public function create(Request $request)
     {
-        $oldName = old('name');
-        return view('postStep')->with('oldName', $oldName);
+        $oldname = old('name');
+        $oldcontent = old('content');
+        return view('postStep')
+        ->with('oldname', $oldname)
+        ->with('oldcontent', $oldcontent);
     }
 
     /**
@@ -117,8 +120,11 @@ class StepController extends Controller
     public function edit(Step $step, $id)
     {
         $step = Step::find($id);
-        if($step->detail_id == Auth::user()->id){
-            return view('detail')->with('step', $step);
+        if($step->user_id === Auth::user()->id){
+            // dd(Auth::user()->id);
+            return view('editStep')->with('step', $step);
+        } else {
+            return redirect()->route('steps');
         }    
     }
 
@@ -129,9 +135,13 @@ class StepController extends Controller
      * @param  \App\Step  $step
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Step $step)
+    public function update(Request $request, Step $step, $id)
     {
-        //
+        $step = Step::find($id);
+        $step->name = $request->input('name');
+        $step->content = $request->input('content');
+        $step->update();
+        return redirect()->route('steps')->with('scc_message', '編集しました');
     }
 
     /**
