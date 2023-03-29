@@ -472,6 +472,10 @@ a:visited {
   }
 }
 
+.p-content {
+  margin-left: 10px;
+}
+
 .p-form__group {
   margin: 20px;
 }
@@ -520,9 +524,10 @@ a:visited {
 }
 
 .p-search {
+  margin-left: 5px;
   margin-bottom: 10px;
   display: table;
-  margin: 0px auto;
+  margin-left: 10px;
 }
 @media screen and (max-width: 414px) {
   .p-search {

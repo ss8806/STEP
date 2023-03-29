@@ -28,20 +28,18 @@ const Child = () => {
     }
 
     return (
-        <>
-            <div>
-                <div>{child.name}</div>
-                <div>{child.content}</div>
-                <div> {moment(child.updated_at).format("YYYY年MM月DD日")}</div>
-                {auth && (
-                    <CheckButton
-                        is_checked={is_checked}
-                        endpoint={"/child/" + child.id + "/check"}
-                        show={show}
-                    ></CheckButton>
-                )}
-            </div>
-        </>
+        <div className="p-content">
+            <div>{child.name}</div>
+            <div>{child.content}</div>
+            <div> {moment(child.updated_at).format("YYYY年MM月DD日")}</div>
+            {auth && (
+                <CheckButton
+                    is_checked={is_checked}
+                    endpoint={"/child/" + child.id + "/check"}
+                    show={show}
+                ></CheckButton>
+            )}
+        </div>
     );
 };
 

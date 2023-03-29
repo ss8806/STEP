@@ -1,7 +1,8 @@
 .p-search{
+    margin-left: 5px;
     margin-bottom: 10px;
     display: table;
-    margin: 0px auto;
+    margin-left: 10px;
         @include sm() {
             float: left;
             margin-left: 5px;
