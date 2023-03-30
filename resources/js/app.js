@@ -24,3 +24,4 @@ require("./components/Detail");
 require("./components/Child");
 require("./components/PostStep");
 require("./components/EditStep");
+require("./components/Challenges");

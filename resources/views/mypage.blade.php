@@ -11,7 +11,9 @@
 </div>
 <button class="c-btn c-btn__mypage" type=“button” onclick="location.href='profile'">プロフィール編集</button>
 
-<section class="p-list">
+<div id="challenges" data-challenges='{{ json_encode($challenges) }}'></div>
+
+<!-- <section class="p-list">
     <div class="p-card">
         <p class="c-title c-title__mypage"> チャレンジリスト</p>
         <a class="c-link__show--all" >全件表示する</a>
@@ -34,5 +36,5 @@
                 @endforeach
             </div>
         </div>
-</section>
+</section> -->
 @endsection

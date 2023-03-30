@@ -3,11 +3,8 @@ import ReactDOM from "react-dom";
 
 const ChallengeButton = (props) => {
     let is_challenged = props.is_challenged;
-    // console.log(is_challenged);
     let endpoint = props.endpoint;
-    // console.log(endpoint);
     let show = props.show;
-    // console.log(show);
     let setShow = props.setShow;
 
     let [challenged, setChallenged] = useState(is_challenged);

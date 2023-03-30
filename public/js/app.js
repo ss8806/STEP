@@ -33,6 +33,7 @@ __webpack_require__(/*! ./components/Detail */ "./resources/js/components/Detail
 __webpack_require__(/*! ./components/Child */ "./resources/js/components/Child.jsx");
 __webpack_require__(/*! ./components/PostStep */ "./resources/js/components/PostStep.jsx");
 __webpack_require__(/*! ./components/EditStep */ "./resources/js/components/EditStep.jsx");
+__webpack_require__(/*! ./components/Challenges */ "./resources/js/components/Challenges.jsx");
 
 /***/ }),
 
@@ -114,11 +115,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var ChallengeButton = function ChallengeButton(props) {
   var is_challenged = props.is_challenged;
-  // console.log(is_challenged);
   var endpoint = props.endpoint;
-  // console.log(endpoint);
   var show = props.show;
-  // console.log(show);
   var setShow = props.setShow;
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(is_challenged),
     _useState2 = _slicedToArray(_useState, 2),
@@ -195,6 +193,89 @@ var ChallengeButton = function ChallengeButton(props) {
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ChallengeButton);
+
+/***/ }),
+
+/***/ "./resources/js/components/Challenges.jsx":
+/*!************************************************!*\
+  !*** ./resources/js/components/Challenges.jsx ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _CheckButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./CheckButton */ "./resources/js/components/CheckButton.jsx");
+/* harmony import */ var _ChallengeButton__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ChallengeButton */ "./resources/js/components/ChallengeButton.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0) { ; } } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+var Challenges = function Challenges() {
+  var element = document.getElementById("challenges");
+  var challenges;
+  if (element && element.dataset.challenges) {
+    challenges = JSON.parse(element.dataset.challenges);
+  }
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
+    _useState2 = _slicedToArray(_useState, 2),
+    show = _useState2[0],
+    setShow = _useState2[1];
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+    className: "p-card",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+      className: "c-flexbox--index",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+        className: "c-flexbox__flexcontainer c-flexbox__flexcontainer--index",
+        children: challenges.map(function (challenge, i) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("ul", {
+            className: "c-flexbox__flexitem c-flexbox__flexitem--index",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
+              className: "p-card p-card__header--index u-overflow",
+              children: challenge.name
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("li", {
+              className: "p-card__body",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+                children: "\u6295\u7A3F\u65E5"
+              }), moment__WEBPACK_IMPORTED_MODULE_2___default()(challenge.updated_at).format("YYYY年MM月DD日")]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_ChallengeButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
+              is_challenged: true,
+              endpoint: "/step/" + challenge.id + "/challenge",
+              show: show,
+              setShow: setShow
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+              className: "c-link--detail",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
+                href: "/step/" + challenge.id + "/show",
+                children: "\u8A73\u7D30\u3092\u307F\u308B"
+              })
+            })]
+          }, i);
+        })
+      })
+    })
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Challenges);
+if (document.getElementById("challenges")) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(Challenges, {}), document.getElementById("challenges"));
+}
 
 /***/ }),
 
