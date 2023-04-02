@@ -10,6 +10,7 @@ const Detail = () => {
     var step;
     var children;
     var is_challenged;
+    var is_checked;
     var auth;
 
     if (element && element.dataset.step) {
@@ -18,10 +19,16 @@ const Detail = () => {
 
     if (element && element.dataset.children) {
         children = JSON.parse(element.dataset.children);
+        console.log(children);
     }
 
     if (element && element.dataset.is_challenged) {
         is_challenged = JSON.parse(element.dataset.is_challenged);
+    }
+
+    if (element && element.dataset.is_checked) {
+        is_checked = JSON.parse(element.dataset.is_checked);
+        console.log(is_checked);
     }
 
     if (element && element.dataset.auth) {
@@ -75,7 +82,7 @@ const Detail = () => {
                                     </div>
                                     {auth && (
                                         <CheckButton
-                                            is_checked={child.checks[0]}
+                                            is_checked={is_checked[i]}
                                             endpoint={
                                                 "/child/" + child.id + "/check"
                                             }

@@ -482,15 +482,21 @@ var Detail = function Detail() {
   var step;
   var children;
   var is_challenged;
+  var is_checked;
   var auth;
   if (element && element.dataset.step) {
     step = JSON.parse(element.dataset.step);
   }
   if (element && element.dataset.children) {
     children = JSON.parse(element.dataset.children);
+    console.log(children);
   }
   if (element && element.dataset.is_challenged) {
     is_challenged = JSON.parse(element.dataset.is_challenged);
+  }
+  if (element && element.dataset.is_checked) {
+    is_checked = JSON.parse(element.dataset.is_checked);
+    console.log(is_checked);
   }
   if (element && element.dataset.auth) {
     auth = JSON.parse(element.dataset.auth);
@@ -540,7 +546,7 @@ var Detail = function Detail() {
                   children: "\u8A73\u7D30\u3092\u307F\u308B"
                 })
               }), auth && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_CheckButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
-                is_checked: child.checks[0],
+                is_checked: is_checked[i],
                 endpoint: "/child/" + child.id + "/check",
                 show: show
               })]

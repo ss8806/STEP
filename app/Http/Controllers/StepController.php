@@ -97,18 +97,23 @@ class StepController extends Controller
     public function show(Request $request, $id)
     {
         $step = Step::find($id);
+        // dd($step);
+        $is_challenged = $step->isChallenged(Auth::user());
         $children = Child::where('detail_id', $id)->paginate(8);
+        $is_checked = null;
         if(Auth::user()){
             foreach ($children as $child) {
-                $child->ischeckedBy(Auth::user());
+               $is_checked[] = $child->isChecked(Auth::user());
             }
         }
-        $is_challenged = $step->isChallenged(Auth::user());
+        // dd($is_checked);
+
 
         return view('detail')
             ->with('step', $step)
+            ->with('is_challenged', $is_challenged)
             ->with('children', $children)
-            ->with('is_challenged', $is_challenged);
+            ->with('is_checked', $is_checked);
     }
 
     /**

@@ -56,7 +56,7 @@ class ChildController extends Controller
     public function show(Request $request, $id)
     {
         $child = Child::find($id);
-        $is_checked = $child->isCheckedBy(Auth::user());
+        $is_checked = $child->isChecked(Auth::user());
         $show = 0;
 
         if(Auth::user()){

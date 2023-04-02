@@ -6,6 +6,8 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Relations\hasManyThrough;
+use Illuminate\Support\Facades\Auth;
+
 
 class User extends Authenticatable
 {
@@ -42,13 +44,13 @@ class User extends Authenticatable
     //  Has Many Through （〜経由で多数へ紐づく）
     // hasManyThroughメソッドの第1引数は最終的にアクセスしたいモデル名で、第２引数は仲介するモデル名
     {
-        return $this->hasManyThrough('App\Step', //つなげる先のテーブルクラス
-                                    'App\Challenge', //中間テーブルクラス
-                                    'user_id', //仲介するモデルの外部キー名
-                                    'id', // 最終的に取得したいモデルのローカルキー名
-                                    null, // 
-                                    'step_id' // usersテーブルのローカルキー
-                                    );
-                                    // ->whereNull('users.deleted_at');
+        return $this->hasManyThrough(
+            'App\Step', //つなげる先のテーブルクラス
+            'App\Challenge', //中間テーブルクラス
+            'user_id', //仲介するモデルの外部キー名
+            'id', // 最終的に取得したいモデルのローカルキー名
+            'id', // 元テーブルのローカルキー
+            'step_id' // usersテーブルのローカルキー
+        );
     }
 }
