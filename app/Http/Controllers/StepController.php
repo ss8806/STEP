@@ -106,9 +106,6 @@ class StepController extends Controller
                $is_checked[] = $child->isChecked(Auth::user());
             }
         }
-        // dd($is_checked);
-
-
         return view('detail')
             ->with('step', $step)
             ->with('is_challenged', $is_challenged)

@@ -1,7 +1,6 @@
 import React, { useState, useEffect, Suspense } from "react";
 import ReactDOM from "react-dom";
 import moment from "moment";
-import CheckButton from "./CheckButton";
 import ChallengeButton from "./ChallengeButton";
 
 const Challenges = () => {
@@ -11,6 +10,7 @@ const Challenges = () => {
 
     if (element && element.dataset.challenges) {
         challenges = JSON.parse(element.dataset.challenges);
+        console.log(challenges);
     }
 
     let [show, setShow] = useState(true);
@@ -25,7 +25,7 @@ const Challenges = () => {
                             className="c-flexbox__flexitem c-flexbox__flexitem--index"
                         >
                             <li className="p-card p-card__header--index u-overflow">
-                                {challenge.name}
+                                {challenge.step_name}
                             </li>
                             <li className="p-card__body">
                                 <p>投稿日</p>
@@ -33,16 +33,27 @@ const Challenges = () => {
                                     "YYYY年MM月DD日"
                                 )}
                             </li>
+                            <li className="p-card_count">
+                                達成率{challenge.count}
+                            </li>
                             <ChallengeButton
                                 is_challenged={true}
                                 endpoint={
-                                    "/step/" + challenge.id + "/challenge"
+                                    "/step/" +
+                                    challenge.challenge_id +
+                                    "/challenge"
                                 }
                                 show={show}
                                 setShow={setShow}
                             ></ChallengeButton>
                             <div className="c-link--detail">
-                                <a href={"/step/" + challenge.id + "/show"}>
+                                <a
+                                    href={
+                                        "/step/" +
+                                        challenge.challenge_id +
+                                        "/show"
+                                    }
+                                >
                                     詳細をみる
                                 </a>
                             </div>
