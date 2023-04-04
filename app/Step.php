@@ -24,4 +24,8 @@ class Step extends Model
              // このアイデアをいいねしたユーザーの中に、引数として渡された$userがいなければ、0が返る
              : false;
      }
+
+     public function children(){
+        return $this->hasMany("App\Child", 'detail_id','id');
+    }
 }

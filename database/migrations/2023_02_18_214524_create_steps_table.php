@@ -17,6 +17,7 @@ class CreateStepsTable extends Migration
             $table->id();
             $table->string('name');
             $table->text('content');
+            $table->integer('count_child')->default(0);
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
 

@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/', 'top')->name('top');
-Route::get('/steps', 'StepController@index')->name('steps');
+Route::get('steps', 'StepController@index')->name('steps');
 Route::get('step/{id}/show', 'StepController@show')->name('showDetail');
 Route::get('child/{id}/show', 'ChildController@show')->name('showChild');
 
@@ -24,10 +24,10 @@ Auth::routes();
 Route::middleware('auth')
     ->group(function () {
         // step
-        Route::get('/postStep', 'StepController@create')->name('postStep');
-        Route::post('/storeStep', 'StepController@store')->name('storeStep');
-        Route::get('/editStep/{id}', 'StepController@edit')->name('editStep');
-        Route::post('/updateStep/{id}', 'StepController@update')->name('updateStep');
+        Route::get('postStep', 'StepController@create')->name('postStep');
+        Route::post('storeStep', 'StepController@store')->name('storeStep');
+        Route::get('step/{id}/edit', 'StepController@edit')->name('editStep');
+        Route::post('step/{id}/update', 'StepController@update')->name('updateStep');
         // child
         Route::get('/postChild', 'ChildController@create')->name('postChild');
         Route::post('/storeChild', 'ChildController@store')->name('storeChild');

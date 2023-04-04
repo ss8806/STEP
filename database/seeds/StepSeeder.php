@@ -17,12 +17,14 @@ class StepSeeder extends Seeder
             'id' => '1',
             'name' => 'プログラミングを学習する',
             'content' => 'プログラミングを学習するメリット',
+            'count_child' => '2',
             'user_id' => '1',
         ]);
         factory(Step::class)->create([
             'id' => '2',
             'name' => '英語を学習する',
             'content' => '英語を学習するメリット',
+            'count_child' => '1',
             'user_id' => '2',
         ]);
     }

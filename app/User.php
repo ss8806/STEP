@@ -53,4 +53,11 @@ class User extends Authenticatable
             'step_id' // usersテーブルのローカルキー
         );
     }
+
+    public function postSteps()
+    {
+    //第二引数には多側のキー(外部キー)であるuser_idを指定,これによりpostArticlesメソッドで投稿したArticleを取得できる。
+        return $this->hasMany(Step::class, 'user_id');
+    }
+
 }

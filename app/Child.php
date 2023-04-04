@@ -25,4 +25,9 @@ class Child extends Model
             // このアイデアをいいねしたユーザーの中に、引数として渡された$userがいなければ、0が返る
             : false;
     }
+
+    public function step()
+    {
+        return $this->belongsTo('App\Step');
+    }
 }
