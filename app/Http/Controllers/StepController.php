@@ -104,6 +104,8 @@ class StepController extends Controller
             foreach ($children as $child) {
                $is_checked[] = $child->isChecked(Auth::user());
             }
+        } else{
+            $is_checked[] = false;
         }
         return view('detail')
             ->with('step', $step)
