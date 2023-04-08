@@ -26,8 +26,8 @@ class Child extends Model
             : false;
     }
 
-    public function step()
+    public function Step()
     {
-        return $this->belongsTo('App\Step');
+        return $this->belongsTo('App\Step',  'detail_id' ,'id');
     }
 }

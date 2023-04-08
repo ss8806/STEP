@@ -12,6 +12,7 @@ const Detail = () => {
     var is_challenged;
     var is_checked;
     var auth;
+    var edit;
 
     if (element && element.dataset.step) {
         step = JSON.parse(element.dataset.step);
@@ -37,19 +38,28 @@ const Detail = () => {
 
     let [show, setShow] = useState(is_challenged);
 
+    if (step.user_id === auth.id) {
+        edit = true;
+    }
+
     return (
         <>
             <div className="p-content">
                 <div>{step.name}</div>
                 <div>{step.content}</div>
                 <div> {moment(step.updated_at).format("YYYY年MM月DD日")}</div>
-                {auth && (
+                {(auth && edit) || (
                     <ChallengeButton
                         is_challenged={is_challenged}
                         endpoint={"/step/" + step.id + "/challenge"}
                         show={show}
                         setShow={setShow}
                     ></ChallengeButton>
+                )}
+                {edit && (
+                    <div className="c-link--detail">
+                        <a href={"/step/" + step.id + "/edit"}>編集する</a>
+                    </div>
                 )}
             </div>
             {children.data ? (
@@ -80,7 +90,7 @@ const Detail = () => {
                                             詳細をみる
                                         </a>
                                     </div>
-                                    {auth && (
+                                    {(auth && edit) || (
                                         <CheckButton
                                             is_checked={is_checked[i]}
                                             endpoint={

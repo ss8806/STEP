@@ -63,6 +63,9 @@ class ChildController extends Controller
         $show = Challenge::where('step_id', $child->detail_id)
             ->where('user_id', Auth::user()->id)->first();
         }
+        // modelに設定したbelongsto
+        $child = $child->Step()->get();
+
         return view('child')
             ->with('child', $child)
             ->with('is_checked', $is_checked)

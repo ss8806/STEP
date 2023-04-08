@@ -261,7 +261,7 @@ var Challenges = function Challenges() {
                 }), moment__WEBPACK_IMPORTED_MODULE_2___default()(challenge.updated_at).format("YYYY年MM月DD日")]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
                 className: "p-card_count",
-                children: ["\u9054\u6210\u7387", challenge.count / challenge.count_child * 100, "%"]
+                children: ["\u9032\u6357", challenge.count && challenge.count / challenge.count_child * 100, "%"]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_ChallengeButton__WEBPACK_IMPORTED_MODULE_3__["default"], {
                 is_challenged: true,
                 endpoint: "/step/" + challenge.challenge_id + "/challenge",
@@ -420,8 +420,10 @@ var Child = function Child() {
   var is_checked;
   var show;
   var auth;
+  var edit;
   if (element && element.dataset.child) {
     child = JSON.parse(element.dataset.child);
+    console.log(child);
   }
   if (element && element.dataset.is_checked) {
     is_checked = JSON.parse(element.dataset.is_checked);
@@ -432,18 +434,27 @@ var Child = function Child() {
   if (element && element.dataset.auth) {
     auth = JSON.parse(element.dataset.auth);
   }
+  if (child[0].user_id === auth.id) {
+    edit = true;
+  }
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
     className: "p-content",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-      children: child.name
+      children: child[0].name
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-      children: child.content
+      children: child[0].content
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-      children: [" ", moment__WEBPACK_IMPORTED_MODULE_2___default()(child.updated_at).format("YYYY年MM月DD日")]
+      children: [" ", moment__WEBPACK_IMPORTED_MODULE_2___default()(child[0].updated_at).format("YYYY年MM月DD日")]
     }), auth && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_CheckButton__WEBPACK_IMPORTED_MODULE_3__["default"], {
       is_checked: is_checked,
-      endpoint: "/child/" + child.id + "/check",
+      endpoint: "/child/" + child[0].id + "/check",
       show: show
+    }), edit && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: "c-link--detail",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
+        href: "/child/" + child[0].id + "/edit",
+        children: "\u7DE8\u96C6\u3059\u308B"
+      })
     })]
   });
 };
@@ -493,6 +504,7 @@ var Detail = function Detail() {
   var is_challenged;
   var is_checked;
   var auth;
+  var edit;
   if (element && element.dataset.step) {
     step = JSON.parse(element.dataset.step);
   }
@@ -514,6 +526,9 @@ var Detail = function Detail() {
     _useState2 = _slicedToArray(_useState, 2),
     show = _useState2[0],
     setShow = _useState2[1];
+  if (step.user_id === auth.id) {
+    edit = true;
+  }
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "p-content",
@@ -523,11 +538,17 @@ var Detail = function Detail() {
         children: step.content
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
         children: [" ", moment__WEBPACK_IMPORTED_MODULE_2___default()(step.updated_at).format("YYYY年MM月DD日")]
-      }), auth && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_ChallengeButton__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      }), auth && edit || /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_ChallengeButton__WEBPACK_IMPORTED_MODULE_3__["default"], {
         is_challenged: is_challenged,
         endpoint: "/step/" + step.id + "/challenge",
         show: show,
         setShow: setShow
+      }), edit && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+        className: "c-link--detail",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
+          href: "/step/" + step.id + "/edit",
+          children: "\u7DE8\u96C6\u3059\u308B"
+        })
       })]
     }), children.data ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
       className: "p-card",
@@ -554,7 +575,7 @@ var Detail = function Detail() {
                   href: "/child/" + child.id + "/show",
                   children: "\u8A73\u7D30\u3092\u307F\u308B"
                 })
-              }), auth && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_CheckButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
+              }), auth && edit || /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_CheckButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
                 is_checked: is_checked[i],
                 endpoint: "/child/" + child.id + "/check",
                 show: show
@@ -1376,7 +1397,7 @@ var Posts = function Posts() {
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
                 className: "c-link--detail",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
-                  href: "step/" + challenge.id + "/edit",
+                  href: "step/" + challenge.id + "/show",
                   children: "\u7DE8\u96C6\u3059\u308B"
                 })
               })]

@@ -37,9 +37,11 @@ const Challenges = () => {
                                     )}
                                 </li>
                                 <li className="p-card_count">
-                                    達成率
-                                    {(challenge.count / challenge.count_child) *
-                                        100}
+                                    進捗
+                                    {challenge.count &&
+                                        (challenge.count /
+                                            challenge.count_child) *
+                                            100}
                                     %
                                 </li>
                                 <ChallengeButton

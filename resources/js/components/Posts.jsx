@@ -34,7 +34,7 @@ const Posts = () => {
                                 </li>
 
                                 <div className="c-link--detail">
-                                    <a href={"step/" + challenge.id + "/edit"}>
+                                    <a href={"step/" + challenge.id + "/show"}>
                                         編集する
                                     </a>
                                 </div>
