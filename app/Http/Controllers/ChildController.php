@@ -44,7 +44,6 @@ class ChildController extends Controller
         $child->user_id = Auth::user()->id;
         $child->save();
         return redirect()->route('steps')->with('scc_message', '投稿しました');
-
     }
 
     /**
@@ -64,12 +63,14 @@ class ChildController extends Controller
             ->where('user_id', Auth::user()->id)->first();
         }
         // modelに設定したbelongsto
-        $child = $child->Step()->get();
+        $step = $child->BelongsToStep()->get();
 
         return view('child')
             ->with('child', $child)
             ->with('is_checked', $is_checked)
-            ->with('show', $show);;
+            ->with('show', $show)
+            ->with('step', $step );;
+            ;
     }
 
     /**

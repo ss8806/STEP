@@ -8,7 +8,6 @@ const Step = () => {
 
     if (element && element.dataset.steps) {
         stepList = JSON.parse(element.dataset.steps);
-        console.log(stepList);
     }
 
     const [steps, setSteps] = useState([]);
@@ -19,7 +18,6 @@ const Step = () => {
 
     if (steps.data !== undefined) {
         var sdata = steps.data;
-        // console.log(sdata);
     }
 
     return (

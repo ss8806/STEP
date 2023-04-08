@@ -20,7 +20,6 @@ const Detail = () => {
 
     if (element && element.dataset.children) {
         children = JSON.parse(element.dataset.children);
-        console.log(children);
     }
 
     if (element && element.dataset.is_challenged) {
@@ -29,18 +28,19 @@ const Detail = () => {
 
     if (element && element.dataset.is_checked) {
         is_checked = JSON.parse(element.dataset.is_checked);
-        console.log(is_checked);
+        console.log(is_checked[0]);
     }
 
     if (element && element.dataset.auth) {
         auth = JSON.parse(element.dataset.auth);
+        if (auth) {
+            if (step.user_id === auth.id) {
+                edit = true;
+            }
+        }
     }
 
     let [show, setShow] = useState(is_challenged);
-
-    if (step.user_id === auth.id) {
-        edit = true;
-    }
 
     return (
         <>
@@ -97,6 +97,7 @@ const Detail = () => {
                                                 "/child/" + child.id + "/check"
                                             }
                                             show={show}
+                                            edit={edit}
                                         ></CheckButton>
                                     )}
                                 </ul>

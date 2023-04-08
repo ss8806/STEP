@@ -232,7 +232,6 @@ var Challenges = function Challenges() {
   var challenges;
   if (element && element.dataset.challenges) {
     challenges = JSON.parse(element.dataset.challenges);
-    console.log(challenges);
   }
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
     _useState2 = _slicedToArray(_useState, 2),
@@ -317,9 +316,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var CheckButton = function CheckButton(props) {
   var is_checked = props.is_checked;
-  // console.log(is_checked);
   var endpoint = props.endpoint;
-  // console.log(endpoint);
   var show = props.show;
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(is_checked),
     _useState2 = _slicedToArray(_useState, 2),
@@ -421,9 +418,9 @@ var Child = function Child() {
   var show;
   var auth;
   var edit;
+  var step;
   if (element && element.dataset.child) {
     child = JSON.parse(element.dataset.child);
-    console.log(child);
   }
   if (element && element.dataset.is_checked) {
     is_checked = JSON.parse(element.dataset.is_checked);
@@ -431,28 +428,33 @@ var Child = function Child() {
   if (element && element.dataset.show) {
     show = JSON.parse(element.dataset.show);
   }
+  if (element && element.dataset.step) {
+    step = JSON.parse(element.dataset.step);
+  }
   if (element && element.dataset.auth) {
     auth = JSON.parse(element.dataset.auth);
-  }
-  if (child[0].user_id === auth.id) {
-    edit = true;
+    if (auth) {
+      if (step[0].user_id === auth.id) {
+        edit = true;
+      }
+    }
   }
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
     className: "p-content",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-      children: child[0].name
+      children: child.name
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-      children: child[0].content
+      children: child.content
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-      children: [" ", moment__WEBPACK_IMPORTED_MODULE_2___default()(child[0].updated_at).format("YYYY年MM月DD日")]
+      children: [" ", moment__WEBPACK_IMPORTED_MODULE_2___default()(child.updated_at).format("YYYY年MM月DD日")]
     }), auth && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_CheckButton__WEBPACK_IMPORTED_MODULE_3__["default"], {
       is_checked: is_checked,
-      endpoint: "/child/" + child[0].id + "/check",
+      endpoint: "/child/" + child.id + "/check",
       show: show
     }), edit && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
       className: "c-link--detail",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
-        href: "/child/" + child[0].id + "/edit",
+        href: "/child/" + child.id + "/edit",
         children: "\u7DE8\u96C6\u3059\u308B"
       })
     })]
@@ -510,25 +512,26 @@ var Detail = function Detail() {
   }
   if (element && element.dataset.children) {
     children = JSON.parse(element.dataset.children);
-    console.log(children);
   }
   if (element && element.dataset.is_challenged) {
     is_challenged = JSON.parse(element.dataset.is_challenged);
   }
   if (element && element.dataset.is_checked) {
     is_checked = JSON.parse(element.dataset.is_checked);
-    console.log(is_checked);
+    console.log(is_checked[0]);
   }
   if (element && element.dataset.auth) {
     auth = JSON.parse(element.dataset.auth);
+    if (auth) {
+      if (step.user_id === auth.id) {
+        edit = true;
+      }
+    }
   }
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(is_challenged),
     _useState2 = _slicedToArray(_useState, 2),
     show = _useState2[0],
     setShow = _useState2[1];
-  if (step.user_id === auth.id) {
-    edit = true;
-  }
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "p-content",
@@ -578,7 +581,8 @@ var Detail = function Detail() {
               }), auth && edit || /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_CheckButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
                 is_checked: is_checked[i],
                 endpoint: "/child/" + child.id + "/check",
-                show: show
+                show: show,
+                edit: edit
               })]
             }, i);
           })
@@ -1508,7 +1512,6 @@ var Step = function Step() {
   var stepList = [];
   if (element && element.dataset.steps) {
     stepList = JSON.parse(element.dataset.steps);
-    console.log(stepList);
   }
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState2 = _slicedToArray(_useState, 2),
@@ -1519,9 +1522,7 @@ var Step = function Step() {
   }, []);
   if (steps.data !== undefined) {
     var sdata = steps.data;
-    // console.log(sdata);
   }
-
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
     className: "App",
     children: sdata ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {

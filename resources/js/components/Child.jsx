@@ -11,10 +11,10 @@ const Child = () => {
     var show;
     var auth;
     var edit;
+    var step;
 
     if (element && element.dataset.child) {
         child = JSON.parse(element.dataset.child);
-        console.log(child);
     }
 
     if (element && element.dataset.is_checked) {
@@ -25,29 +25,34 @@ const Child = () => {
         show = JSON.parse(element.dataset.show);
     }
 
-    if (element && element.dataset.auth) {
-        auth = JSON.parse(element.dataset.auth);
+    if (element && element.dataset.step) {
+        step = JSON.parse(element.dataset.step);
     }
 
-    if (child[0].user_id === auth.id) {
-        edit = true;
+    if (element && element.dataset.auth) {
+        auth = JSON.parse(element.dataset.auth);
+        if (auth) {
+            if (step[0].user_id === auth.id) {
+                edit = true;
+            }
+        }
     }
 
     return (
         <div className="p-content">
-            <div>{child[0].name}</div>
-            <div>{child[0].content}</div>
-            <div> {moment(child[0].updated_at).format("YYYY年MM月DD日")}</div>
+            <div>{child.name}</div>
+            <div>{child.content}</div>
+            <div> {moment(child.updated_at).format("YYYY年MM月DD日")}</div>
             {auth && (
                 <CheckButton
                     is_checked={is_checked}
-                    endpoint={"/child/" + child[0].id + "/check"}
+                    endpoint={"/child/" + child.id + "/check"}
                     show={show}
                 ></CheckButton>
             )}
             {edit && (
                 <div className="c-link--detail">
-                    <a href={"/child/" + child[0].id + "/edit"}>編集する</a>
+                    <a href={"/child/" + child.id + "/edit"}>編集する</a>
                 </div>
             )}
         </div>

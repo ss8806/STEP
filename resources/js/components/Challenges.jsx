@@ -10,7 +10,6 @@ const Challenges = () => {
 
     if (element && element.dataset.challenges) {
         challenges = JSON.parse(element.dataset.challenges);
-        console.log(challenges);
     }
 
     let [show, setShow] = useState(true);

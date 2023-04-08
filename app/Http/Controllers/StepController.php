@@ -24,7 +24,6 @@ class StepController extends Controller
             $step->isChallenged(Auth::user());
         }
 
-
         // 投稿日 以上で絞り込み
         if ($request->filled('aboveday')) {
             $updateDay = $this->escape($request->input('aboveday'));
