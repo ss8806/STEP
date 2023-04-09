@@ -28,7 +28,6 @@ const Detail = () => {
 
     if (element && element.dataset.is_checked) {
         is_checked = JSON.parse(element.dataset.is_checked);
-        console.log(is_checked[0]);
     }
 
     if (element && element.dataset.auth) {
@@ -48,14 +47,15 @@ const Detail = () => {
                 <div>{step.name}</div>
                 <div>{step.content}</div>
                 <div> {moment(step.updated_at).format("YYYY年MM月DD日")}</div>
-                {(auth && edit) || (
-                    <ChallengeButton
-                        is_challenged={is_challenged}
-                        endpoint={"/step/" + step.id + "/challenge"}
-                        show={show}
-                        setShow={setShow}
-                    ></ChallengeButton>
-                )}
+                {edit ||
+                    (auth && (
+                        <ChallengeButton
+                            is_challenged={is_challenged}
+                            endpoint={"/step/" + step.id + "/challenge"}
+                            show={show}
+                            setShow={setShow}
+                        ></ChallengeButton>
+                    ))}
                 {edit && (
                     <div className="c-link--detail">
                         <a href={"/step/" + step.id + "/edit"}>編集する</a>
@@ -90,7 +90,7 @@ const Detail = () => {
                                             詳細をみる
                                         </a>
                                     </div>
-                                    {(auth && edit) || (
+                                    {auth && (
                                         <CheckButton
                                             is_checked={is_checked[i]}
                                             endpoint={
@@ -104,6 +104,13 @@ const Detail = () => {
                             ))}
                         </div>
                     </div>
+                    {edit && (
+                        <div className="c-link__detail">
+                            <a href={"/postChild/" + step.id}>
+                                子ステップ追加する
+                            </a>
+                        </div>
+                    )}
                 </div>
             ) : (
                 <>データを取得できませんでした。</>

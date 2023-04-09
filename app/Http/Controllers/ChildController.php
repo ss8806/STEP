@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Child;
+use App\Step;
 use App\Challenge;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\StepRequest;
 
 
 class ChildController extends Controller
@@ -25,9 +27,19 @@ class ChildController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+        $step = Step::find($id);
+        if ($step->user_id === Auth::user()->id) {
+            $oldname = old('name');
+            $oldcontent = old('content');
+            return view('postChild')
+                ->with('step', $step)
+                ->with('oldname', $oldname)
+                ->with('oldcontent', $oldcontent);
+        } else {
+            return redirect()->route('steps');
+        }
     }
 
     /**
@@ -36,14 +48,15 @@ class ChildController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
+        $step = Step::find($id);
         $child = new Child();
         $child->name = $request->input('name');
         $child->content = $request->input('content');
-        $child->user_id = Auth::user()->id;
+        $child->detail_id = $step->id;
         $child->save();
-        return redirect()->route('steps')->with('scc_message', '投稿しました');
+        return redirect()->route('showDetail', $step->id)->with('scc_message', '投稿しました');
     }
 
     /**
@@ -58,9 +71,9 @@ class ChildController extends Controller
         $is_checked = $child->isChecked(Auth::user());
         $show = 0;
 
-        if(Auth::user()){
-        $show = Challenge::where('step_id', $child->detail_id)
-            ->where('user_id', Auth::user()->id)->first();
+        if (Auth::user()) {
+            $show = Challenge::where('step_id', $child->detail_id)
+                ->where('user_id', Auth::user()->id)->first();
         }
         // modelに設定したbelongsto
         $step = $child->BelongsToStep()->get();
@@ -69,8 +82,7 @@ class ChildController extends Controller
             ->with('child', $child)
             ->with('is_checked', $is_checked)
             ->with('show', $show)
-            ->with('step', $step );;
-            ;
+            ->with('step', $step);
     }
 
     /**
@@ -79,9 +91,15 @@ class ChildController extends Controller
      * @param  \App\Child  $child
      * @return \Illuminate\Http\Response
      */
-    public function edit(Child $child)
+    public function edit(Child $child, $id)
     {
-        //
+        $child = Child::find($id);
+        $step = $child->BelongsToStep()->get();
+        if($step[0]->user_id === Auth::user()->id){
+            return view('editChild')->with('child', $child)->with('step', $step);
+        } else {
+            return redirect()->route('steps');
+        }    
     }
 
     /**
@@ -91,9 +109,14 @@ class ChildController extends Controller
      * @param  \App\Child  $child
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Child $child)
+    public function update(Request $request, Child $child, $id)
     {
-        //
+        $child = Child::find($id);
+        $step = $child->BelongsToStep()->get();
+        $child->name = $request->input('name');
+        $child->content = $request->input('content');
+        $child->update();
+        return redirect()->route('showDetail', $step[0]->id)->with('scc_message', '投稿しました');
     }
 
     /**

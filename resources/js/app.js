@@ -23,6 +23,8 @@ require("./components/Search");
 require("./components/Detail");
 require("./components/Child");
 require("./components/PostStep");
+require("./components/PostChild");
 require("./components/EditStep");
+require("./components/EditChild");
 require("./components/Challenges");
 require("./components/Posts");

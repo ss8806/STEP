@@ -99,8 +99,7 @@ class StepController extends Controller
         // dd($step);
         $is_challenged = $step->isChallenged(Auth::user());
         $children = Child::where('detail_id', $id)->paginate(8);
-        $is_checked = null;
-        if(Auth::user()){
+        if(isset($is_checked) === null){
             foreach ($children as $child) {
                $is_checked[] = $child->isChecked(Auth::user());
             }
@@ -138,9 +137,8 @@ class StepController extends Controller
      * @param  \App\Step  $step
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Step $step, $id)
+    public function update(Request $request, Step $step)
     {
-        $step = Step::find($id);
         $step->name = $request->input('name');
         $step->content = $request->input('content');
         $step->update();

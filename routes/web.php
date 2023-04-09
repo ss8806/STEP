@@ -29,16 +29,17 @@ Route::middleware('auth')
         Route::get('step/{id}/edit', 'StepController@edit')->name('editStep');
         Route::post('step/{id}/update', 'StepController@update')->name('updateStep');
         // child
-        Route::get('/postChild', 'ChildController@create')->name('postChild');
-        Route::post('/storeChild', 'ChildController@store')->name('storeChild');
-
+        Route::get('/postChild/{id}', 'ChildController@create')->name('postChild');
+        Route::post('/storeChild{id}', 'ChildController@store')->name('storeChild');
+        Route::get('child/{id}/edit', 'ChildController@edit')->name('editChild');
+        Route::post('child/{id}/update', 'ChildController@update')->name('updateChild');
         // profile
         Route::get('/mypage', 'MypageController@index')->name('mypage');
         Route::get('/profile', 'ProfileController@index')->name('profile');
         Route::put('/editUserName', 'ProfileController@editUserName')->name('editUserName');
         Route::put('/editEmail', 'ProfileController@editEmail')->name('editEmail');
         Route::put('/editPassword', 'ProfileController@editPassword')->name('editPassword');
-        // step/2/challenge 
+        // challenge 
         Route::put('/step/{step}/challenge', 'StepController@challenge')->name('challenge')->middleware('auth');
         Route::delete('/step/{step}/challenge', 'StepController@unchallenge')->name('unchallenge')->middleware('auth');
         // check
