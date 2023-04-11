@@ -25,6 +25,13 @@ class ProfileController extends Controller
         $user->update();
     }
 
+    public function editProduce(ProfileRequest $request)
+    {
+        $user = Auth::user();
+        $user->produce = $request->input('editProduce');
+        $user->update();
+    }
+
     public function editEmail(ProfileRequest $request)
     {
         $user = Auth::user();

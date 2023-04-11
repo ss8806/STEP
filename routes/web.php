@@ -37,6 +37,7 @@ Route::middleware('auth')
         Route::get('/mypage', 'MypageController@index')->name('mypage');
         Route::get('/profile', 'ProfileController@index')->name('profile');
         Route::put('/editUserName', 'ProfileController@editUserName')->name('editUserName');
+        Route::put('/editProduce', 'ProfileController@editProduce')->name('editProduce');
         Route::put('/editEmail', 'ProfileController@editEmail')->name('editEmail');
         Route::put('/editPassword', 'ProfileController@editPassword')->name('editPassword');
         // challenge 

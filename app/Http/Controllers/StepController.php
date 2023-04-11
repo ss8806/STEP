@@ -17,7 +17,7 @@ class StepController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(SearchRequest $request)
-    {        
+    {
         $query = Step::query();
 
         foreach ($query as $step) {
@@ -45,7 +45,7 @@ class StepController extends Controller
 
 
         return view('steps')
-        ->with('steps', $steps);
+            ->with('steps', $steps);
     }
 
     private function escape(string $value)
@@ -67,8 +67,8 @@ class StepController extends Controller
         $oldname = old('name');
         $oldcontent = old('content');
         return view('postStep')
-        ->with('oldname', $oldname)
-        ->with('oldcontent', $oldcontent);
+            ->with('oldname', $oldname)
+            ->with('oldcontent', $oldcontent);
     }
 
     /**
@@ -91,20 +91,18 @@ class StepController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Step  $step
-     * @return \Illuminate\Http\Response
+     * @returnå \Illuminate\Http\Response
      */
     public function show(Request $request, $id)
     {
         $step = Step::find($id);
-        // dd($step);
         $is_challenged = $step->isChallenged(Auth::user());
         $children = Child::where('detail_id', $id)->paginate(8);
-        // dd($children);
-        if(isset($is_checked) === null){
+        if (isset($is_checked) === null) {
             foreach ($children as $child) {
-               $is_checked[] = $child->isChecked(Auth::user());
+                $is_checked[] = $child->isChecked(Auth::user());
             }
-        } else{
+        } else {
             $is_checked[] = false;
         }
         return view('detail')
@@ -123,12 +121,11 @@ class StepController extends Controller
     public function edit(Step $step, $id)
     {
         $step = Step::find($id);
-        if($step->user_id === Auth::user()->id){
-            // dd(Auth::user()->id);
+        if ($step->user_id === Auth::user()->id) {
             return view('editStep')->with('step', $step);
         } else {
             return redirect()->route('steps');
-        }    
+        }
     }
 
     /**

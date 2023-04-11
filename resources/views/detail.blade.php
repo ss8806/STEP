@@ -17,7 +17,6 @@
 ></div>
 
 
-
 <div class="c-pager">
   {{ $children->appends(request()->input())->links() }}
 </div>

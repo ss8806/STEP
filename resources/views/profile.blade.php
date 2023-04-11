@@ -21,6 +21,11 @@
             <div id="editUserName" data-username="{{ json_encode(Auth::user()->name) }}"></div>
         </div>
 
+        {{-- 自己紹介 --}}
+        <div class="p-form p-form__group">
+            <div id="editProduce" data-produce="{{ json_encode(Auth::user()->produce) }}"></div>
+        </div>
+
         {{-- email --}}
         <div class="p-form p-form__group">
             <div id="editEmail" data-email="{{ json_encode(Auth::user()->email) }}"></div>

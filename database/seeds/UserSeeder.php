@@ -18,6 +18,7 @@ class UserSeeder extends Seeder
             'name' => 'テスト1',
             'email' => 'a@a.com',
             'email_verified_at' => now(),
+            'produce' => 'お願いします',
             'password' => Hash::make('a'),
         ]);
         factory(User::class)->create([
@@ -25,6 +26,7 @@ class UserSeeder extends Seeder
             'name' => 'テスト2',
             'email' => 'b@b.com',
             'email_verified_at' => now(),
+            'produce' => 'お願いします',
             'password' => Hash::make('b'),
         ]);
     }
