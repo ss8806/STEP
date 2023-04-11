@@ -509,6 +509,7 @@ var Detail = function Detail() {
   var is_checked;
   var auth;
   var edit;
+  var currentpage;
   if (element && element.dataset.step) {
     step = JSON.parse(element.dataset.step);
   }
@@ -528,6 +529,9 @@ var Detail = function Detail() {
         edit = true;
       }
     }
+  }
+  if (element && element.dataset.currentpage) {
+    currentpage = JSON.parse(element.dataset.currentpage);
   }
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(is_challenged),
     _useState2 = _slicedToArray(_useState, 2),
@@ -566,7 +570,7 @@ var Detail = function Detail() {
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("li", {
                 className: "p-card p-card__header--index u-overflow",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("p", {
-                  children: [" STEP", i + 1]
+                  children: ["STEP", i + 1 + (currentpage - 1) * 8]
                 }), child.name]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("li", {
                 className: "p-card__body",

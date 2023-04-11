@@ -13,6 +13,7 @@ const Detail = () => {
     var is_checked;
     var auth;
     var edit;
+    var currentpage;
 
     if (element && element.dataset.step) {
         step = JSON.parse(element.dataset.step);
@@ -37,6 +38,10 @@ const Detail = () => {
                 edit = true;
             }
         }
+    }
+
+    if (element && element.dataset.currentpage) {
+        currentpage = JSON.parse(element.dataset.currentpage);
     }
 
     let [show, setShow] = useState(is_challenged);
@@ -72,7 +77,10 @@ const Detail = () => {
                                     className="c-flexbox__flexitem c-flexbox__flexitem--index"
                                 >
                                     <li className="p-card p-card__header--index u-overflow">
-                                        <p> STEP{i + 1}</p>
+                                        {/* ページネーション用に子ステップの番号を合わせる */}
+                                        <p>
+                                            STEP{i + 1 + (currentpage - 1) * 8}
+                                        </p>
                                         {child.name}
                                     </li>
                                     <li className="p-card__body">
