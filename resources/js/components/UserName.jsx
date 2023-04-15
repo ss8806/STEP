@@ -7,7 +7,7 @@ const UserName = () => {
     var username = [];
     username = JSON.parse(element.dataset.username);
 
-    const [UserName, setUserName] = useState(username);
+    const [inputName, setUserName] = useState(username);
     const [sucess, setSucess] = useState();
     const [error, setError] = useState();
 
@@ -19,7 +19,7 @@ const UserName = () => {
         // e.preventDefault();
         axios
             // データはjson形式で渡してControllerで処理
-            .put("/editUserName", { editUserName: UserName })
+            .put("/editUserName", { editUserName: inputName })
             .then((response) => {
                 console.log(response.config.data);
                 setSucess("更新しました");
@@ -56,7 +56,7 @@ const UserName = () => {
                     name="editUserName"
                     className="c-input__name"
                     placeholder="ユーザーネーム"
-                    defaultValue={UserName}
+                    defaultValue={inputName}
                     required
                     onChange={onHandleChangeUserName}
                 />

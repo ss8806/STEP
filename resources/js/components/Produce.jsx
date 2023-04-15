@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import axios from "axios";
+import Validation from "./Validation";
 
 const Produce = () => {
     const element = document.getElementById("editProduce");
     var produce = [];
     produce = JSON.parse(element.dataset.produce);
 
-    const [Produce, setProduce] = useState(produce);
+    const [inputProduce, setProduce] = useState(produce);
     const [sucess, setSucess] = useState();
     const [error, setError] = useState();
 
@@ -15,10 +16,16 @@ const Produce = () => {
         setProduce(e.target.value);
     };
 
+    const [showContentVali, setShowContentVali] = useState(false);
+
+    const onClickInputContent = (e) => {
+        setShowContentVali(true);
+    };
+
     const handleSubmitProduce = () => {
         axios
             // データはjson形式で渡してControllerで処理
-            .put("/editProduce", { editProduce: Produce })
+            .put("/editProduce", { editProduce: inputProduce })
             .then((response) => {
                 setSucess("更新しました");
                 setError("");
@@ -48,18 +55,27 @@ const Produce = () => {
                 <p>
                     <label htmlFor="inputproduce">自己紹介</label>
                 </p>
-                <input
+                <Validation
+                    name={"内容"}
+                    input={inputProduce}
+                    max={10}
+                    min={1}
+                    show={showContentVali}
+                    sucess={sucess}
+                    errorr={error}
+                ></Validation>
+                <textarea
                     id="inputproduce"
-                    type="produce"
+                    className="c-textarea__step"
                     name="editProduce"
-                    className="c-input__name"
-                    placeholder="ユーザーネーム"
-                    defaultValue={Produce}
                     required
+                    defaultValue={inputProduce}
                     onChange={onHandleChangeProduce}
-                />
-                <div className="c-sucess"> {sucess}</div>
-                <div className="c-error"> {error}</div>
+                    onClick={onClickInputContent}
+                ></textarea>
+                <span className="c-count__right">
+                    文字数: {inputProduce.length}
+                </span>
                 <button
                     className="c-btn c-btn__edit"
                     onClick={handleSubmitProduce}

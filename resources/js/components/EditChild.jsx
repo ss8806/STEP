@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
-import LengthValidation from "./LengthValidation";
+import Validation from "./Validation";
 
 const EditChild = () => {
     const element = document.getElementById("editChild");
@@ -46,14 +46,14 @@ const EditChild = () => {
                 <label htmlFor="name" className="c-label">
                     子ステップ名
                 </label>
-                <LengthValidation
+                <Validation
                     name={"ステップ名"}
                     input={inputName}
-                    max={10}
-                    min={1}
-                    errors={errors.name}
+                    max={30}
+                    min={3}
+                    error={errors.name}
                     show={showNameVali}
-                ></LengthValidation>
+                ></Validation>
                 <input
                     id="name"
                     type="text"
@@ -73,14 +73,14 @@ const EditChild = () => {
                 <label htmlFor="content" className="c-label">
                     子ステップの内容
                 </label>
-                <LengthValidation
+                <Validation
                     name={"内容"}
                     input={inputContent}
-                    max={10}
-                    min={1}
-                    errors={errors.content}
+                    max={30}
+                    min={3}
+                    error={errors.content}
                     show={showContentVali}
-                ></LengthValidation>
+                ></Validation>
                 <textarea
                     id="content"
                     className="c-textarea__step"

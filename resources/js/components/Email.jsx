@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import axios from "axios";
+import Validation from "./Validation";
 
 const Email = () => {
     const element = document.getElementById("editEmail");
     var email = [];
     email = JSON.parse(element.dataset.email);
 
-    const [Email, setEmail] = useState(email);
+    const [inputEmail, setEmail] = useState(email);
     const [sucess, setSucess] = useState();
     const [error, setError] = useState();
 
@@ -19,7 +20,7 @@ const Email = () => {
         // e.preventDefault();
         axios
             // データはjson形式で渡してControllerで処理
-            .put("/editEmail", { editEmail: Email })
+            .put("/editEmail", { editEmail: inputEmail })
             .then((response) => {
                 console.log(response.config.data);
                 setSucess("更新しました");
@@ -50,13 +51,14 @@ const Email = () => {
                 <p>
                     <label htmlFor="inputEmail">Email</label>
                 </p>
+
                 <input
                     id="inputEmail"
                     type="email"
                     name="editEmail"
                     className="c-input__email"
                     placeholder="メールアドレス"
-                    defaultValue={Email}
+                    defaultValue={inputEmail}
                     required
                     onChange={onHandleChangeEmail}
                 />

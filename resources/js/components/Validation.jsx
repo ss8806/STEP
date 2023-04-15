@@ -1,30 +1,32 @@
-import { divide, minBy } from "lodash";
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 
-const LengthValidation = (props) => {
+const Validation = (props) => {
     let name = props.name;
     let input = props.input;
     let max = props.max;
     let min = props.min;
-    let errors = props.errors;
+    let error = props.error;
+    let sucess = props.sucess;
     let show = props.show;
 
     return (
         <>
-            {show && show && input.length <= 3 && (
+            {show && input.length <= min && (
                 <span className="c-error">
                     {name}は、{min}文字以上にしてください。
                 </span>
             )}
-            {show && input.length >= 10 && (
+            {show && input.length >= max && (
                 <span className="c-error">
                     {name}は、{max}文字以下にしてください。
                 </span>
             )}
-            {show || <span className="c-error">{errors}</span>}
+            <div className="c-sucess">{sucess}</div>
+            {/* サーバーサイドからのエラーを表示 */}
+            {show || <span className="c-error">{error}</span>}
         </>
     );
 };
 
-export default LengthValidation;
+export default Validation;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
-import LengthValidation from "./LengthValidation";
+import Validation from "./Validation";
 
 const PostStep = () => {
     const element = document.getElementById("postStep");
@@ -51,14 +51,14 @@ const PostStep = () => {
                 <label htmlFor="name" className="c-label">
                     ステップ名
                 </label>
-                <LengthValidation
+                <Validation
                     name={"ステップ名"}
                     input={inputName}
-                    max={10}
-                    min={1}
-                    errors={errors.name}
+                    max={30}
+                    min={3}
+                    error={errors.name}
                     show={showNameVali}
-                ></LengthValidation>
+                ></Validation>
                 <input
                     id="name"
                     type="text"
@@ -78,14 +78,14 @@ const PostStep = () => {
                 <label htmlFor="content" className="c-label">
                     ステップの内容
                 </label>
-                <LengthValidation
+                <Validation
                     name={"内容"}
                     input={inputContent}
-                    max={10}
-                    min={1}
-                    errors={errors.content}
+                    max={30}
+                    min={10}
+                    error={errors.content}
                     show={showContentVali}
-                ></LengthValidation>
+                ></Validation>
                 <textarea
                     id="content"
                     className="c-textarea__step"

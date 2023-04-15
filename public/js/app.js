@@ -625,7 +625,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var _LengthValidation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./LengthValidation */ "./resources/js/components/LengthValidation.jsx");
+/* harmony import */ var _Validation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Validation */ "./resources/js/components/Validation.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -691,12 +691,12 @@ var EditChild = function EditChild() {
         htmlFor: "name",
         className: "c-label",
         children: "\u5B50\u30B9\u30C6\u30C3\u30D7\u540D"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_LengthValidation__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Validation__WEBPACK_IMPORTED_MODULE_2__["default"], {
         name: "ステップ名",
         input: inputName,
-        max: 10,
-        min: 1,
-        errors: errors.name,
+        max: 30,
+        min: 3,
+        error: errors.name,
         show: showNameVali
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
         id: "name",
@@ -717,12 +717,12 @@ var EditChild = function EditChild() {
         htmlFor: "content",
         className: "c-label",
         children: "\u5B50\u30B9\u30C6\u30C3\u30D7\u306E\u5185\u5BB9"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_LengthValidation__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Validation__WEBPACK_IMPORTED_MODULE_2__["default"], {
         name: "内容",
         input: inputContent,
-        max: 10,
-        min: 1,
-        errors: errors.content,
+        max: 30,
+        min: 3,
+        error: errors.content,
         show: showContentVali
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("textarea", {
         id: "content",
@@ -766,7 +766,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var _LengthValidation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./LengthValidation */ "./resources/js/components/LengthValidation.jsx");
+/* harmony import */ var _Validation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Validation */ "./resources/js/components/Validation.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -825,12 +825,12 @@ var EditStep = function EditStep() {
         htmlFor: "name",
         className: "c-label",
         children: "\u30B9\u30C6\u30C3\u30D7\u540D"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_LengthValidation__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Validation__WEBPACK_IMPORTED_MODULE_2__["default"], {
         name: "ステップ名",
         input: inputName,
-        max: 10,
-        min: 1,
-        errors: errors.name,
+        max: 30,
+        min: 3,
+        error: errors.name,
         show: showNameVali
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
         id: "name",
@@ -851,12 +851,12 @@ var EditStep = function EditStep() {
         htmlFor: "content",
         className: "c-label",
         children: "\u30B9\u30C6\u30C3\u30D7\u306E\u5185\u5BB9"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_LengthValidation__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Validation__WEBPACK_IMPORTED_MODULE_2__["default"], {
         name: "内容",
         input: inputContent,
-        max: 10,
-        min: 1,
-        errors: errors.content,
+        max: 30,
+        min: 3,
+        error: errors.content,
         show: showContentVali
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("textarea", {
         id: "content",
@@ -900,8 +900,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
+/* harmony import */ var _Validation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Validation */ "./resources/js/components/Validation.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
@@ -914,13 +915,14 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var Email = function Email() {
   var element = document.getElementById("editEmail");
   var email = [];
   email = JSON.parse(element.dataset.email);
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(email),
     _useState2 = _slicedToArray(_useState, 2),
-    Email = _useState2[0],
+    inputEmail = _useState2[0],
     setEmail = _useState2[1];
   var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
     _useState4 = _slicedToArray(_useState3, 2),
@@ -935,8 +937,8 @@ var Email = function Email() {
   };
   var handleSubmitEmail = function handleSubmitEmail() {
     // e.preventDefault();
-    axios__WEBPACK_IMPORTED_MODULE_3__["default"].put("/editEmail", {
-      editEmail: Email
+    axios__WEBPACK_IMPORTED_MODULE_4__["default"].put("/editEmail", {
+      editEmail: inputEmail
     }).then(function (response) {
       console.log(response.config.data);
       setSucess("更新しました");
@@ -960,30 +962,30 @@ var Email = function Email() {
       }
     });
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("section", {
       className: "",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
           htmlFor: "inputEmail",
           children: "Email"
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
         id: "inputEmail",
         type: "email",
         name: "editEmail",
         className: "c-input__email",
         placeholder: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9",
-        defaultValue: Email,
+        defaultValue: inputEmail,
         required: true,
         onChange: onHandleChangeEmail
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
         className: "c-sucess",
         children: [" ", sucess]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
         className: "c-error",
         children: [" ", error]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
         className: "c-btn c-btn__edit",
         onClick: handleSubmitEmail,
         children: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u3092\u5909\u66F4"
@@ -993,7 +995,7 @@ var Email = function Email() {
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Email);
 if (document.getElementById("editEmail")) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Email, {}), document.getElementById("editEmail"));
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Email, {}), document.getElementById("editEmail"));
 }
 
 /***/ }),
@@ -1135,52 +1137,6 @@ var Hamberger = function Hamberger() {
 if (document.getElementById("hamberger")) {
   react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Hamberger, {}), document.getElementById("hamberger"));
 }
-
-/***/ }),
-
-/***/ "./resources/js/components/LengthValidation.jsx":
-/*!******************************************************!*\
-  !*** ./resources/js/components/LengthValidation.jsx ***!
-  \******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-
-
-
-var LengthValidation = function LengthValidation(props) {
-  var name = props.name;
-  var input = props.input;
-  var max = props.max;
-  var min = props.min;
-  var errors = props.errors;
-  var show = props.show;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-    children: [show && show && input.length <= 3 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
-      className: "c-error",
-      children: [name, "\u306F\u3001", min, "\u6587\u5B57\u4EE5\u4E0A\u306B\u3057\u3066\u304F\u3060\u3055\u3044\u3002"]
-    }), show && input.length >= 10 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
-      className: "c-error",
-      children: [name, "\u306F\u3001", max, "\u6587\u5B57\u4EE5\u4E0B\u306B\u3057\u3066\u304F\u3060\u3055\u3044\u3002"]
-    }), show || /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-      className: "c-error",
-      children: errors
-    })]
-  });
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (LengthValidation);
 
 /***/ }),
 
@@ -1370,7 +1326,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var _LengthValidation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./LengthValidation */ "./resources/js/components/LengthValidation.jsx");
+/* harmony import */ var _Validation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Validation */ "./resources/js/components/Validation.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -1446,12 +1402,12 @@ var PostChild = function PostChild() {
         htmlFor: "name",
         className: "c-label",
         children: "\u5B50\u30B9\u30C6\u30C3\u30D7\u540D"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_LengthValidation__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Validation__WEBPACK_IMPORTED_MODULE_2__["default"], {
         name: "子ステップ名",
         input: inputName,
-        max: 10,
-        min: 1,
-        errors: errors.name,
+        max: 30,
+        min: 3,
+        error: errors.name,
         show: showNameVali
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
         id: "name",
@@ -1472,12 +1428,12 @@ var PostChild = function PostChild() {
         htmlFor: "content",
         className: "c-label",
         children: "\u5B50\u30B9\u30C6\u30C3\u30D7\u306E\u5185\u5BB9"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_LengthValidation__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Validation__WEBPACK_IMPORTED_MODULE_2__["default"], {
         name: "内容",
         input: inputContent,
-        max: 10,
-        min: 1,
-        errors: errors.content,
+        max: 30,
+        min: 10,
+        error: errors.content,
         show: showContentVali
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("textarea", {
         id: "content",
@@ -1521,7 +1477,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var _LengthValidation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./LengthValidation */ "./resources/js/components/LengthValidation.jsx");
+/* harmony import */ var _Validation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Validation */ "./resources/js/components/Validation.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -1590,12 +1546,12 @@ var PostStep = function PostStep() {
         htmlFor: "name",
         className: "c-label",
         children: "\u30B9\u30C6\u30C3\u30D7\u540D"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_LengthValidation__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Validation__WEBPACK_IMPORTED_MODULE_2__["default"], {
         name: "ステップ名",
         input: inputName,
-        max: 10,
-        min: 1,
-        errors: errors.name,
+        max: 30,
+        min: 3,
+        error: errors.name,
         show: showNameVali
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
         id: "name",
@@ -1616,12 +1572,12 @@ var PostStep = function PostStep() {
         htmlFor: "content",
         className: "c-label",
         children: "\u30B9\u30C6\u30C3\u30D7\u306E\u5185\u5BB9"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_LengthValidation__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Validation__WEBPACK_IMPORTED_MODULE_2__["default"], {
         name: "内容",
         input: inputContent,
-        max: 10,
-        min: 1,
-        errors: errors.content,
+        max: 30,
+        min: 10,
+        error: errors.content,
         show: showContentVali
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("textarea", {
         id: "content",
@@ -1736,8 +1692,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
+/* harmony import */ var _Validation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Validation */ "./resources/js/components/Validation.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
@@ -1750,13 +1707,14 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var Produce = function Produce() {
   var element = document.getElementById("editProduce");
   var produce = [];
   produce = JSON.parse(element.dataset.produce);
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(produce),
     _useState2 = _slicedToArray(_useState, 2),
-    Produce = _useState2[0],
+    inputProduce = _useState2[0],
     setProduce = _useState2[1];
   var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
     _useState4 = _slicedToArray(_useState3, 2),
@@ -1769,9 +1727,16 @@ var Produce = function Produce() {
   var onHandleChangeProduce = function onHandleChangeProduce(e) {
     setProduce(e.target.value);
   };
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState8 = _slicedToArray(_useState7, 2),
+    showContentVali = _useState8[0],
+    setShowContentVali = _useState8[1];
+  var onClickInputContent = function onClickInputContent(e) {
+    setShowContentVali(true);
+  };
   var handleSubmitProduce = function handleSubmitProduce() {
-    axios__WEBPACK_IMPORTED_MODULE_3__["default"].put("/editProduce", {
-      editProduce: Produce
+    axios__WEBPACK_IMPORTED_MODULE_4__["default"].put("/editProduce", {
+      editProduce: inputProduce
     }).then(function (response) {
       setSucess("更新しました");
       setError("");
@@ -1794,30 +1759,34 @@ var Produce = function Produce() {
       }
     });
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("section", {
       className: "",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
           htmlFor: "inputproduce",
           children: "\u81EA\u5DF1\u7D39\u4ECB"
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Validation__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        name: "内容",
+        input: inputProduce,
+        max: 10,
+        min: 1,
+        show: showContentVali,
+        sucess: sucess,
+        errorr: error
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("textarea", {
         id: "inputproduce",
-        type: "produce",
+        className: "c-textarea__step",
         name: "editProduce",
-        className: "c-input__name",
-        placeholder: "\u30E6\u30FC\u30B6\u30FC\u30CD\u30FC\u30E0",
-        defaultValue: Produce,
         required: true,
-        onChange: onHandleChangeProduce
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-        className: "c-sucess",
-        children: [" ", sucess]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-        className: "c-error",
-        children: [" ", error]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+        defaultValue: inputProduce,
+        onChange: onHandleChangeProduce,
+        onClick: onClickInputContent
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
+        className: "c-count__right",
+        children: ["\u6587\u5B57\u6570: ", inputProduce.length]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
         className: "c-btn c-btn__edit",
         onClick: handleSubmitProduce,
         children: "\u81EA\u5DF1\u7D39\u4ECB\u3092\u5909\u66F4"
@@ -1827,7 +1796,7 @@ var Produce = function Produce() {
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Produce);
 if (document.getElementById("editProduce")) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Produce, {}), document.getElementById("editProduce"));
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Produce, {}), document.getElementById("editProduce"));
 }
 
 /***/ }),
@@ -2011,7 +1980,7 @@ var UserName = function UserName() {
   username = JSON.parse(element.dataset.username);
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(username),
     _useState2 = _slicedToArray(_useState, 2),
-    UserName = _useState2[0],
+    inputName = _useState2[0],
     setUserName = _useState2[1];
   var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
     _useState4 = _slicedToArray(_useState3, 2),
@@ -2027,7 +1996,7 @@ var UserName = function UserName() {
   var handleSubmitUserName = function handleSubmitUserName() {
     // e.preventDefault();
     axios__WEBPACK_IMPORTED_MODULE_3__["default"].put("/editUserName", {
-      editUserName: UserName
+      editUserName: inputName
     }).then(function (response) {
       console.log(response.config.data);
       setSucess("更新しました");
@@ -2065,7 +2034,7 @@ var UserName = function UserName() {
         name: "editUserName",
         className: "c-input__name",
         placeholder: "\u30E6\u30FC\u30B6\u30FC\u30CD\u30FC\u30E0",
-        defaultValue: UserName,
+        defaultValue: inputName,
         required: true,
         onChange: onHandleChangeUserName
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
@@ -2086,6 +2055,53 @@ var UserName = function UserName() {
 if (document.getElementById("editUserName")) {
   react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(UserName, {}), document.getElementById("editUserName"));
 }
+
+/***/ }),
+
+/***/ "./resources/js/components/Validation.jsx":
+/*!************************************************!*\
+  !*** ./resources/js/components/Validation.jsx ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+var Validation = function Validation(props) {
+  var name = props.name;
+  var input = props.input;
+  var max = props.max;
+  var min = props.min;
+  var error = props.error;
+  var sucess = props.sucess;
+  var show = props.show;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+    children: [show && input.length <= min && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
+      className: "c-error",
+      children: [name, "\u306F\u3001", min, "\u6587\u5B57\u4EE5\u4E0A\u306B\u3057\u3066\u304F\u3060\u3055\u3044\u3002"]
+    }), show && input.length >= max && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
+      className: "c-error",
+      children: [name, "\u306F\u3001", max, "\u6587\u5B57\u4EE5\u4E0B\u306B\u3057\u3066\u304F\u3060\u3055\u3044\u3002"]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      className: "c-sucess",
+      children: sucess
+    }), show || /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+      className: "c-error",
+      children: error
+    })]
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Validation);
 
 /***/ }),
 
