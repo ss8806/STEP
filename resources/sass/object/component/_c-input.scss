@@ -49,11 +49,10 @@
     }
 
     &__email{
-        width: 200px;
-        border-radius: 3px; /*ボックス角の丸み*/
-        border: 2px solid #ddd; /*枠線*/
-        box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
+       width: 100%;
+        margin-bottom: 10px;
         height: 30px;
+        border: 2px solid #ddd; /*枠線*/
         font-size: 18px;
         margin-top: 10px;
         // @include mq() {

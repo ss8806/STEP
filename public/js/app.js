@@ -932,8 +932,15 @@ var Email = function Email() {
     _useState6 = _slicedToArray(_useState5, 2),
     error = _useState6[0],
     setError = _useState6[1];
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState8 = _slicedToArray(_useState7, 2),
+    showEmailVali = _useState8[0],
+    setShowEmailVali = _useState8[1];
   var onHandleChangeEmail = function onHandleChangeEmail(e) {
     setEmail(e.target.value);
+  };
+  var onClickInputEmail = function onClickInputEmail(e) {
+    setShowEmailVali(true);
   };
   var handleSubmitEmail = function handleSubmitEmail() {
     // e.preventDefault();
@@ -946,7 +953,8 @@ var Email = function Email() {
     })["catch"](function (error) {
       {
         var _error$response;
-        // 失敗時の処理
+        // showをfalseにして子コンポーネントで表示できるようにする。
+        setShowEmailVali(false);
         switch ((_error$response = error.response) === null || _error$response === void 0 ? void 0 : _error$response.status) {
           case 401:
             setError("更新できませんでした");
@@ -955,7 +963,7 @@ var Email = function Email() {
           case 500:
             setError("更新できませんでした");
           default:
-            console.log(error.response.data);
+            // console.log(error.response.data);
             setSucess("");
             setError(error.response.data.errors.editEmail);
         }
@@ -964,12 +972,20 @@ var Email = function Email() {
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("section", {
-      className: "",
+      className: "p-form p-form__group",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
           htmlFor: "inputEmail",
           children: "Email"
         })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Validation__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        name: "メール",
+        input: inputEmail,
+        max: 30,
+        min: 0,
+        show: showEmailVali,
+        sucess: sucess,
+        error: error
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
         id: "inputEmail",
         type: "email",
@@ -978,17 +994,18 @@ var Email = function Email() {
         placeholder: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9",
         defaultValue: inputEmail,
         required: true,
-        onChange: onHandleChangeEmail
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-        className: "c-sucess",
-        children: [" ", sucess]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-        className: "c-error",
-        children: [" ", error]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-        className: "c-btn c-btn__edit",
-        onClick: handleSubmitEmail,
-        children: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u3092\u5909\u66F4"
+        onChange: onHandleChangeEmail,
+        onClick: onClickInputEmail
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
+        className: "c-count__right",
+        children: ["\u6587\u5B57\u6570: ", inputEmail.length]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        className: "p-form__group",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+          className: "c-btn c-btn__edit",
+          onClick: handleSubmitEmail,
+          children: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u3092\u5909\u66F4"
+        })
       })]
     })
   });
@@ -1724,15 +1741,15 @@ var Produce = function Produce() {
     _useState6 = _slicedToArray(_useState5, 2),
     error = _useState6[0],
     setError = _useState6[1];
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState8 = _slicedToArray(_useState7, 2),
+    showProduceVali = _useState8[0],
+    setShowProduceVali = _useState8[1];
   var onHandleChangeProduce = function onHandleChangeProduce(e) {
     setProduce(e.target.value);
   };
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
-    _useState8 = _slicedToArray(_useState7, 2),
-    showContentVali = _useState8[0],
-    setShowContentVali = _useState8[1];
-  var onClickInputContent = function onClickInputContent(e) {
-    setShowContentVali(true);
+  var onClickInputProduce = function onClickInputProduce(e) {
+    setShowProduceVali(true);
   };
   var handleSubmitProduce = function handleSubmitProduce() {
     axios__WEBPACK_IMPORTED_MODULE_4__["default"].put("/editProduce", {
@@ -1743,7 +1760,8 @@ var Produce = function Produce() {
     })["catch"](function (error) {
       {
         var _error$response;
-        // 失敗時の処理
+        // showをfalseにして子コンポーネントで表示できるようにする。
+        setShowProduceVali(false);
         switch ((_error$response = error.response) === null || _error$response === void 0 ? void 0 : _error$response.status) {
           case 401:
             setError("更新できませんでした");
@@ -1761,35 +1779,39 @@ var Produce = function Produce() {
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("section", {
-      className: "",
+      className: "p-form p-form__group",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
           htmlFor: "inputproduce",
+          className: "c-label",
           children: "\u81EA\u5DF1\u7D39\u4ECB"
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Validation__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        name: "内容",
+        name: "自己紹介",
         input: inputProduce,
         max: 10,
         min: 1,
-        show: showContentVali,
+        show: showProduceVali,
         sucess: sucess,
-        errorr: error
+        error: error
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("textarea", {
         id: "inputproduce",
-        className: "c-textarea__step",
+        className: "c-textarea__produce",
         name: "editProduce",
         required: true,
         defaultValue: inputProduce,
         onChange: onHandleChangeProduce,
-        onClick: onClickInputContent
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
+        onClick: onClickInputProduce
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
         className: "c-count__right",
         children: ["\u6587\u5B57\u6570: ", inputProduce.length]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-        className: "c-btn c-btn__edit",
-        onClick: handleSubmitProduce,
-        children: "\u81EA\u5DF1\u7D39\u4ECB\u3092\u5909\u66F4"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        className: "p-form__group",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+          className: "c-btn c-btn__edit",
+          onClick: handleSubmitProduce,
+          children: "\u81EA\u5DF1\u7D39\u4ECB\u3092\u5909\u66F4"
+        })
       })]
     })
   });

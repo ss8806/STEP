@@ -24,23 +24,15 @@ class ProfileRequest extends FormRequest
     public function rules()
     {
         return [
-            'editUserName'   => 'max:10',
+            'editProduce'   => ['required', 'string','min:1', 'max:10'],
             'editEmail'   => 'max:10|email',
-        ];
-    }
-
-    public function messages()
-    {
-        return [
-            'editUserName.max'   => '10文字以下で入力してください',
-            'editEmail.max'   => '10文字以下で入力してください',
         ];
     }
 
     public function attributes()
     {
         return [
-            'editUserName'   => '名前',
+            'editProduce'   => '自己紹介',
             'editEmail'   => 'メール',
         ];
     }

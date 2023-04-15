@@ -11,15 +11,14 @@ const Produce = () => {
     const [inputProduce, setProduce] = useState(produce);
     const [sucess, setSucess] = useState();
     const [error, setError] = useState();
+    const [showProduceVali, setShowProduceVali] = useState(false);
 
     const onHandleChangeProduce = (e) => {
         setProduce(e.target.value);
     };
 
-    const [showContentVali, setShowContentVali] = useState(false);
-
-    const onClickInputContent = (e) => {
-        setShowContentVali(true);
+    const onClickInputProduce = (e) => {
+        setShowProduceVali(true);
     };
 
     const handleSubmitProduce = () => {
@@ -32,7 +31,8 @@ const Produce = () => {
             })
             .catch((error) => {
                 {
-                    // 失敗時の処理
+                    // showをfalseにして子コンポーネントで表示できるようにする。
+                    setShowProduceVali(false);
                     switch (error.response?.status) {
                         case 401:
                             setError("更新できませんでした");
@@ -51,37 +51,40 @@ const Produce = () => {
 
     return (
         <>
-            <section className="">
+            <section className="p-form p-form__group">
+                {/* {error} */}
                 <p>
-                    <label htmlFor="inputproduce">自己紹介</label>
+                    <label htmlFor="inputproduce" className="c-label">
+                        自己紹介
+                    </label>
                 </p>
                 <Validation
-                    name={"内容"}
+                    name={"自己紹介"}
                     input={inputProduce}
                     max={10}
                     min={1}
-                    show={showContentVali}
+                    show={showProduceVali}
                     sucess={sucess}
-                    errorr={error}
+                    error={error}
                 ></Validation>
                 <textarea
                     id="inputproduce"
-                    className="c-textarea__step"
+                    className="c-textarea__produce"
                     name="editProduce"
                     required
                     defaultValue={inputProduce}
                     onChange={onHandleChangeProduce}
-                    onClick={onClickInputContent}
+                    onClick={onClickInputProduce}
                 ></textarea>
-                <span className="c-count__right">
-                    文字数: {inputProduce.length}
-                </span>
-                <button
-                    className="c-btn c-btn__edit"
-                    onClick={handleSubmitProduce}
-                >
-                    自己紹介を変更
-                </button>
+                <p className="c-count__right">文字数: {inputProduce.length}</p>
+                <div className="p-form__group">
+                    <button
+                        className="c-btn c-btn__edit"
+                        onClick={handleSubmitProduce}
+                    >
+                        自己紹介を変更
+                    </button>
+                </div>
             </section>
         </>
     );

@@ -11,9 +11,14 @@ const Email = () => {
     const [inputEmail, setEmail] = useState(email);
     const [sucess, setSucess] = useState();
     const [error, setError] = useState();
+    const [showEmailVali, setShowEmailVali] = useState(false);
 
     const onHandleChangeEmail = (e) => {
         setEmail(e.target.value);
+    };
+
+    const onClickInputEmail = (e) => {
+        setShowEmailVali(true);
     };
 
     const handleSubmitEmail = () => {
@@ -28,7 +33,8 @@ const Email = () => {
             })
             .catch((error) => {
                 {
-                    // 失敗時の処理
+                    // showをfalseにして子コンポーネントで表示できるようにする。
+                    setShowEmailVali(false);
                     switch (error.response?.status) {
                         case 401:
                             setError("更新できませんでした");
@@ -37,7 +43,7 @@ const Email = () => {
                         case 500:
                             setError("更新できませんでした");
                         default:
-                            console.log(error.response.data);
+                            // console.log(error.response.data);
                             setSucess("");
                             setError(error.response.data.errors.editEmail);
                     }
@@ -47,11 +53,19 @@ const Email = () => {
 
     return (
         <>
-            <section className="">
+            <section className="p-form p-form__group">
                 <p>
                     <label htmlFor="inputEmail">Email</label>
                 </p>
-
+                <Validation
+                    name={"メール"}
+                    input={inputEmail}
+                    max={30}
+                    min={0}
+                    show={showEmailVali}
+                    sucess={sucess}
+                    error={error}
+                ></Validation>
                 <input
                     id="inputEmail"
                     type="email"
@@ -61,15 +75,17 @@ const Email = () => {
                     defaultValue={inputEmail}
                     required
                     onChange={onHandleChangeEmail}
+                    onClick={onClickInputEmail}
                 />
-                <div className="c-sucess"> {sucess}</div>
-                <div className="c-error"> {error}</div>
-                <button
-                    className="c-btn c-btn__edit"
-                    onClick={handleSubmitEmail}
-                >
-                    メールアドレスを変更
-                </button>
+                <p className="c-count__right">文字数: {inputEmail.length}</p>
+                <div className="p-form__group">
+                    <button
+                        className="c-btn c-btn__edit"
+                        onClick={handleSubmitEmail}
+                    >
+                        メールアドレスを変更
+                    </button>
+                </div>
             </section>
         </>
     );
