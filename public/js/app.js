@@ -27,6 +27,8 @@ __webpack_require__(/*! ./components/Message */ "./resources/js/components/Messa
 __webpack_require__(/*! ./components/Hamberger */ "./resources/js/components/Hamberger.jsx");
 __webpack_require__(/*! ./components/UserName */ "./resources/js/components/UserName.jsx");
 __webpack_require__(/*! ./components/Email */ "./resources/js/components/Email.jsx");
+__webpack_require__(/*! ./components/Produce */ "./resources/js/components/Produce.jsx");
+__webpack_require__(/*! ./components/Icon */ "./resources/js/components/Icon.jsx");
 __webpack_require__(/*! ./components/Password */ "./resources/js/components/Password.jsx");
 __webpack_require__(/*! ./components/Search */ "./resources/js/components/Search.jsx");
 __webpack_require__(/*! ./components/Detail */ "./resources/js/components/Detail.jsx");
@@ -37,7 +39,6 @@ __webpack_require__(/*! ./components/EditStep */ "./resources/js/components/Edit
 __webpack_require__(/*! ./components/EditChild */ "./resources/js/components/EditChild.jsx");
 __webpack_require__(/*! ./components/Challenges */ "./resources/js/components/Challenges.jsx");
 __webpack_require__(/*! ./components/Posts */ "./resources/js/components/Posts.jsx");
-__webpack_require__(/*! ./components/Produce */ "./resources/js/components/Produce.jsx");
 
 /***/ }),
 
@@ -1153,6 +1154,102 @@ var Hamberger = function Hamberger() {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Hamberger);
 if (document.getElementById("hamberger")) {
   react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Hamberger, {}), document.getElementById("hamberger"));
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/Icon.jsx":
+/*!******************************************!*\
+  !*** ./resources/js/components/Icon.jsx ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+var Icon = function Icon() {
+  var element = document.getElementById("editIcon");
+  var icon = [];
+  icon = JSON.parse(element.dataset.icon);
+  var awspath = "https://backend1219.s3.ap-northeast-1.amazonaws.com/";
+  var imageHander = function imageHander(e) {
+    var file = e.target.files[0];
+    var imgTag = document.getElementById("preview");
+    var reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = function () {
+      var result = reader.result;
+      imgTag.src = result;
+      icon = result;
+      // console.log(icon);
+    };
+  };
+
+  var onSubmit = function onSubmit(e) {
+    e.preventDefault();
+    axios__WEBPACK_IMPORTED_MODULE_3__["default"].put("/editIcon", {
+      icon: icon
+    }).then(function (response) {
+      console.log(response.data);
+    })["catch"](function (error) {
+      console.log(response.data);
+    });
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
+    className: "text-center",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
+      className: "text-center",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+          htmlFor: "pic1",
+          className: "display: inline-block",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            children: icon && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+              id: "preview",
+              src: awspath + icon,
+              className: ""
+            }) || /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+              id: "preview",
+              className: "",
+              src: "/images/avatar-default.svg"
+            })
+          })
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+        // name="pic1"
+        id: "pic1",
+        type: "file",
+        className: "",
+        accept: "image/*",
+        src: icon
+        // {...register("pic1", { required: true })}
+        ,
+        onChange: imageHander
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+        className: "text-red-500"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+      className: "",
+      type: "submit",
+      onClick: onSubmit,
+      children: "\u30A2\u30A4\u30B3\u30F3\u3092\u5909\u66F4"
+    })]
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Icon);
+if (document.getElementById("editIcon")) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Icon, {}), document.getElementById("editIcon"));
 }
 
 /***/ }),

@@ -16,6 +16,10 @@
     <div class="p-card p-card__header">プロフィール編集</div>
     @csrf
     <div class="p-card p-card__body">
+        {{-- アイコン --}}
+        <div class="p-form p-form__group">
+            <div id="editIcon" data-icon="{{ json_encode(Auth::user()->icon) }}"></div>
+        </div>
         {{-- 自己紹介 --}}
         <div class="p-form p-form__group">
             <div id="editProduce" data-produce="{{ json_encode(Auth::user()->produce) }}"></div>
