@@ -92,7 +92,7 @@ const EditStep = () => {
 
             <div className="p-form__group">
                 <button type="submit" className="c-btn__edit">
-                    投稿する
+                    編集する
                 </button>
             </div>
         </>

@@ -77,14 +77,12 @@ const Produce = () => {
                     onClick={onClickInputProduce}
                 ></textarea>
                 <p className="c-count__right">文字数: {inputProduce.length}</p>
-                <div className="p-form__group">
-                    <button
-                        className="c-btn c-btn__edit"
-                        onClick={handleSubmitProduce}
-                    >
-                        自己紹介を変更
-                    </button>
-                </div>
+                <button
+                    className="c-btn c-btn__edit"
+                    onClick={handleSubmitProduce}
+                >
+                    自己紹介を変更
+                </button>
             </section>
         </>
     );

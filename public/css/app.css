@@ -118,6 +118,14 @@ a:visited {
   border-radius: 10px;
   text-align: center;
 }
+.c-btn__icon {
+  color: white;
+  border-color: green;
+  background-color: green;
+  display: block;
+  border-radius: 10px;
+  width: 160px;
+}
 
 .c-count__right {
   float: right;
@@ -186,6 +194,13 @@ a:visited {
     margin: 5px;
     width: calc(50% - 10px);
   }
+}
+
+.c-icon__profile {
+  display: block;
+  margin: 0 auto;
+  width: 300px;
+  height: auto;
 }
 
 .c-input__profile {

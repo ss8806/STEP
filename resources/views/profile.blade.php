@@ -17,15 +17,15 @@
     @csrf
     <div class="p-card p-card__body">
         {{-- アイコン --}}
-        <div class="p-form p-form__group">
+        <div>
             <div id="editIcon" data-icon="{{ json_encode(Auth::user()->icon) }}"></div>
         </div>
         {{-- 自己紹介 --}}
-        <div class="p-form p-form__group">
+        <div>
             <div id="editProduce" data-produce="{{ json_encode(Auth::user()->produce) }}"></div>
         </div>
         {{-- email --}}
-        <div class="p-form p-form__group">
+        <div>
             <div id="editEmail" data-email="{{ json_encode(Auth::user()->email) }}"></div>
         </div>
     </div>

@@ -52,42 +52,35 @@ const Email = () => {
     };
 
     return (
-        <>
-            <section className="p-form p-form__group">
-                <p>
-                    <label htmlFor="inputEmail">Email</label>
-                </p>
-                <Validation
-                    name={"メール"}
-                    input={inputEmail}
-                    max={30}
-                    min={0}
-                    show={showEmailVali}
-                    sucess={sucess}
-                    error={error}
-                ></Validation>
-                <input
-                    id="inputEmail"
-                    type="email"
-                    name="editEmail"
-                    className="c-input__email"
-                    placeholder="メールアドレス"
-                    defaultValue={inputEmail}
-                    required
-                    onChange={onHandleChangeEmail}
-                    onClick={onClickInputEmail}
-                />
-                <p className="c-count__right">文字数: {inputEmail.length}</p>
-                <div className="p-form__group">
-                    <button
-                        className="c-btn c-btn__edit"
-                        onClick={handleSubmitEmail}
-                    >
-                        メールアドレスを変更
-                    </button>
-                </div>
-            </section>
-        </>
+        <section className="p-form p-form__group">
+            <p>
+                <label htmlFor="inputEmail">Email</label>
+            </p>
+            <Validation
+                name={"メール"}
+                input={inputEmail}
+                max={30}
+                min={0}
+                show={showEmailVali}
+                sucess={sucess}
+                error={error}
+            ></Validation>
+            <input
+                id="inputEmail"
+                type="email"
+                name="editEmail"
+                className="c-input__email"
+                placeholder="メールアドレス"
+                defaultValue={inputEmail}
+                required
+                onChange={onHandleChangeEmail}
+                onClick={onClickInputEmail}
+            />
+            <p className="c-count__right">文字数: {inputEmail.length}</p>
+            <button className="c-btn c-btn__edit" onClick={handleSubmitEmail}>
+                メールアドレスを変更
+            </button>
+        </section>
     );
 };
 

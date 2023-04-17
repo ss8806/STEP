@@ -16,7 +16,6 @@ const Icon = () => {
             const result = reader.result;
             imgTag.src = result;
             icon = result;
-            // console.log(icon);
         };
     };
 
@@ -35,45 +34,48 @@ const Icon = () => {
     };
 
     return (
-        <section className="text-center">
-            <section className="text-center">
-                <div>
-                    <label htmlFor="pic1" className="display: inline-block">
-                        <div>
-                            {(icon && (
-                                <img
-                                    id="preview"
-                                    src={awspath + icon}
-                                    className=""
-                                ></img>
-                            )) || (
-                                <img
-                                    id="preview"
-                                    className=""
-                                    src="/images/avatar-default.svg"
-                                />
-                            )}
-                        </div>
-                    </label>
-                </div>
+        <>
+            <div className="p-form p-form__group">
+                <label htmlFor="pic1" className="">
+                    <div>
+                        {(icon && (
+                            <img
+                                id="preview"
+                                src={awspath + icon}
+                                className="c-icon__profile"
+                            ></img>
+                        )) || (
+                            <img
+                                id="preview"
+                                className="c-icon__profile"
+                                src="/images/avatar-default.svg"
+                            />
+                        )}
+                    </div>
+                </label>
+            </div>
+            <div className="p-form p-form__group">
                 <input
                     // name="pic1"
                     id="pic1"
                     type="file"
-                    className=""
+                    className="u-display--none"
                     accept="image/*"
                     src={icon}
                     // {...register("pic1", { required: true })}
                     onChange={imageHander}
                 />
-                <p className="text-red-500">
-                    {/* {errors.pic1 && "写真を登録して下さい。"} */}
-                </p>
-            </section>
-            <button className="" type="submit" onClick={onSubmit}>
-                アイコンを変更
-            </button>
-        </section>
+            </div>
+            <div className="p-form p-form__group">
+                <button
+                    className="c-btn c-btn__icon"
+                    type="submit"
+                    onClick={onSubmit}
+                >
+                    アイコンを変更
+                </button>
+            </div>
+        </>
     );
 };
 export default Icon;

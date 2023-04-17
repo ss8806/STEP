@@ -38,5 +38,13 @@
         border-radius: 10px;
         text-align: center;
     }
+    &__icon{
+        color: white;
+        border-color: green;
+        background-color: green;
+        display: block;
+        border-radius: 10px;
+        width: 160px;
+    }
 }
 

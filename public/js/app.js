@@ -742,7 +742,7 @@ var EditChild = function EditChild() {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
         type: "submit",
         className: "c-btn__edit",
-        children: "\u6295\u7A3F\u3059\u308B"
+        children: "\u7DE8\u96C6\u3059\u308B"
       })
     })]
   });
@@ -876,7 +876,7 @@ var EditStep = function EditStep() {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
         type: "submit",
         className: "c-btn__edit",
-        children: "\u6295\u7A3F\u3059\u308B"
+        children: "\u7DE8\u96C6\u3059\u308B"
       })
     })]
   });
@@ -910,7 +910,6 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0) { ; } } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
 
 
 
@@ -971,44 +970,39 @@ var Email = function Email() {
       }
     });
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("section", {
-      className: "p-form p-form__group",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
-          htmlFor: "inputEmail",
-          children: "Email"
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Validation__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        name: "メール",
-        input: inputEmail,
-        max: 30,
-        min: 0,
-        show: showEmailVali,
-        sucess: sucess,
-        error: error
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-        id: "inputEmail",
-        type: "email",
-        name: "editEmail",
-        className: "c-input__email",
-        placeholder: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9",
-        defaultValue: inputEmail,
-        required: true,
-        onChange: onHandleChangeEmail,
-        onClick: onClickInputEmail
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
-        className: "c-count__right",
-        children: ["\u6587\u5B57\u6570: ", inputEmail.length]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-        className: "p-form__group",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-          className: "c-btn c-btn__edit",
-          onClick: handleSubmitEmail,
-          children: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u3092\u5909\u66F4"
-        })
-      })]
-    })
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("section", {
+    className: "p-form p-form__group",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+        htmlFor: "inputEmail",
+        children: "Email"
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Validation__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      name: "メール",
+      input: inputEmail,
+      max: 30,
+      min: 0,
+      show: showEmailVali,
+      sucess: sucess,
+      error: error
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+      id: "inputEmail",
+      type: "email",
+      name: "editEmail",
+      className: "c-input__email",
+      placeholder: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9",
+      defaultValue: inputEmail,
+      required: true,
+      onChange: onHandleChangeEmail,
+      onClick: onClickInputEmail
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
+      className: "c-count__right",
+      children: ["\u6587\u5B57\u6570: ", inputEmail.length]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+      className: "c-btn c-btn__edit",
+      onClick: handleSubmitEmail,
+      children: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u3092\u5909\u66F4"
+    })]
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Email);
@@ -1178,6 +1172,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var Icon = function Icon() {
   var element = document.getElementById("editIcon");
   var icon = [];
@@ -1192,10 +1187,8 @@ var Icon = function Icon() {
       var result = reader.result;
       imgTag.src = result;
       icon = result;
-      // console.log(icon);
     };
   };
-
   var onSubmit = function onSubmit(e) {
     e.preventDefault();
     axios__WEBPACK_IMPORTED_MODULE_3__["default"].put("/editIcon", {
@@ -1206,44 +1199,45 @@ var Icon = function Icon() {
       console.log(response.data);
     });
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
-    className: "text-center",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
-      className: "text-center",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
-          htmlFor: "pic1",
-          className: "display: inline-block",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            children: icon && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
-              id: "preview",
-              src: awspath + icon,
-              className: ""
-            }) || /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
-              id: "preview",
-              className: "",
-              src: "/images/avatar-default.svg"
-            })
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      className: "p-form p-form__group",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+        htmlFor: "pic1",
+        className: "",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          children: icon && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+            id: "preview",
+            src: awspath + icon,
+            className: "c-icon__profile"
+          }) || /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+            id: "preview",
+            className: "c-icon__profile",
+            src: "/images/avatar-default.svg"
           })
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      className: "p-form p-form__group",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
         // name="pic1"
         id: "pic1",
         type: "file",
-        className: "",
+        className: "u-display--none",
         accept: "image/*",
         src: icon
         // {...register("pic1", { required: true })}
         ,
         onChange: imageHander
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-        className: "text-red-500"
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-      className: "",
-      type: "submit",
-      onClick: onSubmit,
-      children: "\u30A2\u30A4\u30B3\u30F3\u3092\u5909\u66F4"
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      className: "p-form p-form__group",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+        className: "c-btn c-btn__icon",
+        type: "submit",
+        onClick: onSubmit,
+        children: "\u30A2\u30A4\u30B3\u30F3\u3092\u5909\u66F4"
+      })
     })]
   });
 };
@@ -1902,13 +1896,10 @@ var Produce = function Produce() {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
         className: "c-count__right",
         children: ["\u6587\u5B57\u6570: ", inputProduce.length]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-        className: "p-form__group",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-          className: "c-btn c-btn__edit",
-          onClick: handleSubmitProduce,
-          children: "\u81EA\u5DF1\u7D39\u4ECB\u3092\u5909\u66F4"
-        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+        className: "c-btn c-btn__edit",
+        onClick: handleSubmitProduce,
+        children: "\u81EA\u5DF1\u7D39\u4ECB\u3092\u5909\u66F4"
       })]
     })
   });
