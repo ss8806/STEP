@@ -22,7 +22,6 @@ const Email = () => {
     };
 
     const handleSubmitEmail = () => {
-        // e.preventDefault();
         axios
             // データはjson形式で渡してControllerで処理
             .put("/editEmail", { editEmail: inputEmail })
@@ -54,7 +53,9 @@ const Email = () => {
     return (
         <section className="p-form p-form__group">
             <p>
-                <label htmlFor="inputEmail">Email</label>
+                <label htmlFor="inputEmail" className="c-label">
+                    Email
+                </label>
             </p>
             <Validation
                 name={"メール"}

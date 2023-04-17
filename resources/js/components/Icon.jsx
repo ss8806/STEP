@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import axios from "axios";
+import Validation from "./Validation";
 
 const Icon = () => {
     const element = document.getElementById("editIcon");
     var icon = [];
     icon = JSON.parse(element.dataset.icon);
+
+    const [inputIcon, setIcon] = useState(icon);
+    const [sucess, setSucess] = useState();
+    const [error, setError] = useState();
+    const [showIconVali, setShowIconVali] = useState(false);
     const awspath = "https://backend1219.s3.ap-northeast-1.amazonaws.com/";
+
     const imageHander = (e) => {
         const file = e.target.files[0];
         let imgTag = document.getElementById("preview");
@@ -15,7 +22,7 @@ const Icon = () => {
         reader.onload = () => {
             const result = reader.result;
             imgTag.src = result;
-            icon = result;
+            inputIcon = setIcon(result);
         };
     };
 
@@ -23,20 +30,51 @@ const Icon = () => {
         e.preventDefault();
         axios
             .put("/editIcon", {
-                icon: icon,
+                icon: inputIcon,
             })
             .then((response) => {
                 console.log(response.data);
+                setSucess("更新しました");
+                setError("");
             })
             .catch((error) => {
-                console.log(response.data);
+                {
+                    // showをfalseにして子コンポーネントで表示できるようにする。
+                    setShowIconVali(false);
+                    switch (error.response?.status) {
+                        case 401:
+                            setError("更新できませんでした");
+                        case 403:
+                            setError("更新できませんでした");
+                        case 500:
+                            setError("更新できませんでした");
+                        default:
+                            // console.log(error.response.data);
+                            setSucess("");
+                            setError(error.response.data.errors.editEmail);
+                    }
+                }
             });
     };
 
     return (
         <>
             <div className="p-form p-form__group">
-                <label htmlFor="pic1" className="">
+                <p>
+                    <label htmlFor="pic1" className="c-label">
+                        アイコン
+                    </label>
+                </p>
+                <Validation
+                    name={"アイコン"}
+                    input={inputIcon}
+                    max={0}
+                    min={0}
+                    show={showIconVali}
+                    sucess={sucess}
+                    error={error}
+                ></Validation>
+                <label htmlFor="pic1" className="c-label">
                     <div>
                         {(icon && (
                             <img
@@ -56,19 +94,18 @@ const Icon = () => {
             </div>
             <div className="p-form p-form__group">
                 <input
-                    // name="pic1"
                     id="pic1"
                     type="file"
                     className="u-display--none"
                     accept="image/*"
                     src={icon}
-                    // {...register("pic1", { required: true })}
                     onChange={imageHander}
                 />
             </div>
+
             <div className="p-form p-form__group">
                 <button
-                    className="c-btn c-btn__icon"
+                    className="c-btn c-btn__edit"
                     type="submit"
                     onClick={onSubmit}
                 >

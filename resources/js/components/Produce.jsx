@@ -52,7 +52,6 @@ const Produce = () => {
     return (
         <>
             <section className="p-form p-form__group">
-                {/* {error} */}
                 <p>
                     <label htmlFor="inputproduce" className="c-label">
                         自己紹介
