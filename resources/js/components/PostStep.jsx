@@ -46,66 +46,58 @@ const PostStep = () => {
     };
 
     return (
-        <>
-            <div className="p-form p-form__group">
-                <label htmlFor="name" className="c-label">
-                    ステップ名
-                </label>
-                <Validation
-                    name={"ステップ名"}
-                    input={inputName}
-                    max={30}
-                    min={3}
-                    error={errors.name}
-                    show={showNameVali}
-                ></Validation>
-                <input
-                    id="name"
-                    type="text"
-                    className="c-input__step"
-                    name="name"
-                    required
-                    onChange={onChangeInputName}
-                    onClick={onClickInputName}
-                    defaultValue={inputName}
-                />
-                <span className="c-count__right">
-                    文字数: {inputName.length}
-                </span>
-            </div>
+        <div className="p-form p-form__group">
+            <label htmlFor="name" className="c-label">
+                ステップ名
+            </label>
+            <Validation
+                name={"ステップ名"}
+                input={inputName}
+                max={30}
+                min={3}
+                error={errors.name}
+                show={showNameVali}
+            ></Validation>
+            <input
+                id="name"
+                type="text"
+                className="c-input__step"
+                name="name"
+                required
+                onChange={onChangeInputName}
+                onClick={onClickInputName}
+                defaultValue={inputName}
+            />
+            <span className="c-count__right">文字数: {inputName.length}</span>
 
-            <div className="p-form p-form__group">
-                <label htmlFor="content" className="c-label">
-                    ステップの内容
-                </label>
-                <Validation
-                    name={"内容"}
-                    input={inputContent}
-                    max={30}
-                    min={10}
-                    error={errors.content}
-                    show={showContentVali}
-                ></Validation>
-                <textarea
-                    id="content"
-                    className="c-textarea__step"
-                    name="content"
-                    required
-                    onChange={onChangeInputContent}
-                    onClick={onClickInputContent}
-                    value={inputContent}
-                ></textarea>
-                <span className="c-count__right">
-                    文字数: {inputContent.length}
-                </span>
-            </div>
+            <label htmlFor="content" className="c-label">
+                ステップの内容
+            </label>
+            <Validation
+                name={"内容"}
+                input={inputContent}
+                max={30}
+                min={10}
+                error={errors.content}
+                show={showContentVali}
+            ></Validation>
+            <textarea
+                id="content"
+                className="c-textarea__step"
+                name="content"
+                required
+                onChange={onChangeInputContent}
+                onClick={onClickInputContent}
+                value={inputContent}
+            ></textarea>
+            <span className="c-count__right">
+                文字数: {inputContent.length}
+            </span>
 
-            <div className="p-form__group">
-                <button type="submit" className="c-btn__edit">
-                    投稿する
-                </button>
-            </div>
-        </>
+            <button type="submit" className="c-btn__edit">
+                投稿する
+            </button>
+        </div>
     );
 };
 

@@ -122,7 +122,12 @@ class StepController extends Controller
     {
         $step = Step::find($id);
         if ($step->user_id === Auth::user()->id) {
-            return view('editStep')->with('step', $step);
+            $message = "削除してよろしいですか";
+            $consent = "はい";
+            return view('editStep')
+            ->with('step', $step)
+            ->with('message', $message)
+            ->with('consent', $consent);
         } else {
             return redirect()->route('steps');
         }
@@ -135,8 +140,9 @@ class StepController extends Controller
      * @param  \App\Step  $step
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Step $step)
+    public function update(Request $request, Step $step, $id)
     {
+        $step = Step::find($id);
         $step->name = $request->input('name');
         $step->content = $request->input('content');
         $step->update();
@@ -149,9 +155,11 @@ class StepController extends Controller
      * @param  \App\Step  $step
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Step $step)
+    public function destroy(Step $step, $id)
     {
-        //
+        $step = Step::find($id);
+        $step->delete($step->id);
+        return redirect()->route('steps')->with('scc_message', '削除しました');
     }
 
     // 気になるリストに登録する処理

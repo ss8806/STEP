@@ -30,3 +30,4 @@ require("./components/EditStep");
 require("./components/EditChild");
 require("./components/Challenges");
 require("./components/Posts");
+require("./components/Dialog");

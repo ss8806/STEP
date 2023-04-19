@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import Validation from "./Validation";
 
-const EditStep = () => {
+const EditStep = (props) => {
     const element = document.getElementById("editStep");
     var errors;
     var step;
@@ -27,11 +27,11 @@ const EditStep = () => {
         setInputContent(e.target.value);
     };
 
-    const onClickInputName = (e) => {
+    const onClickInputName = () => {
         setShowNameVali(true);
     };
 
-    const onClickInputContent = (e) => {
+    const onClickInputContent = () => {
         setShowContentVali(true);
     };
 
@@ -62,9 +62,7 @@ const EditStep = () => {
                 <span className="c-count__right">
                     文字数: {inputName.length}
                 </span>
-            </div>
 
-            <div className="p-form p-form__group">
                 <label htmlFor="content" className="c-label">
                     ステップの内容
                 </label>
@@ -88,9 +86,7 @@ const EditStep = () => {
                 <span className="c-count__right">
                     文字数: {inputContent.length}
                 </span>
-            </div>
 
-            <div className="p-form__group">
                 <button type="submit" className="c-btn__edit">
                     編集する
                 </button>

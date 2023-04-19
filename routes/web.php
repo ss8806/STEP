@@ -28,6 +28,7 @@ Route::middleware('auth')
         Route::post('storeStep', 'StepController@store')->name('storeStep');
         Route::get('step/{id}/edit', 'StepController@edit')->name('editStep');
         Route::post('step/{id}/update', 'StepController@update')->name('updateStep');
+        Route::post('step/{id}/delete', 'StepController@destroy')->name('deleteStep');
         // child
         Route::get('/postChild/{id}', 'ChildController@create')->name('postChild');
         Route::post('/storeChild{id}', 'ChildController@store')->name('storeChild');
