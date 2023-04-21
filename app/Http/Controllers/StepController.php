@@ -123,7 +123,7 @@ class StepController extends Controller
         $step = Step::find($id);
         if ($step->user_id === Auth::user()->id) {
             $message = "削除してよろしいですか";
-            $consent = "はい";
+            $consent = "削除する";
             return view('editStep')
             ->with('step', $step)
             ->with('message', $message)

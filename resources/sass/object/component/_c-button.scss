@@ -28,7 +28,7 @@
         background-color: green;
         display: inline-block;
         border-radius: 10px;
-        width: 160px;
+        width: 100px;
     }
     &__delete{
         color: white;
@@ -36,7 +36,10 @@
         background-color: red;
         display: block;
         border-radius: 10px;
-        text-align: center;
+        width: 100px;
+        margin-top: -47px;
+        margin-left: 150px;
+
     }
     &__icon{
         color: white;

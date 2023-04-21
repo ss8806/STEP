@@ -20,24 +20,37 @@ const Dialog = (props) => {
 
     const onClickDeleteContent = () => {
         setShowDelButton(!showDelButton);
-        console.log(props);
     };
 
     return (
         <>
-            <button
-                type="button"
-                className="c-btn__delete"
-                onClick={onClickDeleteContent}
-            >
-                削除する
-            </button>
+            <div className="p-form p-form__group">
+                <button
+                    type="button"
+                    className="c-btn__delete"
+                    onClick={onClickDeleteContent}
+                >
+                    削除する
+                </button>
+            </div>
             {showDelButton && (
                 <>
-                    {message}
-                    <button type="submit" className="c-btn__delete">
-                        {consent}
-                    </button>
+                    <div className="p-dialog__background"></div>
+                    <div className="p-dialog__container">
+                        <div className="p-dialog__message">{message}</div>
+                        <div className="p-dialog__button">
+                            <button type="submit" className="p-dialog__consent">
+                                {consent}
+                            </button>
+                            <button
+                                type="button"
+                                className="p-dialog__cancel"
+                                onClick={onClickDeleteContent}
+                            >
+                                キャンセル
+                            </button>
+                        </div>
+                    </div>
                 </>
             )}
         </>

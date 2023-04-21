@@ -658,19 +658,37 @@ var Dialog = function Dialog(props) {
   }
   var onClickDeleteContent = function onClickDeleteContent() {
     setShowDelButton(!showDelButton);
-    console.log(props);
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-      type: "button",
-      className: "c-btn__delete",
-      onClick: onClickDeleteContent,
-      children: "\u524A\u9664\u3059\u308B"
-    }), showDelButton && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-      children: [message, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-        type: "submit",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      className: "p-form p-form__group",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+        type: "button",
         className: "c-btn__delete",
-        children: consent
+        onClick: onClickDeleteContent,
+        children: "\u524A\u9664\u3059\u308B"
+      })
+    }), showDelButton && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "p-dialog__background"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        className: "p-dialog__container",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "p-dialog__message",
+          children: message
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "p-dialog__button",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+            type: "submit",
+            className: "p-dialog__consent",
+            children: consent
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+            type: "button",
+            className: "p-dialog__cancel",
+            onClick: onClickDeleteContent,
+            children: "\u30AD\u30E3\u30F3\u30BB\u30EB"
+          })]
+        })]
       })]
     })]
   });
@@ -840,7 +858,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-
 var EditStep = function EditStep(props) {
   var element = document.getElementById("editStep");
   var errors;
@@ -879,60 +896,58 @@ var EditStep = function EditStep(props) {
   var onClickInputContent = function onClickInputContent() {
     setShowContentVali(true);
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-      className: "p-form p-form__group",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
-        htmlFor: "name",
-        className: "c-label",
-        children: "\u30B9\u30C6\u30C3\u30D7\u540D"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Validation__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        name: "ステップ名",
-        input: inputName,
-        max: 30,
-        min: 3,
-        error: errors.name,
-        show: showNameVali
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-        id: "name",
-        type: "text",
-        className: "c-input__step",
-        name: "name",
-        required: true,
-        onChange: onChangeInputName,
-        onClick: onClickInputName,
-        defaultValue: inputName
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
-        className: "c-count__right",
-        children: ["\u6587\u5B57\u6570: ", inputName.length]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
-        htmlFor: "content",
-        className: "c-label",
-        children: "\u30B9\u30C6\u30C3\u30D7\u306E\u5185\u5BB9"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Validation__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        name: "内容",
-        input: inputContent,
-        max: 30,
-        min: 3,
-        error: errors.content,
-        show: showContentVali
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("textarea", {
-        id: "content",
-        className: "c-textarea__step",
-        name: "content",
-        required: true,
-        onChange: onChangeInputContent,
-        onClick: onClickInputContent,
-        value: inputContent
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
-        className: "c-count__right",
-        children: ["\u6587\u5B57\u6570: ", inputContent.length]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-        type: "submit",
-        className: "c-btn__edit",
-        children: "\u7DE8\u96C6\u3059\u308B"
-      })]
-    })
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    className: "p-form p-form__group",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+      htmlFor: "name",
+      className: "c-label",
+      children: "\u30B9\u30C6\u30C3\u30D7\u540D"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Validation__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      name: "ステップ名",
+      input: inputName,
+      max: 30,
+      min: 3,
+      error: errors.name,
+      show: showNameVali
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+      id: "name",
+      type: "text",
+      className: "c-input__step",
+      name: "name",
+      required: true,
+      onChange: onChangeInputName,
+      onClick: onClickInputName,
+      defaultValue: inputName
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
+      className: "c-count__right",
+      children: ["\u6587\u5B57\u6570: ", inputName.length]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+      htmlFor: "content",
+      className: "c-label",
+      children: "\u30B9\u30C6\u30C3\u30D7\u306E\u5185\u5BB9"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Validation__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      name: "内容",
+      input: inputContent,
+      max: 30,
+      min: 3,
+      error: errors.content,
+      show: showContentVali
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("textarea", {
+      id: "content",
+      className: "c-textarea__step",
+      name: "content",
+      required: true,
+      onChange: onChangeInputContent,
+      onClick: onClickInputContent,
+      value: inputContent
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
+      className: "c-count__right",
+      children: ["\u6587\u5B57\u6570: ", inputContent.length]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+      type: "submit",
+      className: "c-btn__edit",
+      children: "\u7DE8\u96C6\u3059\u308B"
+    })]
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (EditStep);
