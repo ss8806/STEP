@@ -58,6 +58,7 @@ const Detail = () => {
                             is_challenged={is_challenged}
                             endpoint={"/step/" + step.id + "/challenge"}
                             show={show}
+                            // メソッドを子コンポーネントに渡す
                             setShow={setShow}
                         ></ChallengeButton>
                     ))}

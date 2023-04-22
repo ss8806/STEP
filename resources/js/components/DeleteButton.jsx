@@ -7,38 +7,35 @@ const DeleteButton = () => {
     let message = "削除してよろしいですか";
     let consent = "削除する";
 
-    const [showDialog, setShowDialog] = useState(false);
-
     if (element && element.dataset.dialog) {
         dialog = JSON.parse(element.dataset.dialog);
     }
 
-    const onClickDeleteButton = () => {
-        setShowDialog(!showDialog);
-    };
-
     const childCompRef = useRef();
+
+    // const onClickSubmit = () => {
+    //     document.getElementsByClassName("p-dialog__consent")[0].type = "submit";
+    // };
+
+    const onClickSubmit = (e) => {
+        e.target.type = "submit";
+    };
 
     return (
         <div className="p-form p-form__group">
-            {/* <button
-                type="button"
-                className="c-btn__delete"
-                onClick={onClickDeleteButton}
-            >
-                削除する
-            </button> */}
             <button
                 type="button"
+                className="c-btn__delete"
                 onClick={() => childCompRef.current.childFunc()}
             >
-                button
+                削除する
             </button>
 
             <Dialog
                 message={message}
                 consent={consent}
                 ref={childCompRef}
+                submit={onClickSubmit}
             ></Dialog>
         </div>
     );

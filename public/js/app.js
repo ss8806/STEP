@@ -489,12 +489,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var _Dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Dialog */ "./resources/js/components/Dialog.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0) { ; } } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
@@ -504,29 +498,32 @@ var DeleteButton = function DeleteButton() {
   var element = document.getElementById("deletebutton");
   var message = "削除してよろしいですか";
   var consent = "削除する";
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
-    _useState2 = _slicedToArray(_useState, 2),
-    showDialog = _useState2[0],
-    setShowDialog = _useState2[1];
   if (element && element.dataset.dialog) {
     dialog = JSON.parse(element.dataset.dialog);
   }
-  var onClickDeleteButton = function onClickDeleteButton() {
-    setShowDialog(!showDialog);
-  };
   var childCompRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
+
+  // const onClickSubmit = () => {
+  //     document.getElementsByClassName("p-dialog__consent")[0].type = "submit";
+  // };
+
+  var onClickSubmit = function onClickSubmit(e) {
+    e.target.type = "submit";
+  };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     className: "p-form p-form__group",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
       type: "button",
+      className: "c-btn__delete",
       onClick: function onClick() {
         return childCompRef.current.childFunc();
       },
-      children: "button"
+      children: "\u524A\u9664\u3059\u308B"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Dialog__WEBPACK_IMPORTED_MODULE_2__["default"], {
       message: message,
       consent: consent,
-      ref: childCompRef
+      ref: childCompRef,
+      submit: onClickSubmit
     })]
   });
 };
@@ -617,7 +614,9 @@ var Detail = function Detail() {
       }), edit || auth && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_ChallengeButton__WEBPACK_IMPORTED_MODULE_3__["default"], {
         is_challenged: is_challenged,
         endpoint: "/step/" + step.id + "/challenge",
-        show: show,
+        show: show
+        // メソッドを子コンポーネントに渡す
+        ,
         setShow: setShow
       }), edit && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         className: "c-link--detail",
@@ -707,10 +706,15 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var Dialog = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(function (props, ref) {
   var message = props.message;
   var consent = props.consent;
+  // 親コンポーネントからメソッドを受け取る
+  var submit = props.submit;
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState2 = _slicedToArray(_useState, 2),
     showDialog = _useState2[0],
     setShowDialog = _useState2[1];
+  var onCloseDialog = function onCloseDialog() {
+    setShowDialog(!showDialog);
+  };
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useImperativeHandle)(ref, function () {
     return {
       childFunc: function childFunc() {
@@ -718,6 +722,10 @@ var Dialog = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(func
       }
     };
   });
+  var onClickSubmit = function onClickSubmit(e) {
+    // 親コンポーネントから受け取ったメソッドを実行
+    submit(e);
+  };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
     children: showDialog && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
@@ -732,12 +740,12 @@ var Dialog = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(func
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
             type: "button",
             className: "p-dialog__consent",
+            onClick: onClickSubmit,
             children: consent
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
             type: "button",
-            className: "p-dialog__cancel"
-            // onClick={onCloseDialog}
-            ,
+            className: "p-dialog__cancel",
+            onClick: onCloseDialog,
             children: "\u30AD\u30E3\u30F3\u30BB\u30EB"
           })]
         })]
