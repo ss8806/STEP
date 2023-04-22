@@ -32,23 +32,25 @@ const ChallengeButton = (props) => {
         : handleChallenge;
 
     return (
-        <button
-            type="button"
-            className="c-btn c-btn__like "
-            onClick={handleClickChallenge}
-        >
-            <div>
-                {challenged ? (
-                    <>
-                        <i className="fa fa-fire fa-4x c-btn__fa--red" />
-                    </>
-                ) : (
-                    <>
-                        <i className="fa fa-fire fa-4x" />
-                    </>
-                )}
-            </div>
-        </button>
+        <>
+            <button
+                type="button"
+                className="c-btn c-btn__like "
+                onClick={handleClickChallenge}
+            >
+                <div>
+                    {challenged ? (
+                        <>
+                            <i className="fa fa-fire fa-4x c-btn__fa--red" />
+                        </>
+                    ) : (
+                        <>
+                            <i className="fa fa-fire fa-4x" />
+                        </>
+                    )}
+                </div>
+            </button>
+        </>
     );
 };
 

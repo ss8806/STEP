@@ -39,7 +39,7 @@ __webpack_require__(/*! ./components/EditStep */ "./resources/js/components/Edit
 __webpack_require__(/*! ./components/EditChild */ "./resources/js/components/EditChild.jsx");
 __webpack_require__(/*! ./components/Challenges */ "./resources/js/components/Challenges.jsx");
 __webpack_require__(/*! ./components/Posts */ "./resources/js/components/Posts.jsx");
-__webpack_require__(/*! ./components/Dialog */ "./resources/js/components/Dialog.jsx");
+__webpack_require__(/*! ./components/DeleteButton */ "./resources/js/components/DeleteButton.jsx");
 
 /***/ }),
 
@@ -181,18 +181,20 @@ var ChallengeButton = function ChallengeButton(props) {
     };
   }();
   var handleClickChallenge = challenged ? handleUnchallenge : handleChallenge;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-    type: "button",
-    className: "c-btn c-btn__like ",
-    onClick: handleClickChallenge,
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-      children: challenged ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-          className: "fa fa-fire fa-4x c-btn__fa--red"
-        })
-      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-          className: "fa fa-fire fa-4x"
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+      type: "button",
+      className: "c-btn c-btn__like ",
+      onClick: handleClickChallenge,
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        children: challenged ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+            className: "fa fa-fire fa-4x c-btn__fa--red"
+          })
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+            className: "fa fa-fire fa-4x"
+          })
         })
       })
     })
@@ -472,6 +474,69 @@ if (document.getElementById("child")) {
 
 /***/ }),
 
+/***/ "./resources/js/components/DeleteButton.jsx":
+/*!**************************************************!*\
+  !*** ./resources/js/components/DeleteButton.jsx ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var _Dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Dialog */ "./resources/js/components/Dialog.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0) { ; } } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+var DeleteButton = function DeleteButton() {
+  var element = document.getElementById("deletebutton");
+  var message = "削除してよろしいですか";
+  var consent = "削除する";
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState2 = _slicedToArray(_useState, 2),
+    showDialog = _useState2[0],
+    setShowDialog = _useState2[1];
+  if (element && element.dataset.dialog) {
+    dialog = JSON.parse(element.dataset.dialog);
+  }
+  var onClickDeleteButton = function onClickDeleteButton() {
+    setShowDialog(!showDialog);
+  };
+  var childCompRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    className: "p-form p-form__group",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+      type: "button",
+      onClick: function onClick() {
+        return childCompRef.current.childFunc();
+      },
+      children: "button"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Dialog__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      message: message,
+      consent: consent,
+      ref: childCompRef
+    })]
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DeleteButton);
+if (document.getElementById("deletebutton")) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(DeleteButton, {}), document.getElementById("deletebutton"));
+}
+
+/***/ }),
+
 /***/ "./resources/js/components/Detail.jsx":
 /*!********************************************!*\
   !*** ./resources/js/components/Detail.jsx ***!
@@ -639,36 +704,22 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-var Dialog = function Dialog(props) {
-  var element = document.getElementById("dialog");
-  var message;
-  var consent;
-  if (element && element.dataset.message) {
-    message = JSON.parse(element.dataset.message);
-  }
-  if (element && element.dataset.consent) {
-    consent = JSON.parse(element.dataset.consent);
-  }
+var Dialog = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(function (props, ref) {
+  var message = props.message;
+  var consent = props.consent;
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState2 = _slicedToArray(_useState, 2),
-    showDelButton = _useState2[0],
-    setShowDelButton = _useState2[1];
-  if (element && element.dataset.dialog) {
-    dialog = JSON.parse(element.dataset.dialog);
-  }
-  var onClickDeleteContent = function onClickDeleteContent() {
-    setShowDelButton(!showDelButton);
-  };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-      className: "p-form p-form__group",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-        type: "button",
-        className: "c-btn__delete",
-        onClick: onClickDeleteContent,
-        children: "\u524A\u9664\u3059\u308B"
-      })
-    }), showDelButton && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+    showDialog = _useState2[0],
+    setShowDialog = _useState2[1];
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useImperativeHandle)(ref, function () {
+    return {
+      childFunc: function childFunc() {
+        setShowDialog(!showDialog);
+      }
+    };
+  });
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+    children: showDialog && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
         className: "p-dialog__background"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
@@ -679,24 +730,22 @@ var Dialog = function Dialog(props) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
           className: "p-dialog__button",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-            type: "submit",
+            type: "button",
             className: "p-dialog__consent",
             children: consent
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
             type: "button",
-            className: "p-dialog__cancel",
-            onClick: onClickDeleteContent,
+            className: "p-dialog__cancel"
+            // onClick={onCloseDialog}
+            ,
             children: "\u30AD\u30E3\u30F3\u30BB\u30EB"
           })]
         })]
       })]
-    })]
+    })
   });
-};
+});
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Dialog);
-if (document.getElementById("dialog")) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Dialog, {}), document.getElementById("dialog"));
-}
 
 /***/ }),
 

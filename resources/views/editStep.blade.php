@@ -17,10 +17,7 @@
         </form>
         <form method="POST" action="{{ route('deleteStep', $step->id) }}" class="p-from">
             @csrf
-            <div id="dialog"
-            data-message="{{ json_encode($message) }}"
-            data-consent="{{ json_encode($consent) }}"
-            ></div>
+            <div id="deletebutton"></div>
         </form>
     </div>
 </div>
