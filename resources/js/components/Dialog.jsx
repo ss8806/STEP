@@ -35,7 +35,10 @@ const Dialog = forwardRef((props, ref) => {
                             <button
                                 type="button"
                                 className="p-dialog__consent"
-                                onClick={onClickSubmit}
+                                onClick={() => {
+                                    onClickSubmit();
+                                    onCloseDialog();
+                                }}
                             >
                                 {consent}
                             </button>
