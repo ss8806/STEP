@@ -10,18 +10,21 @@ const Dialog = forwardRef((props, ref) => {
     const [showDialog, setShowDialog] = useState(false);
 
     const onCloseDialog = () => {
-        setShowDialog(!showDialog);
+        setShowDialog(false);
     };
 
     useImperativeHandle(ref, () => ({
         childFunc() {
-            setShowDialog(!showDialog);
+            setShowDialog(true);
         },
     }));
 
     const onClickSubmit = (e) => {
         // 親コンポーネントから受け取ったメソッドを実行
         submit(e);
+        setTimeout(() => {
+            setShowDialog(false);
+        }, 100);
     };
 
     return (
@@ -35,10 +38,11 @@ const Dialog = forwardRef((props, ref) => {
                             <button
                                 type="button"
                                 className="p-dialog__consent"
-                                onClick={() => {
-                                    onClickSubmit();
-                                    onCloseDialog();
-                                }}
+                                onClick={onClickSubmit}
+                                // onClick={() => {
+                                //     onClickSubmit;
+                                //     onCloseDialog;
+                                // }}
                             >
                                 {consent}
                             </button>

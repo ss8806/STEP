@@ -744,18 +744,21 @@ var Dialog = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(func
     showDialog = _useState2[0],
     setShowDialog = _useState2[1];
   var onCloseDialog = function onCloseDialog() {
-    setShowDialog(!showDialog);
+    setShowDialog(false);
   };
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useImperativeHandle)(ref, function () {
     return {
       childFunc: function childFunc() {
-        setShowDialog(!showDialog);
+        setShowDialog(true);
       }
     };
   });
   var onClickSubmit = function onClickSubmit(e) {
     // 親コンポーネントから受け取ったメソッドを実行
     submit(e);
+    setTimeout(function () {
+      setShowDialog(false);
+    }, 100);
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
     children: showDialog && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
@@ -771,10 +774,12 @@ var Dialog = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(func
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
             type: "button",
             className: "p-dialog__consent",
-            onClick: function onClick() {
-              onClickSubmit();
-              onCloseDialog();
-            },
+            onClick: onClickSubmit
+            // onClick={() => {
+            //     onClickSubmit;
+            //     onCloseDialog;
+            // }}
+            ,
             children: consent
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
             type: "button",
