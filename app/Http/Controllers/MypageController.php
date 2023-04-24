@@ -16,9 +16,13 @@ class MypageController extends Controller
     {
         $user = Auth::user();
 
+        // 投稿したステップ
         $posts = $user->postSteps()->orderBy('id', 'DESC')->take(5)->get();
+
+        // チャレンジ中ののステップ
+
         // サブクエリ
-        $subquery= Child::query()
+        $subquery = Child::query()
             ->select(
                 'children.id as c_id',
                 'children.detail_id as c_detail_id'
@@ -40,12 +44,16 @@ class MypageController extends Controller
             ->where('challenges.user_id', $user->id)
             // stepsテーブルを軸に外部結合
             ->leftJoinSub($subquery, 'children', 'steps.id', 'children.c_detail_id')
-            ->groupBy('steps.id')            ;
+            ->groupBy('steps.id');
         $challenges = $query->get();
-
+        $is_challenged = array();
+        foreach ($challenges as $challenge) {
+            $is_challenged[] = true;
+        }
         return view('mypage')
             ->with('user', $user)
             ->with('posts', $posts)
-            ->with('challenges', $challenges);
+            ->with('challenges', $challenges)
+            ->with('is_challenged', $is_challenged);
     }
 }

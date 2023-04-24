@@ -98,13 +98,12 @@ class StepController extends Controller
         $step = Step::find($id);
         $is_challenged = $step->isChallenged(Auth::user());
         $children = Child::where('detail_id', $id)->paginate(8);
-        if (isset($is_checked) === null) {
-            foreach ($children as $child) {
-                $is_checked[] = $child->isChecked(Auth::user());
-            }
-        } else {
-            $is_checked[] = false;
+        $is_checked = array();
+
+        foreach ($children as $child) {
+            $is_checked[] = $child->isChecked(Auth::user());
         }
+       
         return view('detail')
             ->with('step', $step)
             ->with('is_challenged', $is_challenged)
@@ -125,9 +124,9 @@ class StepController extends Controller
             $message = "削除してよろしいですか";
             $consent = "削除する";
             return view('editStep')
-            ->with('step', $step)
-            ->with('message', $message)
-            ->with('consent', $consent);
+                ->with('step', $step)
+                ->with('message', $message)
+                ->with('consent', $consent);
         } else {
             return redirect()->route('steps');
         }

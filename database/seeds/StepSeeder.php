@@ -27,5 +27,12 @@ class StepSeeder extends Seeder
             'count_child' => '1',
             'user_id' => '2',
         ]);
+        factory(Step::class)->create([
+            'id' => '3',
+            'name' => 'キャンプをする',
+            'content' => 'キャンプするメリット',
+            'count_child' => '0',
+            'user_id' => '2',
+        ]);
     }
 }

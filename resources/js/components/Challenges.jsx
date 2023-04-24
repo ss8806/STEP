@@ -7,12 +7,19 @@ const Challenges = () => {
     const element = document.getElementById("challenges");
 
     var challenges;
+    var is_challenged;
 
     if (element && element.dataset.challenges) {
         challenges = JSON.parse(element.dataset.challenges);
+        console.log(challenges);
     }
 
-    let [show, setShow] = useState(true);
+    if (element && element.dataset.is_challenged) {
+        is_challenged = JSON.parse(element.dataset.is_challenged);
+        // console.log(is_challenged);
+    }
+
+    let [show, setShow] = useState(is_challenged);
 
     return (
         <>
@@ -44,13 +51,13 @@ const Challenges = () => {
                                     %
                                 </li>
                                 <ChallengeButton
-                                    is_challenged={true}
+                                    is_challenged={is_challenged[i]}
                                     endpoint={
                                         "/step/" +
                                         challenge.challenge_id +
                                         "/challenge"
                                     }
-                                    show={show}
+                                    show={show[i]}
                                     setShow={setShow}
                                 ></ChallengeButton>
                                 <div className="c-link--detail">

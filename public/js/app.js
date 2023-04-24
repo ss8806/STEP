@@ -268,10 +268,17 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var Challenges = function Challenges() {
   var element = document.getElementById("challenges");
   var challenges;
+  var is_challenged;
   if (element && element.dataset.challenges) {
     challenges = JSON.parse(element.dataset.challenges);
+    console.log(challenges);
   }
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
+  if (element && element.dataset.is_challenged) {
+    is_challenged = JSON.parse(element.dataset.is_challenged);
+    // console.log(is_challenged);
+  }
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(is_challenged),
     _useState2 = _slicedToArray(_useState, 2),
     show = _useState2[0],
     setShow = _useState2[1];
@@ -300,9 +307,9 @@ var Challenges = function Challenges() {
                 className: "p-card_count",
                 children: ["\u9032\u6357", challenge.count && challenge.count / challenge.count_child * 100, "%"]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_ChallengeButton__WEBPACK_IMPORTED_MODULE_3__["default"], {
-                is_challenged: true,
+                is_challenged: is_challenged[i],
                 endpoint: "/step/" + challenge.challenge_id + "/challenge",
-                show: show,
+                show: show[i],
                 setShow: setShow
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                 className: "c-link--detail",
@@ -757,7 +764,7 @@ var Dialog = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(func
     // 親コンポーネントから受け取ったメソッドを実行
     submit(e);
     setTimeout(function () {
-      setShowDialog(false);
+      onCloseDialog();
     }, 100);
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {

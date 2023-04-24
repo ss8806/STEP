@@ -23,7 +23,7 @@ const Dialog = forwardRef((props, ref) => {
         // 親コンポーネントから受け取ったメソッドを実行
         submit(e);
         setTimeout(() => {
-            setShowDialog(false);
+            onCloseDialog();
         }, 100);
     };
 
