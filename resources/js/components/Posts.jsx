@@ -9,7 +9,6 @@ const Posts = () => {
 
     if (element && element.dataset.posts) {
         posts = JSON.parse(element.dataset.posts);
-        console.log(posts);
     }
 
     return (

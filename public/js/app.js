@@ -127,6 +127,7 @@ var ChallengeButton = function ChallengeButton(props) {
   var endpoint = props.endpoint;
   var show = props.show;
   var setShow = props.setShow;
+  var challenge = props.challenge;
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
     _useState2 = _slicedToArray(_useState, 2),
     message = _useState2[0],
@@ -181,7 +182,9 @@ var ChallengeButton = function ChallengeButton(props) {
             case 2:
               setChallenged(!challenged);
               setShow(!show);
-            case 4:
+              delete challenge.step_name;
+              // console.log(challenge);
+            case 5:
             case "end":
               return _context2.stop();
           }
@@ -252,6 +255,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _ChallengeButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ChallengeButton */ "./resources/js/components/ChallengeButton.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
@@ -267,25 +274,51 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var Challenges = function Challenges() {
   var element = document.getElementById("challenges");
-  var challenges;
+  var chs;
   var is_challenged;
   if (element && element.dataset.challenges) {
-    challenges = JSON.parse(element.dataset.challenges);
-    console.log(challenges);
+    chs = JSON.parse(element.dataset.challenges);
+    // console.log(challenges);
   }
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(chs),
+    _useState2 = _slicedToArray(_useState, 2),
+    challenges = _useState2[0],
+    setChallenges = _useState2[1];
   if (element && element.dataset.is_challenged) {
     is_challenged = JSON.parse(element.dataset.is_challenged);
     // console.log(is_challenged);
   }
 
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(is_challenged),
-    _useState2 = _slicedToArray(_useState, 2),
-    show = _useState2[0],
-    setShow = _useState2[1];
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(is_challenged),
+    _useState4 = _slicedToArray(_useState3, 2),
+    show = _useState4[0],
+    setShow = _useState4[1];
+  var handleChallenge = function handleChallenge() {
+    var newTodos = _toConsumableArray(challenges);
+    var deleteTodo = newTodos.splice(1, 1);
+    setChallenges(deleteTodo);
+    console.log(deleteTodo);
+    // copyList.splice(1, 1);
+    // setChallenges(...copyList);
+    // console.log(copyList);
+  };
+
+  // useEffect(() => {
+  //     console.log(challenges);
+  // }, [challenges]);
+
+  // delete challenges[0];
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
       className: "c-title c-title__mypage",
       children: "\u30C1\u30E3\u30EC\u30F3\u30B8\u4E2D\u306ESTEP"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+      onClick: function onClick() {
+        return handleChallenge();
+      },
+      children: "\u30DC\u30BF\u30F3"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
       className: "p-card",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
@@ -295,14 +328,16 @@ var Challenges = function Challenges() {
           children: challenges.map(function (challenge, i) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("ul", {
               className: "c-flexbox__flexitem c-flexbox__flexitem--index",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
-                className: "p-card p-card__header--index u-overflow",
-                children: challenge.step_name
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
                 className: "p-card__body",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
                   children: "\u6295\u7A3F\u65E5"
                 }), moment__WEBPACK_IMPORTED_MODULE_2___default()(challenge.updated_at).format("YYYY年MM月DD日")]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
+                className: "p-card__body",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                  children: challenge.step_name
+                })
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
                 className: "p-card_count",
                 children: ["\u9032\u6357", challenge.count && challenge.count / challenge.count_child * 100, "%"]
@@ -310,7 +345,8 @@ var Challenges = function Challenges() {
                 is_challenged: is_challenged[i],
                 endpoint: "/step/" + challenge.challenge_id + "/challenge",
                 show: show[i],
-                setShow: setShow
+                setShow: setShow,
+                challenge: challenges[i]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                 className: "c-link--detail",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
@@ -1951,7 +1987,6 @@ var Posts = function Posts() {
   var posts;
   if (element && element.dataset.posts) {
     posts = JSON.parse(element.dataset.posts);
-    console.log(posts);
   }
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
