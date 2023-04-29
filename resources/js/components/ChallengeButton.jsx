@@ -7,10 +7,12 @@ const ChallengeButton = (props) => {
     let endpoint = props.endpoint;
     let show = props.show;
     let setShow = props.setShow;
-    let challenge = props.challenge;
+    let handleDeleteChallenge = props.handleDeleteChallenge;
+    let index = props.index;
 
     let [message, setMessage] = useState("");
     let [consent, setConsent] = useState("");
+    let [challenges, setChallenges] = useState(props.challenges);
     let [challenged, setChallenged] = useState(is_challenged);
 
     const childCompRef = useRef();
@@ -37,8 +39,8 @@ const ChallengeButton = (props) => {
         await axios.delete(endpoint);
         setChallenged(!challenged);
         setShow(!show);
-        delete challenge.step_name;
-        // console.log(challenge);
+        handleDeleteChallenge(index);
+        console.log(index);
     };
 
     const handleClickChallenge = challenged ? handleAbandon : handleChallenge;

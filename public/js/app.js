@@ -127,7 +127,8 @@ var ChallengeButton = function ChallengeButton(props) {
   var endpoint = props.endpoint;
   var show = props.show;
   var setShow = props.setShow;
-  var challenge = props.challenge;
+  var handleDeleteChallenge = props.handleDeleteChallenge;
+  var index = props.index;
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
     _useState2 = _slicedToArray(_useState, 2),
     message = _useState2[0],
@@ -136,10 +137,14 @@ var ChallengeButton = function ChallengeButton(props) {
     _useState4 = _slicedToArray(_useState3, 2),
     consent = _useState4[0],
     setConsent = _useState4[1];
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(is_challenged),
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(props.challenges),
     _useState6 = _slicedToArray(_useState5, 2),
-    challenged = _useState6[0],
-    setChallenged = _useState6[1];
+    challenges = _useState6[0],
+    setChallenges = _useState6[1];
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(is_challenged),
+    _useState8 = _slicedToArray(_useState7, 2),
+    challenged = _useState8[0],
+    setChallenged = _useState8[1];
   var childCompRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
   var handleChallengeMessage = function handleChallengeMessage() {
     setMessage("チャレンジしますか？");
@@ -182,9 +187,9 @@ var ChallengeButton = function ChallengeButton(props) {
             case 2:
               setChallenged(!challenged);
               setShow(!show);
-              delete challenge.step_name;
-              // console.log(challenge);
-            case 5:
+              handleDeleteChallenge(index);
+              console.log(index);
+            case 6:
             case "end":
               return _context2.stop();
           }
@@ -278,47 +283,29 @@ var Challenges = function Challenges() {
   var is_challenged;
   if (element && element.dataset.challenges) {
     chs = JSON.parse(element.dataset.challenges);
-    // console.log(challenges);
+    console.log(chs);
   }
-
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(chs),
     _useState2 = _slicedToArray(_useState, 2),
     challenges = _useState2[0],
     setChallenges = _useState2[1];
   if (element && element.dataset.is_challenged) {
     is_challenged = JSON.parse(element.dataset.is_challenged);
-    // console.log(is_challenged);
   }
-
+  // 配列の中身全てtrueになる
   var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(is_challenged),
     _useState4 = _slicedToArray(_useState3, 2),
     show = _useState4[0],
     setShow = _useState4[1];
-  var handleChallenge = function handleChallenge() {
+  var handleDeleteChallenge = function handleDeleteChallenge(i) {
     var newTodos = _toConsumableArray(challenges);
-    var deleteTodo = newTodos.splice(1, 1);
-    setChallenges(deleteTodo);
-    console.log(deleteTodo);
-    // copyList.splice(1, 1);
-    // setChallenges(...copyList);
-    // console.log(copyList);
+    newTodos.splice(i, 1);
+    setChallenges(newTodos);
   };
-
-  // useEffect(() => {
-  //     console.log(challenges);
-  // }, [challenges]);
-
-  // delete challenges[0];
-
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
       className: "c-title c-title__mypage",
       children: "\u30C1\u30E3\u30EC\u30F3\u30B8\u4E2D\u306ESTEP"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-      onClick: function onClick() {
-        return handleChallenge();
-      },
-      children: "\u30DC\u30BF\u30F3"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
       className: "p-card",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
@@ -346,7 +333,9 @@ var Challenges = function Challenges() {
                 endpoint: "/step/" + challenge.challenge_id + "/challenge",
                 show: show[i],
                 setShow: setShow,
-                challenge: challenges[i]
+                handleDeleteChallenge: handleDeleteChallenge,
+                challenges: challenges,
+                index: i
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                 className: "c-link--detail",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {

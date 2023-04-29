@@ -11,40 +11,26 @@ const Challenges = () => {
 
     if (element && element.dataset.challenges) {
         chs = JSON.parse(element.dataset.challenges);
-        // console.log(challenges);
+        console.log(chs);
     }
 
     let [challenges, setChallenges] = useState(chs);
 
     if (element && element.dataset.is_challenged) {
         is_challenged = JSON.parse(element.dataset.is_challenged);
-        // console.log(is_challenged);
     }
-
+    // 配列の中身全てtrueになる
     let [show, setShow] = useState(is_challenged);
 
-    const handleChallenge = () => {
+    const handleDeleteChallenge = (i) => {
         const newTodos = [...challenges];
-        const deleteTodo = newTodos.splice(1, 1);
-        setChallenges(deleteTodo);
-
-        console.log(deleteTodo);
-        // copyList.splice(1, 1);
-        // setChallenges(...copyList);
-        // console.log(copyList);
+        newTodos.splice(i, 1);
+        setChallenges(newTodos);
     };
-
-    // useEffect(() => {
-    //     console.log(challenges);
-    // }, [challenges]);
-
-    // delete challenges[0];
 
     return (
         <>
             <p className="c-title c-title__mypage">チャレンジ中のSTEP</p>
-
-            <button onClick={() => handleChallenge()}>ボタン</button>
 
             <div className="p-card">
                 <div className="c-flexbox--index">
@@ -81,7 +67,11 @@ const Challenges = () => {
                                         }
                                         show={show[i]}
                                         setShow={setShow}
-                                        challenge={challenges[i]}
+                                        handleDeleteChallenge={
+                                            handleDeleteChallenge
+                                        }
+                                        challenges={challenges}
+                                        index={i}
                                     ></ChallengeButton>
                                     <div className="c-link--detail">
                                         <a
@@ -94,6 +84,12 @@ const Challenges = () => {
                                             詳細をみる
                                         </a>
                                     </div>
+                                    {/* <button
+                                        type="button"
+                                        onClick={() => handleDeleteChallenge(i)}
+                                    >
+                                        消去ボタン
+                                    </button> */}
                                 </ul>
                             );
                         })}
