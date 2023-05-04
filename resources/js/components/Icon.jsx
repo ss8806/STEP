@@ -80,12 +80,12 @@ const Icon = () => {
                             <img
                                 id="preview"
                                 src={awspath + icon}
-                                className="c-icon__profile"
+                                className="c-icon p-profile__icon"
                             ></img>
                         )) || (
                             <img
                                 id="preview"
-                                className="c-icon__profile"
+                                className="c-icon p-profile__icon"
                                 src="/images/avatar-default.svg"
                             />
                         )}

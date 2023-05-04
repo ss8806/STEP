@@ -11,7 +11,7 @@
             <ul class="p-nav p-nav__menu">
                 @guest
                 <li>
-                    <img src="/images/avatar-default.svg" class="c-avatar">
+                    <img src="/images/avatar-default.svg" class="c-avatar p-header__avatar">
                 </li>
                 <li>ゲストユーザー</li>
                 <li>

@@ -25,12 +25,14 @@ const Message = () => {
             {close ? (
                 <></>
             ) : (
-                <div className="p-message__container p-message__container--success">
-                    <i className="fas fa-check-circle p-message__icon"></i>
-                    <div className="p-message__text">
-                        <p>{message}</p>
+                <> <div className="p-dialog__background"></div>
+                    <div className="p-message__container p-message__container--success">
+                        <i className="fas fa-check-circle p-message__circle"></i>
+                        <div className="p-message__text">
+                            <p>{message}</p>
+                        </div>
                     </div>
-                </div>
+                </>
             )}
         </>
     );

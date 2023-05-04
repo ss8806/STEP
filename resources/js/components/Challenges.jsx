@@ -1,13 +1,16 @@
-import React, { useState, useEffect, Suspense } from "react";
+import React, { useState, useRef } from "react";
 import ReactDOM from "react-dom";
 import moment from "moment";
-import ChallengeButton from "./ChallengeButton";
+import Dialog from "./Dialog";
 
 const Challenges = () => {
     const element = document.getElementById("challenges");
 
     let chs;
-    let is_challenged;
+    let [message, setMessage] = useState("");
+    let [consent, setConsent] = useState("");
+
+    const childCompRef = useRef();
 
     if (element && element.dataset.challenges) {
         chs = JSON.parse(element.dataset.challenges);
@@ -15,12 +18,22 @@ const Challenges = () => {
     }
 
     let [challenges, setChallenges] = useState(chs);
+    let [endpoint, setEndpoint] = useState("");
+    let [index, setIndex] = useState("");
 
-    if (element && element.dataset.is_challenged) {
-        is_challenged = JSON.parse(element.dataset.is_challenged);
-    }
-    // 配列の中身全てtrueになる
-    let [show, setShow] = useState(is_challenged);
+    const handleAbandonMessage = () => {
+        setMessage("諦めますか？");
+        setConsent("諦める");
+    };
+
+    const handleAbandon = async () => {
+        await axios.delete("/step/" + endpoint + "/challenge");
+        handleDeleteChallenge(index);
+    };
+
+    const onClickSubmit = () => {
+        handleAbandon();
+    };
 
     const handleDeleteChallenge = (i) => {
         const newTodos = [...challenges];
@@ -31,7 +44,6 @@ const Challenges = () => {
     return (
         <>
             <p className="c-title c-title__mypage">チャレンジ中のSTEP</p>
-
             <div className="p-card">
                 <div className="c-flexbox--index">
                     <div className="c-flexbox__flexcontainer c-flexbox__flexcontainer--index">
@@ -55,24 +67,37 @@ const Challenges = () => {
                                         {challenge.count &&
                                             (challenge.count /
                                                 challenge.count_child) *
-                                                100}
+                                            100}
                                         %
                                     </li>
-                                    <ChallengeButton
-                                        is_challenged={is_challenged[i]}
-                                        endpoint={
-                                            "/step/" +
-                                            challenge.challenge_id +
-                                            "/challenge"
-                                        }
-                                        show={show[i]}
-                                        setShow={setShow}
-                                        handleDeleteChallenge={
-                                            handleDeleteChallenge
-                                        }
-                                        challenges={challenges}
-                                        index={i}
-                                    ></ChallengeButton>
+
+                                    <button
+                                        type="button"
+                                        className="c-btn c-btn__like "
+                                    // onClick={handleClickChallenge}
+                                    >
+                                        <>
+                                            <i
+                                                type="button"
+                                                className="fa fa-fire fa-4x c-btn__fa--red"
+                                                onClick={() => {
+                                                    setEndpoint(challenge.challenge_id);
+                                                    setIndex(i);
+                                                    // ダイアログのメッセージ
+                                                    handleAbandonMessage();
+                                                    // ダイアログ表示
+                                                    childCompRef.current.childFunc();
+                                                }}
+                                            />
+                                        </>
+                                    </button>
+                                    <Dialog
+                                        message={message}
+                                        consent={consent}
+                                        ref={childCompRef}
+                                        submit={onClickSubmit}
+                                    ></Dialog>
+
                                     <div className="c-link--detail">
                                         <a
                                             href={
@@ -84,12 +109,6 @@ const Challenges = () => {
                                             詳細をみる
                                         </a>
                                     </div>
-                                    {/* <button
-                                        type="button"
-                                        onClick={() => handleDeleteChallenge(i)}
-                                    >
-                                        消去ボタン
-                                    </button> */}
                                 </ul>
                             );
                         })}

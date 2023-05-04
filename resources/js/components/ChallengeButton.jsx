@@ -12,7 +12,6 @@ const ChallengeButton = (props) => {
 
     let [message, setMessage] = useState("");
     let [consent, setConsent] = useState("");
-    let [challenges, setChallenges] = useState(props.challenges);
     let [challenged, setChallenged] = useState(is_challenged);
 
     const childCompRef = useRef();
@@ -37,9 +36,9 @@ const ChallengeButton = (props) => {
 
     const handleAbandon = async () => {
         await axios.delete(endpoint);
+        // handleDeleteChallenge(index);
         setChallenged(!challenged);
         setShow(!show);
-        handleDeleteChallenge(index);
         console.log(index);
     };
 
