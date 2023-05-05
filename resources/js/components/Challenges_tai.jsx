@@ -1,8 +1,6 @@
 import React, { useState, useEffect, Suspense } from "react";
 import ReactDOM from "react-dom";
-import moment from "moment";
 import Challenge from "./Challenge";
-import ChallengeButton from "./ChallengeButton";
 
 const Challenges = () => {
     const element = document.getElementById("challenges");
@@ -19,24 +17,16 @@ const Challenges = () => {
         is_challenged = JSON.parse(element.dataset.is_challenged);
     }
 
-    let [challenged, setChallenged] = useState(is_challenged);
-
-    console.log(challenges);
-
-    // useEffect(() => {
-    //     console.log(show);
-    // }, [show]);
-
     return (
         <>
             <p className="c-title c-title__mypage">チャレンジ中のSTEP</p>
             <div className="p-card">
-                <div className="c-flexbox--index">
-                    <div className="c-flexbox__flexcontainer c-flexbox__flexcontainer--index">
+                <div className="p-flexbox">
+                    <div className="p-flexbox__flexcontainer p-flexbox__flexcontainer--index">
                         {challenges.map((challenge, i) => (
                             <ul
                                 key={i}
-                                className="c-flexbox__flexitem c-flexbox__flexitem--index"
+                                className="p-flexbox__flexitem"
                             >
                                 <Challenge challenge={challenge}></Challenge>
                             </ul>

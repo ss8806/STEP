@@ -68,16 +68,16 @@ const Produce = () => {
                 ></Validation>
                 <textarea
                     id="inputproduce"
-                    className="c-textarea__produce"
+                    className="c-textarea"
                     name="editProduce"
                     required
                     defaultValue={inputProduce}
                     onChange={onHandleChangeProduce}
                     onClick={onClickInputProduce}
                 ></textarea>
-                <p className="c-count__right">文字数: {inputProduce.length}</p>
+                <p className="c-count">文字数: {inputProduce.length}</p>
                 <button
-                    className="c-btn c-btn__edit"
+                    className="c-btn c-btn--edit"
                     onClick={handleSubmitProduce}
                 >
                     自己紹介を変更

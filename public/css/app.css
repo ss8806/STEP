@@ -72,176 +72,56 @@ a:visited {
   color: green;
   background-color: white;
 }
-.c-btn__edit {
+.c-btn--edit {
   color: white;
   background-color: green;
   display: inline-block;
   border-radius: 10px;
   width: 120px;
 }
-.c-btn__delete {
+.c-btn--delete {
   color: white;
-  border-color: red;
   background-color: red;
   display: block;
   border-radius: 10px;
   width: 100px;
-  margin-top: -47px;
-  margin-left: 150px;
 }
 
-.c-count__right {
+.c-count {
   float: right;
-}
-
-.c-dropdown {
-  position: relative;
-  display: inline-block;
-}
-.c-dropdown__user {
-  color: green;
-}
-.c-dropdown--content {
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-.c-dropdown__menu {
-  display: flex;
-  color: blue;
 }
 
 .c-error {
   color: red;
 }
 
-.c-flexbox--index {
-  margin: 10px;
-}
-@media screen and (max-width: 768px) {
-  .c-flexbox--index {
-    margin: 0px;
-  }
-}
-.c-flexbox__flexcontainer {
-  display: flex;
-  flex-flow: row wrap;
-  min-height: 150px;
-  width: 100%;
-}
-.c-flexbox__flexitem {
+.c-input {
+  font-size: 18px;
+  border-radius: 3px;
+  border: 2px solid #ddd;
   box-sizing: border-box;
-  text-align: center;
-  background-color: white;
-  padding: 10px;
-  margin: 10px;
 }
-.c-flexbox__flexitem--index {
-  width: calc(25% - 20px);
-  min-height: 180px;
-}
-@media screen and (max-width: 768px) {
-  .c-flexbox__flexitem--index {
-    margin: 5px;
-    width: calc(50% - 10px);
-  }
-}
-.c-flexbox__flexitem--mypage {
-  width: calc(33.333% - 20px);
-  min-height: 180px;
-}
-@media screen and (max-width: 768px) {
-  .c-flexbox__flexitem--mypage {
-    margin: 5px;
-    width: calc(50% - 10px);
-  }
-}
-
-.c-input__profile {
-  width: 30%;
-  margin-bottom: 10px;
-}
-@media screen and (max-width: 768px) {
-  .c-input__profile {
-    width: 60%;
-  }
-}
-.c-input__step {
+.c-input--step {
   width: 100%;
-  margin-bottom: 10px;
+  margin: 10px 0px;
   height: 30px;
-  border: 2px solid #ddd; /*枠線*/
-  font-size: 18px;
-  margin-top: 10px;
 }
-.c-input__day {
+.c-input--day {
   width: 200px;
-  border-radius: 3px; /*ボックス角の丸み*/
-  border: 2px solid #ddd; /*枠線*/
-  box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
   height: 30px;
-  font-size: 18px;
+  margin: 0px 10px;
 }
 @media screen and (max-width: 414px) {
-  .c-input__day {
+  .c-input--day {
     width: 45%;
   }
 }
-.c-input__name {
-  width: 200px;
-  border-radius: 3px; /*ボックス角の丸み*/
-  border: 2px solid #ddd; /*枠線*/
-  box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
-  height: 30px;
-  font-size: 18px;
-  margin-top: 10px;
-}
-@media screen and (max-width: 414px) {
-  .c-input__name {
-    width: 44%;
-  }
-}
-.c-input__email {
-  width: 100%;
-  margin-bottom: 10px;
-  height: 30px;
-  border: 2px solid #ddd; /*枠線*/
-  font-size: 18px;
-  margin-top: 10px;
-}
-@media screen and (max-width: 414px) {
-  .c-input__email {
-    width: 44%;
-  }
-}
-.c-input__password {
-  width: 200px;
-  border-radius: 3px; /*ボックス角の丸み*/
-  border: 2px solid #ddd; /*枠線*/
-  box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
-  height: 30px;
-  font-size: 18px;
-  margin-top: 10px;
-}
-@media screen and (max-width: 414px) {
-  .c-input__password {
-    width: 44%;
-  }
-}
 
-.c-textarea__step {
+.c-textarea {
+  margin-top: 10px;
   font-size: 18px;
   width: 100%;
   margin: 10px 0px;
-  height: 200px;
-  border: 2px solid #ddd; /*枠線*/
-}
-.c-textarea__produce {
-  font-size: 18px;
-  width: 100%;
-  margin-bottom: 10px;
   height: 200px;
   border: 2px solid #ddd; /*枠線*/
 }
@@ -283,42 +163,6 @@ a:visited {
 .c-title {
   margin: 10px;
 }
-.c-title__top {
-  font-size: 70px;
-  font-family: "Amatic SC", cursive;
-  text-decoration: none;
-  color: #333;
-  margin-bottom: 70px;
-}
-.c-title__main {
-  margin: 20px;
-  font-size: 50px;
-  font-family: "Amatic SC", cursive;
-  text-decoration: none;
-  color: #333;
-}
-@media screen and (max-width: 768px) {
-  .c-title__main {
-    margin-bottom: 20px;
-  }
-}
-@media screen and (max-width: 414px) {
-  .c-title__main {
-    font-size: 25px;
-    margin: auto;
-    margin-left: 5px;
-  }
-}
-.c-title__index {
-  font-size: 24px;
-  text-align: center;
-  margin: 10px;
-}
-.c-title__logo {
-  width: 100%;
-  text-align: center;
-  margin-bottom: -50px;
-}
 .c-title__stepname {
   margin-bottom: 10px;
   color: orange;
@@ -337,23 +181,6 @@ a:visited {
 
 .pagination .page-item .page-link {
   font-size: 24px;
-}
-
-.c-select__product {
-  width: 30%;
-}
-@media screen and (max-width: 768px) {
-  .c-select__product {
-    width: 60%;
-  }
-}
-.c-select__category {
-  width: 205px;
-}
-@media screen and (max-width: 414px) {
-  .c-select__category {
-    width: 47%;
-  }
 }
 
 .p-nav {
@@ -509,10 +336,59 @@ a:visited {
   width: 100px;
 }
 
+.p-flexbox {
+  margin: 10px;
+}
+@media screen and (max-width: 768px) {
+  .p-flexbox {
+    margin: 0px;
+  }
+}
+.p-flexbox__flexcontainer {
+  display: flex;
+  flex-flow: row wrap;
+  min-height: 150px;
+  width: 100%;
+}
+.p-flexbox__flexitem {
+  box-sizing: border-box;
+  text-align: center;
+  background-color: white;
+  padding: 10px;
+  margin: 10px;
+  width: calc(25% - 20px);
+  min-height: 180px;
+}
+@media screen and (max-width: 768px) {
+  .p-flexbox__flexitem {
+    margin: 5px;
+    width: calc(50% - 10px);
+  }
+}
+
 .p-form__group {
   margin: 20px;
 }
 
+.p-header__main {
+  margin: 20px;
+  font-size: 50px;
+  font-family: "Amatic SC", cursive;
+  text-decoration: none;
+  color: #333;
+}
+@media screen and (max-width: 768px) {
+  .p-header__main {
+    margin-bottom: 20px;
+  }
+}
+@media screen and (max-width: 414px) {
+  .p-header__main {
+    font-size: 25px;
+    margin: auto;
+    margin-left: 5px;
+  }
+}
 .p-header__icon {
   width: 50px;
   height: 50px;
@@ -526,6 +402,15 @@ a:visited {
   width: 300px;
   height: auto;
   margin-top: 10px;
+}
+.p-profile__input {
+  width: 100%;
+  margin: 10px 0px;
+}
+@media screen and (max-width: 768px) {
+  .p-profile__input {
+    width: 60%;
+  }
 }
 
 .p-table {
@@ -578,6 +463,9 @@ a:visited {
     float: left;
     margin-left: 5px;
   }
+}
+.p-search__btn {
+  height: 27px;
 }
 
 .p-message__background {
@@ -751,6 +639,11 @@ a:visited {
     content: "\a";
     white-space: pre;
   }
+}
+
+.u-btn--delete {
+  margin-top: -47px;
+  margin-left: 150px;
 }
 
 .u-display--none {

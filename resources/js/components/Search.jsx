@@ -18,18 +18,18 @@ const Search = () => {
             <input
                 type="date"
                 name="aboveday"
-                className="c-input__day"
+                className="c-input c-input--day"
                 defaultValue={aboveday}
             />
             <span>~</span>
             <input
                 type="date"
                 name="belowday"
-                className="c-input__day"
+                className="c-input c-input--day"
                 defaultValue={belowday}
             />
 
-            <button type="submit" className="c-btn c-btn__serch">
+            <button type="submit" className="c-btn p-search__btn">
                 <i className="fas fa-search"></i>
             </button>
         </div>

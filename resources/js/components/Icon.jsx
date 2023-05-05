@@ -105,7 +105,7 @@ const Icon = () => {
 
             <div className="p-form p-form__group">
                 <button
-                    className="c-btn c-btn__edit"
+                    className="c-btn c-btn--edit"
                     type="submit"
                     onClick={onSubmit}
                 >

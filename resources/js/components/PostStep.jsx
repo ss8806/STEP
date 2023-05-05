@@ -61,14 +61,14 @@ const PostStep = () => {
             <input
                 id="name"
                 type="text"
-                className="c-input__step"
+                className="c-input c-input--step"
                 name="name"
                 required
                 onChange={onChangeInputName}
                 onClick={onClickInputName}
                 defaultValue={inputName}
             />
-            <span className="c-count__right">文字数: {inputName.length}</span>
+            <span className="c-count">文字数: {inputName.length}</span>
 
             <label htmlFor="content" className="c-label">
                 ステップの内容
@@ -83,18 +83,18 @@ const PostStep = () => {
             ></Validation>
             <textarea
                 id="content"
-                className="c-textarea__step"
+                className="c-textarea"
                 name="content"
                 required
                 onChange={onChangeInputContent}
                 onClick={onClickInputContent}
                 value={inputContent}
             ></textarea>
-            <span className="c-count__right">
+            <span className="c-count">
                 文字数: {inputContent.length}
             </span>
 
-            <button type="submit" className="c-btn__edit">
+            <button type="submit" className="c-btn--edit">
                 投稿する
             </button>
         </div>

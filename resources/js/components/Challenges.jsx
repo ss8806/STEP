@@ -6,18 +6,17 @@ import Dialog from "./Dialog";
 const Challenges = () => {
     const element = document.getElementById("challenges");
 
-    let chs;
+    let challenges_ini;
     let [message, setMessage] = useState("");
     let [consent, setConsent] = useState("");
 
     const childCompRef = useRef();
 
     if (element && element.dataset.challenges) {
-        chs = JSON.parse(element.dataset.challenges);
-        console.log(chs);
+        challenges_ini = JSON.parse(element.dataset.challenges);
     }
 
-    let [challenges, setChallenges] = useState(chs);
+    let [challenges, setChallenges] = useState(challenges_ini);
     let [endpoint, setEndpoint] = useState("");
     let [index, setIndex] = useState("");
 
@@ -45,13 +44,13 @@ const Challenges = () => {
         <>
             <p className="c-title p-mypage__title">チャレンジ中のSTEP</p>
             <div className="p-card">
-                <div className="c-flexbox--index">
-                    <div className="c-flexbox__flexcontainer c-flexbox__flexcontainer--index">
+                <div className="p-flexbox">
+                    <div className="p-flexbox__flexcontainer p-flexbox__flexcontainer--index">
                         {challenges.map((challenge, i) => {
                             return (
                                 <ul
                                     key={i}
-                                    className="c-flexbox__flexitem c-flexbox__flexitem--index"
+                                    className="p-flexbox__flexitem"
                                 >
                                     <li className="p-card__body">
                                         <p>投稿日</p>
@@ -74,12 +73,11 @@ const Challenges = () => {
                                     <button
                                         type="button"
                                         className="c-btn c-btn--like "
-                                    // onClick={handleClickChallenge}
                                     >
                                         <>
                                             <i
                                                 type="button"
-                                                className="fa fa-fire fa-4x c-btn--fa--red"
+                                                className="fa fa-fire fa-4x c-btn--red"
                                                 onClick={() => {
                                                     setEndpoint(challenge.challenge_id);
                                                     setIndex(i);

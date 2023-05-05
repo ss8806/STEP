@@ -1,4 +1,20 @@
 .p-header {
+    &__main{
+        margin: 20px;
+        font-size: 50px;
+        font-family: "Amatic SC", cursive;
+        text-decoration: none;
+        color: #333;
+            @include mq() {
+                margin-bottom: 20px;
+            }
+            @include sm() {
+                font-size: 25px;
+                margin: auto;
+                margin-left: 5px;
+
+            }
+    }
     &__icon {
         width: 50px;
         height: 50px;

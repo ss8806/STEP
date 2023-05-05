@@ -13,22 +13,19 @@
         background-color: white;
     }
    
-    &__edit{
+    &--edit{
         color: white;
         background-color: green;
         display: inline-block;
         border-radius: 10px;
         width: 120px;
     }
-    &__delete{
+    &--delete{
         color: white;
-        border-color: red;
         background-color: red;
         display: block;
         border-radius: 10px;
         width: 100px;
-        margin-top: -47px;
-        margin-left: 150px;
     }
 }
 

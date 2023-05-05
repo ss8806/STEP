@@ -70,15 +70,15 @@ const Email = () => {
                 id="inputEmail"
                 type="email"
                 name="editEmail"
-                className="c-input__email"
+                className="c-input p-profile__input"
                 placeholder="メールアドレス"
                 defaultValue={inputEmail}
                 required
                 onChange={onHandleChangeEmail}
                 onClick={onClickInputEmail}
             />
-            <p className="c-count__right">文字数: {inputEmail.length}</p>
-            <button className="c-btn c-btn__edit" onClick={handleSubmitEmail}>
+            <p className="c-count">文字数: {inputEmail.length}</p>
+            <button className="c-btn c-btn--edit" onClick={handleSubmitEmail}>
                 メールアドレスを変更
             </button>
         </section>

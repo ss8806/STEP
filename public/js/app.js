@@ -181,7 +181,6 @@ var ChallengeButton = function ChallengeButton(props) {
               _context2.next = 2;
               return axios["delete"](endpoint);
             case 2:
-              // handleDeleteChallenge(index);
               setChallenged(!challenged);
               setShow(!show);
               console.log(index);
@@ -203,9 +202,7 @@ var ChallengeButton = function ChallengeButton(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
       type: "button",
-      className: "c-btn--like "
-      // onClick={handleClickChallenge}
-      ,
+      className: "c-btn--like ",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         children: challenged ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
@@ -279,7 +276,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var Challenges = function Challenges() {
   var element = document.getElementById("challenges");
-  var chs;
+  var challenges_ini;
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
     _useState2 = _slicedToArray(_useState, 2),
     message = _useState2[0],
@@ -290,10 +287,9 @@ var Challenges = function Challenges() {
     setConsent = _useState4[1];
   var childCompRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
   if (element && element.dataset.challenges) {
-    chs = JSON.parse(element.dataset.challenges);
-    console.log(chs);
+    challenges_ini = JSON.parse(element.dataset.challenges);
   }
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(chs),
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(challenges_ini),
     _useState6 = _slicedToArray(_useState5, 2),
     challenges = _useState6[0],
     setChallenges = _useState6[1];
@@ -345,12 +341,12 @@ var Challenges = function Challenges() {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
       className: "p-card",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-        className: "c-flexbox--index",
+        className: "p-flexbox",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-          className: "c-flexbox__flexcontainer c-flexbox__flexcontainer--index",
+          className: "p-flexbox__flexcontainer p-flexbox__flexcontainer--index",
           children: challenges.map(function (challenge, i) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("ul", {
-              className: "c-flexbox__flexitem c-flexbox__flexitem--index",
+              className: "p-flexbox__flexitem",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
                 className: "p-card__body",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
@@ -366,13 +362,11 @@ var Challenges = function Challenges() {
                 children: ["\u9032\u6357", challenge.count && challenge.count / challenge.count_child * 100, "%"]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
                 type: "button",
-                className: "c-btn c-btn--like "
-                // onClick={handleClickChallenge}
-                ,
+                className: "c-btn c-btn--like ",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
                     type: "button",
-                    className: "fa fa-fire fa-4x c-btn--fa--red",
+                    className: "fa fa-fire fa-4x c-btn--red",
                     onClick: function onClick() {
                       setEndpoint(challenge.challenge_id);
                       setIndex(i);
@@ -629,7 +623,7 @@ var DeleteButton = function DeleteButton() {
     className: "p-form p-form__group",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
       type: "button",
-      className: "c-btn__delete",
+      className: "c-btn--delete u-btn--delete",
       onClick: function onClick() {
         return childCompRef.current.childFunc();
       },
@@ -743,12 +737,12 @@ var Detail = function Detail() {
     }), children.data ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "p-card",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-        className: "c-flexbox--index",
+        className: "p-flexbox",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-          className: "c-flexbox__flexcontainer c-flexbox__flexcontainer--index",
+          className: "p-flexbox__flexcontainer p-flexbox__flexcontainer--index",
           children: children.data.map(function (child, i) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("ul", {
-              className: "c-flexbox__flexitem c-flexbox__flexitem--index",
+              className: "p-flexbox__flexitem",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("li", {
                 className: "p-card p-card__header--index u-overflow",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("p", {
@@ -962,14 +956,14 @@ var EditChild = function EditChild() {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
       id: "name",
       type: "text",
-      className: "c-input__step",
+      className: "c-input c-input--step",
       name: "name",
       required: true,
       onChange: onChangeInputName,
       onClick: onClickInputName,
       defaultValue: inputName
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
-      className: "c-count__right",
+      className: "c-count",
       children: ["\u6587\u5B57\u6570: ", inputName.length]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
       htmlFor: "content",
@@ -984,18 +978,18 @@ var EditChild = function EditChild() {
       show: showContentVali
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("textarea", {
       id: "content",
-      className: "c-textarea__step",
+      className: "c-textarea ",
       name: "content",
       required: true,
       onChange: onChangeInputContent,
       onClick: onClickInputContent,
       value: inputContent
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
-      className: "c-count__right",
+      className: "c-count",
       children: ["\u6587\u5B57\u6570: ", inputContent.length]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
       type: "submit",
-      className: "c-btn__edit",
+      className: "c-btn--edit",
       children: "\u7DE8\u96C6\u3059\u308B"
     })]
   });
@@ -1087,14 +1081,14 @@ var EditStep = function EditStep(props) {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
       id: "name",
       type: "text",
-      className: "c-input__step",
+      className: "c-input c-input--step",
       name: "name",
       required: true,
       onChange: onChangeInputName,
       onClick: onClickInputName,
       defaultValue: inputName
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
-      className: "c-count__right",
+      className: "c-count",
       children: ["\u6587\u5B57\u6570: ", inputName.length]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
       htmlFor: "content",
@@ -1109,18 +1103,18 @@ var EditStep = function EditStep(props) {
       show: showContentVali
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("textarea", {
       id: "content",
-      className: "c-textarea__step",
+      className: "c-textarea",
       name: "content",
       required: true,
       onChange: onChangeInputContent,
       onClick: onClickInputContent,
       value: inputContent
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
-      className: "c-count__right",
+      className: "c-count",
       children: ["\u6587\u5B57\u6570: ", inputContent.length]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
       type: "submit",
-      className: "c-btn__edit",
+      className: "c-btn--edit",
       children: "\u7DE8\u96C6\u3059\u308B"
     })]
   });
@@ -1233,17 +1227,17 @@ var Email = function Email() {
       id: "inputEmail",
       type: "email",
       name: "editEmail",
-      className: "c-input__email",
+      className: "c-input p-profile__input",
       placeholder: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9",
       defaultValue: inputEmail,
       required: true,
       onChange: onHandleChangeEmail,
       onClick: onClickInputEmail
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
-      className: "c-count__right",
+      className: "c-count",
       children: ["\u6587\u5B57\u6570: ", inputEmail.length]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-      className: "c-btn c-btn__edit",
+      className: "c-btn c-btn--edit",
       onClick: handleSubmitEmail,
       children: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u3092\u5909\u66F4"
     })]
@@ -1531,7 +1525,7 @@ var Icon = function Icon() {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       className: "p-form p-form__group",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-        className: "c-btn c-btn__edit",
+        className: "c-btn c-btn--edit",
         type: "submit",
         onClick: onSubmit,
         children: "\u30A2\u30A4\u30B3\u30F3\u3092\u5909\u66F4"
@@ -1709,7 +1703,7 @@ var Password = function Password() {
         className: "c-error",
         children: [" ", error]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-        className: "c-btn c-btn__edit",
+        className: "c-btn c-btn--edit",
         onClick: handleSubmitPassword,
         children: "\u30D1\u30B9\u30EF\u30FC\u30C9\u3092\u5909\u66F4"
       })]
@@ -1820,14 +1814,14 @@ var PostChild = function PostChild() {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
       id: "name",
       type: "text",
-      className: "c-input__step",
+      className: "c-input c-input--step",
       name: "name",
       required: true,
       onChange: onChangeInputName,
       onClick: onClickInputName,
       defaultValue: inputName
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
-      className: "c-count__right",
+      className: "c-count",
       children: ["\u6587\u5B57\u6570: ", inputName.length]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
       htmlFor: "content",
@@ -1842,18 +1836,18 @@ var PostChild = function PostChild() {
       show: showContentVali
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("textarea", {
       id: "content",
-      className: "c-textarea__step",
+      className: "c-textarea",
       name: "content",
       required: true,
       onChange: onChangeInputContent,
       onClick: onClickInputContent,
       value: inputContent
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
-      className: "c-count__right",
+      className: "c-count",
       children: ["\u6587\u5B57\u6570: ", inputContent.length]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
       type: "submit",
-      className: "c-btn__edit",
+      className: "c-btn--edit",
       children: "\u6295\u7A3F\u3059\u308B"
     })]
   });
@@ -1955,14 +1949,14 @@ var PostStep = function PostStep() {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
       id: "name",
       type: "text",
-      className: "c-input__step",
+      className: "c-input c-input--step",
       name: "name",
       required: true,
       onChange: onChangeInputName,
       onClick: onClickInputName,
       defaultValue: inputName
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
-      className: "c-count__right",
+      className: "c-count",
       children: ["\u6587\u5B57\u6570: ", inputName.length]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
       htmlFor: "content",
@@ -1977,18 +1971,18 @@ var PostStep = function PostStep() {
       show: showContentVali
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("textarea", {
       id: "content",
-      className: "c-textarea__step",
+      className: "c-textarea",
       name: "content",
       required: true,
       onChange: onChangeInputContent,
       onClick: onClickInputContent,
       value: inputContent
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
-      className: "c-count__right",
+      className: "c-count",
       children: ["\u6587\u5B57\u6570: ", inputContent.length]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
       type: "submit",
-      className: "c-btn__edit",
+      className: "c-btn--edit",
       children: "\u6295\u7A3F\u3059\u308B"
     })]
   });
@@ -2035,12 +2029,12 @@ var Posts = function Posts() {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       className: "p-card",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-        className: "c-flexbox--index",
+        className: "p-flexbox",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-          className: "c-flexbox__flexcontainer c-flexbox__flexcontainer--index",
+          className: "p-flexbox__flexcontainer p-flexbox__flexcontainer--index",
           children: posts.map(function (challenge, i) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("ul", {
-              className: "c-flexbox__flexitem c-flexbox__flexitem--index",
+              className: "p-flexbox__flexitem",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
                 className: "p-card p-card__header--index u-overflow",
                 children: challenge.name
@@ -2170,17 +2164,17 @@ var Produce = function Produce() {
         error: error
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("textarea", {
         id: "inputproduce",
-        className: "c-textarea__produce",
+        className: "c-textarea",
         name: "editProduce",
         required: true,
         defaultValue: inputProduce,
         onChange: onHandleChangeProduce,
         onClick: onClickInputProduce
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
-        className: "c-count__right",
+        className: "c-count",
         children: ["\u6587\u5B57\u6570: ", inputProduce.length]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-        className: "c-btn c-btn__edit",
+        className: "c-btn c-btn--edit",
         onClick: handleSubmitProduce,
         children: "\u81EA\u5DF1\u7D39\u4ECB\u3092\u5909\u66F4"
       })]
@@ -2229,18 +2223,18 @@ var Search = function Search() {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
       type: "date",
       name: "aboveday",
-      className: "c-input__day",
+      className: "c-input c-input--day",
       defaultValue: aboveday
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
       children: "~"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
       type: "date",
       name: "belowday",
-      className: "c-input__day",
+      className: "c-input c-input--day",
       defaultValue: belowday
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
       type: "submit",
-      className: "c-btn c-btn__serch",
+      className: "c-btn p-search__btn",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
         className: "fas fa-search"
       })
@@ -2303,12 +2297,12 @@ var Step = function Step() {
     children: sdata ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       className: "p-card",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-        className: "c-flexbox--index",
+        className: "p-flexbox",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-          className: "c-flexbox__flexcontainer c-flexbox__flexcontainer--index",
+          className: "p-flexbox__flexcontainer p-flexbox__flexcontainer--index",
           children: sdata.map(function (step, i) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("ul", {
-              className: "c-flexbox__flexitem c-flexbox__flexitem--index",
+              className: "p-flexbox__flexitem",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
                 className: "p-card p-card__header--index u-overflow",
                 children: step.name
@@ -2437,7 +2431,7 @@ var UserName = function UserName() {
         className: "c-error",
         children: [" ", error]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-        className: "c-btn c-btn__edit",
+        className: "c-btn c-btn--edit",
         onClick: handleSubmitUserName,
         children: "\u540D\u524D\u3092\u5909\u66F4"
       })]

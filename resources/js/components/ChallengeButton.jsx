@@ -36,7 +36,6 @@ const ChallengeButton = (props) => {
 
     const handleAbandon = async () => {
         await axios.delete(endpoint);
-        // handleDeleteChallenge(index);
         setChallenged(!challenged);
         setShow(!show);
         console.log(index);
@@ -53,7 +52,6 @@ const ChallengeButton = (props) => {
             <button
                 type="button"
                 className="c-btn--like "
-                // onClick={handleClickChallenge}
             >
                 <div>
                     {challenged ? (

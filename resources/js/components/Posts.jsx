@@ -15,12 +15,12 @@ const Posts = () => {
         <>
             <p className="c-title p-mypage__title">投稿したSTEP</p>
             <div className="p-card">
-                <div className="c-flexbox--index">
-                    <div className="c-flexbox__flexcontainer c-flexbox__flexcontainer--index">
+                <div className="p-flexbox">
+                    <div className="p-flexbox__flexcontainer p-flexbox__flexcontainer--index">
                         {posts.map((challenge, i) => (
                             <ul
                                 key={i}
-                                className="c-flexbox__flexitem c-flexbox__flexitem--index"
+                                className="p-flexbox__flexitem"
                             >
                                 <li className="p-card p-card__header--index u-overflow">
                                     {challenge.name}

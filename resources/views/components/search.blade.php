@@ -8,14 +8,14 @@
         </div>
     </form>
 
-    @error('aboveprice')
+    @error('aboveday')
     <div class="c-error" role="alert">
         <strong>{{ $message }}</strong>
     </div>
     @enderror
-    @error('belowprice')
+    <!-- @error('belowday')
     <div class="c-error" role="alert">
         <strong>{{ $message }}</strong>
     </div>
-    @enderror
+    @enderror -->
 </div>

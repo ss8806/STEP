@@ -56,7 +56,7 @@ const Password = () => {
                 <div className="c-sucess"> {sucess}</div>
                 <div className="c-error"> {error}</div>
                 <button
-                    className="c-btn c-btn__edit"
+                    className="c-btn c-btn--edit"
                     onClick={handleSubmitPassword}
                 >
                     パスワードを変更

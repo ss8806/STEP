@@ -6,28 +6,20 @@
 
 @section('content')
 <div class="p-card p-card--profile">
-    <div class="c-session">
-        @if (session('status'))
-        <div class="alert alert-success" role="alert">
-            {{ session('status') }}
-        </div>
-        @endif
+    @if (session('status'))
+    <div class="c-session" role="alert">
+        {{ session('status') }}
     </div>
-    <div class="p-card p-card__header">プロフィール編集</div>
+    @endif
+    <div class="p-card__header">プロフィール編集</div>
     @csrf
-    <div class="p-card p-card__body">
+    <div class="p-card__body">
         {{-- アイコン --}}
-        <div>
-            <div id="editIcon" data-icon="{{ json_encode(Auth::user()->icon) }}"></div>
-        </div>
+        <div id="editIcon" data-icon="{{ json_encode(Auth::user()->icon) }}"></div>
         {{-- 自己紹介 --}}
-        <div>
-            <div id="editProduce" data-produce="{{ json_encode(Auth::user()->produce) }}"></div>
-        </div>
+        <div id="editProduce" data-produce="{{ json_encode(Auth::user()->produce) }}"></div>
         {{-- email --}}
-        <div>
-            <div id="editEmail" data-email="{{ json_encode(Auth::user()->email) }}"></div>
-        </div>
+        <div id="editEmail" data-email="{{ json_encode(Auth::user()->email) }}"></div>
     </div>
 </div>
 

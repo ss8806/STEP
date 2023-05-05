@@ -25,33 +25,29 @@ class SearchRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'aboveprice'   => ['min:1']
+            // 'aboveday'   => ['min:1']
             // lt: 対象の数値より小さいかどうか(<)
-            // 'aboveprice'   => 'nullable|lte:belowprice|max:1000',
-            // 'aboveprice'   => 'max:2',
-            // 'belowprice'   => 'max:3',
-            // 'belowprice'   => 'nullable|gte:aboveprice|max:3',          
+            // 'aboveday'   => 'nullable|lte:belowday|max:1000',
+            // 'aboveday'   => 'max:2',
+            // 'belowday'   => 'max:3',
+            // 'belowday'   => 'nullable|gte:aboveday|max:3',          
         ];
     }
 
     public function withValidator($validator)
     {
         // 入力された本の最低価格
-        $aboveprice = $this->input('aboveprice');
+        $aboveday = $this->input('aboveday');
         // 入力された本の最高価格
-        $belowprice = $this->input('belowprice');
+        $belowday = $this->input('belowday');
 
-        $validator->after(function ($validator) use($aboveprice, $belowprice ) {
-            // 本の最低価格と本の最高価格がどちらも入力されていれば、以下の処理を実行
-            if(isset($aboveprice,) && isset($belowprice)) {
-                //下限価格が上限価格よりも値段が高い場合
-                if($aboveprice > $belowprice) {
-                    $validator->errors()->add('aboveprice', '下限価格は上限価格以下を入力してください');
+        $validator->after(function ($validator) use($aboveday, $belowday ) {
+            // 日付の最低と本の最高がどちらも入力されていれば、以下の処理を実行
+            if(isset($aboveday,) && isset($belowday)) {
+                //下限が上限よりも高い場合
+                if($aboveday > $belowday) {
+                    $validator->errors()->add('aboveday', '下限日は上限日以下を入力してください');
                 }
-                // 上限価格が本の最低価格を下回る
-                // if($belowprice < $aboveprice) {
-                //     $validator->errors()->add('belowprice', '本の最高価格は本の最低価格よりも価格は高くしてください。');
-                // }
             }
         });
     }
@@ -59,17 +55,17 @@ class SearchRequest extends FormRequest
     public function messages()
     {
         return [
-            'aboveprice.max' => '99円以下で入力してください',
-            'belowprice.max' => '999円以下で入力してください',
-            'belowprice.gte' => '下限価格は上限価格以下を入力してください',
+            'aboveday.max' => '99円以下で入力してください',
+            'belowday.max' => '999円以下で入力してください',
+            'belowday.gte' => '下限価格は上限価格以下を入力してください',
         ];
     }
 
     public function attributes()
     {
         return [
-            'aboveprice'        => '上限価格',
-            'belowprice'        => '下限価格',
+            'aboveday'        => '上限価格',
+            'belowday'        => '下限価格',
         ];
     }
 

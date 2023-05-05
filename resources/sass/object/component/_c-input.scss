@@ -1,82 +1,21 @@
-.c-input
-    {        
-    &__profile{
-    width: 30%;
-    margin-bottom: 10px;
-        @include mq() {
-            width: 60%;
-        }
-    }
-                
-    &__step{
+.c-input {
+    font-size: 18px;
+    border-radius: 3px;
+    border: 2px solid #ddd;
+    box-sizing: border-box;
+    
+    &--step {
         width: 100%;
-        margin-bottom: 10px;
+        margin: 10px 0px;
         height: 30px;
-        border: 2px solid #ddd; /*枠線*/
-        font-size: 18px;
-        margin-top: 10px;
     }
 
-    &__day{
+    &--day {
         width: 200px;
-        border-radius: 3px; /*ボックス角の丸み*/
-        border: 2px solid #ddd; /*枠線*/
-        box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
         height: 30px;
-        font-size: 18px;
-        // @include mq() {
-        //     width: 200px;
-        // }
+        margin: 0px 10px;
         @include sm() {
-            width:  45%;
-        }
-    }
-
-    &__name{
-        width: 200px;
-        border-radius: 3px; /*ボックス角の丸み*/
-        border: 2px solid #ddd; /*枠線*/
-        box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
-        height: 30px;
-        font-size: 18px;
-        margin-top: 10px;
-        // @include mq() {
-        //     width: 200px;
-        // }
-        @include sm() {
-            width:  44%;
-        }
-    }
-
-    &__email{
-       width: 100%;
-        margin-bottom: 10px;
-        height: 30px;
-        border: 2px solid #ddd; /*枠線*/
-        font-size: 18px;
-        margin-top: 10px;
-        // @include mq() {
-        //     width: 200px;
-        // }
-        @include sm() {
-            width:  44%;
-        }
-    }
-
-    &__password{
-        width: 200px;
-        border-radius: 3px; /*ボックス角の丸み*/
-        border: 2px solid #ddd; /*枠線*/
-        box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
-        height: 30px;
-        font-size: 18px;
-        margin-top: 10px;
-        // @include mq() {
-        //     width: 200px;
-        // }
-        @include sm() {
-            width:  44%;
+            width: 45%;
         }
     }
 }
-    

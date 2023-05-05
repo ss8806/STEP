@@ -63,7 +63,7 @@ const UserName = () => {
                 <div className="c-sucess"> {sucess}</div>
                 <div className="c-error"> {error}</div>
                 <button
-                    className="c-btn c-btn__edit"
+                    className="c-btn c-btn--edit"
                     onClick={handleSubmitUserName}
                 >
                     名前を変更

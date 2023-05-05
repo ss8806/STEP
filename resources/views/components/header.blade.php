@@ -3,7 +3,7 @@
 
         <div class="p-nav--left">
             <a href="{{ url('steps') }}">
-                <div class="c-title__main">STEP</div>
+                <div class="c-title p-header__main">STEP</div>
             </a>
         </div>
 
@@ -11,7 +11,7 @@
             <ul class="p-nav p-nav__menu">
                 @guest
                 <li>
-                    <img src="/images/avatar-default.svg" class="c-avatar p-header__avatar">
+                    <img src="/images/avatar-default.svg" class="c-icon p-header__icon">
                 </li>
                 <li>ゲストユーザー</li>
                 <li>
@@ -19,10 +19,10 @@
                 </li>
                 @else
                 <li>
-                    @if (!empty($user->avatar_file_name))
-                    <img src="https://backend0622.s3-ap-northeast-1.amazonaws.com/{{$user->avatar_file_name}}" class="c-avatar">
+                    @if (!empty($user->icon))
+                    <img src="https://backend0622.s3-ap-northeast-1.amazonaws.com/{{$user->icon}}" class="c-icon">
                     @else
-                    <img src="/images/avatar-default.svg" class="c-avatar">
+                    <img src="/images/avatar-default.svg" class="c-icon">
                     @endif
                 </li>
                 <li>ようこそ {{ Auth::user()->name }}様</li>

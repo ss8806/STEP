@@ -25,7 +25,7 @@ const DeleteButton = () => {
         <div className="p-form p-form__group">
             <button
                 type="button"
-                className="c-btn__delete"
+                className="c-btn--delete u-btn--delete"
                 onClick={() => childCompRef.current.childFunc()}
             >
                 削除する

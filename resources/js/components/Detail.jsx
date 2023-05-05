@@ -70,12 +70,12 @@ const Detail = () => {
             </div>
             {children.data ? (
                 <div className="p-card">
-                    <div className="c-flexbox--index">
-                        <div className="c-flexbox__flexcontainer c-flexbox__flexcontainer--index">
+                    <div className="p-flexbox">
+                        <div className="p-flexbox__flexcontainer p-flexbox__flexcontainer--index">
                             {children.data.map((child, i) => (
                                 <ul
                                     key={i}
-                                    className="c-flexbox__flexitem c-flexbox__flexitem--index"
+                                    className="p-flexbox__flexitem"
                                 >
                                     <li className="p-card p-card__header--index u-overflow">
                                         {/* ページネーション用に子ステップの番号を合わせる */}
