@@ -51,8 +51,6 @@ class SearchRequest extends FormRequest
     public function messages()
     {
         return [
-            'aboveday.max' => '99円以下で入力してください',
-            'belowday.max' => '999円以下で入力してください',
             'belowday.gte' => '下限価格は上限価格以下を入力してください',
         ];
     }
@@ -60,8 +58,8 @@ class SearchRequest extends FormRequest
     public function attributes()
     {
         return [
-            'aboveday'        => '上限価格',
-            'belowday'        => '下限価格',
+            'aboveday'        => '上限日',
+            'belowday'        => '下限日',
         ];
     }
 }

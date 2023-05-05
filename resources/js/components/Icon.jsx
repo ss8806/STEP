@@ -59,7 +59,7 @@ const Icon = () => {
 
     return (
         <>
-            <div className="p-form p-form__group">
+            <div className="p-form">
                 <p>
                     <label htmlFor="pic1" className="c-label">
                         アイコン
@@ -92,7 +92,7 @@ const Icon = () => {
                     </div>
                 </label>
             </div>
-            <div className="p-form p-form__group">
+            <div className="p-forp">
                 <input
                     id="pic1"
                     type="file"
@@ -103,7 +103,7 @@ const Icon = () => {
                 />
             </div>
 
-            <div className="p-form p-form__group">
+            <div className="p-forp">
                 <button
                     className="c-btn c-btn--edit"
                     type="submit"

@@ -1,4 +1,4 @@
-.p-nav{
+.p-nav {
     box-sizing: border-box;
     width: 100%;
     height: 80px;
@@ -6,33 +6,35 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    
-        @include sm() {
-            height: 50px;
-        }
 
-    &--right{
+    @include sm() {
+        height: 50px;
+    }
+
+    &--right {
         margin-top: 10px;
         display: flex;
         justify-content: space-evenly;
     }
 
-    &__menu{
+    &__menu {
         display: flex;
         margin: 5px;
+
         @include sm() {
             display: none;
         }
-        &--name{
+
+        &--name {
             color: black;
         }
     }
 
-    &__hamberger{
+    &__hamberger {
         display: none;
+
         @include sm() {
             display: flex;
         }
     }
 }
-

@@ -51,7 +51,7 @@ const Email = () => {
     };
 
     return (
-        <section className="p-form p-form__group">
+        <section className="p-form">
             <p>
                 <label htmlFor="inputEmail" className="c-label">
                     Email

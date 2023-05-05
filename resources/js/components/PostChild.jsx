@@ -50,7 +50,7 @@ const PostChild = () => {
     };
 
     return (
-        <div className="p-form p-form__group">
+        <div className="p-form">
             <p className="c-title__stepname">ステップ名:{step.name}</p>
             <label htmlFor="name" className="c-label">
                 子ステップ名

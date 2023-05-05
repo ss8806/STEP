@@ -555,19 +555,19 @@ var Child = function Child() {
       }
     }
   }
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("section", {
     className: "p-content",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
       children: child.name
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
       children: child.content
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
       children: [" ", moment__WEBPACK_IMPORTED_MODULE_2___default()(child.updated_at).format("YYYY年MM月DD日")]
     }), auth && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_CheckButton__WEBPACK_IMPORTED_MODULE_3__["default"], {
       is_checked: is_checked,
       endpoint: "/child/" + child.id + "/check",
       show: show
-    }), edit && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+    }), edit && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
       className: "c-link--detail",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
         href: "/child/" + child.id + "/edit",
@@ -620,7 +620,7 @@ var DeleteButton = function DeleteButton() {
     e.target.type = "submit";
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    className: "p-form p-form__group",
+    className: "p-form",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
       type: "button",
       className: "c-btn--delete u-btn--delete",
@@ -712,13 +712,13 @@ var Detail = function Detail() {
     show = _useState2[0],
     setShow = _useState2[1];
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("section", {
       className: "p-content",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
         children: step.name
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
         children: step.content
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("p", {
         children: [" ", moment__WEBPACK_IMPORTED_MODULE_2___default()(step.updated_at).format("YYYY年MM月DD日")]
       }), edit || auth && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_ChallengeButton__WEBPACK_IMPORTED_MODULE_3__["default"], {
         is_challenged: is_challenged,
@@ -727,24 +727,24 @@ var Detail = function Detail() {
         // メソッドを子コンポーネントに渡す
         ,
         setShow: setShow
-      }), edit && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+      }), edit && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
         className: "c-link--detail",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
           href: "/step/" + step.id + "/edit",
           children: "\u7DE8\u96C6\u3059\u308B"
         })
       })]
-    }), children.data ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+    }), children.data ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("section", {
       className: "p-card",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         className: "p-flexbox",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-          className: "p-flexbox__flexcontainer p-flexbox__flexcontainer--index",
+          className: "p-flexbox__flexcontainer",
           children: children.data.map(function (child, i) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("ul", {
-              className: "p-flexbox__flexitem",
+              className: "p-card p-flexbox__flexitem",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("li", {
-                className: "p-card p-card__header--index u-overflow",
+                className: "p-card__header u-overflow",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("p", {
                   children: ["STEP", i + 1 + (currentpage - 1) * 8]
                 }), child.name]
@@ -754,7 +754,7 @@ var Detail = function Detail() {
                   children: "\u6295\u7A3F\u65E5"
                 }), moment__WEBPACK_IMPORTED_MODULE_2___default()(child.updated_at).format("YYYY年MM月DD日")]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-                className: "c-link--detail",
+                className: "c-link p-detail__link",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
                   href: "/child/" + child.id + "/show",
                   children: "\u8A73\u7D30\u3092\u307F\u308B"
@@ -769,7 +769,7 @@ var Detail = function Detail() {
           })
         })
       }), edit && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-        className: "c-link__detail",
+        className: "c-link p-detail__link",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
           href: "/postChild/" + step.id,
           children: "\u5B50\u30B9\u30C6\u30C3\u30D7\u8FFD\u52A0\u3059\u308B"
@@ -938,7 +938,7 @@ var EditChild = function EditChild() {
     setShowContentVali(true);
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    className: "p-form p-form__group",
+    className: "p-form",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
       className: "c-title__stepname",
       children: ["\u30B9\u30C6\u30C3\u30D7\u540D:", step[0].name]
@@ -1066,7 +1066,7 @@ var EditStep = function EditStep(props) {
     setShowContentVali(true);
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    className: "p-form p-form__group",
+    className: "p-form",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
       htmlFor: "name",
       className: "c-label",
@@ -1208,7 +1208,7 @@ var Email = function Email() {
     });
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("section", {
-    className: "p-form p-form__group",
+    className: "p-form",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
         htmlFor: "inputEmail",
@@ -1482,7 +1482,7 @@ var Icon = function Icon() {
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-      className: "p-form p-form__group",
+      className: "p-form",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
           htmlFor: "pic1",
@@ -1513,7 +1513,7 @@ var Icon = function Icon() {
         })
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "p-form p-form__group",
+      className: "p-forp",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
         id: "pic1",
         type: "file",
@@ -1523,7 +1523,7 @@ var Icon = function Icon() {
         onChange: imageHander
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "p-form p-form__group",
+      className: "p-forp",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
         className: "c-btn c-btn--edit",
         type: "submit",
@@ -1796,7 +1796,7 @@ var PostChild = function PostChild() {
     setShowContentVali(true);
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    className: "p-form p-form__group",
+    className: "p-form",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
       className: "c-title__stepname",
       children: ["\u30B9\u30C6\u30C3\u30D7\u540D:", step.name]
@@ -1934,7 +1934,7 @@ var PostStep = function PostStep() {
     setShowContentVali(true);
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    className: "p-form p-form__group",
+    className: "p-form",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
       htmlFor: "name",
       className: "c-label",
@@ -2147,7 +2147,7 @@ var Produce = function Produce() {
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("section", {
-      className: "p-form p-form__group",
+      className: "p-form",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
           htmlFor: "inputproduce",
@@ -2206,6 +2206,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var Search = function Search() {
   var element = document.getElementById("search");
   var aboveday;
@@ -2214,12 +2215,9 @@ var Search = function Search() {
     aboveday = JSON.parse(element.dataset.aboveday);
     belowday = JSON.parse(element.dataset.belowday);
   }
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-    className: "p-serch__group",
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-      children: "\u6295\u7A3F\u65E5\u691C\u7D22\u3000\u3000"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-      className: "u-br"
+      children: "\u6295\u7A3F\u65E5\u691C\u7D22"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
       type: "date",
       name: "aboveday",
@@ -2304,7 +2302,7 @@ var Step = function Step() {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("ul", {
               className: "p-flexbox__flexitem",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
-                className: "p-card p-card__header--index u-overflow",
+                className: "p-card p-card__header u-overflow",
                 children: step.name
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("li", {
                 className: "p-card__body",

@@ -25,13 +25,11 @@
     @endif
 </head>
 
-<body class="">
-    <div class="">
+<body>
         {{-- コンテンツ部分 --}}
-        <div class="content">
+        <div>
             @yield('content')
         </div>
-    </div>
 </body>
 
 </html>

@@ -98,18 +98,19 @@ a:visited {
 .c-input {
   font-size: 18px;
   border-radius: 3px;
-  border: 2px solid #ddd;
   box-sizing: border-box;
 }
 .c-input--step {
   width: 100%;
   margin: 10px 0px;
   height: 30px;
+  border: 2px solid #ddd;
 }
 .c-input--day {
   width: 200px;
   height: 30px;
   margin: 0px 10px;
+  border: 2px solid #ddd;
 }
 @media screen and (max-width: 414px) {
   .c-input--day {
@@ -126,10 +127,6 @@ a:visited {
   border: 2px solid #ddd; /*枠線*/
 }
 
-.c-link__show--all {
-  display: block;
-  text-align: center;
-}
 .c-link__signup {
   display: block;
   margin: 20px;
@@ -137,10 +134,6 @@ a:visited {
 }
 .c-link__login {
   display: block;
-  margin: 20px;
-  font-size: 18px;
-}
-.c-link__detail {
   margin: 20px;
   font-size: 18px;
 }
@@ -155,32 +148,12 @@ a:visited {
   color: green;
 }
 
-.c-price {
-  font-size: 24px;
-  margin: 20px;
-}
-
 .c-title {
   margin: 10px;
 }
 .c-title__stepname {
   margin-bottom: 10px;
   color: orange;
-}
-
-.pagination {
-  display: flex;
-  justify-content: center;
-}
-
-.page-item {
-  text-align: center;
-  background-color: white;
-  margin-right: 5px;
-}
-
-.pagination .page-item .page-link {
-  font-size: 24px;
 }
 
 .p-nav {
@@ -225,26 +198,13 @@ a:visited {
 
 .p-card {
   width: 100%;
-}
-.p-card--top {
   display: table;
-  width: 80%;
-  margin: 100px auto;
-  margin-bottom: 20px;
-  background-color: white;
-  padding: 10px 0;
-}
-@media screen and (max-width: 768px) {
-  .p-card--top {
-    width: 100%;
-  }
+  margin: 0 auto;
+  margin-bottom: 80px;
 }
 .p-card--scaff {
-  display: table;
   text-align: center;
   width: 80%;
-  margin: 0 auto;
-  margin-bottom: 20px;
   background-color: white;
   padding: 10px 0;
 }
@@ -254,18 +214,12 @@ a:visited {
   }
 }
 .p-card--step {
-  display: table;
   width: 60%;
-  margin: 0 auto;
-  margin-bottom: 80px;
   background-color: white;
   padding: 10px 20px;
 }
 .p-card--profile {
-  display: table;
   width: 60%;
-  margin: 0 auto;
-  margin-bottom: 80px;
   background-color: white;
   padding: 10px 20px;
 }
@@ -273,18 +227,19 @@ a:visited {
   font-size: 24px;
   margin-bottom: 10px;
 }
-.p-card__header--index {
-  font-size: 20px;
-  margin-bottom: 5px;
-}
 @media screen and (max-width: 414px) {
-  .p-card__header--index {
+  .p-card__header {
     font-size: 16px;
   }
 }
 
 .p-content {
   margin-left: 10px;
+}
+
+.p-detail__link {
+  margin: 10px;
+  font-size: 18px;
 }
 
 .p-dialog__background {
@@ -357,7 +312,7 @@ a:visited {
   padding: 10px;
   margin: 10px;
   width: calc(25% - 20px);
-  min-height: 180px;
+  min-height: 170px;
 }
 @media screen and (max-width: 768px) {
   .p-flexbox__flexitem {
@@ -366,7 +321,7 @@ a:visited {
   }
 }
 
-.p-form__group {
+.p-form {
   margin: 20px;
 }
 
@@ -394,10 +349,6 @@ a:visited {
   height: 50px;
 }
 
-.p-panel__product {
-  font-size: 20px;
-}
-
 .p-profile__icon {
   width: 300px;
   height: auto;
@@ -410,45 +361,6 @@ a:visited {
 @media screen and (max-width: 768px) {
   .p-profile__input {
     width: 60%;
-  }
-}
-
-.p-table {
-  border: 2px solid #dee2e6;
-  border-collapse: collapse;
-  table-layout: fixed;
-}
-.p-table--index {
-  width: 100%;
-}
-.p-table--review {
-  margin: 0px auto;
-  min-width: 90%;
-  max-width: 90%;
-  word-break: break-all;
-}
-.p-table--product {
-  margin: 10px auto;
-  min-width: 90%;
-  max-width: 90%;
-  word-break: break-all;
-}
-.p-table__border {
-  border: 2px solid #dee2e6;
-}
-.p-table__left {
-  display: inline-block;
-  -moz-text-align-last: left;
-       text-align-last: left;
-}
-.p-table__ws {
-  white-space: nowrap;
-  width: 100px;
-  vertical-align: middle;
-}
-@media screen and (max-width: 414px) {
-  .p-table__ws {
-    width: 50px;
   }
 }
 
@@ -536,7 +448,7 @@ a:visited {
   width: 40px;
   height: 25px;
   position: relative;
-  transition: 0.5s; /* 追記 */
+  transition: 0.5s;
 }
 
 .hamburger span {
@@ -544,7 +456,7 @@ a:visited {
   width: 100%;
   height: 1px;
   background-color: blue;
-  transition: 0.5s; /* 追記 */
+  transition: 0.5s;
 }
 
 .hamburger span:first-of-type { /* ハンバーガーメニューの1番目の線 */
@@ -577,7 +489,7 @@ a:visited {
   width: 40px;
   height: 25px;
   position: relative;
-  transition: 0.5s; /* 追記 */
+  transition: 0.5s;
 }
 
 .hamburger--active span {
@@ -585,11 +497,11 @@ a:visited {
   width: 100%;
   height: 1px;
   background-color: blue;
-  transition: 0.5s; /* 追記 */
+  transition: 0.5s;
 }
 
-.hamburger--active { /* 追記 */
-  transform: rotateY(360deg); /* 追記 */
+.hamburger--active {
+  transform: rotateY(360deg);
 }
 
 .hamburger--active span:first-of-type { /* ハンバーガーメニューの1番目の線 */

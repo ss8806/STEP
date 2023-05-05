@@ -15,7 +15,7 @@
             <div class="p-form">
                 <form method="POST" action="{{ route('login') }}" class="p-form">
                     @csrf
-                    <div class="p-form__group">
+                    <div class="p-form">
                         <label for="email" class="c-label">メールアドレス</label>
                         <div class="c-input">
                             <input id="email" type="email" class="c-input__profile @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -27,7 +27,7 @@
                         @enderror
                     </div>
 
-                    <div class="p-form__group">
+                    <div class="p-form">
                         <label for="password" class="c-label">パスワード</label>
                         <div class=c-input>
                             <input id="password" type="password" class="c-input__profile @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">

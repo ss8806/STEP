@@ -14,7 +14,7 @@
         <div class="p-card__body">
             <form method="POST" action="{{ route('register') }}" class="p-form">
                 @csrf
-                <div class="p-form__group">
+                <div class="p-form">
                     <label for="name" class="c-label">ニックネーム</label>
                     <div class="c-input">
                         <input id="name" type="text" class="c-input__profile @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="お名前">
@@ -26,7 +26,7 @@
                     @enderror
                 </div>
 
-                <div class="p-form__group">
+                <div class="p-form">
                     <label for="email">メールアドレス</label>
                     <div class="c-input">
                         <input id="email" type="email" class="c-input__profile @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="メールアドレス">
@@ -38,7 +38,7 @@
                     @enderror
                 </div>
 
-                <div class="p-form__group">
+                <div class="p-form">
                     <label for="password" class="c-form__label">パスワード</label>
                     <div class="p-card__form--input">
                         <input id="password" type="password" class="c-input__profile @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="パスワード">
@@ -50,7 +50,7 @@
                     @enderror
                 </div>
 
-                <div class="p-form__group">
+                <div class="p-form">
                     <button type="submit" class="c-btn ">
                         会員登録
                     </button>

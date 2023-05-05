@@ -39,10 +39,10 @@ const Child = () => {
     }
 
     return (
-        <div className="p-content">
-            <div>{child.name}</div>
-            <div>{child.content}</div>
-            <div> {moment(child.updated_at).format("YYYY年MM月DD日")}</div>
+        <section className="p-content">
+            <p>{child.name}</p>
+            <p>{child.content}</p>
+            <p> {moment(child.updated_at).format("YYYY年MM月DD日")}</p>
             {auth && (
                 <CheckButton
                     is_checked={is_checked}
@@ -51,11 +51,11 @@ const Child = () => {
                 ></CheckButton>
             )}
             {edit && (
-                <div className="c-link--detail">
+                <p className="c-link--detail">
                     <a href={"/child/" + child.id + "/edit"}>編集する</a>
-                </div>
+                </p>
             )}
-        </div>
+        </section>
     );
 };
 

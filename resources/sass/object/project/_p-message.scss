@@ -1,14 +1,15 @@
 .p-message {
-    &__background{
+    &__background {
         /* 画面全体を暗くする透過背景 */
         position: fixed;
         width: 100%;
         height: 100%;
-        background: rgba(0,0,0,.5);
+        background: rgba(0, 0, 0, .5);
         top: 0;
         left: 0;
         z-index: 1000;
-        }
+    }
+
     &__container {
         width: 150px;
         height: 150px;
@@ -18,7 +19,7 @@
         top: calc(50% - 75px);
         left: calc(50% - 75px);
         display: flex;
-        background:  #abaeb7;
+        background: #abaeb7;
         flex-flow: column;
         justify-content: center;
         text-align: center;
@@ -50,5 +51,4 @@
     &__text {
         font-size: 20px;
     }
-
 }

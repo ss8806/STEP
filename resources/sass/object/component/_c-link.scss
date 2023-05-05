@@ -1,9 +1,4 @@
 .c-link{
-    &__show--all{
-        display: block;
-        text-align: center;
-    }
-
     &__signup{
         display: block;
         margin:20px;
@@ -12,11 +7,6 @@
 
     &__login{
         display: block;
-        margin: 20px;
-        font-size: 18px;
-    }
-
-    &__detail{
         margin: 20px;
         font-size: 18px;
     }

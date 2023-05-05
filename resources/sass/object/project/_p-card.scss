@@ -1,57 +1,38 @@
-.p-card{
-    width:100%;
-    &--top{
-        display: table;
-        width: 80%;
-        margin: 100px auto;
-        margin-bottom: 20px;
-        background-color:white;
-        padding: 10px 0;
-        @include mq() {  
-            width: 100%;    
-        }
-    }
+.p-card {
+    width: 100%;
+    display: table;
+    margin: 0 auto;
+    margin-bottom: 80px;
 
-    &--scaff{
-        display: table;
+    &--scaff {
         text-align: center;
         width: 80%;
-        margin: 0 auto;
-        margin-bottom: 20px;
-        background-color:white;
+        background-color: white;
         padding: 10px 0;
-        @include sm() {  
-            width: 100%;    
+
+        @include sm() {
+            width: 100%;
         }
     }
 
-    &--step{
-        display: table;
+    &--step {
         width: 60%;
-        margin: 0 auto;
-        margin-bottom: 80px;
-        background-color:white;
+        background-color: white;
         padding: 10px 20px;
     }
 
-    &--profile{
-        display: table;
+    &--profile {
         width: 60%;
-        margin: 0 auto;
-        margin-bottom: 80px;
-        background-color:white;
+        background-color: white;
         padding: 10px 20px;
     }
 
-    &__header{
+    &__header {
         font-size: 24px;
         margin-bottom: 10px;
-            &--index{
-                font-size: 20px;
-                margin-bottom: 5px;
-                    @include sm() {
-                        font-size: 16px;    
-                    }
-            }
+
+        @include sm() {
+            font-size: 16px;
+        }
     }
 }

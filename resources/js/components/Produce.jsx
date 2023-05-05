@@ -51,7 +51,7 @@ const Produce = () => {
 
     return (
         <>
-            <section className="p-form p-form__group">
+            <section className="p-form">
                 <p>
                     <label htmlFor="inputproduce" className="c-label">
                         自己紹介

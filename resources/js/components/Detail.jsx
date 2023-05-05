@@ -48,10 +48,10 @@ const Detail = () => {
 
     return (
         <>
-            <div className="p-content">
-                <div>{step.name}</div>
-                <div>{step.content}</div>
-                <div> {moment(step.updated_at).format("YYYY年MM月DD日")}</div>
+            <section className="p-content">
+                <p>{step.name}</p>
+                <p>{step.content}</p>
+                <p> {moment(step.updated_at).format("YYYY年MM月DD日")}</p>
                 {edit ||
                     (auth && (
                         <ChallengeButton
@@ -63,21 +63,21 @@ const Detail = () => {
                         ></ChallengeButton>
                     ))}
                 {edit && (
-                    <div className="c-link--detail">
+                    <p className="c-link--detail">
                         <a href={"/step/" + step.id + "/edit"}>編集する</a>
-                    </div>
+                    </p>
                 )}
-            </div>
+            </section>
             {children.data ? (
-                <div className="p-card">
+                <section className="p-card">
                     <div className="p-flexbox">
-                        <div className="p-flexbox__flexcontainer p-flexbox__flexcontainer--index">
+                        <div className="p-flexbox__flexcontainer">
                             {children.data.map((child, i) => (
                                 <ul
                                     key={i}
-                                    className="p-flexbox__flexitem"
+                                    className="p-card p-flexbox__flexitem"
                                 >
-                                    <li className="p-card p-card__header--index u-overflow">
+                                    <li className="p-card__header u-overflow">
                                         {/* ページネーション用に子ステップの番号を合わせる */}
                                         <p>
                                             STEP{i + 1 + (currentpage - 1) * 8}
@@ -90,7 +90,7 @@ const Detail = () => {
                                             "YYYY年MM月DD日"
                                         )}
                                     </li>
-                                    <div className="c-link--detail">
+                                    <div className="c-link p-detail__link">
                                         <a
                                             href={
                                                 "/child/" + child.id + "/show"
@@ -114,13 +114,13 @@ const Detail = () => {
                         </div>
                     </div>
                     {edit && (
-                        <div className="c-link__detail">
+                        <div className="c-link p-detail__link">
                             <a href={"/postChild/" + step.id}>
                                 子ステップ追加する
                             </a>
                         </div>
                     )}
-                </div>
+                </section>
             ) : (
                 <>データを取得できませんでした。</>
             )}

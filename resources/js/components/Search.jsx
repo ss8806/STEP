@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 
 const Search = () => {
@@ -12,9 +12,8 @@ const Search = () => {
     }
 
     return (
-        <div className="p-serch__group">
-            <span>投稿日検索　　</span>
-            <span className="u-br" />
+        <>
+            <span>投稿日検索</span>
             <input
                 type="date"
                 name="aboveday"
@@ -28,11 +27,10 @@ const Search = () => {
                 className="c-input c-input--day"
                 defaultValue={belowday}
             />
-
             <button type="submit" className="c-btn p-search__btn">
                 <i className="fas fa-search"></i>
             </button>
-        </div>
+        </>
     );
 };
 

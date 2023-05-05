@@ -22,7 +22,7 @@ const DeleteButton = () => {
     };
 
     return (
-        <div className="p-form p-form__group">
+        <div className="p-form">
             <button
                 type="button"
                 className="c-btn--delete u-btn--delete"

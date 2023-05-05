@@ -31,7 +31,7 @@ const Step = () => {
                                     key={i}
                                     className="p-flexbox__flexitem"
                                 >
-                                    <li className="p-card p-card__header--index u-overflow">
+                                    <li className="p-card p-card__header u-overflow">
                                         {step.name}
                                     </li>
                                     <li className="p-card__body">

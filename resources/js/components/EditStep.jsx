@@ -36,7 +36,7 @@ const EditStep = (props) => {
     };
 
     return (
-        <div className="p-form p-form__group">
+        <div className="p-form">
             <label htmlFor="name" className="c-label">
                 ステップ名
             </label>

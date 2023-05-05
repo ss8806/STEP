@@ -15,7 +15,7 @@
                         @csrf
                         <input type="hidden" name="token" value="{{ $token }}">
 
-                        <div class="p-form__group">
+                        <div class="p-form">
                             <label for="email" >メールアドレス</label>
                             <div class="c-input">
                                 <input id="email" type="email" class="c-input__profile @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
@@ -27,7 +27,7 @@
                             </div>
                         </div>
 
-                        <div class="p-form__group">
+                        <div class="p-form">
                             <label for="password" class="col-md-4 col-form-label text-md-right">パスワード</label>
                             <div class="c-input">
                                 <input id="password" type="password" class="c-input__profile @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
@@ -39,13 +39,13 @@
                             </div>
                         </div>
 
-                        <div class="p-form__group">
+                        <div class="p-form">
                             <label for="password-confirm" class="">パスワード（確認用）</label>
                             <div class="c-input">
                                 <input id="password-confirm" type="password" class="c-input__profile" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
-                        <div class="p-form__group">
+                        <div class="p-form">
                             <button type="submit" class="c-btn">
                                 {{ __('Reset Password') }}
                             </button>

@@ -40,7 +40,7 @@ const EditChild = () => {
     };
 
     return (
-        <div className="p-form p-form__group">
+        <div className="p-form">
             <p className="c-title__stepname">ステップ名:{step[0].name}</p>
             <label htmlFor="name" className="c-label">
                 子ステップ名

@@ -27,7 +27,7 @@
 <body>
     <div id="app">
         <x-header></x-header>
-        <main class="p-main">
+        <main>
             @yield('content')
         </main>
 

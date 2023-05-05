@@ -26,7 +26,7 @@
                     @enderror
                 </div>
 
-                <div class="p-form__group">
+                <div class="p-form">
                     <button type="submit" class="c-btn ">
                         送信する
                     </button>
