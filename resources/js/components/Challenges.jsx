@@ -43,7 +43,7 @@ const Challenges = () => {
 
     return (
         <>
-            <p className="c-title c-title__mypage">チャレンジ中のSTEP</p>
+            <p className="c-title p-mypage__title">チャレンジ中のSTEP</p>
             <div className="p-card">
                 <div className="c-flexbox--index">
                     <div className="c-flexbox__flexcontainer c-flexbox__flexcontainer--index">
@@ -73,13 +73,13 @@ const Challenges = () => {
 
                                     <button
                                         type="button"
-                                        className="c-btn c-btn__like "
+                                        className="c-btn c-btn--like "
                                     // onClick={handleClickChallenge}
                                     >
                                         <>
                                             <i
                                                 type="button"
-                                                className="fa fa-fire fa-4x c-btn__fa--red"
+                                                className="fa fa-fire fa-4x c-btn--fa--red"
                                                 onClick={() => {
                                                     setEndpoint(challenge.challenge_id);
                                                     setIndex(i);

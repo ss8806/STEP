@@ -5,14 +5,7 @@ import ChallengeButton from "./ChallengeButton";
 
 const Challenge = (props) => {
     var challenge = props.challenge;
-
     let [show, setShow] = useState(true);
-
-    console.log(challenge);
-
-    const handleChallenge = () => {
-        console.log(challenge);
-    };
 
     return (
         <>

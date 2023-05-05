@@ -7,7 +7,7 @@
 @section('content')
 {{-- アイコン画像 --}}
     <img src="/images/avatar-default.svg" class="c-icon p-mypage__icon">
-<button class="c-btn c-btn__mypage" type=“button” onclick="location.href='profile'">プロフィール編集</button>
+<button class="c-btn p-mypage__btn" type=“button” onclick="location.href='profile'">プロフィール編集</button>
 <div id="posts" data-posts='{{ json_encode($posts) }}'></div>
 <div 
     id="challenges" 

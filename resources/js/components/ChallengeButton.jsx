@@ -52,7 +52,7 @@ const ChallengeButton = (props) => {
         <>
             <button
                 type="button"
-                className="c-btn c-btn__like "
+                className="c-btn--like "
                 // onClick={handleClickChallenge}
             >
                 <div>
@@ -60,7 +60,7 @@ const ChallengeButton = (props) => {
                         <>
                             <i
                                 type="button"
-                                className="fa fa-fire fa-4x c-btn__fa--red"
+                                className="fa fa-fire fa-4x c-btn--red"
                                 onClick={() => {
                                     handleAbandonMessage();
                                     childCompRef.current.childFunc();

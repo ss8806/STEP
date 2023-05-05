@@ -1,34 +1,24 @@
 .c-btn{
-    margin: 10px auto;
-    
-
-    &__search{
-        margin: 0px;
-    }
-    &__like{
+    &--like{
         margin: 10px;
         border: none;
-        background-color: rgb(246,245,244);
-
+        // background-color: rgb(246,245,244);
+        background-color: white;
     }
-    &__fa--red{
+    &--red{
         color: red;
     }
-    &__fa--green{
+    &--green{
         color: green;
+        background-color: white;
     }
-    &__mypage{
-        display: block;
-        margin: 0px auto;
-        margin-bottom: 20px;
-    }
+   
     &__edit{
         color: white;
-        border-color: green;
         background-color: green;
         display: inline-block;
         border-radius: 10px;
-        width: 100px;
+        width: 120px;
     }
     &__delete{
         color: white;
@@ -39,15 +29,6 @@
         width: 100px;
         margin-top: -47px;
         margin-left: 150px;
-
-    }
-    &__icon{
-        color: white;
-        border-color: green;
-        background-color: green;
-        display: block;
-        border-radius: 10px;
-        width: 160px;
     }
 }
 

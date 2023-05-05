@@ -5,4 +5,15 @@
         height: 200px;
         display: block;
     }
+    &__btn{
+        display: block;
+        margin: 0px auto;
+        margin-bottom: 20px;
+        color: white;
+        background-color: green;
+    }
+    &__title{
+        font-size: 24px;
+        text-align: center;
+    }
 }

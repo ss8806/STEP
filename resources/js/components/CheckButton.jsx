@@ -31,12 +31,12 @@ const CheckButton = (props) => {
     return (
         <button
             type="button"
-            className="c-btn c-btn__like "
+            className="c-btn c-btn--like "
             onClick={handleClickCheck}
             style={{ visibility: show ? "visible" : "hidden" }}
         >
             {checked ? (
-                <i className="fa fa-check fa-2x c-btn__fa--green" />
+                <i className="fa fa-check fa-2x c-btn--green" />
             ) : (
                 <i className="fa fa-check fa-2x" />
             )}

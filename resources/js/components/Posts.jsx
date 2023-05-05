@@ -13,7 +13,7 @@ const Posts = () => {
 
     return (
         <>
-            <p className="c-title c-title__mypage">投稿したSTEP</p>
+            <p className="c-title p-mypage__title">投稿したSTEP</p>
             <div className="p-card">
                 <div className="c-flexbox--index">
                     <div className="c-flexbox__flexcontainer c-flexbox__flexcontainer--index">
