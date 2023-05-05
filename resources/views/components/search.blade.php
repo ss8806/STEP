@@ -13,9 +13,9 @@
         <strong>{{ $message }}</strong>
     </div>
     @enderror
-    <!-- @error('belowday')
+    @error('belowday')
     <div class="c-error" role="alert">
         <strong>{{ $message }}</strong>
     </div>
-    @enderror -->
+    @enderror
 </div>

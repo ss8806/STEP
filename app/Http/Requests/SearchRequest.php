@@ -25,12 +25,8 @@ class SearchRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'aboveday'   => ['min:1']
-            // lt: 対象の数値より小さいかどうか(<)
-            // 'aboveday'   => 'nullable|lte:belowday|max:1000',
-            // 'aboveday'   => 'max:2',
-            // 'belowday'   => 'max:3',
-            // 'belowday'   => 'nullable|gte:aboveday|max:3',          
+            'aboveday'   => ['nullable','date'],
+            'belowday'   => ['nullable','date']
         ];
     }
 
@@ -41,11 +37,11 @@ class SearchRequest extends FormRequest
         // 入力された本の最高価格
         $belowday = $this->input('belowday');
 
-        $validator->after(function ($validator) use($aboveday, $belowday ) {
+        $validator->after(function ($validator) use ($aboveday, $belowday) {
             // 日付の最低と本の最高がどちらも入力されていれば、以下の処理を実行
-            if(isset($aboveday,) && isset($belowday)) {
+            if (isset($aboveday,) && isset($belowday)) {
                 //下限が上限よりも高い場合
-                if($aboveday > $belowday) {
+                if ($aboveday > $belowday) {
                     $validator->errors()->add('aboveday', '下限日は上限日以下を入力してください');
                 }
             }
@@ -68,6 +64,4 @@ class SearchRequest extends FormRequest
             'belowday'        => '下限価格',
         ];
     }
-
-    
 }
