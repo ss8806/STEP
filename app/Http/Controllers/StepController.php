@@ -43,7 +43,6 @@ class StepController extends Controller
         // ページャー
         $steps = $query->orderBy('id', 'DESC')->paginate(8);
 
-
         return view('steps')
             ->with('steps', $steps);
     }
@@ -103,7 +102,7 @@ class StepController extends Controller
         foreach ($children as $child) {
             $is_checked[] = $child->isChecked(Auth::user());
         }
-       
+
         return view('detail')
             ->with('step', $step)
             ->with('is_challenged', $is_challenged)

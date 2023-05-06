@@ -18,13 +18,6 @@ class ProfileController extends Controller
             ->with('user', Auth::user());
     }
 
-    // public function editUserName(ProfileRequest $request)
-    // {
-    //     $user = Auth::user();
-    //     $user->name = $request->input('editUserName');
-    //     $user->update();
-    // }
-
     public function editProduce(ProfileRequest $request)
     {
         $user = Auth::user();
@@ -38,21 +31,6 @@ class ProfileController extends Controller
         $user->email = $request->input('editEmail');
         $user->update();
     }
-
-    // public function editPassword(PasswordRequest $request)
-    // {
-    //     try{
-    //     $user = Auth::user();
-    //     // $request->only('password', 'password_confirmation');
-    //     $user->password = Hash::make($request->editPassword);
-    //     $user->save();
-    //     } catch (\Exception $e) {
-    //         Log::error($e->getMessage());
-    //         return response()->json(
-    //             "error"
-    //         );
-    //     }
-    // }
 
     public function editIcon(Request $request)
     {

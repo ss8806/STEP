@@ -34,14 +34,15 @@ Route::middleware('auth')
         Route::post('/storeChild{id}', 'ChildController@store')->name('storeChild');
         Route::get('child/{id}/edit', 'ChildController@edit')->name('editChild');
         Route::post('child/{id}/update', 'ChildController@update')->name('updateChild');
-        // profile
+        // mypage
         Route::get('/mypage', 'MypageController@index')->name('mypage');
+        Route::get('/posts', 'MypageController@posts')->name('posts');
+        Route::get('/challenges', 'MypageController@challenges')->name('challenges');
+        // profile
         Route::get('/profile', 'ProfileController@index')->name('profile');
-        // Route::put('/editUserName', 'ProfileController@editUserName')->name('editUserName');
         Route::put('/editIcon', 'ProfileController@editIcon')->name('editIcon');
         Route::put('/editProduce', 'ProfileController@editProduce')->name('editProduce');
         Route::put('/editEmail', 'ProfileController@editEmail')->name('editEmail');
-        // Route::put('/editPassword', 'ProfileController@editPassword')->name('editPassword');
         // challenge 
         Route::put('/step/{step}/challenge', 'StepController@challenge')->name('challenge')->middleware('auth');
         Route::delete('/step/{step}/challenge', 'StepController@unchallenge')->name('unchallenge')->middleware('auth');
