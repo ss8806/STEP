@@ -56,17 +56,17 @@ class MypageController extends Controller
             ->with('is_challenged', $is_challenged);
     }
 
-    public function posts()
+    public function allposts()
     {
         $user = Auth::user();
         // 投稿したステップ
-        $posts = $user->postSteps()->orderBy('id', 'DESC')->get();
-
-        return view('posts')
-        ->with('posts', $posts);
+        $allposts = $user->postSteps()->orderBy('id', 'DESC')->paginate(8);
+        // dd($allposts);
+        return view('allPosts')
+        ->with('allposts', $allposts);
     }
 
-    public function challenges()
+    public function allChallenges()
     {
         $user = Auth::user();
 

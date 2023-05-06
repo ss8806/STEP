@@ -36,8 +36,8 @@ Route::middleware('auth')
         Route::post('child/{id}/update', 'ChildController@update')->name('updateChild');
         // mypage
         Route::get('/mypage', 'MypageController@index')->name('mypage');
-        Route::get('/posts', 'MypageController@posts')->name('posts');
-        Route::get('/challenges', 'MypageController@challenges')->name('challenges');
+        Route::get('/allPosts', 'MypageController@allposts')->name('allposts');
+        Route::get('/allChallenges', 'MypageController@allChallenges')->name('allChallenges');
         // profile
         Route::get('/profile', 'ProfileController@index')->name('profile');
         Route::put('/editIcon', 'ProfileController@editIcon')->name('editIcon');
