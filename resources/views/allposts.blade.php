@@ -5,9 +5,5 @@
 @endsection
 
 @section('content')
-<div id="allposts" data-allposts='{{ json_encode($allposts) }}'></div>
-
-<?php
-// var_dump($allposts);
-?>
+<div id="allPosts" data-allposts='{{ json_encode($allPosts) }}'></div>
 @endsection

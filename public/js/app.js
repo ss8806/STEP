@@ -115,12 +115,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var AllPosts = function AllPosts() {
-  var element = document.getElementById("allposts");
-  var allposts;
+  var element = document.getElementById("allPosts");
+  var allPosts;
   if (element && element.dataset.allposts) {
-    allposts = JSON.parse(element.dataset.allposts);
+    allPosts = JSON.parse(element.dataset.allposts);
   }
-  console.log(allposts);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
       className: "c-title p-mypage__title",
@@ -131,7 +130,7 @@ var AllPosts = function AllPosts() {
         className: "p-flexbox",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           className: "p-flexbox__flexcontainer",
-          children: allposts.data.map(function (challenge, i) {
+          children: allPosts.data.map(function (challenge, i) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("ul", {
               className: "p-flexbox__flexitem",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
@@ -157,8 +156,8 @@ var AllPosts = function AllPosts() {
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AllPosts);
-if (document.getElementById("allposts")) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(AllPosts, {}), document.getElementById("allposts"));
+if (document.getElementById("allPosts")) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(AllPosts, {}), document.getElementById("allPosts"));
 }
 
 /***/ }),

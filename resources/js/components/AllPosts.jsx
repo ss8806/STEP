@@ -3,17 +3,13 @@ import ReactDOM from "react-dom";
 import moment from "moment";
 
 const AllPosts = () => {
-    const element = document.getElementById("allposts");
+    const element = document.getElementById("allPosts");
 
-    var allposts;
-
+    var allPosts;
 
     if (element && element.dataset.allposts) {
-        allposts = JSON.parse(element.dataset.allposts);
+        allPosts = JSON.parse(element.dataset.allposts);
     }
-
-    console.log(allposts)
-
 
     return (
         <>
@@ -21,7 +17,7 @@ const AllPosts = () => {
             <section className="p-card">
                 <div className="p-flexbox">
                     <div className="p-flexbox__flexcontainer">
-                        {allposts.data.map((challenge, i) => (
+                        {allPosts.data.map((challenge, i) => (
                             <ul
                                 key={i}
                                 className="p-flexbox__flexitem"
@@ -52,6 +48,6 @@ const AllPosts = () => {
 
 export default AllPosts;
 
-if (document.getElementById("allposts")) {
-    ReactDOM.render(<AllPosts />, document.getElementById("allposts"));
+if (document.getElementById("allPosts")) {
+    ReactDOM.render(<AllPosts />, document.getElementById("allPosts"));
 }

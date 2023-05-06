@@ -60,10 +60,10 @@ class MypageController extends Controller
     {
         $user = Auth::user();
         // 投稿したステップ
-        $allposts = $user->postSteps()->orderBy('id', 'DESC')->paginate(8);
+        $allPosts = $user->postSteps()->orderBy('id', 'DESC')->paginate(8);
         // dd($allposts);
         return view('allPosts')
-        ->with('allposts', $allposts);
+        ->with('allPosts', $allPosts);
     }
 
     public function allChallenges()
