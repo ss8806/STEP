@@ -11,4 +11,7 @@
     data-is_challenged="{{ json_encode($is_challenged) }}" 
 ></div>
 
+<div class="c-pager">
+  {{ $challenges->links() }}
+</div>
 @endsection

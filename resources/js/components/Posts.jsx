@@ -17,7 +17,7 @@ const Posts = () => {
             <section className="p-card">
                 <div className="p-flexbox">
                     <div className="p-flexbox__flexcontainer">
-                        {posts.map((challenge, i) => (
+                        {posts.data.map((challenge, i) => (
                             <ul
                                 key={i}
                                 className="p-flexbox__flexitem"

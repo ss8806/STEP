@@ -46,7 +46,7 @@ const Challenges = () => {
             <div className="p-card">
                 <div className="p-flexbox">
                     <div className="p-flexbox__flexcontainer p-flexbox__flexcontainer--index">
-                        {challenges.map((challenge, i) => {
+                        {challenges.data.map((challenge, i) => {
                             return (
                                 <ul
                                     key={i}

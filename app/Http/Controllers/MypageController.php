@@ -16,10 +16,9 @@ class MypageController extends Controller
     {
         $user = Auth::user();
         // 投稿したステップ
-        $posts = $user->postSteps()->orderBy('id', 'DESC')->take(5)->get();
+        $posts = $user->postSteps()->orderBy('id', 'DESC')->paginate(5);
 
         // チャレンジ中ののステップ
-
         // サブクエリ
         $subquery = Child::query()
             ->select(
@@ -44,7 +43,7 @@ class MypageController extends Controller
             // stepsテーブルを軸に外部結合
             ->leftJoinSub($subquery, 'children', 'steps.id', 'children.c_detail_id')
             ->groupBy('steps.id');
-        $challenges = $query->take(5)->get();
+        $challenges = $query->paginate(5);
         $is_challenged = array();
         foreach ($challenges as $challenge) {
             $is_challenged[] = true;
@@ -60,10 +59,9 @@ class MypageController extends Controller
     {
         $user = Auth::user();
         // 投稿したステップ
-        $allPosts = $user->postSteps()->orderBy('id', 'DESC')->paginate(8);
-        // dd($allposts);
-        return view('allPosts')
-        ->with('allPosts', $allPosts);
+        $posts = $user->postSteps()->orderBy('id', 'DESC')->paginate(8);
+
+        return view('allPosts')->with('posts', $posts);
     }
 
     public function allChallenges()
@@ -93,13 +91,13 @@ class MypageController extends Controller
             // stepsテーブルを軸に外部結合
             ->leftJoinSub($subquery, 'children', 'steps.id', 'children.c_detail_id')
             ->groupBy('steps.id');
-        $challenges = $query->get();
+        $challenges = $query->paginate(8);
         $is_challenged = array();
         foreach ($challenges as $challenge) {
             $is_challenged[] = true;
         }
-        return view('challenges')
-            ->with('challenges', $challenges)
-            ->with('is_challenged', $is_challenged);
+        return view('allChallenges')
+        ->with('challenges', $challenges)
+        ->with('is_challenged', $is_challenged);
     }
 }
