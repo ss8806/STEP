@@ -6,6 +6,8 @@ const EditStep = (props) => {
     const element = document.getElementById("editStep");
     var errors;
     var step;
+    var oldname;
+    var oldcontent;
 
     if (element && element.dataset.errors) {
         errors = JSON.parse(element.dataset.errors);
@@ -13,11 +15,24 @@ const EditStep = (props) => {
     if (element && element.dataset.step) {
         step = JSON.parse(element.dataset.step);
     }
+    if (element && element.dataset.oldname) {
+        oldname = JSON.parse(element.dataset.oldname);
+        if (!oldname) {
+            oldname = "";
+        }
+    }
+    if (element && element.dataset.oldcontent) {
+        oldcontent = JSON.parse(element.dataset.oldcontent);
+        if (!oldcontent) {
+            oldcontent = "";
+        }
+    }
 
-    const [inputName, setInputName] = useState(step.name);
-    const [inputContent, setInputContent] = useState(step.content);
+    const [inputName, setInputName] = useState(oldname || step.name);
+    const [inputContent, setInputContent] = useState(oldcontent || step.content);
     const [showNameVali, setShowNameVali] = useState(false);
     const [showContentVali, setShowContentVali] = useState(false);
+    
 
     const onChangeInputName = (e) => {
         setInputName(e.target.value);
@@ -43,15 +58,15 @@ const EditStep = (props) => {
             <Validation
                 name={"ステップ名"}
                 input={inputName}
-                max={30}
-                min={3}
+                max={20}
+                min={1}
                 error={errors.name}
                 show={showNameVali}
             ></Validation>
             <input
                 id="name"
                 type="text"
-                className="c-input c-input--step"
+                className="c-input p-form__input--step"
                 name="name"
                 required
                 onChange={onChangeInputName}
@@ -66,8 +81,8 @@ const EditStep = (props) => {
             <Validation
                 name={"内容"}
                 input={inputContent}
-                max={30}
-                min={3}
+                max={300}
+                min={1}
                 error={errors.content}
                 show={showContentVali}
             ></Validation>

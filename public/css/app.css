@@ -100,23 +100,6 @@ a:visited {
   border-radius: 3px;
   box-sizing: border-box;
 }
-.c-input--step {
-  width: 100%;
-  margin: 10px 0px;
-  height: 30px;
-  border: 2px solid #ddd;
-}
-.c-input--day {
-  width: 200px;
-  height: 30px;
-  margin: 0px 10px;
-  border: 2px solid #ddd;
-}
-@media screen and (max-width: 414px) {
-  .c-input--day {
-    width: 45%;
-  }
-}
 
 .c-textarea {
   margin-top: 10px;
@@ -127,12 +110,7 @@ a:visited {
   border: 2px solid #ddd; /*枠線*/
 }
 
-.c-link__signup {
-  display: block;
-  margin: 20px;
-  font-size: 18px;
-}
-.c-link__login {
+.c-link {
   display: block;
   margin: 20px;
   font-size: 18px;
@@ -215,16 +193,16 @@ a:visited {
   width: 100%;
   display: table;
   margin: 0 auto;
-  margin-bottom: 80px;
+  margin-bottom: 50px;
 }
-.p-card--scaff {
+.p-card--auth {
   text-align: center;
   width: 80%;
   background-color: white;
   padding: 10px 0;
 }
 @media screen and (max-width: 414px) {
-  .p-card--scaff {
+  .p-card--auth {
     width: 100%;
   }
 }
@@ -339,6 +317,16 @@ a:visited {
 .p-form {
   margin: 20px;
 }
+.p-form__input--step {
+  width: 100%;
+  margin: 10px 0px;
+  height: 30px;
+  border: 2px solid #ddd;
+}
+.p-form__input--auth {
+  margin-bottom: 10px;
+  border: 2px solid #ddd;
+}
 
 .p-header__main {
   margin: 20px;
@@ -372,6 +360,7 @@ a:visited {
 .p-profile__input {
   width: 100%;
   margin: 10px 0px;
+  border: 2px solid #ddd; /*枠線*/
 }
 @media screen and (max-width: 768px) {
   .p-profile__input {
@@ -393,6 +382,17 @@ a:visited {
 }
 .p-search__btn {
   height: 27px;
+}
+.p-search__input {
+  width: 200px;
+  height: 30px;
+  margin: 0px 10px;
+  border: 2px solid #ddd;
+}
+@media screen and (max-width: 414px) {
+  .p-search__input {
+    width: 45%;
+  }
 }
 
 .p-message__background {

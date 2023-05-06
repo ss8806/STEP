@@ -32,7 +32,7 @@ const Posts = () => {
                                     )}
                                 </li>
 
-                                <div className="c-link--detail">
+                                <div className="c-link">
                                     <a href={"step/" + challenge.id + "/show"}>
                                         編集する
                                     </a>

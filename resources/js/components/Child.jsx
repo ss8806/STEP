@@ -51,7 +51,7 @@ const Child = () => {
                 ></CheckButton>
             )}
             {edit && (
-                <p className="c-link--detail">
+                <p className="c-link">
                     <a href={"/child/" + child.id + "/edit"}>編集する</a>
                 </p>
             )}

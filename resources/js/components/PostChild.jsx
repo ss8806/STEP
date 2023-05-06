@@ -58,15 +58,15 @@ const PostChild = () => {
             <Validation
                 name={"子ステップ名"}
                 input={inputName}
-                max={30}
-                min={3}
+                max={20}
+                min={1}
                 error={errors.name}
                 show={showNameVali}
             ></Validation>
             <input
                 id="name"
                 type="text"
-                className="c-input c-input--step"
+                className="c-input p-form__input--step"
                 name="name"
                 required
                 onChange={onChangeInputName}
@@ -81,8 +81,8 @@ const PostChild = () => {
             <Validation
                 name={"内容"}
                 input={inputContent}
-                max={30}
-                min={10}
+                max={300}
+                min={1}
                 error={errors.content}
                 show={showContentVali}
             ></Validation>

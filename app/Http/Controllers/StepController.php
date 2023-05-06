@@ -92,7 +92,7 @@ class StepController extends Controller
      * @param  \App\Step  $step
      * @returnå \Illuminate\Http\Response
      */
-    public function show(Request $request, $id)
+    public function show($id)
     {
         $step = Step::find($id);
         $is_challenged = $step->isChallenged(Auth::user());
@@ -119,13 +119,17 @@ class StepController extends Controller
     public function edit(Step $step, $id)
     {
         $step = Step::find($id);
+        $oldname = old('name');
+        $oldcontent = old('content');
         if ($step->user_id === Auth::user()->id) {
             $message = "削除してよろしいですか";
             $consent = "削除する";
             return view('editStep')
                 ->with('step', $step)
                 ->with('message', $message)
-                ->with('consent', $consent);
+                ->with('consent', $consent)
+                ->with('oldname', $oldname)
+                ->with('oldcontent', $oldcontent);
         } else {
             return redirect()->route('steps');
         }
@@ -138,7 +142,7 @@ class StepController extends Controller
      * @param  \App\Step  $step
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Step $step, $id)
+    public function update(StepRequest $request, Step $step, $id)
     {
         $step = Step::find($id);
         $step->name = $request->input('name');

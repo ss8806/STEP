@@ -48,7 +48,7 @@ class ChildController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $id)
+    public function store(StepRequest $request, $id)
     {
         $step = Step::find($id);
         $child = new Child();
@@ -109,7 +109,7 @@ class ChildController extends Controller
      * @param  \App\Child  $child
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Child $child, $id)
+    public function update(StepRequest $request, Child $child, $id)
     {
         $child = Child::find($id);
         $step = $child->BelongsToStep()->get();

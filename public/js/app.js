@@ -383,7 +383,7 @@ var Challenges = function Challenges() {
                 ref: childCompRef,
                 submit: onClickSubmit
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-                className: "c-link--detail",
+                className: "c-link",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
                   href: "/step/" + challenge.challenge_id + "/show",
                   children: "\u8A73\u7D30\u3092\u307F\u308B"
@@ -568,7 +568,7 @@ var Child = function Child() {
       endpoint: "/child/" + child.id + "/check",
       show: show
     }), edit && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
-      className: "c-link--detail",
+      className: "c-link",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
         href: "/child/" + child.id + "/edit",
         children: "\u7DE8\u96C6\u3059\u308B"
@@ -728,7 +728,7 @@ var Detail = function Detail() {
         ,
         setShow: setShow
       }), edit && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
-        className: "c-link--detail",
+        className: "c-link",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
           href: "/step/" + step.id + "/edit",
           children: "\u7DE8\u96C6\u3059\u308B"
@@ -949,14 +949,14 @@ var EditChild = function EditChild() {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Validation__WEBPACK_IMPORTED_MODULE_2__["default"], {
       name: "ステップ名",
       input: inputName,
-      max: 30,
-      min: 3,
+      max: 20,
+      min: 1,
       error: errors.name,
       show: showNameVali
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
       id: "name",
       type: "text",
-      className: "c-input c-input--step",
+      className: "c-input p-form__input--step",
       name: "name",
       required: true,
       onChange: onChangeInputName,
@@ -972,8 +972,8 @@ var EditChild = function EditChild() {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Validation__WEBPACK_IMPORTED_MODULE_2__["default"], {
       name: "内容",
       input: inputContent,
-      max: 30,
-      min: 3,
+      max: 300,
+      min: 1,
       error: errors.content,
       show: showContentVali
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("textarea", {
@@ -1031,17 +1031,31 @@ var EditStep = function EditStep(props) {
   var element = document.getElementById("editStep");
   var errors;
   var step;
+  var oldname;
+  var oldcontent;
   if (element && element.dataset.errors) {
     errors = JSON.parse(element.dataset.errors);
   }
   if (element && element.dataset.step) {
     step = JSON.parse(element.dataset.step);
   }
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(step.name),
+  if (element && element.dataset.oldname) {
+    oldname = JSON.parse(element.dataset.oldname);
+    if (!oldname) {
+      oldname = "";
+    }
+  }
+  if (element && element.dataset.oldcontent) {
+    oldcontent = JSON.parse(element.dataset.oldcontent);
+    if (!oldcontent) {
+      oldcontent = "";
+    }
+  }
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(oldname || step.name),
     _useState2 = _slicedToArray(_useState, 2),
     inputName = _useState2[0],
     setInputName = _useState2[1];
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(step.content),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(oldcontent || step.content),
     _useState4 = _slicedToArray(_useState3, 2),
     inputContent = _useState4[0],
     setInputContent = _useState4[1];
@@ -1074,14 +1088,14 @@ var EditStep = function EditStep(props) {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Validation__WEBPACK_IMPORTED_MODULE_2__["default"], {
       name: "ステップ名",
       input: inputName,
-      max: 30,
-      min: 3,
+      max: 20,
+      min: 1,
       error: errors.name,
       show: showNameVali
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
       id: "name",
       type: "text",
-      className: "c-input c-input--step",
+      className: "c-input p-form__input--step",
       name: "name",
       required: true,
       onChange: onChangeInputName,
@@ -1097,8 +1111,8 @@ var EditStep = function EditStep(props) {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Validation__WEBPACK_IMPORTED_MODULE_2__["default"], {
       name: "内容",
       input: inputContent,
-      max: 30,
-      min: 3,
+      max: 300,
+      min: 1,
       error: errors.content,
       show: showContentVali
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("textarea", {
@@ -1807,14 +1821,14 @@ var PostChild = function PostChild() {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Validation__WEBPACK_IMPORTED_MODULE_2__["default"], {
       name: "子ステップ名",
       input: inputName,
-      max: 30,
-      min: 3,
+      max: 20,
+      min: 1,
       error: errors.name,
       show: showNameVali
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
       id: "name",
       type: "text",
-      className: "c-input c-input--step",
+      className: "c-input p-form__input--step",
       name: "name",
       required: true,
       onChange: onChangeInputName,
@@ -1830,8 +1844,8 @@ var PostChild = function PostChild() {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Validation__WEBPACK_IMPORTED_MODULE_2__["default"], {
       name: "内容",
       input: inputContent,
-      max: 30,
-      min: 10,
+      max: 300,
+      min: 1,
       error: errors.content,
       show: showContentVali
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("textarea", {
@@ -1942,14 +1956,14 @@ var PostStep = function PostStep() {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Validation__WEBPACK_IMPORTED_MODULE_2__["default"], {
       name: "ステップ名",
       input: inputName,
-      max: 30,
-      min: 3,
+      max: 20,
+      min: 1,
       error: errors.name,
       show: showNameVali
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
       id: "name",
       type: "text",
-      className: "c-input c-input--step",
+      className: "c-input p-form__input--step",
       name: "name",
       required: true,
       onChange: onChangeInputName,
@@ -1965,8 +1979,8 @@ var PostStep = function PostStep() {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Validation__WEBPACK_IMPORTED_MODULE_2__["default"], {
       name: "内容",
       input: inputContent,
-      max: 30,
-      min: 10,
+      max: 300,
+      min: 1,
       error: errors.content,
       show: showContentVali
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("textarea", {
@@ -2044,7 +2058,7 @@ var Posts = function Posts() {
                   children: "\u6295\u7A3F\u65E5"
                 }), moment__WEBPACK_IMPORTED_MODULE_2___default()(challenge.updated_at).format("YYYY年MM月DD日")]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                className: "c-link--detail",
+                className: "c-link",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
                   href: "step/" + challenge.id + "/show",
                   children: "\u7DE8\u96C6\u3059\u308B"
@@ -2221,14 +2235,14 @@ var Search = function Search() {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
       type: "date",
       name: "aboveday",
-      className: "c-input c-input--day",
+      className: "c-input p-search__input",
       defaultValue: aboveday
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
       children: "~"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
       type: "date",
       name: "belowday",
-      className: "c-input c-input--day",
+      className: "c-input p-search__input",
       defaultValue: belowday
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
       type: "submit",
@@ -2310,7 +2324,7 @@ var Step = function Step() {
                   children: "\u6295\u7A3F\u65E5"
                 }), moment__WEBPACK_IMPORTED_MODULE_2___default()(step.updated_at).format("YYYY年MM月DD日")]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                className: "c-link--detail",
+                className: "c-link",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
                   href: "/step/" + step.id + "/show",
                   children: "\u8A73\u7D30\u3092\u307F\u308B"
@@ -2471,13 +2485,13 @@ var Validation = function Validation(props) {
   var sucess = props.sucess;
   var show = props.show;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-    children: [show && input.length <= min && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
+    children: [show && input.length < min && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
       className: "c-error",
       children: [name, "\u306F\u3001", min, "\u6587\u5B57\u4EE5\u4E0A\u306B\u3057\u3066\u304F\u3060\u3055\u3044\u3002"]
-    }), show && input.length >= max && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
+    }), show && input.length > max && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
       className: "c-error",
       children: [name, "\u306F\u3001", max, "\u6587\u5B57\u4EE5\u4E0B\u306B\u3057\u3066\u304F\u3060\u3055\u3044\u3002"]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
       className: "c-sucess",
       children: sucess
     }), show || /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {

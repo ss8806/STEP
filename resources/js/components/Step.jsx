@@ -40,7 +40,7 @@ const Step = () => {
                                             "YYYY年MM月DD日"
                                         )}
                                     </li>
-                                    <div className="c-link--detail">
+                                    <div className="c-link">
                                         <a href={"/step/" + step.id + "/show"}>
                                             詳細をみる
                                         </a>

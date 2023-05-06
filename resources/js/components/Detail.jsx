@@ -63,7 +63,7 @@ const Detail = () => {
                         ></ChallengeButton>
                     ))}
                 {edit && (
-                    <p className="c-link--detail">
+                    <p className="c-link">
                         <a href={"/step/" + step.id + "/edit"}>編集する</a>
                     </p>
                 )}

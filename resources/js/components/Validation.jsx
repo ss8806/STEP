@@ -12,17 +12,17 @@ const Validation = (props) => {
 
     return (
         <>
-            {show && input.length <= min && (
+            {show && input.length < min && (
                 <span className="c-error">
                     {name}は、{min}文字以上にしてください。
                 </span>
             )}
-            {show && input.length >= max && (
+            {show && input.length > max && (
                 <span className="c-error">
                     {name}は、{max}文字以下にしてください。
                 </span>
             )}
-            <div className="c-sucess">{sucess}</div>
+            <span className="c-sucess">{sucess}</span>
             {/* サーバーサイドからのエラーを表示 */}
             {show || <span className="c-error">{error}</span>}
         </>

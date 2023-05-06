@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-            <div class="p-card--scaff">
+            <div class="p-card p-card--auth">
                 <div class="p-card__header">{{ __('Verify Your Email Address') }}</div>
 
                 <div class="p-card__body">
@@ -15,7 +15,7 @@
                     {{ __('If you did not receive the email') }},
                     <form class="p-form" method="POST" action="{{ route('verification.resend') }}">
                         @csrf
-                        <button type="submit" class="c-btn">{{ __('click here to request another') }}</button>.
+                        <button type="submit" class="c-btn--edit">{{ __('click here to request another') }}</button>.
                     </form>
                 </div>
             </div>

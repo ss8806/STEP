@@ -25,7 +25,7 @@ class ProfileRequest extends FormRequest
     {
         return [
             'editProduce'   => ['required', 'string','min:1', 'max:10'],
-            'editEmail'   => 'max:10|email',
+            'editEmail'   => ['required', 'max:20', 'email'],
         ];
     }
 

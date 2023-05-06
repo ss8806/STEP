@@ -96,7 +96,7 @@ const Challenges = () => {
                                         submit={onClickSubmit}
                                     ></Dialog>
 
-                                    <div className="c-link--detail">
+                                    <div className="c-link">
                                         <a
                                             href={
                                                 "/step/" +

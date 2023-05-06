@@ -30,7 +30,7 @@ const Challenge = (props) => {
                         // show={show}
                         // setShow={setShow}
                     ></ChallengeButton>
-                    <div className="c-link--detail">
+                    <div className="c-link">
                         <a href={"/step/" + challenge.challenge_id + "/show"}>
                             詳細をみる
                         </a>

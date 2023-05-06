@@ -24,8 +24,8 @@ class StepRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'string','min:1', 'max:10'],
-            'content' => ['required', 'string','min:1', 'max:10'],
+            'name' => ['required', 'string','min:1', 'max:20'],
+            'content' => ['required', 'string','min:1', 'max:300'],
         ];
     }
 
