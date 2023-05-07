@@ -21,6 +21,10 @@
             data-errors="{{ $errors }}" 
             ></div>
         </form>
+        <form method="POST" action="{{ route('deleteChild', $child->id) }}" class="p-from">
+            @csrf
+            <div id="deletebutton"></div>
+        </form>
     </div>
 </div>
 @endsection

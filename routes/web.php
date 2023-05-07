@@ -34,6 +34,7 @@ Route::middleware('auth')
         Route::post('/storeChild{id}', 'ChildController@store')->name('storeChild');
         Route::get('child/{id}/edit', 'ChildController@edit')->name('editChild');
         Route::post('child/{id}/update', 'ChildController@update')->name('updateChild');
+        Route::post('child/{id}/delete', 'ChildController@destroy')->name('deleteChild');
         // mypage
         Route::get('/mypage', 'MypageController@index')->name('mypage');
         Route::get('/allPosts', 'MypageController@allposts')->name('allPosts');

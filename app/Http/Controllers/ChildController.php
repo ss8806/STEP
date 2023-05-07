@@ -50,12 +50,17 @@ class ChildController extends Controller
      */
     public function store(StepRequest $request, $id)
     {
+        // ルーティングから親ステップの情報を取得
         $step = Step::find($id);
         $child = new Child();
         $child->name = $request->input('name');
         $child->content = $request->input('content');
         $child->detail_id = $step->id;
+        //親ステップのカウントに追加
+        $step->count_child += 1;
         $child->save();
+        $step->update();
+
         return redirect()->route('showDetail', $step->id)->with('scc_message', '投稿しました');
     }
 
@@ -125,9 +130,14 @@ class ChildController extends Controller
      * @param  \App\Child  $child
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Child $child)
+    public function destroy($id)
     {
-        //
+        $child = Child::find($id);
+        $step = Step::find($child->detail_id);
+        $step->count_child -= 1;
+        $child->delete($child->id);
+        $step->update();
+        return redirect()->route('showDetail', $child->detail_id)->with('scc_message', '削除しました');
     }
 
     // 気になるリストに登録する処理
