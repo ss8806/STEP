@@ -60,7 +60,12 @@ a:visited {
   color: #0066c0;
 }
 
-.c-btn--like {
+.c-btn--challenge {
+  margin: 10px;
+  border: none;
+  background-color: rgb(246, 245, 244);
+}
+.c-btn--check {
   margin: 10px;
   border: none;
   background-color: white;
@@ -224,6 +229,9 @@ a:visited {
   .p-card__header {
     font-size: 16px;
   }
+}
+.p-card__challengebtn {
+  background-color: white;
 }
 
 .p-content {

@@ -48,10 +48,7 @@ const Challenges = () => {
                     <div className="p-flexbox__flexcontainer p-flexbox__flexcontainer--index">
                         {challenges.data.map((challenge, i) => {
                             return (
-                                <ul
-                                    key={i}
-                                    className="p-flexbox__flexitem"
-                                >
+                                <ul key={i} className="p-flexbox__flexitem">
                                     <li className="p-card__body">
                                         <p>投稿日</p>
                                         {moment(challenge.updated_at).format(
@@ -64,22 +61,27 @@ const Challenges = () => {
                                     <li className="p-card_count">
                                         進捗
                                         {challenge.count &&
-                                            (challenge.count /
-                                                challenge.count_child) *
-                                            100}
+                                            // 四捨五入して進捗率を率を表示
+                                            Math.round(
+                                                (challenge.count /
+                                                    challenge.count_child) *
+                                                    100
+                                            )}
                                         %
                                     </li>
 
                                     <button
                                         type="button"
-                                        className="c-btn c-btn--like "
+                                        className="c-btn c-btn--challenge p-card__challengebtn"
                                     >
                                         <>
                                             <i
                                                 type="button"
                                                 className="fa fa-fire fa-4x c-btn--red"
                                                 onClick={() => {
-                                                    setEndpoint(challenge.challenge_id);
+                                                    setEndpoint(
+                                                        challenge.challenge_id
+                                                    );
                                                     setIndex(i);
                                                     // ダイアログのメッセージ
                                                     handleAbandonMessage();

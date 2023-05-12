@@ -1,8 +1,13 @@
 .c-btn{
-    &--like{
+    &--challenge{
         margin: 10px;
         border: none;
-        // background-color: rgb(246,245,244);
+        background-color: rgb(246,245,244);
+        // background-color: white;
+    }
+    &--check{
+        margin: 10px;
+        border: none;
         background-color: white;
     }
     &--red{

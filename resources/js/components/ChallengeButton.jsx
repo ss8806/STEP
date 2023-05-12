@@ -7,7 +7,6 @@ const ChallengeButton = (props) => {
     let endpoint = props.endpoint;
     let show = props.show;
     let setShow = props.setShow;
-    let handleDeleteChallenge = props.handleDeleteChallenge;
     let index = props.index;
 
     let [message, setMessage] = useState("");
@@ -49,10 +48,7 @@ const ChallengeButton = (props) => {
 
     return (
         <>
-            <button
-                type="button"
-                className="c-btn--like "
-            >
+            <button type="button" className="c-btn--challenge ">
                 <div>
                     {challenged ? (
                         <>
@@ -79,6 +75,7 @@ const ChallengeButton = (props) => {
                     )}
                 </div>
             </button>
+            {/* 確認のダイアログ */}
             <Dialog
                 message={message}
                 consent={consent}
