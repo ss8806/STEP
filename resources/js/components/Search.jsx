@@ -13,14 +13,14 @@ const Search = () => {
 
     return (
         <>
-            <span>投稿日検索</span>
+            <p>投稿日検索</p>
             <input
                 type="date"
                 name="aboveday"
                 className="c-input p-search__input"
                 defaultValue={aboveday}
             />
-            <span>~</span>
+            <span className="p-search__wavyline">~</span>
             <input
                 type="date"
                 name="belowday"
