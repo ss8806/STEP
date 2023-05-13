@@ -18,10 +18,7 @@ const Posts = () => {
                 <div className="p-flexbox">
                     <div className="p-flexbox__flexcontainer">
                         {posts.data.map((challenge, i) => (
-                            <ul
-                                key={i}
-                                className="p-flexbox__flexitem"
-                            >
+                            <ul key={i} className="p-flexbox__flexitem">
                                 <li className="p-card__header u-overflow">
                                     {challenge.name}
                                 </li>
@@ -34,7 +31,7 @@ const Posts = () => {
 
                                 <div className="c-link">
                                     <a href={"step/" + challenge.id + "/show"}>
-                                        編集する
+                                        詳細を見る
                                     </a>
                                 </div>
                             </ul>

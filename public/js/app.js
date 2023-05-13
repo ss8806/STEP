@@ -2098,7 +2098,7 @@ var Posts = function Posts() {
                 className: "c-link",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
                   href: "step/" + challenge.id + "/show",
-                  children: "\u7DE8\u96C6\u3059\u308B"
+                  children: "\u8A73\u7D30\u3092\u898B\u308B"
                 })
               })]
             }, i);

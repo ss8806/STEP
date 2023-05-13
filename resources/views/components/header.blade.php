@@ -19,8 +19,8 @@
                 </li>
                 @else
                 <li>
-                    @if (!empty($user->icon))
-                    <img src="https://backend0622.s3-ap-northeast-1.amazonaws.com/{{$user->icon}}" class="c-icon">
+                    @if (!empty(Auth::user()->icon))
+                    <img src="https://backend1219.s3.ap-northeast-1.amazonaws.com/{{Auth::user()->icon}}" class="c-icon">
                     @else
                     <img src="/images/avatar-default.svg" class="c-icon">
                     @endif
