@@ -1,11 +1,12 @@
-.p-top__header {
+.p-top {
 	height: 100%;
   width: 100%;
 	overflow: auto;
   position: relative;
   min-width: 100vh;
   min-height: 100vh;
-	background: url(../../../../public/images/mainimg.jpg) ;	/*背景画像の読み込み*/
+  background-color: white;
+	// background: url(../../../../public/images/mainimg.png) ;	/*背景画像の読み込み*/
   display: flex;
   flex-direction: column;
   justify-content: center;

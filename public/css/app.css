@@ -545,14 +545,14 @@ a:visited {
   transform: rotate(-45deg);
 }
 
-.p-top__header {
+.p-top {
   height: 100%;
   width: 100%;
   overflow: auto;
   position: relative;
   min-width: 100vh;
   min-height: 100vh;
-  background: url(/images/mainimg.jpg?19ba3bd081a311fa2983ef36a5bdad60); /*背景画像の読み込み*/
+  background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;

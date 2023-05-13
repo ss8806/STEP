@@ -10,9 +10,6 @@
 
     <title>@yield('title') | {{ config('app.name', 'Laravel') }}</title>
 
-    <link rel="shortcut icon" href="/images/logo.ico">
-
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -23,13 +20,17 @@
     @else
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @endif
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{ asset('/images/favicon.ico') }}">
+
 </head>
 
 <body>
-        {{-- コンテンツ部分 --}}
-        <div>
-            @yield('content')
-        </div>
+    {{-- コンテンツ部分 --}}
+    <div>
+        @yield('content')
+    </div>
 </body>
 
 </html>
