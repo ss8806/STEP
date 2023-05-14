@@ -40,5 +40,6 @@ class search extends Component
         //     ->with('defaults', $defaults);
 
         return view('components.search');
+
     }
 }

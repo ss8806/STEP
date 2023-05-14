@@ -2,8 +2,8 @@
 <div class="p-search">
     <form class="p-form" method="GET" action="{{ route('steps') }}">
         <div id="search"
-        data-aboveday="{{ json_encode(['aboveday']) ?? ''  }}"
-        data-belowday="{{ json_encode(['belowday']) ?? '' }}"
+        data-aboveday="{{ json_encode(Request::input('aboveday', '')) ?? ''  }}"
+        data-belowday="{{ json_encode(Request::input('belowday', '')) ?? '' }}"
         >
         </div>
     </form>
@@ -13,7 +13,6 @@
         <strong>{{ $message }}</strong>
     </div>
     @enderror
-
     @error('belowday')
     <div class="c-error" role="alert">
         <strong>{{ $message }}</strong>
