@@ -12,9 +12,14 @@ class search extends Component
      *
      * @return void
      */
+    public $defaults;
+
     public function __construct()
     {
-        //
+        $this->defaults = [
+            'aboveday'      => Request::input('aboveday', ''),
+            'belowday'      => Request::input('belowday', ''),
+        ];
     }
 
     /**
@@ -24,14 +29,17 @@ class search extends Component
      */
     public function render()
     {
-        $defaults = [
-            'category'      => Request::input('category', ''),
-            'keyword'       => Request::input('keyword', ''),
-            'aboveday'      => Request::input('aboveday', ''),
-            'belowday'      => Request::input('belowday', ''),
-        ];
+        // $defaults = [
+        //     // 'category'      => Request::input('category', ''),
+        //     // 'keyword'       => Request::input('keyword', ''),
+        //     'aboveday'      => Request::input('aboveday', ''),
+        //     'belowday'      => Request::input('belowday', ''),
+        // ];
 
-        return view('components.search')
-            ->with('defaults', $defaults);;
+        // return view('components.search')
+        //     ->with('defaults', $defaults);
+
+        return view('components.search');
+
     }
 }
