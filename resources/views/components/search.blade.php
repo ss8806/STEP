@@ -1,13 +1,11 @@
 {{-- 検索ボックス --}}
 <div class="p-search">
     <form class="p-form" method="GET" action="{{ route('steps') }}">
-        @isset($defaults) 
         <div id="search"
         data-aboveday="{{ json_encode($defaults['aboveday']) }}"
         data-belowday="{{ json_encode($defaults['belowday']) }}"
         >
         </div>
-        @endisset
     </form>
 
     @error('aboveday')
