@@ -1,5 +1,5 @@
-{{-- 検索ボックス --}}
 <div class="p-search">
+    {{-- 検索ボックス --}}
     <form class="p-form" method="GET" action="{{ route('steps') }}">
         <div id="search"
         data-aboveday="{{ json_encode(Request::input('aboveday', '')) ?? ''  }}"

@@ -40,24 +40,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function ChallengedSteps(): hasManyThrough
-    //  Has Many Through （〜経由で多数へ紐づく）
-    // hasManyThroughメソッドの第1引数は最終的にアクセスしたいモデル名で、第２引数は仲介するモデル名
-    {
-        return $this->hasManyThrough(
-            'App\Step', //つなげる先のテーブルクラス
-            'App\Challenge', //中間テーブルクラス
-            'user_id', //仲介するモデルの外部キー名
-            'id', // 最終的に取得したいモデルのローカルキー名
-            'id', // 元テーブルのローカルキー
-            'step_id' // usersテーブルのローカルキー
-        );
-    }
-
     public function postSteps()
     {
-    //第二引数には多側のキー(外部キー)であるuser_idを指定,これによりpostArticlesメソッドで投稿したArticleを取得できる。
+    //第二引数には多側のキー(外部キー)であるuser_idを指定,これによりpostStepssメソッドで投稿したStepを取得できる。
         return $this->hasMany(Step::class, 'user_id');
     }
-
 }

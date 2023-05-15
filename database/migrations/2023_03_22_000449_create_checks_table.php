@@ -15,7 +15,9 @@ class CreateChecksTable extends Migration
     {
         Schema::create('checks', function (Blueprint $table) {
             $table->id();
+            // checksテーブルに紐づくユーザーのid
             $table->unsignedBigInteger('user_id');
+            // chaecksテーブルに紐づく子ステップのid
             $table->unsignedBigInteger('child_id');       
             $table->timestamps();
 

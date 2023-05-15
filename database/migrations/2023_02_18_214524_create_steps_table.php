@@ -15,9 +15,9 @@ class CreateStepsTable extends Migration
     {
         Schema::create('steps', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('content');
-            $table->integer('count_child')->default(0);
+            $table->string('name'); // ステップ名 
+            $table->text('content'); // ステップの内容
+            $table->integer('count_child')->default(0); // 子ステップの数
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
 

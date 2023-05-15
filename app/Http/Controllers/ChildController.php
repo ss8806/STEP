@@ -13,48 +13,43 @@ use App\Http\Requests\StepRequest;
 class ChildController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
+     * 子ステップを作成
      *
      * @return \Illuminate\Http\Response
      */
     public function create($id)
     {
+        // ルートパラメーターから親ステップの情報を取得
         $step = Step::find($id);
+        // 親ステップのユーザーIDがログインユーザーと同じなら処理を続行
         if ($step->user_id === Auth::user()->id) {
+            // 送信前の子ステップ名
             $oldname = old('name');
+            // 送信前の子ステップの内容
             $oldcontent = old('content');
             return view('postChild')
                 ->with('step', $step)
                 ->with('oldname', $oldname)
                 ->with('oldcontent', $oldcontent);
         } else {
+            // 不正な操作した場合の処理
             return redirect()->route('steps');
         }
     }
 
     /**
-     * Store a newly created resource in storage.
+     * 作成した子ステップを保存
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(StepRequest $request, $id)
     {
-        // ルーティングから親ステップの情報を取得
         $step = Step::find($id);
         $child = new Child();
         $child->name = $request->input('name');
         $child->content = $request->input('content');
+        // 子ステップの
         $child->detail_id = $step->id;
         //親ステップのカウントに追加
         $step->count_child += 1;

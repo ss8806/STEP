@@ -15,8 +15,10 @@ class CreateChallengesTable extends Migration
     {
         Schema::create('challenges', function (Blueprint $table) {
             $table->id();
+            // challengesテーブルに紐づくユーザーのid
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('step_id');
+            // challengesテーブルに紐づくステップのid
+            $table->unsignedBigInteger('step_id'); 
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
