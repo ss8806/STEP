@@ -313,7 +313,7 @@ var Challenges = function Challenges() {
               _context.next = 2;
               return axios["delete"]("/step/" + endpoint + "/challenge");
             case 2:
-              handleDeleteChallenge(index);
+              handleDeleteChallenge(i);
             case 3:
             case "end":
               return _context.stop();

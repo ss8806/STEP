@@ -27,7 +27,7 @@ const Challenges = () => {
 
     const handleAbandon = async () => {
         await axios.delete("/step/" + endpoint + "/challenge");
-        handleDeleteChallenge(index);
+        handleDeleteChallenge(i);
     };
 
     const onClickSubmit = () => {
