@@ -288,7 +288,7 @@ var Challenges = function Challenges() {
   if (element && element.dataset.challenges) {
     challenges_ini = JSON.parse(element.dataset.challenges);
   }
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(challenges_ini),
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(challenges_ini.data),
     _useState6 = _slicedToArray(_useState5, 2),
     challenges = _useState6[0],
     setChallenges = _useState6[1];
@@ -313,7 +313,7 @@ var Challenges = function Challenges() {
               _context.next = 2;
               return axios["delete"]("/step/" + endpoint + "/challenge");
             case 2:
-              handleDeleteChallenge(i);
+              handleDeleteChallenge(index);
             case 3:
             case "end":
               return _context.stop();
@@ -343,7 +343,7 @@ var Challenges = function Challenges() {
         className: "p-flexbox",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "p-flexbox__flexcontainer p-flexbox__flexcontainer--index",
-          children: challenges.data.map(function (challenge, i) {
+          children: challenges.map(function (challenge, i) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("ul", {
               className: "p-flexbox__flexitem",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {

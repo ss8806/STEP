@@ -16,7 +16,7 @@ const Challenges = () => {
         challenges_ini = JSON.parse(element.dataset.challenges);
     }
 
-    let [challenges, setChallenges] = useState(challenges_ini);
+    let [challenges, setChallenges] = useState(challenges_ini.data);
     let [endpoint, setEndpoint] = useState("");
     let [index, setIndex] = useState("");
 
@@ -27,7 +27,7 @@ const Challenges = () => {
 
     const handleAbandon = async () => {
         await axios.delete("/step/" + endpoint + "/challenge");
-        handleDeleteChallenge(i);
+        handleDeleteChallenge(index);
     };
 
     const onClickSubmit = () => {
@@ -46,7 +46,7 @@ const Challenges = () => {
             <div className="p-card">
                 <div className="p-flexbox">
                     <div className="p-flexbox__flexcontainer p-flexbox__flexcontainer--index">
-                        {challenges.data.map((challenge, i) => {
+                        {challenges.map((challenge, i) => {
                             return (
                                 <ul key={i} className="p-flexbox__flexitem">
                                     <li className="p-card__body">
