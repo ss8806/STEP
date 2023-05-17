@@ -50,7 +50,7 @@ class ChildController extends Controller
         $child->name = $request->input('name');
         $child->content = $request->input('content');
         // 子ステップの
-        $child->detail_id = $step->id;
+        $child->parent_id = $step->id;
         //親ステップのカウントに追加
         $step->count_child += 1;
         $child->save();
@@ -72,7 +72,7 @@ class ChildController extends Controller
         $show = 0;
 
         if (Auth::user()) {
-            $show = Challenge::where('step_id', $child->detail_id)
+            $show = Challenge::where('step_id', $child->parent_id)
                 ->where('user_id', Auth::user()->id)->first();
         }
         // modelに設定したbelongsto
@@ -128,11 +128,11 @@ class ChildController extends Controller
     public function destroy($id)
     {
         $child = Child::find($id);
-        $step = Step::find($child->detail_id);
+        $step = Step::find($child->parent_id);
         $step->count_child -= 1;
         $child->delete($child->id);
         $step->update();
-        return redirect()->route('showDetail', $child->detail_id)->with('scc_message', '削除しました');
+        return redirect()->route('showDetail', $child->parent_id)->with('scc_message', '削除しました');
     }
 
     // 気になるリストに登録する処理

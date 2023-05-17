@@ -28,6 +28,6 @@ class Child extends Model
 
     public function belongsToStep()
     {
-        return $this->belongsTo('App\Step',  'detail_id' ,'id');
+        return $this->belongsTo('App\Step',  'parent_id' ,'id');
     }
 }

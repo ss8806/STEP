@@ -23,7 +23,7 @@ class MypageController extends Controller
         $subquery = Child::query()
             ->select(
                 'children.id as c_id',
-                'children.detail_id as c_detail_id'
+                'children.parent_id as c_parent_id'
             )
             ->join('checks', 'checks.child_id', '=', 'children.id')
             ->where('checks.user_id', $user->id);
@@ -35,13 +35,13 @@ class MypageController extends Controller
                 'steps.name as step_name',
                 'steps.content as step_content',
                 'steps.count_child as count_child',
-                'children.c_detail_id',
-                DB::raw("count(children.c_detail_id) as count"),
+                'children.c_parent_id',
+                DB::raw("count(children.c_parent_id) as count"),
             )
             ->Join('challenges', 'challenges.step_id', '=', 'steps.id')
             ->where('challenges.user_id', $user->id)
             // stepsテーブルを軸に外部結合
-            ->leftJoinSub($subquery, 'children', 'steps.id', 'children.c_detail_id')
+            ->leftJoinSub($subquery, 'children', 'steps.id', 'children.c_parent_id')
             ->groupBy('steps.id');
         $challenges = $query->paginate(5);
         $is_challenged = array();
@@ -71,7 +71,7 @@ class MypageController extends Controller
         $subquery = Child::query()
             ->select(
                 'children.id as c_id',
-                'children.detail_id as c_detail_id'
+                'children.parent_id as c_parent_id'
             )
             ->join('checks', 'checks.child_id', '=', 'children.id')
             ->where('checks.user_id', $user->id);
@@ -83,13 +83,13 @@ class MypageController extends Controller
                 'steps.name as step_name',
                 'steps.content as step_content',
                 'steps.count_child as count_child',
-                'children.c_detail_id',
-                DB::raw("count(children.c_detail_id) as count"),
+                'children.c_parent_id',
+                DB::raw("count(children.c_parent_id) as count"),
             )
             ->Join('challenges', 'challenges.step_id', '=', 'steps.id')
             ->where('challenges.user_id', $user->id)
             // stepsテーブルを軸に外部結合
-            ->leftJoinSub($subquery, 'children', 'steps.id', 'children.c_detail_id')
+            ->leftJoinSub($subquery, 'children', 'steps.id', 'children.c_parent_id')
             ->groupBy('steps.id');
         $challenges = $query->paginate(8);
         $is_challenged = array();

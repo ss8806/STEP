@@ -263,7 +263,7 @@ a:visited {
   /* ポップアップ本体 */
   display: inline-block;
   position: fixed;
-  width: 30%;
+  width: 40%;
   z-index: 1100;
   background: #fff;
   padding: 5%;
@@ -271,6 +271,11 @@ a:visited {
   left: 50%;
   transform: translate(-50%, -50%);
   overflow-y: scroll;
+}
+@media screen and (max-width: 768px) {
+  .p-dialog__container {
+    width: 60%;
+  }
 }
 .p-dialog__message {
   font-size: 20px;
@@ -287,7 +292,7 @@ a:visited {
   background-color: red;
   display: block;
   border-radius: 10px;
-  width: 100px;
+  width: 120px;
 }
 .p-dialog__cancel {
   color: gray;

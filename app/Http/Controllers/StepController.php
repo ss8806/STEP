@@ -96,7 +96,7 @@ class StepController extends Controller
     {
         $step = Step::find($id);
         $is_challenged = $step->isChallenged(Auth::user());
-        $children = Child::where('detail_id', $id)->paginate(8);
+        $children = Child::where('parent_id', $id)->paginate(8);
         $is_checked = array();
 
         foreach ($children as $child) {

@@ -16,19 +16,19 @@ class ChildSeeder extends Seeder
             'id' => '1',
             'name' => 'HTMLを学習する',
             'content' => 'HTMLを学習するメリット',
-            'detail_id' => '1',
+            'parent_id' => '1',
         ]);
         factory(Child::class)->create([
             'id' => '2',
             'name' => 'CSSを学習する',
             'content' => 'CSSを学習するメリット',
-            'detail_id' => '1',
+            'parent_id' => '1',
         ]);
         factory(Child::class)->create([
             'id' => '3',
             'name' => '発音を練習する',
             'content' => '発音を練習するメリット',
-            'detail_id' => '2',
+            'parent_id' => '2',
         ]);
     }
 }

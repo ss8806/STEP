@@ -370,6 +370,7 @@ var Challenges = function Challenges() {
                     className: "fa fa-fire fa-4x c-btn--red",
                     onClick: function onClick() {
                       setEndpoint(challenge.challenge_id);
+                      // 消去の際に添字を指定
                       setIndex(i);
                       // ダイアログのメッセージ
                       handleAbandonMessage();

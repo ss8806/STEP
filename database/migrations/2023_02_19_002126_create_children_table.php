@@ -17,10 +17,10 @@ class CreateChildrenTable extends Migration
             $table->id();
             $table->string('name'); // 子ステップ名
             $table->string('content'); // 子ステップの内容
-            $table->unsignedBigInteger('detail_id'); // 親ステップのid
+            $table->unsignedBigInteger('parent_id'); // 親ステップのid
             $table->timestamps();
 
-            $table->foreign('detail_id')->references('id')->on('steps')->onDelete('cascade');
+            $table->foreign('parent_id')->references('id')->on('steps')->onDelete('cascade');
         });
     }
 

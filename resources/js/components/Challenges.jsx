@@ -82,6 +82,7 @@ const Challenges = () => {
                                                     setEndpoint(
                                                         challenge.challenge_id
                                                     );
+                                                    // 消去の際に添字を指定
                                                     setIndex(i);
                                                     // ダイアログのメッセージ
                                                     handleAbandonMessage();
