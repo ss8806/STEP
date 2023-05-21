@@ -25,7 +25,6 @@ const Hamberger = () => {
         document.getElementById("logout-form").submit();
     };
 
-
     return (
         <>
             {open ? (
@@ -36,13 +35,15 @@ const Hamberger = () => {
                         <span></span>
                     </div>
                     <ul className="slide-menu">
-                        <li> <a href="mypage">マイページ</a> </li>
-                        <li> <a
-                            href={logout}
-                            onClick={lof}
-                        >
-                            Logout
-                        </a>
+                        <li>
+                            {" "}
+                            <a href="/mypage">マイページ</a>{" "}
+                        </li>
+                        <li>
+                            {" "}
+                            <a href={logout} onClick={lof}>
+                                Logout
+                            </a>
                             <form
                                 id="logout-form"
                                 action={logout}
@@ -53,12 +54,12 @@ const Hamberger = () => {
                                     name="_token"
                                     value={csrf}
                                 />
-                            </form></li>
+                            </form>
+                        </li>
                     </ul>
                 </>
             ) : (
                 <>
-
                     <div className="hamburger" onClick={handleToggle}>
                         <span></span>
                         <span></span>

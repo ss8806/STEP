@@ -39,9 +39,9 @@ const Child = () => {
     }
 
     return (
-        <section className="p-content">
-            <p>{child.name}</p>
-            <p>{child.content}</p>
+        <section className="p-child">
+            <p className="p-child__name">{child.name}</p>
+            <p className="p-child__content">{child.content}</p>
             <p> {moment(child.updated_at).format("YYYY年MM月DD日")}</p>
             {auth && (
                 <CheckButton

@@ -17,6 +17,7 @@ const Detail = () => {
 
     if (element && element.dataset.step) {
         step = JSON.parse(element.dataset.step);
+        console.log(step);
     }
 
     if (element && element.dataset.children) {
@@ -48,10 +49,12 @@ const Detail = () => {
 
     return (
         <>
-            <section className="p-content">
-                <p>{step.name}</p>
-                <p>{step.content}</p>
-                <p> {moment(step.updated_at).format("YYYY年MM月DD日")}</p>
+            <section className="p-detail">
+                <p className="p-detail__name">{step.name}</p>
+                <p className="p-detail__content">{step.content}</p>
+                <p>
+                    投稿日: {moment(step.updated_at).format("YYYY年MM月DD日")}
+                </p>
                 {edit ||
                     (auth && (
                         <ChallengeButton

@@ -11,7 +11,7 @@
     }
 
     &__container {
-        width: 150px;
+        width: 200px;
         height: 150px;
         padding: 10px;
         box-sizing: border-box;
@@ -19,7 +19,7 @@
         top: calc(50% - 75px);
         left: calc(50% - 75px);
         display: flex;
-        background: #abaeb7;
+        background: white;
         flex-flow: column;
         justify-content: center;
         text-align: center;
