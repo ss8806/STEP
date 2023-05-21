@@ -27,11 +27,8 @@ const Step = () => {
                     <div className="p-flexbox">
                         <div className="p-flexbox__flexcontainer p-flexbox__flexcontainer--index">
                             {sdata.map((step, i) => (
-                                <ul
-                                    key={i}
-                                    className="p-flexbox__flexitem"
-                                >
-                                    <li className="p-card p-card__header u-overflow">
+                                <ul key={i} className="p-flexbox__flexitem">
+                                    <li className="p-card__header p-card__header--step">
                                         {step.name}
                                     </li>
                                     <li className="p-card__body">

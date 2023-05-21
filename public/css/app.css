@@ -63,7 +63,7 @@ a:visited {
 .c-btn--challenge {
   margin: 10px;
   border: none;
-  background-color: rgb(246, 245, 244);
+  background-color: white;
 }
 .c-btn--check {
   margin: 10px;
@@ -234,6 +234,23 @@ a:visited {
 @media screen and (max-width: 414px) {
   .p-card__header {
     font-size: 16px;
+    height: 32px;
+  }
+}
+.p-card__header--step {
+  height: 48px;
+}
+@media screen and (max-width: 414px) {
+  .p-card__header--step {
+    height: 32px;
+  }
+}
+.p-card__header--detail {
+  height: 68px;
+}
+@media screen and (max-width: 414px) {
+  .p-card__header--detail {
+    height: 48px;
   }
 }
 .p-card__challengebtn {
@@ -253,6 +270,7 @@ a:visited {
 .p-child__content {
   margin-bottom: 20px;
   white-space: pre;
+  height: 200px;
 }
 .p-child__link {
   margin: 10px;
@@ -272,6 +290,7 @@ a:visited {
 .p-detail__content {
   margin-bottom: 20px;
   white-space: pre;
+  height: 200px;
 }
 .p-detail__link {
   margin: 10px;
@@ -353,13 +372,16 @@ a:visited {
   padding: 10px;
   margin: 10px;
   width: calc(25% - 20px);
-  min-height: 170px;
+  height: 170px;
 }
 @media screen and (max-width: 768px) {
   .p-flexbox__flexitem {
     margin: 5px;
     width: calc(50% - 10px);
   }
+}
+.p-flexbox__flexitem--detail {
+  height: 206px;
 }
 
 .p-form {

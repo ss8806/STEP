@@ -33,11 +33,23 @@
 
         @include sm() {
             font-size: 16px;
+            height: 32px;
+        }
+        &--step {
+            height: 48px;
+            @include sm() {
+                height: 32px;
+            }
+        }
+        &--detail {
+            height: 68px;
+            @include sm() {
+                height: 48px;
+            }
         }
     }
 
-    &__challengebtn
-    {
+    &__challengebtn {
         background-color: white;
     }
 }

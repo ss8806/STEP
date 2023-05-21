@@ -763,13 +763,27 @@ var Detail = function Detail() {
         children: step.content
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("p", {
         children: ["\u6295\u7A3F\u65E5: ", moment__WEBPACK_IMPORTED_MODULE_2___default()(step.updated_at).format("YYYY年MM月DD日")]
-      }), edit || auth && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_ChallengeButton__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        is_challenged: is_challenged,
-        endpoint: "/step/" + step.id + "/challenge",
-        show: show
-        // メソッドを子コンポーネントに渡す
-        ,
-        setShow: setShow
+      }), edit || auth && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_ChallengeButton__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          is_challenged: is_challenged,
+          endpoint: "/step/" + step.id + "/challenge",
+          show: show
+          // メソッドを子コンポーネントに渡す
+          ,
+          setShow: setShow
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+          "class": "c-twitter",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
+            href: "https://twitter.com/intent/tweet?button_hashtag=\u30A2\u30A4\u30C7\u30A2&ref_src=twsrc%5Etfw",
+            "class": "twitter-hashtag-button",
+            "data-show-count": "false",
+            children: "Tweet #\u30A2\u30A4\u30C7\u30A2"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("script", {
+            async: true,
+            src: "https://platform.twitter.com/widgets.js",
+            charset: "utf-8"
+          })]
+        })]
       }), edit && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
         className: "c-link",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
@@ -782,12 +796,12 @@ var Detail = function Detail() {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         className: "p-flexbox",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-          className: "p-flexbox__flexcontainer",
+          className: "p-flexbox__flexcontainer p-flexbox__flexcontainer--index",
           children: children.data.map(function (child, i) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("ul", {
-              className: "p-card p-flexbox__flexitem",
+              className: "p-flexbox__flexitem p-flexbox__flexitem--detail",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("li", {
-                className: "p-card__header u-overflow",
+                className: "p-card__header p-card__header--detail",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("p", {
                   children: ["STEP", i + 1 + (currentpage - 1) * 8]
                 }), child.name]
@@ -2360,7 +2374,7 @@ var Step = function Step() {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("ul", {
               className: "p-flexbox__flexitem",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
-                className: "p-card p-card__header u-overflow",
+                className: "p-card__header p-card__header--step",
                 children: step.name
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("li", {
                 className: "p-card__body",

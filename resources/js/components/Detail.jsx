@@ -57,13 +57,29 @@ const Detail = () => {
                 </p>
                 {edit ||
                     (auth && (
-                        <ChallengeButton
-                            is_challenged={is_challenged}
-                            endpoint={"/step/" + step.id + "/challenge"}
-                            show={show}
-                            // メソッドを子コンポーネントに渡す
-                            setShow={setShow}
-                        ></ChallengeButton>
+                        <>
+                            <ChallengeButton
+                                is_challenged={is_challenged}
+                                endpoint={"/step/" + step.id + "/challenge"}
+                                show={show}
+                                // メソッドを子コンポーネントに渡す
+                                setShow={setShow}
+                            ></ChallengeButton>
+                            <div class="c-twitter">
+                                <a
+                                    href="https://twitter.com/intent/tweet?button_hashtag=アイデア&ref_src=twsrc%5Etfw"
+                                    class="twitter-hashtag-button"
+                                    data-show-count="false"
+                                >
+                                    Tweet #アイデア
+                                </a>
+                                <script
+                                    async
+                                    src="https://platform.twitter.com/widgets.js"
+                                    charset="utf-8"
+                                ></script>
+                            </div>
+                        </>
                     ))}
                 {edit && (
                     <p className="c-link">
@@ -74,13 +90,13 @@ const Detail = () => {
             {children.data ? (
                 <section className="p-card">
                     <div className="p-flexbox">
-                        <div className="p-flexbox__flexcontainer">
+                        <div className="p-flexbox__flexcontainer p-flexbox__flexcontainer--index">
                             {children.data.map((child, i) => (
                                 <ul
                                     key={i}
-                                    className="p-card p-flexbox__flexitem"
+                                    className="p-flexbox__flexitem p-flexbox__flexitem--detail"
                                 >
-                                    <li className="p-card__header u-overflow">
+                                    <li className="p-card__header p-card__header--detail">
                                         {/* ページネーション用に子ステップの番号を合わせる */}
                                         <p>
                                             STEP{i + 1 + (currentpage - 1) * 8}
