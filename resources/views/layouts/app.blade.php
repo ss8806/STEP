@@ -11,6 +11,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
+    <script async src="https://platform.twitter.com/widgets.js" ></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Font Awesome -->

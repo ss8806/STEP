@@ -763,32 +763,25 @@ var Detail = function Detail() {
         children: step.content
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("p", {
         children: ["\u6295\u7A3F\u65E5: ", moment__WEBPACK_IMPORTED_MODULE_2___default()(step.updated_at).format("YYYY年MM月DD日")]
-      }), edit || auth && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_ChallengeButton__WEBPACK_IMPORTED_MODULE_3__["default"], {
-          is_challenged: is_challenged,
-          endpoint: "/step/" + step.id + "/challenge",
-          show: show
-          // メソッドを子コンポーネントに渡す
-          ,
-          setShow: setShow
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-          "class": "c-twitter",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
-            href: "https://twitter.com/intent/tweet?button_hashtag=\u30A2\u30A4\u30C7\u30A2&ref_src=twsrc%5Etfw",
-            "class": "twitter-hashtag-button",
-            "data-show-count": "false",
-            children: "Tweet #\u30A2\u30A4\u30C7\u30A2"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("script", {
-            async: true,
-            src: "https://platform.twitter.com/widgets.js",
-            charset: "utf-8"
-          })]
-        })]
+      }), edit || auth && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_ChallengeButton__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        is_challenged: is_challenged,
+        endpoint: "/step/" + step.id + "/challenge",
+        show: show
+        // メソッドを子コンポーネントに渡す
+        ,
+        setShow: setShow
       }), edit && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
         className: "c-link",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
           href: "/step/" + step.id + "/edit",
           children: "\u7DE8\u96C6\u3059\u308B"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+        className: "c-tweet",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
+          href: "https://twitter.com/share?text=" + step.name,
+          className: "twitter-share-button",
+          "data-show-count": "false"
         })
       })]
     }), children.data ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("section", {

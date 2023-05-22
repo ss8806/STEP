@@ -57,35 +57,26 @@ const Detail = () => {
                 </p>
                 {edit ||
                     (auth && (
-                        <>
-                            <ChallengeButton
-                                is_challenged={is_challenged}
-                                endpoint={"/step/" + step.id + "/challenge"}
-                                show={show}
-                                // メソッドを子コンポーネントに渡す
-                                setShow={setShow}
-                            ></ChallengeButton>
-                            <div class="c-twitter">
-                                <a
-                                    href="https://twitter.com/intent/tweet?button_hashtag=アイデア&ref_src=twsrc%5Etfw"
-                                    class="twitter-hashtag-button"
-                                    data-show-count="false"
-                                >
-                                    Tweet #アイデア
-                                </a>
-                                <script
-                                    async
-                                    src="https://platform.twitter.com/widgets.js"
-                                    charset="utf-8"
-                                ></script>
-                            </div>
-                        </>
+                        <ChallengeButton
+                            is_challenged={is_challenged}
+                            endpoint={"/step/" + step.id + "/challenge"}
+                            show={show}
+                            // メソッドを子コンポーネントに渡す
+                            setShow={setShow}
+                        ></ChallengeButton>
                     ))}
                 {edit && (
                     <p className="c-link">
                         <a href={"/step/" + step.id + "/edit"}>編集する</a>
                     </p>
                 )}
+                <div className="c-tweet">
+                    <a
+                        href={"https://twitter.com/share?text=" + step.name}
+                        className="twitter-share-button"
+                        data-show-count="false"
+                    ></a>
+                </div>
             </section>
             {children.data ? (
                 <section className="p-card">
