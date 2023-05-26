@@ -23,13 +23,13 @@ const Posts = () => {
                                     {challenge.name}
                                 </li>
                                 <li className="p-card__body">
-                                    <p>投稿日</p>
+                                    投稿日:
                                     {moment(challenge.updated_at).format(
                                         "YYYY年MM月DD日"
                                     )}
                                 </li>
 
-                                <div className="c-link">
+                                <div className="c-link ">
                                     <a href={"step/" + challenge.id + "/show"}>
                                         詳細を見る
                                     </a>

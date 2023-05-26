@@ -48,17 +48,20 @@ const Challenges = () => {
                     <div className="p-flexbox__flexcontainer p-flexbox__flexcontainer--index">
                         {challenges.map((challenge, i) => {
                             return (
-                                <ul key={i} className="p-flexbox__flexitem">
+                                <ul
+                                    key={i}
+                                    className="p-flexbox__flexitem p-flexbox__flexitem--challenges"
+                                >
+                                    <li className="p-card__header u-overflow">
+                                        <p>{challenge.step_name}</p>
+                                    </li>
                                     <li className="p-card__body">
-                                        <p>投稿日</p>
+                                        投稿日:
                                         {moment(challenge.updated_at).format(
                                             "YYYY年MM月DD日"
                                         )}
                                     </li>
-                                    <li className="p-card__body">
-                                        <p>{challenge.step_name}</p>
-                                    </li>
-                                    <li className="p-card_count">
+                                    <li className="p-card__count">
                                         進捗
                                         {challenge.count &&
                                             // 四捨五入して進捗率を率を表示
@@ -74,32 +77,23 @@ const Challenges = () => {
                                         type="button"
                                         className="c-btn c-btn--challenge p-card__challengebtn"
                                     >
-                                        <>
-                                            <i
-                                                type="button"
-                                                className="fa fa-fire fa-4x c-btn--red"
-                                                onClick={() => {
-                                                    setEndpoint(
-                                                        challenge.challenge_id
-                                                    );
-                                                    // 消去の際に添字を指定
-                                                    setIndex(i);
-                                                    // ダイアログのメッセージ
-                                                    handleAbandonMessage();
-                                                    // ダイアログ表示
-                                                    childCompRef.current.childFunc();
-                                                }}
-                                            />
-                                        </>
+                                        <i
+                                            type="button"
+                                            className="fa fa-fire fa-4x c-btn--red"
+                                            onClick={() => {
+                                                setEndpoint(
+                                                    challenge.challenge_id
+                                                );
+                                                // 消去の際に添字を指定
+                                                setIndex(i);
+                                                // ダイアログのメッセージ
+                                                handleAbandonMessage();
+                                                // ダイアログ表示
+                                                childCompRef.current.childFunc();
+                                            }}
+                                        />
                                     </button>
-                                    <Dialog
-                                        message={message}
-                                        consent={consent}
-                                        ref={childCompRef}
-                                        submit={onClickSubmit}
-                                    ></Dialog>
-
-                                    <div className="c-link">
+                                    <li className="c-link p-card__link">
                                         <a
                                             href={
                                                 "/step/" +
@@ -109,7 +103,13 @@ const Challenges = () => {
                                         >
                                             詳細をみる
                                         </a>
-                                    </div>
+                                    </li>
+                                    <Dialog
+                                        message={message}
+                                        consent={consent}
+                                        ref={childCompRef}
+                                        submit={onClickSubmit}
+                                    ></Dialog>
                                 </ul>
                             );
                         })}

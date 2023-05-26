@@ -13,7 +13,7 @@ const Search = () => {
 
     return (
         <>
-            <p>投稿日検索</p>
+            投稿日検索:
             <input
                 type="date"
                 name="aboveday"

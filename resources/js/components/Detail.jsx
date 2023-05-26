@@ -72,6 +72,7 @@ const Detail = () => {
                 )}
                 <div className="c-tweet">
                     <a
+                        // クエリパラメータの設定でデフォルトの内容を設定
                         href={"https://twitter.com/share?text=" + step.name}
                         className="twitter-share-button"
                         data-show-count="false"
@@ -95,7 +96,7 @@ const Detail = () => {
                                         {child.name}
                                     </li>
                                     <li className="p-card__body">
-                                        <p>投稿日</p>
+                                        投稿日:
                                         {moment(child.updated_at).format(
                                             "YYYY年MM月DD日"
                                         )}

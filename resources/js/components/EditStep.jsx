@@ -29,10 +29,11 @@ const EditStep = (props) => {
     }
 
     const [inputName, setInputName] = useState(oldname || step.name);
-    const [inputContent, setInputContent] = useState(oldcontent || step.content);
+    const [inputContent, setInputContent] = useState(
+        oldcontent || step.content
+    );
     const [showNameVali, setShowNameVali] = useState(false);
     const [showContentVali, setShowContentVali] = useState(false);
-    
 
     const onChangeInputName = (e) => {
         setInputName(e.target.value);
@@ -81,7 +82,7 @@ const EditStep = (props) => {
             <Validation
                 name={"内容"}
                 input={inputContent}
-                max={300}
+                max={400}
                 min={1}
                 error={errors.content}
                 show={showContentVali}
@@ -95,9 +96,7 @@ const EditStep = (props) => {
                 onClick={onClickInputContent}
                 value={inputContent}
             ></textarea>
-            <span className="c-count">
-                文字数: {inputContent.length}
-            </span>
+            <span className="c-count">文字数: {inputContent.length}</span>
 
             <button type="submit" className="c-btn--edit">
                 編集する

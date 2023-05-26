@@ -32,7 +32,7 @@ const Step = () => {
                                         {step.name}
                                     </li>
                                     <li className="p-card__body">
-                                        <p>投稿日</p>
+                                        投稿日:
                                         {moment(step.updated_at).format(
                                             "YYYY年MM月DD日"
                                         )}

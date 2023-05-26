@@ -117,7 +117,7 @@ a:visited {
   font-size: 18px;
   width: 100%;
   margin: 10px 0px;
-  height: 200px;
+  height: 220px;
   border: 2px solid #ddd; /*枠線*/
 }
 
@@ -258,7 +258,14 @@ a:visited {
   }
 }
 .p-card__challengebtn {
+  margin: 5px;
   background-color: white;
+}
+.p-card__count {
+  margin: 5px;
+}
+.p-card__link {
+  margin: 5px;
 }
 
 .p-child {
@@ -272,6 +279,7 @@ a:visited {
   white-space: pre;
 }
 .p-child__content {
+  font-size: 18px;
   margin-bottom: 20px;
   white-space: pre;
   height: 200px;
@@ -292,6 +300,7 @@ a:visited {
   white-space: pre;
 }
 .p-detail__content {
+  font-size: 18px;
   margin-bottom: 20px;
   white-space: pre;
   height: 200px;
@@ -386,6 +395,9 @@ a:visited {
 }
 .p-flexbox__flexitem--detail {
   height: 206px;
+}
+.p-flexbox__flexitem--challenges {
+  height: 210px;
 }
 
 .p-form {

@@ -11,7 +11,7 @@ return [
     | has failed, such as for an invalid token or invalid new password.
     |
     */
-
+    'password'     => 'パスワード',
     'reset'     => 'パスワードをリセットしました。',
     'sent'      => 'パスワードリマインダーを送信しました。',
     'throttled' => '時間を置いて再度お試しください。',

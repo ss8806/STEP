@@ -76,7 +76,7 @@ const PostStep = () => {
             <Validation
                 name={"内容"}
                 input={inputContent}
-                max={300}
+                max={400}
                 min={1}
                 error={errors.content}
                 show={showContentVali}
@@ -90,9 +90,7 @@ const PostStep = () => {
                 onClick={onClickInputContent}
                 value={inputContent}
             ></textarea>
-            <span className="c-count">
-                文字数: {inputContent.length}
-            </span>
+            <span className="c-count">文字数: {inputContent.length}</span>
 
             <button type="submit" className="c-btn--edit">
                 投稿する

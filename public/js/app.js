@@ -345,51 +345,47 @@ var Challenges = function Challenges() {
           className: "p-flexbox__flexcontainer p-flexbox__flexcontainer--index",
           children: challenges.map(function (challenge, i) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("ul", {
-              className: "p-flexbox__flexitem",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
-                className: "p-card__body",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
-                  children: "\u6295\u7A3F\u65E5"
-                }), moment__WEBPACK_IMPORTED_MODULE_2___default()(challenge.updated_at).format("YYYY年MM月DD日")]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
-                className: "p-card__body",
+              className: "p-flexbox__flexitem p-flexbox__flexitem--challenges",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
+                className: "p-card__header u-overflow",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
                   children: challenge.step_name
                 })
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
-                className: "p-card_count",
+                className: "p-card__body",
+                children: ["\u6295\u7A3F\u65E5:", moment__WEBPACK_IMPORTED_MODULE_2___default()(challenge.updated_at).format("YYYY年MM月DD日")]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
+                className: "p-card__count",
                 children: ["\u9032\u6357", challenge.count &&
                 // 四捨五入して進捗率を率を表示
                 Math.round(challenge.count / challenge.count_child * 100), "%"]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
                 type: "button",
                 className: "c-btn c-btn--challenge p-card__challengebtn",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
-                    type: "button",
-                    className: "fa fa-fire fa-4x c-btn--red",
-                    onClick: function onClick() {
-                      setEndpoint(challenge.challenge_id);
-                      // 消去の際に添字を指定
-                      setIndex(i);
-                      // ダイアログのメッセージ
-                      handleAbandonMessage();
-                      // ダイアログ表示
-                      childCompRef.current.childFunc();
-                    }
-                  })
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
+                  type: "button",
+                  className: "fa fa-fire fa-4x c-btn--red",
+                  onClick: function onClick() {
+                    setEndpoint(challenge.challenge_id);
+                    // 消去の際に添字を指定
+                    setIndex(i);
+                    // ダイアログのメッセージ
+                    handleAbandonMessage();
+                    // ダイアログ表示
+                    childCompRef.current.childFunc();
+                  }
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
+                className: "c-link p-card__link",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
+                  href: "/step/" + challenge.challenge_id + "/show",
+                  children: "\u8A73\u7D30\u3092\u307F\u308B"
                 })
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Dialog__WEBPACK_IMPORTED_MODULE_3__["default"], {
                 message: message,
                 consent: consent,
                 ref: childCompRef,
                 submit: onClickSubmit
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-                className: "c-link",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
-                  href: "/step/" + challenge.challenge_id + "/show",
-                  children: "\u8A73\u7D30\u3092\u307F\u308B"
-                })
               })]
             }, i);
           })
@@ -602,7 +598,7 @@ var Child = function Child() {
       className: "p-child__content",
       children: child.content
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
-      children: [" ", moment__WEBPACK_IMPORTED_MODULE_2___default()(child.updated_at).format("YYYY年MM月DD日")]
+      children: [" \u6295\u7A3F\u65E5:", moment__WEBPACK_IMPORTED_MODULE_2___default()(child.updated_at).format("YYYY年MM月DD日")]
     }), auth && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_CheckButton__WEBPACK_IMPORTED_MODULE_3__["default"], {
       is_checked: is_checked,
       endpoint: "/child/" + child.id + "/check",
@@ -779,6 +775,7 @@ var Detail = function Detail() {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         className: "c-tweet",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
+          // クエリパラメータの設定でデフォルトの内容を設定
           href: "https://twitter.com/share?text=" + step.name,
           className: "twitter-share-button",
           "data-show-count": "false"
@@ -800,9 +797,7 @@ var Detail = function Detail() {
                 }), child.name]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("li", {
                 className: "p-card__body",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
-                  children: "\u6295\u7A3F\u65E5"
-                }), moment__WEBPACK_IMPORTED_MODULE_2___default()(child.updated_at).format("YYYY年MM月DD日")]
+                children: ["\u6295\u7A3F\u65E5:", moment__WEBPACK_IMPORTED_MODULE_2___default()(child.updated_at).format("YYYY年MM月DD日")]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                 className: "c-link p-detail__link",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
@@ -1022,7 +1017,7 @@ var EditChild = function EditChild() {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Validation__WEBPACK_IMPORTED_MODULE_2__["default"], {
       name: "内容",
       input: inputContent,
-      max: 300,
+      max: 400,
       min: 1,
       error: errors.content,
       show: showContentVali
@@ -1161,7 +1156,7 @@ var EditStep = function EditStep(props) {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Validation__WEBPACK_IMPORTED_MODULE_2__["default"], {
       name: "内容",
       input: inputContent,
-      max: 300,
+      max: 400,
       min: 1,
       error: errors.content,
       show: showContentVali
@@ -1894,7 +1889,7 @@ var PostChild = function PostChild() {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Validation__WEBPACK_IMPORTED_MODULE_2__["default"], {
       name: "内容",
       input: inputContent,
-      max: 300,
+      max: 400,
       min: 1,
       error: errors.content,
       show: showContentVali
@@ -2029,7 +2024,7 @@ var PostStep = function PostStep() {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Validation__WEBPACK_IMPORTED_MODULE_2__["default"], {
       name: "内容",
       input: inputContent,
-      max: 300,
+      max: 400,
       min: 1,
       error: errors.content,
       show: showContentVali
@@ -2104,11 +2099,9 @@ var Posts = function Posts() {
                 children: challenge.name
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("li", {
                 className: "p-card__body",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
-                  children: "\u6295\u7A3F\u65E5"
-                }), moment__WEBPACK_IMPORTED_MODULE_2___default()(challenge.updated_at).format("YYYY年MM月DD日")]
+                children: ["\u6295\u7A3F\u65E5:", moment__WEBPACK_IMPORTED_MODULE_2___default()(challenge.updated_at).format("YYYY年MM月DD日")]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                className: "c-link",
+                className: "c-link ",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
                   href: "step/" + challenge.id + "/show",
                   children: "\u8A73\u7D30\u3092\u898B\u308B"
@@ -2280,9 +2273,7 @@ var Search = function Search() {
     belowday = JSON.parse(element.dataset.belowday);
   }
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-      children: "\u6295\u7A3F\u65E5\u691C\u7D22"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+    children: ["\u6295\u7A3F\u65E5\u691C\u7D22:", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
       type: "date",
       name: "aboveday",
       className: "c-input p-search__input",
@@ -2371,9 +2362,7 @@ var Step = function Step() {
                 children: step.name
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("li", {
                 className: "p-card__body",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
-                  children: "\u6295\u7A3F\u65E5"
-                }), moment__WEBPACK_IMPORTED_MODULE_2___default()(step.updated_at).format("YYYY年MM月DD日")]
+                children: ["\u6295\u7A3F\u65E5:", moment__WEBPACK_IMPORTED_MODULE_2___default()(step.updated_at).format("YYYY年MM月DD日")]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
                 className: "c-link",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
