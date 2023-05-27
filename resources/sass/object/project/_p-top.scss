@@ -1,28 +1,41 @@
 .p-top {
-	height: 100%;
-  width: 100%;
-	overflow: auto;
-  position: relative;
-  min-width: 100vh;
-  min-height: 100vh;
-  background-color: white;
-	// background: url(../../../../public/images/mainimg.png) ;	/*背景画像の読み込み*/
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    position: relative;
+    min-height: 100vh;
+    background-color: white;
+    // background: url(../../../../public/images/mainimg.png) ;	/*背景画像の読み込み*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @include sm() {
+        justify-content: flex-start;
+    }
 }
 
-// /*ロゴ画像*/
-.p-top__logo {
-	width: 50%;	/*画像の幅*/
-  height: 50%;
+// /*タイトル画像*/
+.p-top__title {
+  width: 600px;
+}
+
+.p-top__catch {
+  font-size: 20px;
+  font-family: serif;
+  @include sm() {
+    margin-bottom: 50px;
+}
+}
+
+.p-top__stamp {
+    @include sm() {
+        width: 80%;
+        margin-bottom: 50px;
+    }
 }
 
 .p-top__menubar {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
-
-
-

@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 
 const Message = () => {
     const element = document.getElementById("message");
-    var message = [];
+    let message = [];
     message = JSON.parse(element.dataset.message);
     const [close, setClose] = useState(false);
     const handleToggle = () => {
@@ -25,7 +25,9 @@ const Message = () => {
             {close ? (
                 <></>
             ) : (
-                <> <div className="p-dialog__background"></div>
+                <>
+                    {" "}
+                    <div className="p-dialog__background"></div>
                     <div className="p-message__container p-message__container--success">
                         <i className="fas fa-check-circle p-message__circle"></i>
                         <div className="p-message__text">

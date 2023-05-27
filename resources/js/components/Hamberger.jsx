@@ -3,8 +3,8 @@ import ReactDOM from "react-dom";
 
 const Hamberger = () => {
     const element = document.getElementById("hamberger");
-    var userName = [];
-    var logout = [];
+    let userName = [];
+    let logout = [];
     const [open, setOpen] = useState(false);
 
     const handleToggle = () => {
@@ -29,19 +29,22 @@ const Hamberger = () => {
         <>
             {open ? (
                 <>
-                    <div className="hamburger--active" onClick={handleToggle}>
-                        <span></span>
-                        <span></span>
-                        <span></span>
+                    <div
+                        className="p-hamburger p-hamburger--active"
+                        onClick={handleToggle}
+                    >
+                        <span className="p-hamburger__span p-hamburger__firstspan--active"></span>
+                        <span className="p-hamburger__span p-hamburger__secondspan--active"></span>
+                        <span className="p-hamburger__span p-hamburger__thirdspan--active"></span>
                     </div>
-                    <ul className="slide-menu">
+                    <ul className="p-hamburger__slidemenu">
                         <li>
-                            {" "}
-                            <a href="/mypage">マイページ</a>{" "}
+                            <a className="c-link" href="/mypage">
+                                マイページ
+                            </a>
                         </li>
                         <li>
-                            {" "}
-                            <a href={logout} onClick={lof}>
+                            <a className="c-link" href={logout} onClick={lof}>
                                 Logout
                             </a>
                             <form
@@ -60,10 +63,10 @@ const Hamberger = () => {
                 </>
             ) : (
                 <>
-                    <div className="hamburger" onClick={handleToggle}>
-                        <span></span>
-                        <span></span>
-                        <span></span>
+                    <div className="p-hamburger" onClick={handleToggle}>
+                        <span className="p-hamburger__span p-hamburger__firstspan"></span>
+                        <span className="p-hamburger__span p-hamburger__secondspan"></span>
+                        <span className="p-hamburger__span p-hamburger__thirdspan"></span>
                     </div>
                 </>
             )}

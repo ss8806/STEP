@@ -1,10 +1,6 @@
 .p-flexbox {
     margin: 10px;
 
-    @include mq() {
-        margin: 0px;
-    }
-
     &__flexcontainer {
         display: flex;
         flex-flow: row wrap;
@@ -20,7 +16,7 @@
         margin: 10px;
         width: calc(25% - 10px * 2);
         height: 170px;
-        @include mq() {
+        @include sm() {
             margin: 5px;
             width: calc(50% - 10px * 1);
         }

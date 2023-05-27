@@ -1,15 +1,17 @@
 .p-mypage {
     &__icon {
-        margin: 0px auto;
+        margin: 10px auto;
         width: 200px;
-        height: 200px;
         display: block;
+        @include sm() {
+            width: 150px;
+        }
     }
 
     &__btn {
         display: block;
         margin: 0px auto;
-        margin-bottom: 20px;
+        margin-bottom: 30px;
         color: white;
         background-color: green;
     }

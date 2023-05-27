@@ -5,10 +5,8 @@
         font-family: "Amatic SC", cursive;
         text-decoration: none;
         color: #333;
-            @include mq() {
-                margin-bottom: 20px;
-            }
             @include sm() {
+                margin-bottom: 20px;
                 font-size: 25px;
                 margin: auto;
                 margin-left: 5px;
