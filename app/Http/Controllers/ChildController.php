@@ -97,9 +97,16 @@ class ChildController extends Controller
         $child = Child::find($id);
         // 親ステップのレコード
         $step = $child->BelongsToStep()->get();
+        // フォームに入力した内容
+        $oldname = old('name');
+        $oldcontent = old('content');
         // 親ステップのユーザーIDがログインユーザーと同じなら処理を続行
         if($step[0]->user_id === Auth::user()->id){
-            return view('editChild')->with('child', $child)->with('step', $step);
+            return view('editChild')
+            ->with('child', $child)
+            ->with('step', $step)
+            ->with('oldname', $oldname)
+            ->with('oldcontent', $oldcontent);
         } else {
             // 不正な操作した場合は一覧画面に遷移
             return redirect()->route('steps');

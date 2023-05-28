@@ -19,6 +19,8 @@
             data-child="{{ $child }}" 
             data-step="{{ $step }}" 
             data-errors="{{ $errors }}" 
+            data-oldname="{{ json_encode($oldname) }}" 
+            data-oldcontent="{{ json_encode($oldcontent) }}"    
             ></div>
         </form>
         <form method="POST" action="{{ route('deleteChild', $child->id) }}" class="p-from">

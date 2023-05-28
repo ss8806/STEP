@@ -4,9 +4,13 @@ import Validation from "./Validation";
 
 const EditChild = () => {
     const element = document.getElementById("editChild");
+    // バリデーションエラー
     let errors;
     let step;
     let child;
+    // フォームに入力した内容(バリデーションが通らなかった)
+    let oldname;
+    let oldcontent;
 
     if (element && element.dataset.errors) {
         errors = JSON.parse(element.dataset.errors);
@@ -17,24 +21,40 @@ const EditChild = () => {
     if (element && element.dataset.child) {
         child = JSON.parse(element.dataset.child);
     }
-
-    const [inputName, setInputName] = useState(child.name);
-    const [inputContent, setInputContent] = useState(child.content);
+    if (element && element.dataset.oldname) {
+        oldname = JSON.parse(element.dataset.oldname);
+        if (!oldname) {
+            oldname = "";
+        }
+    }
+    if (element && element.dataset.oldcontent) {
+        oldcontent = JSON.parse(element.dataset.oldcontent);
+        if (!oldcontent) {
+            oldcontent = "";
+        }
+    }
+    // 子ステップ名 フォームに入力した内容があればそちらを優先
+    const [inputName, setInputName] = useState(oldname || child.name);
+    // 子ステップの内容 フォームに入力した内容があればそちらを優先
+    const [inputContent, setInputContent] = useState(
+        oldcontent || child.content
+    );
+    // バリデーションの表示状態
     const [showNameVali, setShowNameVali] = useState(false);
     const [showContentVali, setShowContentVali] = useState(false);
-
+    // 子ステップ名を入力した際に更新される
     const onChangeInputName = (e) => {
         setInputName(e.target.value);
     };
-
+    // 子ステップの内容を入力した際に更新される
     const onChangeInputContent = (e) => {
         setInputContent(e.target.value);
     };
-
+    // 子ステップ名をクリックした際にバリデーションを表示する
     const onClickInputName = (e) => {
         setShowNameVali(true);
     };
-
+    // 子ステップの内容をクリックした際にバリデーションを表示する
     const onClickInputContent = (e) => {
         setShowContentVali(true);
     };
@@ -47,9 +67,13 @@ const EditChild = () => {
             </label>
             <Validation
                 name={"ステップ名"}
+                // 入力内容
                 input={inputName}
+                // 最大文字数
                 max={20}
+                // 最小文字数
                 min={1}
+                // バリデーションチェックの内容
                 error={errors.name}
                 show={showNameVali}
             ></Validation>

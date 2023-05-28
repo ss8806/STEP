@@ -119,6 +119,7 @@ class StepController extends Controller
     public function edit(Step $step, $id)
     {
         $step = Step::find($id);
+        // フォームに入力した内容
         $oldname = old('name');
         $oldcontent = old('content');
         if ($step->user_id === Auth::user()->id) {

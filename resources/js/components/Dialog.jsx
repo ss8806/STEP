@@ -2,25 +2,26 @@ import React, { useState, forwardRef, useImperativeHandle } from "react";
 import ReactDOM from "react-dom";
 
 const Dialog = forwardRef((props, ref) => {
+    // ダイアログの説明の文言
     let message = props.message;
+    // 同意の文言
     let consent = props.consent;
-    // 親コンポーネントからメソッドを受け取る
+    // 親コンポーネントからダイアログを表示するメソッドを受け取る
     let submit = props.submit;
-
+    // ダイアログの表示状態
     const [showDialog, setShowDialog] = useState(false);
-
+    // ダイアログを閉じる
     const onCloseDialog = () => {
         setShowDialog(false);
     };
-
+    // ダイアログを表示する
     useImperativeHandle(ref, () => ({
         childFunc() {
             setShowDialog(true);
         },
     }));
-
+    // 親コンポーネントから受け取ったメソッドを実行
     const onClickSubmit = (e) => {
-        // 親コンポーネントから受け取ったメソッドを実行
         submit(e);
         setTimeout(() => {
             onCloseDialog();

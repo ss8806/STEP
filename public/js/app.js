@@ -899,17 +899,22 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var Dialog = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(function (props, ref) {
+  // ダイアログの説明の文言
   var message = props.message;
+  // 同意の文言
   var consent = props.consent;
-  // 親コンポーネントからメソッドを受け取る
+  // 親コンポーネントからダイアログを表示するメソッドを受け取る
   var submit = props.submit;
+  // ダイアログの表示状態
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState2 = _slicedToArray(_useState, 2),
     showDialog = _useState2[0],
     setShowDialog = _useState2[1];
+  // ダイアログを閉じる
   var onCloseDialog = function onCloseDialog() {
     setShowDialog(false);
   };
+  // ダイアログを表示する
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useImperativeHandle)(ref, function () {
     return {
       childFunc: function childFunc() {
@@ -917,8 +922,8 @@ var Dialog = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(func
       }
     };
   });
+  // 親コンポーネントから受け取ったメソッドを実行
   var onClickSubmit = function onClickSubmit(e) {
-    // 親コンポーネントから受け取ったメソッドを実行
     submit(e);
     setTimeout(function () {
       onCloseDialog();
@@ -983,9 +988,13 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var EditChild = function EditChild() {
   var element = document.getElementById("editChild");
+  // バリデーションエラー
   var errors;
   var step;
   var child;
+  // フォームに入力した内容(バリデーションが通らなかった)
+  var oldname;
+  var oldcontent;
   if (element && element.dataset.errors) {
     errors = JSON.parse(element.dataset.errors);
   }
@@ -995,14 +1004,29 @@ var EditChild = function EditChild() {
   if (element && element.dataset.child) {
     child = JSON.parse(element.dataset.child);
   }
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(child.name),
+  if (element && element.dataset.oldname) {
+    oldname = JSON.parse(element.dataset.oldname);
+    if (!oldname) {
+      oldname = "";
+    }
+  }
+  if (element && element.dataset.oldcontent) {
+    oldcontent = JSON.parse(element.dataset.oldcontent);
+    if (!oldcontent) {
+      oldcontent = "";
+    }
+  }
+  // 子ステップ名 フォームに入力した内容があればそちらを優先
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(oldname || child.name),
     _useState2 = _slicedToArray(_useState, 2),
     inputName = _useState2[0],
     setInputName = _useState2[1];
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(child.content),
+  // 子ステップの内容 フォームに入力した内容があればそちらを優先
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(oldcontent || child.content),
     _useState4 = _slicedToArray(_useState3, 2),
     inputContent = _useState4[0],
     setInputContent = _useState4[1];
+  // バリデーションの表示状態
   var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState6 = _slicedToArray(_useState5, 2),
     showNameVali = _useState6[0],
@@ -1011,15 +1035,19 @@ var EditChild = function EditChild() {
     _useState8 = _slicedToArray(_useState7, 2),
     showContentVali = _useState8[0],
     setShowContentVali = _useState8[1];
+  // 子ステップ名を入力した際に更新される
   var onChangeInputName = function onChangeInputName(e) {
     setInputName(e.target.value);
   };
+  // 子ステップの内容を入力した際に更新される
   var onChangeInputContent = function onChangeInputContent(e) {
     setInputContent(e.target.value);
   };
+  // 子ステップ名をクリックした際にバリデーションを表示する
   var onClickInputName = function onClickInputName(e) {
     setShowNameVali(true);
   };
+  // 子ステップの内容をクリックした際にバリデーションを表示する
   var onClickInputContent = function onClickInputContent(e) {
     setShowContentVali(true);
   };
@@ -1033,10 +1061,18 @@ var EditChild = function EditChild() {
       className: "c-label",
       children: "\u5B50\u30B9\u30C6\u30C3\u30D7\u540D"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Validation__WEBPACK_IMPORTED_MODULE_2__["default"], {
-      name: "ステップ名",
-      input: inputName,
-      max: 20,
-      min: 1,
+      name: "ステップ名"
+      // 入力内容
+      ,
+      input: inputName
+      // 最大文字数
+      ,
+      max: 20
+      // 最小文字数
+      ,
+      min: 1
+      // バリデーションチェックの内容
+      ,
       error: errors.name,
       show: showNameVali
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
@@ -1115,8 +1151,10 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var EditStep = function EditStep(props) {
   var element = document.getElementById("editStep");
+  // バリデーションエラー
   var errors;
   var step;
+  // フォームに入力した内容(バリデーションが通らなかった)
   var oldname;
   var oldcontent;
   if (element && element.dataset.errors) {
@@ -1137,14 +1175,17 @@ var EditStep = function EditStep(props) {
       oldcontent = "";
     }
   }
+  // ステップ名 フォームに入力した内容があればそちらを優先
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(oldname || step.name),
     _useState2 = _slicedToArray(_useState, 2),
     inputName = _useState2[0],
     setInputName = _useState2[1];
+  // ステップの内容 フォームに入力した内容があればそちらを優先
   var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(oldcontent || step.content),
     _useState4 = _slicedToArray(_useState3, 2),
     inputContent = _useState4[0],
     setInputContent = _useState4[1];
+  // バリデーションの表示状態
   var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState6 = _slicedToArray(_useState5, 2),
     showNameVali = _useState6[0],
@@ -1153,15 +1194,19 @@ var EditStep = function EditStep(props) {
     _useState8 = _slicedToArray(_useState7, 2),
     showContentVali = _useState8[0],
     setShowContentVali = _useState8[1];
+  // ステップ名を入力した際に更新される
   var onChangeInputName = function onChangeInputName(e) {
     setInputName(e.target.value);
   };
+  // ステップの内容を入力した際に更新される
   var onChangeInputContent = function onChangeInputContent(e) {
     setInputContent(e.target.value);
   };
+  // ステップ名をクリックした際にバリデーションを表示する
   var onClickInputName = function onClickInputName() {
     setShowNameVali(true);
   };
+  // ステップの内容をクリックした際にバリデーションを表示する
   var onClickInputContent = function onClickInputContent() {
     setShowContentVali(true);
   };
@@ -1172,10 +1217,18 @@ var EditStep = function EditStep(props) {
       className: "c-label",
       children: "\u30B9\u30C6\u30C3\u30D7\u540D"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Validation__WEBPACK_IMPORTED_MODULE_2__["default"], {
-      name: "ステップ名",
-      input: inputName,
-      max: 20,
-      min: 1,
+      name: "ステップ名"
+      // 入力内容
+      ,
+      input: inputName
+      // 最大文字数
+      ,
+      max: 20
+      // 最小文字数
+      ,
+      min: 1
+      // バリデーションチェックの内容
+      ,
       error: errors.name,
       show: showNameVali
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {

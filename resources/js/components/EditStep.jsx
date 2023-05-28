@@ -4,8 +4,10 @@ import Validation from "./Validation";
 
 const EditStep = (props) => {
     const element = document.getElementById("editStep");
+    // バリデーションエラー
     let errors;
     let step;
+    // フォームに入力した内容(バリデーションが通らなかった)
     let oldname;
     let oldcontent;
 
@@ -27,26 +29,28 @@ const EditStep = (props) => {
             oldcontent = "";
         }
     }
-
+    // ステップ名 フォームに入力した内容があればそちらを優先
     const [inputName, setInputName] = useState(oldname || step.name);
+    // ステップの内容 フォームに入力した内容があればそちらを優先
     const [inputContent, setInputContent] = useState(
         oldcontent || step.content
     );
+    // バリデーションの表示状態
     const [showNameVali, setShowNameVali] = useState(false);
     const [showContentVali, setShowContentVali] = useState(false);
-
+    // ステップ名を入力した際に更新される
     const onChangeInputName = (e) => {
         setInputName(e.target.value);
     };
-
+    // ステップの内容を入力した際に更新される
     const onChangeInputContent = (e) => {
         setInputContent(e.target.value);
     };
-
+    // ステップ名をクリックした際にバリデーションを表示する
     const onClickInputName = () => {
         setShowNameVali(true);
     };
-
+    // ステップの内容をクリックした際にバリデーションを表示する
     const onClickInputContent = () => {
         setShowContentVali(true);
     };
@@ -58,9 +62,13 @@ const EditStep = (props) => {
             </label>
             <Validation
                 name={"ステップ名"}
+                // 入力内容
                 input={inputName}
+                // 最大文字数
                 max={20}
+                // 最小文字数
                 min={1}
+                // バリデーションチェックの内容
                 error={errors.name}
                 show={showNameVali}
             ></Validation>
