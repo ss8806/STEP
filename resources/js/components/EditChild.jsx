@@ -4,9 +4,9 @@ import Validation from "./Validation";
 
 const EditChild = () => {
     const element = document.getElementById("editChild");
-    var errors;
-    var step;
-    var child;
+    let errors;
+    let step;
+    let child;
 
     if (element && element.dataset.errors) {
         errors = JSON.parse(element.dataset.errors);

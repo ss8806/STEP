@@ -4,20 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use App\Http\Requests\PasswordRequest;
 use App\Http\Requests\ProfileRequest;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
+    // プロフィールを表示
     public function index()
     {
         return view('profile')
             ->with('user', Auth::user());
     }
 
+    // 自己紹介編集
     public function editProduce(ProfileRequest $request)
     {
         $user = Auth::user();
@@ -25,6 +25,7 @@ class ProfileController extends Controller
         $user->update();
     }
 
+    // メール編集
     public function editEmail(ProfileRequest $request)
     {
         $user = Auth::user();
@@ -32,7 +33,8 @@ class ProfileController extends Controller
         $user->update();
     }
 
-    public function editIcon(Request $request)
+    // アイコン画像編集
+    public function editIcon(ProfileRequest $request)
     {
         try{
             $user = Auth::user();
@@ -63,5 +65,6 @@ class ProfileController extends Controller
                 "error"
             );
         }
+        
     }
 }

@@ -4,10 +4,10 @@ import Validation from "./Validation";
 
 const PostChild = () => {
     const element = document.getElementById("postChild");
-    var step;
-    var errors;
-    var oldname;
-    var oldcontent;
+    let step;
+    let errors;
+    let oldname;
+    let oldcontent;
 
     if (element && element.dataset.step) {
         step = JSON.parse(element.dataset.step);

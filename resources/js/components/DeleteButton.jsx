@@ -13,10 +13,6 @@ const DeleteButton = () => {
 
     const childCompRef = useRef();
 
-    // const onClickSubmit = () => {
-    //     document.getElementsByClassName("p-dialog__consent")[0].type = "submit";
-    // };
-
     const onClickSubmit = (e) => {
         e.target.type = "submit";
     };

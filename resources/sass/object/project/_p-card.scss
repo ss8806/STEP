@@ -3,7 +3,6 @@
     display: table;
     margin: 0 auto;
     margin-bottom: 50px;
-
     &--auth {
         text-align: center;
         width: 80%;
@@ -14,23 +13,19 @@
             width: 100%;
         }
     }
-
     &--step {
         width: 60%;
         background-color: white;
         padding: 10px 20px;
     }
-
     &--profile {
         width: 60%;
         background-color: white;
         padding: 10px 20px;
     }
-
     &__header {
         font-size: 24px;
         margin-bottom: 10px;
-
         @include sm() {
             font-size: 16px;
             height: 32px;
@@ -48,18 +43,18 @@
             }
         }
     }
-
     &__challengebtn {
         margin: 5px;
         background-color: white;
     }
-
     &__count {
         margin: 5px;
     }
-
     &__link {
         margin: 5px;
     }
-
+    &__stepnum {
+        color:lightgreen;
+        margin-bottom: 5px;
+    }
 }

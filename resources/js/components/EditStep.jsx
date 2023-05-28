@@ -4,10 +4,10 @@ import Validation from "./Validation";
 
 const EditStep = (props) => {
     const element = document.getElementById("editStep");
-    var errors;
-    var step;
-    var oldname;
-    var oldcontent;
+    let errors;
+    let step;
+    let oldname;
+    let oldcontent;
 
     if (element && element.dataset.errors) {
         errors = JSON.parse(element.dataset.errors);

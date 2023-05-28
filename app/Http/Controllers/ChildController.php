@@ -19,7 +19,7 @@ class ChildController extends Controller
      */
     public function create($id)
     {
-        // ルートパラメーターから親ステップの情報を取得
+        // ルートパラメーターから親ステップのレコードを取得
         $step = Step::find($id);
         // 親ステップのユーザーIDがログインユーザーと同じなら処理を続行
         if ($step->user_id === Auth::user()->id) {
@@ -32,7 +32,7 @@ class ChildController extends Controller
                 ->with('oldname', $oldname)
                 ->with('oldcontent', $oldcontent);
         } else {
-            // 不正な操作した場合の処理
+            // 不正な操作した場合は一覧画面に遷移
             return redirect()->route('steps');
         }
     }
@@ -49,9 +49,9 @@ class ChildController extends Controller
         $child = new Child();
         $child->name = $request->input('name');
         $child->content = $request->input('content');
-        // 子ステップの
+        // 親ステップのid
         $child->parent_id = $step->id;
-        //親ステップのカウントに追加
+        //親ステップの子ステップ数から一つ増やす
         $step->count_child += 1;
         $child->save();
         $step->update();
@@ -60,7 +60,7 @@ class ChildController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * 子ステップを表示
      *
      * @param  \App\Child  $child
      * @return \Illuminate\Http\Response
@@ -68,14 +68,15 @@ class ChildController extends Controller
     public function show(Request $request, $id)
     {
         $child = Child::find($id);
+        // 子ステップがチェック状況
         $is_checked = $child->isChecked(Auth::user());
+        // 親ステップがチャレンジ中であればチェックボタンを表示する
         $show = 0;
-
         if (Auth::user()) {
             $show = Challenge::where('step_id', $child->parent_id)
                 ->where('user_id', Auth::user()->id)->first();
         }
-        // modelに設定したbelongsto
+        // 親ステップのレコード
         $step = $child->BelongsToStep()->get();
 
         return view('child')
@@ -86,7 +87,7 @@ class ChildController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     *  子ステップを編集
      *
      * @param  \App\Child  $child
      * @return \Illuminate\Http\Response
@@ -94,16 +95,19 @@ class ChildController extends Controller
     public function edit(Child $child, $id)
     {
         $child = Child::find($id);
+        // 親ステップのレコード
         $step = $child->BelongsToStep()->get();
+        // 親ステップのユーザーIDがログインユーザーと同じなら処理を続行
         if($step[0]->user_id === Auth::user()->id){
             return view('editChild')->with('child', $child)->with('step', $step);
         } else {
+            // 不正な操作した場合は一覧画面に遷移
             return redirect()->route('steps');
         }    
     }
 
     /**
-     * Update the specified resource in storage.
+     * 編集した子ステップを保存
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Child  $child
@@ -120,7 +124,7 @@ class ChildController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * 子ステップを削除
      *
      * @param  \App\Child  $child
      * @return \Illuminate\Http\Response
@@ -128,14 +132,16 @@ class ChildController extends Controller
     public function destroy($id)
     {
         $child = Child::find($id);
+         // 親ステップのレコード
         $step = Step::find($child->parent_id);
+        // 親ステップの子ステップ数から一つ減らす
         $step->count_child -= 1;
         $child->delete($child->id);
         $step->update();
         return redirect()->route('showDetail', $child->parent_id)->with('scc_message', '削除しました');
     }
 
-    // 気になるリストに登録する処理
+    // チェックリストに登録する処理
     public function check(Request $request, Child $child)
     {
         //モデルを結びつけている中間テーブルにレコードを削除する。 
@@ -144,7 +150,7 @@ class ChildController extends Controller
         $child->checks()->attach($request->user()->id);
     }
 
-    // 気になるリストから削除する処理
+    // チェックリストから削除する処理
     public function uncheck(Request $request, Child $child)
     {
         $child->checks()->detach($request->user()->id);

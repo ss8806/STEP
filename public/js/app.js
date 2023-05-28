@@ -25,11 +25,9 @@ __webpack_require__(/*! ./components/Example */ "./resources/js/components/Examp
 __webpack_require__(/*! ./components/Step */ "./resources/js/components/Step.jsx");
 __webpack_require__(/*! ./components/Message */ "./resources/js/components/Message.jsx");
 __webpack_require__(/*! ./components/Hamberger */ "./resources/js/components/Hamberger.jsx");
-__webpack_require__(/*! ./components/UserName */ "./resources/js/components/UserName.jsx");
 __webpack_require__(/*! ./components/Email */ "./resources/js/components/Email.jsx");
 __webpack_require__(/*! ./components/Produce */ "./resources/js/components/Produce.jsx");
 __webpack_require__(/*! ./components/Icon */ "./resources/js/components/Icon.jsx");
-__webpack_require__(/*! ./components/Password */ "./resources/js/components/Password.jsx");
 __webpack_require__(/*! ./components/Search */ "./resources/js/components/Search.jsx");
 __webpack_require__(/*! ./components/Detail */ "./resources/js/components/Detail.jsx");
 __webpack_require__(/*! ./components/Child */ "./resources/js/components/Child.jsx");
@@ -647,11 +645,6 @@ var DeleteButton = function DeleteButton() {
     dialog = JSON.parse(element.dataset.dialog);
   }
   var childCompRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
-
-  // const onClickSubmit = () => {
-  //     document.getElementsByClassName("p-dialog__consent")[0].type = "submit";
-  // };
-
   var onClickSubmit = function onClickSubmit(e) {
     e.target.type = "submit";
   };
@@ -793,6 +786,7 @@ var Detail = function Detail() {
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("li", {
                 className: "p-card__header p-card__header--detail",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("p", {
+                  className: "p-card__stepnum",
                   children: ["STEP", i + 1 + (currentpage - 1) * 8]
                 }), child.name]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("li", {
@@ -1235,6 +1229,8 @@ var Email = function Email() {
     setShowEmailVali = _useState8[1];
   var onHandleChangeEmail = function onHandleChangeEmail(e) {
     setEmail(e.target.value);
+    // テキスト入力したさいに「更新しました」を削除する
+    setSucess("");
   };
   var onClickInputEmail = function onClickInputEmail(e) {
     setShowEmailVali(true);
@@ -1259,7 +1255,6 @@ var Email = function Email() {
           case 500:
             setError("更新できませんでした");
           default:
-            // console.log(error.response.data);
             setSucess("");
             setError(error.response.data.errors.editEmail);
         }
@@ -1382,23 +1377,25 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var Hamberger = function Hamberger() {
   var element = document.getElementById("hamberger");
-  var userName = [];
   var logout = [];
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState2 = _slicedToArray(_useState, 2),
     open = _useState2[0],
     setOpen = _useState2[1];
+
+  // ハンバーガーメニューを開閉
   var handleToggle = function handleToggle() {
     setOpen(function (prevOpen) {
       return !prevOpen;
     });
   };
   if (element && element.dataset.user) {
-    userName = JSON.parse(element.dataset.user);
     logout = JSON.parse(element.dataset.logout);
   }
-  var csrf = document // LaravelでPOSTメソッドを実行する際に必須のCSRF「トークン」を設定します。
-  .querySelector('meta[name="csrf-token"]').getAttribute("content");
+  // LaravelでPOSTメソッドを実行する際に必須のCSRF「トークン」を設定。
+  var csrf = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
+
+  // ログアウト
   var lof = function lof(e) {
     e.preventDefault();
     document.getElementById("logout-form").submit();
@@ -1418,6 +1415,12 @@ var Hamberger = function Hamberger() {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("ul", {
         className: "p-hamburger__slidemenu",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+            className: "c-link",
+            href: "/postStep",
+            children: "\u6295\u7A3F\u3059\u308B"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
             className: "c-link",
             href: "/mypage",
@@ -1441,18 +1444,19 @@ var Hamberger = function Hamberger() {
           })]
         })]
       })]
-    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-        className: "p-hamburger",
-        onClick: handleToggle,
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-          className: "p-hamburger__span p-hamburger__firstspan"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-          className: "p-hamburger__span p-hamburger__secondspan"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-          className: "p-hamburger__span p-hamburger__thirdspan"
-        })]
-      })
+    }) :
+    /*#__PURE__*/
+    // ハンバーガーメニューが閉じた状態
+    (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      className: "p-hamburger",
+      onClick: handleToggle,
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+        className: "p-hamburger__span p-hamburger__firstspan"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+        className: "p-hamburger__span p-hamburger__secondspan"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+        className: "p-hamburger__span p-hamburger__thirdspan"
+      })]
     })
   });
 };
@@ -1485,7 +1489,6 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0) { ; } } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-function _readOnlyError(name) { throw new TypeError("\"" + name + "\" is read-only"); }
 
 
 
@@ -1515,14 +1518,21 @@ var Icon = function Icon() {
     setShowIconVali = _useState8[1];
   var awspath = "https://backend1219.s3.ap-northeast-1.amazonaws.com/";
   var imageHander = function imageHander(e) {
+    // バリデーションを初期化
+    setSucess("");
+    setError("");
     var file = e.target.files[0];
+    if (!file.type.match("image.*")) {
+      setError("画像を選択してください");
+      return;
+    }
     var imgTag = document.getElementById("preview");
     var reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = function () {
       var result = reader.result;
       imgTag.src = result;
-      setIcon(result), _readOnlyError("inputIcon");
+      inputIcon = setIcon(result);
     };
   };
   var onSubmit = function onSubmit(e) {
@@ -1546,9 +1556,8 @@ var Icon = function Icon() {
           case 500:
             setError("更新できませんでした");
           default:
-            // console.log(error.response.data);
             setSucess("");
-            setError(error.response.data.errors.editEmail);
+            setError(error.response.data.errors.icon);
         }
       }
     });
@@ -1681,111 +1690,6 @@ var Message = function Message() {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Message);
 if (document.getElementById("message")) {
   react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Message, {}), document.getElementById("message"));
-}
-
-/***/ }),
-
-/***/ "./resources/js/components/Password.jsx":
-/*!**********************************************!*\
-  !*** ./resources/js/components/Password.jsx ***!
-  \**********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0) { ; } } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-
-
-
-
-
-var Password = function Password() {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
-    _useState2 = _slicedToArray(_useState, 2),
-    Password = _useState2[0],
-    setPassword = _useState2[1];
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
-    _useState4 = _slicedToArray(_useState3, 2),
-    sucess = _useState4[0],
-    setSucess = _useState4[1];
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
-    _useState6 = _slicedToArray(_useState5, 2),
-    error = _useState6[0],
-    setError = _useState6[1];
-  var onHandleChangePassword = function onHandleChangePassword(e) {
-    setPassword(e.target.value);
-  };
-  var handleSubmitPassword = function handleSubmitPassword() {
-    axios__WEBPACK_IMPORTED_MODULE_3__["default"].put("/editPassword", {
-      editPassword: Password
-    }).then(function (response) {
-      //console.log(response.config.data);
-      setSucess("更新しました");
-      setError("");
-    })["catch"](function (error) {
-      {
-        var _error$response;
-        // 失敗時の処理
-        switch ((_error$response = error.response) === null || _error$response === void 0 ? void 0 : _error$response.status) {
-          case 401:
-            setError("更新できませんでした");
-          case 403:
-            setError("更新できませんでした");
-          case 500:
-            setError("更新できませんでした");
-          default:
-            console.log(error.response.data);
-            setSucess("");
-            setError(error.response.data.errors.editPassword);
-        }
-      }
-    });
-  };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
-      className: "",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
-          htmlFor: "inputEmail",
-          children: "Password"
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-        type: "password",
-        name: "editPassword",
-        className: "c-input__password",
-        placeholder: "\u30D1\u30B9\u30EF\u30FC\u30C9",
-        required: true,
-        onChange: onHandleChangePassword
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-        className: "c-sucess",
-        children: [" ", sucess]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-        className: "c-error",
-        children: [" ", error]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-        className: "c-btn c-btn--edit",
-        onClick: handleSubmitPassword,
-        children: "\u30D1\u30B9\u30EF\u30FC\u30C9\u3092\u5909\u66F4"
-      })]
-    })
-  });
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Password);
-if (document.getElementById("editPassword")) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Password, {}), document.getElementById("editPassword"));
 }
 
 /***/ }),
@@ -2186,6 +2090,8 @@ var Produce = function Produce() {
     setShowProduceVali = _useState8[1];
   var onHandleChangeProduce = function onHandleChangeProduce(e) {
     setProduce(e.target.value);
+    // テキスト入力したさいに「更新しました」を削除する
+    setSucess("");
   };
   var onClickInputProduce = function onClickInputProduce(e) {
     setShowProduceVali(true);
@@ -2209,7 +2115,6 @@ var Produce = function Produce() {
           case 500:
             setError("更新できませんでした");
           default:
-            console.log(error.response.data);
             setSucess("");
             setError(error.response.data.errors.editProduce);
         }
@@ -2228,7 +2133,7 @@ var Produce = function Produce() {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Validation__WEBPACK_IMPORTED_MODULE_2__["default"], {
         name: "自己紹介",
         input: inputProduce,
-        max: 10,
+        max: 300,
         min: 1,
         show: showProduceVali,
         sucess: sucess,
@@ -2399,117 +2304,6 @@ var Step = function Step() {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Step);
 if (document.getElementById("step")) {
   react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Step, {}), document.getElementById("step"));
-}
-
-/***/ }),
-
-/***/ "./resources/js/components/UserName.jsx":
-/*!**********************************************!*\
-  !*** ./resources/js/components/UserName.jsx ***!
-  \**********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0) { ; } } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-
-
-
-
-
-var UserName = function UserName() {
-  var element = document.getElementById("editUserName");
-  var username = [];
-  username = JSON.parse(element.dataset.username);
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(username),
-    _useState2 = _slicedToArray(_useState, 2),
-    inputName = _useState2[0],
-    setUserName = _useState2[1];
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
-    _useState4 = _slicedToArray(_useState3, 2),
-    sucess = _useState4[0],
-    setSucess = _useState4[1];
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
-    _useState6 = _slicedToArray(_useState5, 2),
-    error = _useState6[0],
-    setError = _useState6[1];
-  var onHandleChangeUserName = function onHandleChangeUserName(e) {
-    setUserName(e.target.value);
-  };
-  var handleSubmitUserName = function handleSubmitUserName() {
-    // e.preventDefault();
-    axios__WEBPACK_IMPORTED_MODULE_3__["default"].put("/editUserName", {
-      editUserName: inputName
-    }).then(function (response) {
-      console.log(response.config.data);
-      setSucess("更新しました");
-      setError("");
-    })["catch"](function (error) {
-      {
-        var _error$response;
-        // 失敗時の処理
-        switch ((_error$response = error.response) === null || _error$response === void 0 ? void 0 : _error$response.status) {
-          case 401:
-            setError("更新できませんでした");
-          case 403:
-            setError("更新できませんでした");
-          case 500:
-            setError("更新できませんでした");
-          default:
-            console.log(error.response.data);
-            setSucess("");
-            setError(error.response.data.errors.editUserName);
-        }
-      }
-    });
-  };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
-      className: "",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
-          htmlFor: "inputUserName",
-          children: "\u540D\u524D"
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-        id: "inputUserName",
-        type: "username",
-        name: "editUserName",
-        className: "c-input__name",
-        placeholder: "\u30E6\u30FC\u30B6\u30FC\u30CD\u30FC\u30E0",
-        defaultValue: inputName,
-        required: true,
-        onChange: onHandleChangeUserName
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-        className: "c-sucess",
-        children: [" ", sucess]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-        className: "c-error",
-        children: [" ", error]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-        className: "c-btn c-btn--edit",
-        onClick: handleSubmitUserName,
-        children: "\u540D\u524D\u3092\u5909\u66F4"
-      })]
-    })
-  });
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (UserName);
-if (document.getElementById("editUserName")) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(UserName, {}), document.getElementById("editUserName"));
 }
 
 /***/ }),

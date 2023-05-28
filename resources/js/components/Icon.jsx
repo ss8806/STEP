@@ -5,17 +5,24 @@ import Validation from "./Validation";
 
 const Icon = () => {
     const element = document.getElementById("editIcon");
-    var icon = [];
+    let icon = [];
     icon = JSON.parse(element.dataset.icon);
 
-    const [inputIcon, setIcon] = useState(icon);
+    let [inputIcon, setIcon] = useState(icon);
     const [sucess, setSucess] = useState();
     const [error, setError] = useState();
     const [showIconVali, setShowIconVali] = useState(false);
     const awspath = "https://backend1219.s3.ap-northeast-1.amazonaws.com/";
 
     const imageHander = (e) => {
+        // バリデーションを初期化
+        setSucess("");
+        setError("");
         const file = e.target.files[0];
+        if (!file.type.match("image.*")) {
+            setError("画像を選択してください");
+            return;
+        }
         let imgTag = document.getElementById("preview");
         const reader = new FileReader();
         reader.readAsDataURL(file);
@@ -49,9 +56,8 @@ const Icon = () => {
                         case 500:
                             setError("更新できませんでした");
                         default:
-                            // console.log(error.response.data);
                             setSucess("");
-                            setError(error.response.data.errors.editEmail);
+                            setError(error.response.data.errors.icon);
                     }
                 }
             });

@@ -5,7 +5,7 @@ import moment from "moment";
 const Posts = () => {
     const element = document.getElementById("posts");
 
-    var posts;
+    let posts;
 
     if (element && element.dataset.posts) {
         posts = JSON.parse(element.dataset.posts);

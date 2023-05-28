@@ -3,26 +3,25 @@ mixin
 --------------------------------- */
 
 $breakpoints: (
-  'sm': 'screen and (max-width: 414px)',
-  'md': 'screen and (max-width: 768px)',
-  'lg': 'screen and (max-width: 1000px)',
-  'xl': 'screen and (max-width: 1200px)',
+    "sm": "screen and (max-width: 414px)",
+    "md": "screen and (max-width: 768px)",
+    "lg": "screen and (max-width: 1000px)",
+    "xl": "screen and (max-width: 1200px)",
 ) !default;
 
 @mixin mq($breakpoint: md) {
     @media #{map-get($breakpoints, $breakpoint)} {
-      @content;
+        @content;
     }
-  }
+}
 
-  @mixin sm($breakpoint: sm) {
+@mixin sm($breakpoint: sm) {
     @media #{map-get($breakpoints, $breakpoint)} {
-      @content;
+        @content;
     }
-  }
-  
-  @mixin fontsizeVw($size) {
+}
+
+@mixin fontsizeVw($size) {
     $winW: 768; // 画面幅を設定する
     font-size: ($size / $winW) * 100 + vw;
-  }
-  
+}

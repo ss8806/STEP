@@ -5,7 +5,7 @@ import Validation from "./Validation";
 
 const Email = () => {
     const element = document.getElementById("editEmail");
-    var email = [];
+    let email = [];
     email = JSON.parse(element.dataset.email);
 
     const [inputEmail, setEmail] = useState(email);
@@ -15,6 +15,8 @@ const Email = () => {
 
     const onHandleChangeEmail = (e) => {
         setEmail(e.target.value);
+        // テキスト入力したさいに「更新しました」を削除する
+        setSucess("");
     };
 
     const onClickInputEmail = (e) => {
@@ -42,7 +44,6 @@ const Email = () => {
                         case 500:
                             setError("更新できませんでした");
                         default:
-                            // console.log(error.response.data);
                             setSucess("");
                             setError(error.response.data.errors.editEmail);
                     }

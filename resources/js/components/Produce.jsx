@@ -5,7 +5,7 @@ import Validation from "./Validation";
 
 const Produce = () => {
     const element = document.getElementById("editProduce");
-    var produce = [];
+    let produce = [];
     produce = JSON.parse(element.dataset.produce);
 
     const [inputProduce, setProduce] = useState(produce);
@@ -15,6 +15,8 @@ const Produce = () => {
 
     const onHandleChangeProduce = (e) => {
         setProduce(e.target.value);
+        // テキスト入力したさいに「更新しました」を削除する
+        setSucess("");
     };
 
     const onClickInputProduce = (e) => {
@@ -41,7 +43,6 @@ const Produce = () => {
                         case 500:
                             setError("更新できませんでした");
                         default:
-                            console.log(error.response.data);
                             setSucess("");
                             setError(error.response.data.errors.editProduce);
                     }
@@ -60,7 +61,7 @@ const Produce = () => {
                 <Validation
                     name={"自己紹介"}
                     input={inputProduce}
-                    max={10}
+                    max={300}
                     min={1}
                     show={showProduceVali}
                     sucess={sucess}

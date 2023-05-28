@@ -7,13 +7,13 @@ import CheckButton from "./CheckButton";
 const Detail = () => {
     const element = document.getElementById("detail");
 
-    var step;
-    var children;
-    var is_challenged;
-    var is_checked;
-    var auth;
-    var edit;
-    var currentpage;
+    let step;
+    let children;
+    let is_challenged;
+    let is_checked;
+    let auth;
+    let edit;
+    let currentpage;
 
     if (element && element.dataset.step) {
         step = JSON.parse(element.dataset.step);
@@ -90,7 +90,7 @@ const Detail = () => {
                                 >
                                     <li className="p-card__header p-card__header--detail">
                                         {/* ページネーション用に子ステップの番号を合わせる */}
-                                        <p>
+                                        <p className="p-card__stepnum">
                                             STEP{i + 1 + (currentpage - 1) * 8}
                                         </p>
                                         {child.name}

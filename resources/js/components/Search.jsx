@@ -3,8 +3,8 @@ import ReactDOM from "react-dom";
 
 const Search = () => {
     const element = document.getElementById("search");
-    var aboveday;
-    var belowday;
+    let aboveday;
+    let belowday;
 
     if (element && element.dataset.aboveday) {
         aboveday = JSON.parse(element.dataset.aboveday);

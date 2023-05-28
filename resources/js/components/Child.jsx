@@ -6,12 +6,12 @@ import CheckButton from "./CheckButton";
 const Child = () => {
     const element = document.getElementById("child");
 
-    var child;
-    var is_checked;
-    var show;
-    var auth;
-    var edit;
-    var step;
+    let child;
+    let is_checked;
+    let show;
+    let auth;
+    let edit;
+    let step;
 
     if (element && element.dataset.child) {
         child = JSON.parse(element.dataset.child);

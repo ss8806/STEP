@@ -4,7 +4,7 @@ import moment from "moment";
 
 const Step = () => {
     const element = document.getElementById("step");
-    var stepList = [];
+    let stepList = [];
 
     if (element && element.dataset.steps) {
         stepList = JSON.parse(element.dataset.steps);

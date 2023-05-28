@@ -172,7 +172,7 @@ a:visited {
   }
 }
 .p-nav--right {
-  margin-top: 10px;
+  margin-right: 5px;
   display: flex;
   justify-content: space-evenly;
 }
@@ -259,6 +259,10 @@ a:visited {
 }
 .p-card__link {
   margin: 5px;
+}
+.p-card__stepnum {
+  color: lightgreen;
+  margin-bottom: 5px;
 }
 
 .p-child {
@@ -545,8 +549,8 @@ a:visited {
 }
 
 .p-hamburger {
-  width: 40px;
-  height: 25px;
+  width: 30px;
+  height: 20px;
   position: relative;
   transition: 0.5s;
 }
