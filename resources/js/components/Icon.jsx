@@ -40,7 +40,6 @@ const Icon = () => {
                 icon: inputIcon,
             })
             .then((response) => {
-                console.log(response.data);
                 setSucess("更新しました");
                 setError("");
             })

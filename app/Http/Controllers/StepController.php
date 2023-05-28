@@ -12,7 +12,7 @@ use App\Http\Requests\StepRequest;
 class StepController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * ステップ一覧を表示
      *
      * @return \Illuminate\Http\Response
      */
@@ -57,12 +57,13 @@ class StepController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * ステップを作成する
      *
      * @return \Illuminate\Http\Response
      */
     public function create(Request $request)
     {
+        // 前のフォームの値
         $oldname = old('name');
         $oldcontent = old('content');
         return view('postStep')
@@ -71,7 +72,7 @@ class StepController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * 作成したステップを保存する
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -87,7 +88,7 @@ class StepController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * ステップの詳細をみる
      *
      * @param  \App\Step  $step
      * @returnå \Illuminate\Http\Response
@@ -97,12 +98,11 @@ class StepController extends Controller
         $step = Step::find($id);
         $is_challenged = $step->isChallenged(Auth::user());
         $children = Child::where('parent_id', $id)->paginate(8);
+        // 子ステップのチェック状況を取得
         $is_checked = array();
-
         foreach ($children as $child) {
             $is_checked[] = $child->isChecked(Auth::user());
         }
-
         return view('detail')
             ->with('step', $step)
             ->with('is_challenged', $is_challenged)
@@ -111,7 +111,7 @@ class StepController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * ステップを編集する
      *
      * @param  \App\Step  $step
      * @return \Illuminate\Http\Response
@@ -136,7 +136,7 @@ class StepController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * 編集したステップを保存する
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Step  $step
@@ -152,7 +152,7 @@ class StepController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * ステップを消去する
      *
      * @param  \App\Step  $step
      * @return \Illuminate\Http\Response
@@ -164,7 +164,7 @@ class StepController extends Controller
         return redirect()->route('steps')->with('scc_message', '削除しました');
     }
 
-    // 気になるリストに登録する処理
+    // チャレンジ状態にする
     public function challenge(Request $request, Step $step)
     {
         //モデルを結びつけている中間 テーブルにレコードを削除する。 
@@ -173,7 +173,7 @@ class StepController extends Controller
         $step->challenges()->attach($request->user()->id);
     }
 
-    // 気になるリストから削除する処理
+    // チャレンジ状態を解除する
     public function unchallenge(Request $request, Step $step)
     {
         $step->challenges()->detach($request->user()->id);

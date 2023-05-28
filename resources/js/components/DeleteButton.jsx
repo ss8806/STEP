@@ -10,9 +10,9 @@ const DeleteButton = () => {
     if (element && element.dataset.dialog) {
         dialog = JSON.parse(element.dataset.dialog);
     }
-
+    // 子コンポーネントのダイアログを表示する
     const childCompRef = useRef();
-
+    // 消去する
     const onClickSubmit = (e) => {
         e.target.type = "submit";
     };

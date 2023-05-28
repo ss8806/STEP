@@ -141,7 +141,7 @@ class ChildController extends Controller
         return redirect()->route('showDetail', $child->parent_id)->with('scc_message', '削除しました');
     }
 
-    // チェックリストに登録する処理
+    // チェックリスト状態にする
     public function check(Request $request, Child $child)
     {
         //モデルを結びつけている中間テーブルにレコードを削除する。 
@@ -150,7 +150,7 @@ class ChildController extends Controller
         $child->checks()->attach($request->user()->id);
     }
 
-    // チェックリストから削除する処理
+    // チェックリスト状態を解除する
     public function uncheck(Request $request, Child $child)
     {
         $child->checks()->detach($request->user()->id);

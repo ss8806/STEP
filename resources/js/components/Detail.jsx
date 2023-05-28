@@ -6,18 +6,23 @@ import CheckButton from "./CheckButton";
 
 const Detail = () => {
     const element = document.getElementById("detail");
-
+    // 親ステップ
     let step;
+    // 子ステップ一覧
     let children;
+    // 親ステップのチャレンジ状態
     let is_challenged;
+    // 子ステップ一覧のチェック状態
     let is_checked;
+    // ログインユーザー
     let auth;
+    // 投稿者
     let edit;
+    // ページネーションの現在のページ
     let currentpage;
 
     if (element && element.dataset.step) {
         step = JSON.parse(element.dataset.step);
-        console.log(step);
     }
 
     if (element && element.dataset.children) {
@@ -34,6 +39,7 @@ const Detail = () => {
 
     if (element && element.dataset.auth) {
         auth = JSON.parse(element.dataset.auth);
+        // 投稿者を判別
         if (auth) {
             if (step.user_id === auth.id) {
                 edit = true;
@@ -70,6 +76,7 @@ const Detail = () => {
                         <a href={"/step/" + step.id + "/edit"}>編集する</a>
                     </p>
                 )}
+                {/* ツイッターの投稿 */}
                 <div className="c-tweet">
                     <a
                         // クエリパラメータの設定でデフォルトの内容を設定

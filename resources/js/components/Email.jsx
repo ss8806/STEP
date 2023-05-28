@@ -28,7 +28,6 @@ const Email = () => {
             // データはjson形式で渡してControllerで処理
             .put("/editEmail", { editEmail: inputEmail })
             .then((response) => {
-                console.log(response.config.data);
                 setSucess("更新しました");
                 setError("");
             })

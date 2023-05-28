@@ -121,24 +121,31 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var ChallengeButton = function ChallengeButton(props) {
+  // ページを開いた最初のチャレンジ状態
   var is_challenged = props.is_challenged;
+  // 非同期通信のuri
   var endpoint = props.endpoint;
+  // 親コンポーネントの子ステップのチェックボタンの表示状態
   var show = props.show;
+  // 親コンポーネント(Detail.jsx)の子ステップのチェックボタンの表示を操作する
   var setShow = props.setShow;
-  var index = props.index;
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+  // チャレンジ状態
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(is_challenged),
     _useState2 = _slicedToArray(_useState, 2),
-    message = _useState2[0],
-    setMessage = _useState2[1];
+    challenged = _useState2[0],
+    setChallenged = _useState2[1];
+  // ダイアログの内容の表示について
   var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
     _useState4 = _slicedToArray(_useState3, 2),
-    consent = _useState4[0],
-    setConsent = _useState4[1];
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(is_challenged),
+    message = _useState4[0],
+    setMessage = _useState4[1];
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
     _useState6 = _slicedToArray(_useState5, 2),
-    challenged = _useState6[0],
-    setChallenged = _useState6[1];
+    consent = _useState6[0],
+    setConsent = _useState6[1];
+  // 子コンポーネントのダイアログを表示する
   var childCompRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
+  // ダイアログの内容を設定する
   var handleChallengeMessage = function handleChallengeMessage() {
     setMessage("チャレンジしますか？");
     setConsent("チャレンジする");
@@ -147,6 +154,7 @@ var ChallengeButton = function ChallengeButton(props) {
     setMessage("諦めますか？");
     setConsent("諦める");
   };
+  // チャレンジ状態にする
   var handleChallenge = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
       return _regeneratorRuntime().wrap(function _callee$(_context) {
@@ -169,6 +177,7 @@ var ChallengeButton = function ChallengeButton(props) {
       return _ref.apply(this, arguments);
     };
   }();
+  // チャレンジ状態を解除する
   var handleAbandon = /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
       return _regeneratorRuntime().wrap(function _callee2$(_context2) {
@@ -180,8 +189,7 @@ var ChallengeButton = function ChallengeButton(props) {
             case 2:
               setChallenged(!challenged);
               setShow(!show);
-              console.log(index);
-            case 5:
+            case 4:
             case "end":
               return _context2.stop();
           }
@@ -192,7 +200,9 @@ var ChallengeButton = function ChallengeButton(props) {
       return _ref2.apply(this, arguments);
     };
   }();
+  // チャレンジ状態の切り替え
   var handleClickChallenge = challenged ? handleAbandon : handleChallenge;
+  // チャレンジボタンを押下したさいに上記のメソッドを実行する
   var onClickSubmit = function onClickSubmit() {
     handleClickChallenge();
   };
@@ -201,24 +211,26 @@ var ChallengeButton = function ChallengeButton(props) {
       type: "button",
       className: "c-btn--challenge ",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-        children: challenged ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
-            type: "button",
-            className: "fa fa-fire fa-4x c-btn--red",
-            onClick: function onClick() {
-              handleAbandonMessage();
-              childCompRef.current.childFunc();
-            }
-          })
-        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
-            type: "button",
-            className: "fa fa-fire fa-4x",
-            onClick: function onClick() {
-              handleChallengeMessage();
-              childCompRef.current.childFunc();
-            }
-          })
+        children: challenged ?
+        /*#__PURE__*/
+        // チャレンジ中
+        (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
+          type: "button",
+          className: "fa fa-fire fa-4x c-btn--red",
+          onClick: function onClick() {
+            handleAbandonMessage();
+            childCompRef.current.childFunc();
+          }
+        }) :
+        /*#__PURE__*/
+        // 未チャレンジ
+        (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
+          type: "button",
+          className: "fa fa-fire fa-4x",
+          onClick: function onClick() {
+            handleChallengeMessage();
+            childCompRef.current.childFunc();
+          }
         })
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Dialog__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -268,40 +280,49 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+// チャレンジ中のステップ一覧について
 
 
 
 var Challenges = function Challenges() {
+  // ページを開いた最初のチャレンジ状態
   var element = document.getElementById("challenges");
   var challenges_ini;
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
-    _useState2 = _slicedToArray(_useState, 2),
-    message = _useState2[0],
-    setMessage = _useState2[1];
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
-    _useState4 = _slicedToArray(_useState3, 2),
-    consent = _useState4[0],
-    setConsent = _useState4[1];
-  var childCompRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
   if (element && element.dataset.challenges) {
     challenges_ini = JSON.parse(element.dataset.challenges);
   }
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(challenges_ini.data),
+  // チャレンジ状態
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(challenges_ini.data),
+    _useState2 = _slicedToArray(_useState, 2),
+    challenges = _useState2[0],
+    setChallenges = _useState2[1];
+  // 非同期通信のuri
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+    _useState4 = _slicedToArray(_useState3, 2),
+    endpoint = _useState4[0],
+    setEndpoint = _useState4[1];
+  // 一覧の表示番号
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
     _useState6 = _slicedToArray(_useState5, 2),
-    challenges = _useState6[0],
-    setChallenges = _useState6[1];
+    index = _useState6[0],
+    setIndex = _useState6[1];
+  // ダイアログの内容の表示について
   var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
     _useState8 = _slicedToArray(_useState7, 2),
-    endpoint = _useState8[0],
-    setEndpoint = _useState8[1];
+    message = _useState8[0],
+    setMessage = _useState8[1];
   var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
     _useState10 = _slicedToArray(_useState9, 2),
-    index = _useState10[0],
-    setIndex = _useState10[1];
+    consent = _useState10[0],
+    setConsent = _useState10[1];
+  // 子コンポーネントのダイアログを表示する
+  var childCompRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
+  // ダイアログの内容を設定する
   var handleAbandonMessage = function handleAbandonMessage() {
     setMessage("諦めますか？");
     setConsent("諦める");
   };
+  // チャレンジ状態を解除する
   var handleAbandon = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
       return _regeneratorRuntime().wrap(function _callee$(_context) {
@@ -323,9 +344,11 @@ var Challenges = function Challenges() {
       return _ref.apply(this, arguments);
     };
   }();
+  // チャレンジボタンを押下したさいに上記のメソッドを実行する
   var onClickSubmit = function onClickSubmit() {
     handleAbandon();
   };
+  //一覧から対象を削除する
   var handleDeleteChallenge = function handleDeleteChallenge(i) {
     var newTodos = _toConsumableArray(challenges);
     newTodos.splice(i, 1);
@@ -431,31 +454,36 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var CheckButton = function CheckButton(props) {
+  // ページを開いた最初のチェック状態
   var is_checked = props.is_checked;
+  // 非同期通信のuri
   var endpoint = props.endpoint;
+  // 子ステップのチェックボタンの表示状態
   var show = props.show;
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+  // チェック状態
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(is_checked),
     _useState2 = _slicedToArray(_useState, 2),
-    message = _useState2[0],
-    setMessage = _useState2[1];
+    checked = _useState2[0],
+    setchecked = _useState2[1];
+  // ダイアログの内容の表示について
   var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
     _useState4 = _slicedToArray(_useState3, 2),
-    consent = _useState4[0],
-    setConsent = _useState4[1];
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(is_checked),
+    message = _useState4[0],
+    setMessage = _useState4[1];
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
     _useState6 = _slicedToArray(_useState5, 2),
-    checked = _useState6[0],
-    setchecked = _useState6[1];
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    setchecked(is_checked);
-  }, []);
+    consent = _useState6[0],
+    setConsent = _useState6[1];
+  // 子コンポーネントのダイアログを表示する
   var childCompRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
+  // ダイアログの内容を設定する
   var handleChallengeMessage = function handleChallengeMessage() {
     setConsent("クリア");
   };
   var handleAbandonMessage = function handleAbandonMessage() {
     setConsent("クリアを取り消す");
   };
+  // チェック状態にする
   var handleCheck = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
       return _regeneratorRuntime().wrap(function _callee$(_context) {
@@ -477,6 +505,7 @@ var CheckButton = function CheckButton(props) {
       return _ref.apply(this, arguments);
     };
   }();
+  // チェック状態を解除する
   var handleUnCheck = /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
       return _regeneratorRuntime().wrap(function _callee2$(_context2) {
@@ -498,7 +527,9 @@ var CheckButton = function CheckButton(props) {
       return _ref2.apply(this, arguments);
     };
   }();
+  // チェック状態の切り替え
   var handleClickCheck = checked ? handleUnCheck : handleCheck;
+  // チェックボタンを押下したさいに上記のメソッドを実行する
   var onClickSubmit = function onClickSubmit() {
     handleClickCheck();
   };
@@ -561,11 +592,17 @@ __webpack_require__.r(__webpack_exports__);
 
 var Child = function Child() {
   var element = document.getElementById("child");
+  // 子ステップ
   var child;
+  // ページを開いた最初のチェック状態
   var is_checked;
+  // チェックボタンの表示
   var show;
+  // ログインユーザー
   var auth;
+  // 投稿者
   var edit;
+  // 親ステップ
   var step;
   if (element && element.dataset.child) {
     child = JSON.parse(element.dataset.child);
@@ -581,6 +618,7 @@ var Child = function Child() {
   }
   if (element && element.dataset.auth) {
     auth = JSON.parse(element.dataset.auth);
+    // 投稿者を判別
     if (auth) {
       if (step[0].user_id === auth.id) {
         edit = true;
@@ -644,7 +682,9 @@ var DeleteButton = function DeleteButton() {
   if (element && element.dataset.dialog) {
     dialog = JSON.parse(element.dataset.dialog);
   }
+  // 子コンポーネントのダイアログを表示する
   var childCompRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
+  // 消去する
   var onClickSubmit = function onClickSubmit(e) {
     e.target.type = "submit";
   };
@@ -706,16 +746,22 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var Detail = function Detail() {
   var element = document.getElementById("detail");
+  // 親ステップ
   var step;
+  // 子ステップ一覧
   var children;
+  // 親ステップのチャレンジ状態
   var is_challenged;
+  // 子ステップ一覧のチェック状態
   var is_checked;
+  // ログインユーザー
   var auth;
+  // 投稿者
   var edit;
+  // ページネーションの現在のページ
   var currentpage;
   if (element && element.dataset.step) {
     step = JSON.parse(element.dataset.step);
-    console.log(step);
   }
   if (element && element.dataset.children) {
     children = JSON.parse(element.dataset.children);
@@ -728,6 +774,7 @@ var Detail = function Detail() {
   }
   if (element && element.dataset.auth) {
     auth = JSON.parse(element.dataset.auth);
+    // 投稿者を判別
     if (auth) {
       if (step.user_id === auth.id) {
         edit = true;
@@ -1239,7 +1286,6 @@ var Email = function Email() {
     axios__WEBPACK_IMPORTED_MODULE_4__["default"].put("/editEmail", {
       editEmail: inputEmail
     }).then(function (response) {
-      console.log(response.config.data);
       setSucess("更新しました");
       setError("");
     })["catch"](function (error) {
@@ -1540,7 +1586,6 @@ var Icon = function Icon() {
     axios__WEBPACK_IMPORTED_MODULE_4__["default"].put("/editIcon", {
       icon: inputIcon
     }).then(function (response) {
-      console.log(response.data);
       setSucess("更新しました");
       setError("");
     })["catch"](function (error) {

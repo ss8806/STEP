@@ -3,42 +3,41 @@ import ReactDOM from "react-dom";
 import Dialog from "./Dialog";
 
 const CheckButton = (props) => {
+    // ページを開いた最初のチェック状態
     let is_checked = props.is_checked;
+    // 非同期通信のuri
     let endpoint = props.endpoint;
+    // 子ステップのチェックボタンの表示状態
     let show = props.show;
-
+    // チェック状態
+    let [checked, setchecked] = useState(is_checked);
+    // ダイアログの内容の表示について
     let [message, setMessage] = useState("");
     let [consent, setConsent] = useState("");
-    let [checked, setchecked] = useState(is_checked);
-
-    useEffect(() => {
-        setchecked(is_checked);
-    }, []);
-
+    // 子コンポーネントのダイアログを表示する
     const childCompRef = useRef();
-
+    // ダイアログの内容を設定する
     const handleChallengeMessage = () => {
         setConsent("クリア");
     };
-
     const handleAbandonMessage = () => {
         setConsent("クリアを取り消す");
     };
-
+    // チェック状態にする
     const handleCheck = async () => {
         // web.phpよりchild/{child}/check ルートパラメータに注意
         // awaitでレスポンスを待つ
         await axios.put(endpoint);
         setchecked(!checked);
     };
-
+    // チェック状態を解除する
     const handleUnCheck = async () => {
         await axios.delete(endpoint);
         setchecked(!checked);
     };
-
+    // チェック状態の切り替え
     const handleClickCheck = checked ? handleUnCheck : handleCheck;
-
+    // チェックボタンを押下したさいに上記のメソッドを実行する
     const onClickSubmit = () => {
         handleClickCheck();
     };

@@ -71,7 +71,7 @@ class MypageController extends Controller
         return view('allPosts')->with('posts', $posts);
     }
 
-    // チャレンジ中のステップ一覧ß
+    // チャレンジ中のステップ一覧
     public function allChallenges()
     {
         $user = Auth::user();
