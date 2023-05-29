@@ -27,14 +27,14 @@ class ChildSeeder extends Seeder
         factory(Child::class)->create([
             'id' => '3',
             'name' => '発音を練習する',
-            'content' => '発音を練習するメリット',
+            'content' => '発音を練習する~~~',
             'parent_id' => '11',
         ]);
         factory(Child::class)->create([
             'id' => '4',
             'name' => 'Javascriptを学習する',
             'content' => 'Javascriptを学習するメリット',
-            'parent_id' => '11',
+            'parent_id' => '12',
         ]);
         factory(Child::class)->create([
             'id' => '5',
