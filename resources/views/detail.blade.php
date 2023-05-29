@@ -6,7 +6,7 @@
 
 @section('content')
 
-
+<!-- ステップの詳細 -->
 <div 
   id="detail" 
   data-step="{{ json_encode($step) }}" 
@@ -16,9 +16,9 @@
   data-auth="{{ json_encode(Auth::user()) }}"
   data-currentpage="{{ $children->currentPage() }}"
 ></div>
-
+<!-- ページャー -->
 <div class="c-pager">
-  {{ $children->appends(request()->input())->links() }}
+  {{ $children->links() }}
 </div>
 
 @endsection

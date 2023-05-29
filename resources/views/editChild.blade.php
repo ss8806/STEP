@@ -10,7 +10,7 @@
     <div class="p-card p-card__header">
         <p>子ステップを編集する</p>
     </div>
-
+    <!-- 子ステップの編集フォーム -->
     <div class="p-card p-card__body">
         <form method="POST" action="{{ route('updateChild', $child->id) }}" class="p-from">
             @csrf

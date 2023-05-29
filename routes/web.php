@@ -14,8 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/', 'top')->name('top');
+// ステップ一覧
 Route::get('steps', 'StepController@index')->name('steps');
+// ステップの詳細
 Route::get('step/{id}/show', 'StepController@show')->name('showDetail');
+// 子ステップの詳細
 Route::get('child/{id}/show', 'ChildController@show')->name('showChild');
 
 

@@ -6,7 +6,11 @@
 
 @section('content')
 {{-- アイコン画像 --}}
-<img src="/images/avatar-default.svg" class="c-icon p-mypage__icon">
+@if (!empty(Auth::user()->icon))
+    <img src="https://backend1219.s3.ap-northeast-1.amazonaws.com/{{Auth::user()->icon}}" class="c-icon p-mypage__icon">
+@else
+    <img src="/images/avatar-default.svg" class="c-icon p-mypage__icon">
+@endif
 <button class="c-btn p-mypage__btn" type=“button” onclick="location.href='profile'">プロフィール編集</button>
 
 <div id="posts" data-posts='{{ json_encode($posts) }}'></div>

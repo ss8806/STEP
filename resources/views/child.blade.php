@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+<!-- 子ステップの詳細 -->
 <div 
   id="child" 
   data-child="{{ json_encode($child) }}" 

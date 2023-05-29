@@ -9,7 +9,7 @@
     <div class="p-card p-card__header">
         <p>ステップを投稿する</p>
     </div>
-
+    <!-- ステップの投稿フォーム -->
     <div class="p-card p-card__body">
         <form method="POST" action="{{ route('storeStep') }}" class="p-from">
             @csrf

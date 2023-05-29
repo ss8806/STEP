@@ -39,7 +39,7 @@
                 @endguest
             </ul>
 
-            {{-- ドロップダウンメニュー（レスポンシブ用） --}}
+            {{-- ハンバーガーメニュー（レスポンシブ用） --}}
             <div class="p-nav p-nav__hamberger">
                 @guest
                 @else

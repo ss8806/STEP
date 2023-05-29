@@ -29,5 +29,13 @@ class UserSeeder extends Seeder
             'produce' => 'お願いします',
             'password' => Hash::make('b'),
         ]);
+        factory(User::class)->create([
+            'id' => '3',
+            'name' => 'テスト3',
+            'email' => 'c@c.com',
+            'email_verified_at' => now(),
+            'produce' => 'お願いします',
+            'password' => Hash::make('c'),
+        ]);
     }
 }

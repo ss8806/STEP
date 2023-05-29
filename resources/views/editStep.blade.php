@@ -9,7 +9,7 @@
     <div class="p-card p-card__header">
         <p>アイディアを編集する</p>
     </div>
-
+    <!-- ステップの編集フォーム -->
     <div class="p-card p-card__body">
         <form method="POST" action="{{ route('updateStep', $step->id) }}" class="p-from">
             @csrf
