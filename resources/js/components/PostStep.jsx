@@ -4,7 +4,9 @@ import Validation from "./Validation";
 
 const PostStep = () => {
     const element = document.getElementById("postStep");
+    // バリデーションエラー
     let errors;
+    // フォームに入力した内容(バリデーションが通らなかった)
     let oldname;
     let oldcontent;
 
@@ -26,21 +28,23 @@ const PostStep = () => {
 
     const [inputName, setInputName] = useState(oldname);
     const [inputContent, setInputContent] = useState(oldcontent);
+    // ステップ名 フォームに入力した内容があればそちらを優先
     const [showNameVali, setShowNameVali] = useState(false);
+    // ステップの内容 フォームに入力した内容があればそちらを優先
     const [showContentVali, setShowContentVali] = useState(false);
-
+    // ステップ名を入力した際に更新される
     const onChangeInputName = (e) => {
         setInputName(e.target.value);
     };
-
+    // ステップの内容を入力した際に更新される
     const onChangeInputContent = (e) => {
         setInputContent(e.target.value);
     };
-
+    // ステップ名をクリックした際にバリデーションを表示する
     const onClickInputName = (e) => {
         setShowNameVali(true);
     };
-
+    // ステップの内容をクリックした際にバリデーションを表示する
     const onClickInputContent = (e) => {
         setShowContentVali(true);
     };

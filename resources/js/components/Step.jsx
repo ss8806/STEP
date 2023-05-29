@@ -4,29 +4,19 @@ import moment from "moment";
 
 const Step = () => {
     const element = document.getElementById("step");
-    let stepList = [];
-
+    // ステップ一覧
+    let steps = [];
     if (element && element.dataset.steps) {
-        stepList = JSON.parse(element.dataset.steps);
-    }
-
-    const [steps, setSteps] = useState([]);
-
-    useEffect(() => {
-        setSteps(stepList);
-    }, []);
-
-    if (steps.data !== undefined) {
-        var sdata = steps.data;
+        steps = JSON.parse(element.dataset.steps);
     }
 
     return (
         <div className="App">
-            {sdata ? (
+            {steps ? (
                 <div className="p-card">
                     <div className="p-flexbox">
                         <div className="p-flexbox__flexcontainer p-flexbox__flexcontainer--index">
-                            {sdata.map((step, i) => (
+                            {steps.data.map((step, i) => (
                                 <ul key={i} className="p-flexbox__flexitem">
                                     <li className="p-card__header p-card__header--step">
                                         {step.name}

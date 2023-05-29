@@ -19,7 +19,7 @@ class ProfileRequest extends FormRequest
     {
         return true;
     }
-
+    // base64用のバリデーション
     public function validationData()
     {
         $all = parent::validationData();
@@ -62,7 +62,7 @@ class ProfileRequest extends FormRequest
     public function rules()
     {
         return [
-            'icon'  => 'file|mimes:jpeg,png,jpg,gif',
+            'icon'  => 'file|mimes:jpeg,png,jpg,gif|min:1',
             'editProduce'  => 'min:1|max:300',
             'editEmail' => 'min:1|max:30|email',
         ];

@@ -2,27 +2,31 @@ import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import axios from "axios";
 import Validation from "./Validation";
-
+// メールアドレスを編集
 const Email = () => {
     const element = document.getElementById("editEmail");
+    // メールアドレスの初期状態
     let email = [];
     email = JSON.parse(element.dataset.email);
-
+    // メールアドレスの入力内容
     const [inputEmail, setEmail] = useState(email);
+    // バリデーション成功
     const [sucess, setSucess] = useState();
+    // バリデーションエラー
     const [error, setError] = useState();
+    // バリデーションの表示の状態
     const [showEmailVali, setShowEmailVali] = useState(false);
-
+    // メールの内容を入力した際に更新される
     const onHandleChangeEmail = (e) => {
         setEmail(e.target.value);
         // テキスト入力したさいに「更新しました」を削除する
         setSucess("");
     };
-
+    // メールアドレスのフォームをクリックしたさいにバリデーションを表示
     const onClickInputEmail = (e) => {
         setShowEmailVali(true);
     };
-
+    // アイコンを非同期通信で送信する
     const handleSubmitEmail = () => {
         axios
             // データはjson形式で渡してControllerで処理
@@ -33,18 +37,11 @@ const Email = () => {
             })
             .catch((error) => {
                 {
-                    // showをfalseにして子コンポーネントで表示できるようにする。
+                    // 子コンポーネントに渡すshowをfalseにしてでサーバサイドのエラーを表示できるようにする。
                     setShowEmailVali(false);
-                    switch (error.response?.status) {
-                        case 401:
-                            setError("更新できませんでした");
-                        case 403:
-                            setError("更新できませんでした");
-                        case 500:
-                            setError("更新できませんでした");
-                        default:
-                            setSucess("");
-                            setError(error.response.data.errors.editEmail);
+                    if (error.response?.status) {
+                        setSucess("");
+                        setError(error.response.data.errors.editEmail);
                     }
                 }
             });

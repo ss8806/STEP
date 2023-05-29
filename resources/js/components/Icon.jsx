@@ -5,15 +5,20 @@ import Validation from "./Validation";
 
 const Icon = () => {
     const element = document.getElementById("editIcon");
+    // アイコンの初期状態
     let icon = [];
     icon = JSON.parse(element.dataset.icon);
-
+    // アイコンの状態
     let [inputIcon, setIcon] = useState(icon);
+    // バリデーション成功
     const [sucess, setSucess] = useState();
+    // バリデーションエラー
     const [error, setError] = useState();
+    // バリデーションの表示の状態
     const [showIconVali, setShowIconVali] = useState(false);
+    // アイコンの保存先（aws s3）
     const awspath = "https://backend1219.s3.ap-northeast-1.amazonaws.com/";
-
+    // アイコン画像を取得
     const imageHander = (e) => {
         // バリデーションを初期化
         setSucess("");
@@ -32,7 +37,7 @@ const Icon = () => {
             inputIcon = setIcon(result);
         };
     };
-
+    // メールアドレスを非同期通信で送信する
     const onSubmit = (e) => {
         e.preventDefault();
         axios
@@ -47,16 +52,9 @@ const Icon = () => {
                 {
                     // showをfalseにして子コンポーネントで表示できるようにする。
                     setShowIconVali(false);
-                    switch (error.response?.status) {
-                        case 401:
-                            setError("更新できませんでした");
-                        case 403:
-                            setError("更新できませんでした");
-                        case 500:
-                            setError("更新できませんでした");
-                        default:
-                            setSucess("");
-                            setError(error.response.data.errors.icon);
+                    if (error.response?.status) {
+                        setSucess("");
+                        setError(error.response.data.errors.icon);
                     }
                 }
             });

@@ -3,9 +3,10 @@ import ReactDOM from "react-dom";
 
 const Search = () => {
     const element = document.getElementById("search");
+    // 上限日
     let aboveday;
+    // 下限日
     let belowday;
-
     if (element && element.dataset.aboveday) {
         aboveday = JSON.parse(element.dataset.aboveday);
         belowday = JSON.parse(element.dataset.belowday);

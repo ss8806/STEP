@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
-
+// ステップ、子ステップを作成、編集してから遷移する際のメッセージ
 const Message = () => {
     const element = document.getElementById("message");
     let message = [];
     message = JSON.parse(element.dataset.message);
+    // メッセージの表示の状態
     const [close, setClose] = useState(false);
+    // メッセージを閉じる
     const handleToggle = () => {
-        setClose((prevClose) => !prevClose), 5000;
+        setClose((prevClose) => !prevClose);
     };
 
     useEffect(() => {

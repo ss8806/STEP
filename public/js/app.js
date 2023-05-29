@@ -1305,36 +1305,45 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+// メールアドレスを編集
 
 
 var Email = function Email() {
   var element = document.getElementById("editEmail");
+  // メールアドレスの初期状態
   var email = [];
   email = JSON.parse(element.dataset.email);
+  // メールアドレスの入力内容
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(email),
     _useState2 = _slicedToArray(_useState, 2),
     inputEmail = _useState2[0],
     setEmail = _useState2[1];
+  // バリデーション成功
   var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
     _useState4 = _slicedToArray(_useState3, 2),
     sucess = _useState4[0],
     setSucess = _useState4[1];
+  // バリデーションエラー
   var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
     _useState6 = _slicedToArray(_useState5, 2),
     error = _useState6[0],
     setError = _useState6[1];
+  // バリデーションの表示の状態
   var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState8 = _slicedToArray(_useState7, 2),
     showEmailVali = _useState8[0],
     setShowEmailVali = _useState8[1];
+  // メールの内容を入力した際に更新される
   var onHandleChangeEmail = function onHandleChangeEmail(e) {
     setEmail(e.target.value);
     // テキスト入力したさいに「更新しました」を削除する
     setSucess("");
   };
+  // メールアドレスのフォームをクリックしたさいにバリデーションを表示
   var onClickInputEmail = function onClickInputEmail(e) {
     setShowEmailVali(true);
   };
+  // アイコンを非同期通信で送信する
   var handleSubmitEmail = function handleSubmitEmail() {
     axios__WEBPACK_IMPORTED_MODULE_4__["default"].put("/editEmail", {
       editEmail: inputEmail
@@ -1344,18 +1353,11 @@ var Email = function Email() {
     })["catch"](function (error) {
       {
         var _error$response;
-        // showをfalseにして子コンポーネントで表示できるようにする。
+        // 子コンポーネントに渡すshowをfalseにしてでサーバサイドのエラーを表示できるようにする。
         setShowEmailVali(false);
-        switch ((_error$response = error.response) === null || _error$response === void 0 ? void 0 : _error$response.status) {
-          case 401:
-            setError("更新できませんでした");
-          case 403:
-            setError("更新できませんでした");
-          case 500:
-            setError("更新できませんでした");
-          default:
-            setSucess("");
-            setError(error.response.data.errors.editEmail);
+        if ((_error$response = error.response) !== null && _error$response !== void 0 && _error$response.status) {
+          setSucess("");
+          setError(error.response.data.errors.editEmail);
         }
       }
     });
@@ -1477,6 +1479,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var Hamberger = function Hamberger() {
   var element = document.getElementById("hamberger");
   var logout = [];
+  // ハンバーガーメニューの開閉の状態
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState2 = _slicedToArray(_useState, 2),
     open = _useState2[0],
@@ -1597,25 +1600,32 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var Icon = function Icon() {
   var element = document.getElementById("editIcon");
+  // アイコンの初期状態
   var icon = [];
   icon = JSON.parse(element.dataset.icon);
+  // アイコンの状態
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(icon),
     _useState2 = _slicedToArray(_useState, 2),
     inputIcon = _useState2[0],
     setIcon = _useState2[1];
+  // バリデーション成功
   var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
     _useState4 = _slicedToArray(_useState3, 2),
     sucess = _useState4[0],
     setSucess = _useState4[1];
+  // バリデーションエラー
   var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
     _useState6 = _slicedToArray(_useState5, 2),
     error = _useState6[0],
     setError = _useState6[1];
+  // バリデーションの表示の状態
   var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState8 = _slicedToArray(_useState7, 2),
     showIconVali = _useState8[0],
     setShowIconVali = _useState8[1];
+  // アイコンの保存先（aws s3）
   var awspath = "https://backend1219.s3.ap-northeast-1.amazonaws.com/";
+  // アイコン画像を取得
   var imageHander = function imageHander(e) {
     // バリデーションを初期化
     setSucess("");
@@ -1634,6 +1644,7 @@ var Icon = function Icon() {
       inputIcon = setIcon(result);
     };
   };
+  // メールアドレスを非同期通信で送信する
   var onSubmit = function onSubmit(e) {
     e.preventDefault();
     axios__WEBPACK_IMPORTED_MODULE_4__["default"].put("/editIcon", {
@@ -1646,16 +1657,9 @@ var Icon = function Icon() {
         var _error$response;
         // showをfalseにして子コンポーネントで表示できるようにする。
         setShowIconVali(false);
-        switch ((_error$response = error.response) === null || _error$response === void 0 ? void 0 : _error$response.status) {
-          case 401:
-            setError("更新できませんでした");
-          case 403:
-            setError("更新できませんでした");
-          case 500:
-            setError("更新できませんでした");
-          default:
-            setSucess("");
-            setError(error.response.data.errors.icon);
+        if ((_error$response = error.response) !== null && _error$response !== void 0 && _error$response.status) {
+          setSucess("");
+          setError(error.response.data.errors.icon);
         }
       }
     });
@@ -1742,6 +1746,7 @@ function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefine
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
+// ステップ、子ステップを作成、編集してから遷移する際のメッセージ
 
 
 
@@ -1749,14 +1754,16 @@ var Message = function Message() {
   var element = document.getElementById("message");
   var message = [];
   message = JSON.parse(element.dataset.message);
+  // メッセージの表示の状態
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState2 = _slicedToArray(_useState, 2),
     close = _useState2[0],
     setClose = _useState2[1];
+  // メッセージを閉じる
   var handleToggle = function handleToggle() {
     setClose(function (prevClose) {
       return !prevClose;
-    }), 5000;
+    });
   };
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     var timeoutId = setTimeout(function () {
@@ -1821,7 +1828,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var PostChild = function PostChild() {
   var element = document.getElementById("postChild");
   var step;
+  // バリデーションエラー
   var errors;
+  // フォームに入力した内容(バリデーションが通らなかった)
   var oldname;
   var oldcontent;
   if (element && element.dataset.step) {
@@ -1850,6 +1859,7 @@ var PostChild = function PostChild() {
     _useState4 = _slicedToArray(_useState3, 2),
     inputContent = _useState4[0],
     setInputContent = _useState4[1];
+  // バリデーションの表示状態
   var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState6 = _slicedToArray(_useState5, 2),
     showNameVali = _useState6[0],
@@ -1858,15 +1868,19 @@ var PostChild = function PostChild() {
     _useState8 = _slicedToArray(_useState7, 2),
     showContentVali = _useState8[0],
     setShowContentVali = _useState8[1];
+  // 子ステップ名を入力した際に更新される
   var onChangeInputName = function onChangeInputName(e) {
     setInputName(e.target.value);
   };
+  // 子ステップの内容を入力した際に更新される
   var onChangeInputContent = function onChangeInputContent(e) {
     setInputContent(e.target.value);
   };
+  // 子ステップ名をクリックした際にバリデーションを表示する
   var onClickInputName = function onClickInputName(e) {
     setShowNameVali(true);
   };
+  // 子ステップの内容をクリックした際にバリデーションを表示する
   var onClickInputContent = function onClickInputContent(e) {
     setShowContentVali(true);
   };
@@ -1962,7 +1976,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var PostStep = function PostStep() {
   var element = document.getElementById("postStep");
+  // バリデーションエラー
   var errors;
+  // フォームに入力した内容(バリデーションが通らなかった)
   var oldname;
   var oldcontent;
   if (element && element.dataset.errors) {
@@ -1988,23 +2004,29 @@ var PostStep = function PostStep() {
     _useState4 = _slicedToArray(_useState3, 2),
     inputContent = _useState4[0],
     setInputContent = _useState4[1];
+  // ステップ名 フォームに入力した内容があればそちらを優先
   var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState6 = _slicedToArray(_useState5, 2),
     showNameVali = _useState6[0],
     setShowNameVali = _useState6[1];
+  // ステップの内容 フォームに入力した内容があればそちらを優先
   var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState8 = _slicedToArray(_useState7, 2),
     showContentVali = _useState8[0],
     setShowContentVali = _useState8[1];
+  // ステップ名を入力した際に更新される
   var onChangeInputName = function onChangeInputName(e) {
     setInputName(e.target.value);
   };
+  // ステップの内容を入力した際に更新される
   var onChangeInputContent = function onChangeInputContent(e) {
     setInputContent(e.target.value);
   };
+  // ステップ名をクリックした際にバリデーションを表示する
   var onClickInputName = function onClickInputName(e) {
     setShowNameVali(true);
   };
+  // ステップの内容をクリックした際にバリデーションを表示する
   var onClickInputContent = function onClickInputContent(e) {
     setShowContentVali(true);
   };
@@ -2093,6 +2115,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var Posts = function Posts() {
   var element = document.getElementById("posts");
+  // 投稿したステップ一覧
   var posts;
   if (element && element.dataset.posts) {
     posts = JSON.parse(element.dataset.posts);
@@ -2170,10 +2193,12 @@ var Produce = function Produce() {
   var element = document.getElementById("editProduce");
   var produce = [];
   produce = JSON.parse(element.dataset.produce);
+  // 自己紹介の入力内容
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(produce),
     _useState2 = _slicedToArray(_useState, 2),
     inputProduce = _useState2[0],
     setProduce = _useState2[1];
+  // バリデーション成功
   var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
     _useState4 = _slicedToArray(_useState3, 2),
     sucess = _useState4[0],
@@ -2182,18 +2207,22 @@ var Produce = function Produce() {
     _useState6 = _slicedToArray(_useState5, 2),
     error = _useState6[0],
     setError = _useState6[1];
+  // バリデーションの表示の状態
   var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState8 = _slicedToArray(_useState7, 2),
     showProduceVali = _useState8[0],
     setShowProduceVali = _useState8[1];
+  // 自己紹介の内容を入力した際に更新される
   var onHandleChangeProduce = function onHandleChangeProduce(e) {
     setProduce(e.target.value);
-    // テキスト入力したさいに「更新しました」を削除する
+    // バリデーションを初期化
     setSucess("");
   };
+  // 自己紹介のフォームをクリックしたさいにバリデーションを表示
   var onClickInputProduce = function onClickInputProduce(e) {
     setShowProduceVali(true);
   };
+  // 自己紹介を非同期通信で送信する
   var handleSubmitProduce = function handleSubmitProduce() {
     axios__WEBPACK_IMPORTED_MODULE_4__["default"].put("/editProduce", {
       editProduce: inputProduce
@@ -2203,18 +2232,11 @@ var Produce = function Produce() {
     })["catch"](function (error) {
       {
         var _error$response;
-        // showをfalseにして子コンポーネントで表示できるようにする。
+        // 子コンポーネントに渡すshowをfalseにしてでサーバサイドのエラーを表示できるようにする。
         setShowProduceVali(false);
-        switch ((_error$response = error.response) === null || _error$response === void 0 ? void 0 : _error$response.status) {
-          case 401:
-            setError("更新できませんでした");
-          case 403:
-            setError("更新できませんでした");
-          case 500:
-            setError("更新できませんでした");
-          default:
-            setSucess("");
-            setError(error.response.data.errors.editProduce);
+        if ((_error$response = error.response) !== null && _error$response !== void 0 && _error$response.status) {
+          setSucess("");
+          setError(error.response.data.errors.editProduce);
         }
       }
     });
@@ -2283,7 +2305,9 @@ __webpack_require__.r(__webpack_exports__);
 
 var Search = function Search() {
   var element = document.getElementById("search");
+  // 上限日
   var aboveday;
+  // 下限日
   var belowday;
   if (element && element.dataset.aboveday) {
     aboveday = JSON.parse(element.dataset.aboveday);
@@ -2338,12 +2362,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0) { ; } } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
@@ -2352,29 +2370,20 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var Step = function Step() {
   var element = document.getElementById("step");
-  var stepList = [];
+  // ステップ一覧
+  var steps = [];
   if (element && element.dataset.steps) {
-    stepList = JSON.parse(element.dataset.steps);
-  }
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
-    _useState2 = _slicedToArray(_useState, 2),
-    steps = _useState2[0],
-    setSteps = _useState2[1];
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    setSteps(stepList);
-  }, []);
-  if (steps.data !== undefined) {
-    var sdata = steps.data;
+    steps = JSON.parse(element.dataset.steps);
   }
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
     className: "App",
-    children: sdata ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+    children: steps ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       className: "p-card",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         className: "p-flexbox",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           className: "p-flexbox__flexcontainer p-flexbox__flexcontainer--index",
-          children: sdata.map(function (step, i) {
+          children: steps.data.map(function (step, i) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("ul", {
               className: "p-flexbox__flexitem",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
@@ -2427,11 +2436,17 @@ __webpack_require__.r(__webpack_exports__);
 
 var Validation = function Validation(props) {
   var name = props.name;
+  // 入力内容
   var input = props.input;
+  // 最大値
   var max = props.max;
+  // 最小値
   var min = props.min;
+  // エラー内容
   var error = props.error;
+  // 成功時の内容
   var sucess = props.sucess;
+  // 表示の状態
   var show = props.show;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
     children: [show && input.length < min && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {

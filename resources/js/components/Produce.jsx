@@ -7,22 +7,24 @@ const Produce = () => {
     const element = document.getElementById("editProduce");
     let produce = [];
     produce = JSON.parse(element.dataset.produce);
-
+    // 自己紹介の入力内容
     const [inputProduce, setProduce] = useState(produce);
+    // バリデーション成功
     const [sucess, setSucess] = useState();
     const [error, setError] = useState();
+    // バリデーションの表示の状態
     const [showProduceVali, setShowProduceVali] = useState(false);
-
+    // 自己紹介の内容を入力した際に更新される
     const onHandleChangeProduce = (e) => {
         setProduce(e.target.value);
-        // テキスト入力したさいに「更新しました」を削除する
+        // バリデーションを初期化
         setSucess("");
     };
-
+    // 自己紹介のフォームをクリックしたさいにバリデーションを表示
     const onClickInputProduce = (e) => {
         setShowProduceVali(true);
     };
-
+    // 自己紹介を非同期通信で送信する
     const handleSubmitProduce = () => {
         axios
             // データはjson形式で渡してControllerで処理
@@ -33,18 +35,11 @@ const Produce = () => {
             })
             .catch((error) => {
                 {
-                    // showをfalseにして子コンポーネントで表示できるようにする。
+                    // 子コンポーネントに渡すshowをfalseにしてでサーバサイドのエラーを表示できるようにする。
                     setShowProduceVali(false);
-                    switch (error.response?.status) {
-                        case 401:
-                            setError("更新できませんでした");
-                        case 403:
-                            setError("更新できませんでした");
-                        case 500:
-                            setError("更新できませんでした");
-                        default:
-                            setSucess("");
-                            setError(error.response.data.errors.editProduce);
+                    if (error.response?.status) {
+                        setSucess("");
+                        setError(error.response.data.errors.editProduce);
                     }
                 }
             });

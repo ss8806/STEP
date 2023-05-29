@@ -3,11 +3,17 @@ import ReactDOM from "react-dom";
 
 const Validation = (props) => {
     let name = props.name;
+    // 入力内容
     let input = props.input;
+    // 最大値
     let max = props.max;
+    // 最小値
     let min = props.min;
+    // エラー内容
     let error = props.error;
+    // 成功時の内容
     let sucess = props.sucess;
+    // 表示の状態
     let show = props.show;
 
     return (

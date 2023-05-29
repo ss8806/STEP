@@ -4,9 +4,8 @@ import moment from "moment";
 
 const Posts = () => {
     const element = document.getElementById("posts");
-
+    // 投稿したステップ一覧
     let posts;
-
     if (element && element.dataset.posts) {
         posts = JSON.parse(element.dataset.posts);
     }

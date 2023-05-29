@@ -5,7 +5,9 @@ import Validation from "./Validation";
 const PostChild = () => {
     const element = document.getElementById("postChild");
     let step;
+    // バリデーションエラー
     let errors;
+    // フォームに入力した内容(バリデーションが通らなかった)
     let oldname;
     let oldcontent;
 
@@ -30,21 +32,22 @@ const PostChild = () => {
 
     const [inputName, setInputName] = useState(oldname);
     const [inputContent, setInputContent] = useState(oldcontent);
+    // バリデーションの表示状態
     const [showNameVali, setShowNameVali] = useState(false);
     const [showContentVali, setShowContentVali] = useState(false);
-
+    // 子ステップ名を入力した際に更新される
     const onChangeInputName = (e) => {
         setInputName(e.target.value);
     };
-
+    // 子ステップの内容を入力した際に更新される
     const onChangeInputContent = (e) => {
         setInputContent(e.target.value);
     };
-
+    // 子ステップ名をクリックした際にバリデーションを表示する
     const onClickInputName = (e) => {
         setShowNameVali(true);
     };
-
+    // 子ステップの内容をクリックした際にバリデーションを表示する
     const onClickInputContent = (e) => {
         setShowContentVali(true);
     };

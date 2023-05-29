@@ -4,6 +4,7 @@ import ReactDOM from "react-dom";
 const Hamberger = () => {
     const element = document.getElementById("hamberger");
     let logout = [];
+    // ハンバーガーメニューの開閉の状態
     const [open, setOpen] = useState(false);
 
     // ハンバーガーメニューを開閉
