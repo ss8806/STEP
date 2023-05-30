@@ -50,14 +50,10 @@
         </div>
 
         <div class="p-card__footer">
-            <div class="c-link">
-                <p>アカウントをお持ちでない方は</p>
-                <a href="{{ route('register') }}">こちら</a>
-            </div>
-            <div class="c-link">
-                <p>パスワードをお忘れの方は</p>
-                <a href="{{ route('password.request') }}">こちら</a>
-            </div>
+            <p>アカウントをお持ちでない方は</p>
+            <a class="c-link" href="{{ route('register') }}">こちら</a>
+            <p>パスワードをお忘れの方は</p>
+            <a class="c-link" href="{{ route('password.request') }}">こちら</a>
         </div>
     </section>
 </main>
