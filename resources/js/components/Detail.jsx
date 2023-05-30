@@ -100,7 +100,9 @@ const Detail = () => {
                                         <p className="p-card__stepnum">
                                             STEP{i + 1 + (currentpage - 1) * 8}
                                         </p>
-                                        {child.name}
+                                        <p className="u-overflow">
+                                            {child.name}
+                                        </p>
                                     </li>
                                     <li className="p-card__body">
                                         投稿日:

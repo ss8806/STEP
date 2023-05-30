@@ -18,7 +18,7 @@ const Step = () => {
                         <div className="p-flexbox__flexcontainer p-flexbox__flexcontainer--index">
                             {steps.data.map((step, i) => (
                                 <ul key={i} className="p-flexbox__flexitem">
-                                    <li className="p-card__header p-card__header--step">
+                                    <li className="p-card__header p-card__header--step u-overflow">
                                         {step.name}
                                     </li>
                                     <li className="p-card__body">

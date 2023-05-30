@@ -57,7 +57,7 @@ const PostStep = () => {
             <Validation
                 name={"ステップ名"}
                 input={inputName}
-                max={20}
+                max={30}
                 min={1}
                 error={errors.name}
                 show={showNameVali}

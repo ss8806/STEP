@@ -70,7 +70,7 @@ const EditChild = () => {
                 // 入力内容
                 input={inputName}
                 // 最大文字数
-                max={20}
+                max={30}
                 // 最小文字数
                 min={1}
                 // バリデーションチェックの内容

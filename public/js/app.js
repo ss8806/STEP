@@ -835,7 +835,10 @@ var Detail = function Detail() {
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("p", {
                   className: "p-card__stepnum",
                   children: ["STEP", i + 1 + (currentpage - 1) * 8]
-                }), child.name]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+                  className: "u-overflow",
+                  children: child.name
+                })]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("li", {
                 className: "p-card__body",
                 children: ["\u6295\u7A3F\u65E5:", moment__WEBPACK_IMPORTED_MODULE_2___default()(child.updated_at).format("YYYY年MM月DD日")]
@@ -1067,7 +1070,7 @@ var EditChild = function EditChild() {
       input: inputName
       // 最大文字数
       ,
-      max: 20
+      max: 30
       // 最小文字数
       ,
       min: 1
@@ -1223,7 +1226,7 @@ var EditStep = function EditStep(props) {
       input: inputName
       // 最大文字数
       ,
-      max: 20
+      max: 30
       // 最小文字数
       ,
       min: 1
@@ -1896,7 +1899,7 @@ var PostChild = function PostChild() {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Validation__WEBPACK_IMPORTED_MODULE_2__["default"], {
       name: "子ステップ名",
       input: inputName,
-      max: 20,
+      max: 30,
       min: 1,
       error: errors.name,
       show: showNameVali
@@ -2039,7 +2042,7 @@ var PostStep = function PostStep() {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Validation__WEBPACK_IMPORTED_MODULE_2__["default"], {
       name: "ステップ名",
       input: inputName,
-      max: 20,
+      max: 30,
       min: 1,
       error: errors.name,
       show: showNameVali
@@ -2387,7 +2390,7 @@ var Step = function Step() {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("ul", {
               className: "p-flexbox__flexitem",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
-                className: "p-card__header p-card__header--step",
+                className: "p-card__header p-card__header--step u-overflow",
                 children: step.name
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("li", {
                 className: "p-card__body",
