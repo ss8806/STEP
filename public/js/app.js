@@ -2256,7 +2256,7 @@ var Produce = function Produce() {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Validation__WEBPACK_IMPORTED_MODULE_2__["default"], {
         name: "自己紹介",
         input: inputProduce,
-        max: 300,
+        max: 200,
         min: 1,
         show: showProduceVali,
         sucess: sucess,

@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->text('produce')->default("お願いします");; // 自己紹介
+            $table->string('produce')->default('よろしくお願いします'); // 自己紹介
             $table->string('icon')->nullable(); // アイコン画像
             $table->rememberToken();
             $table->timestamps();

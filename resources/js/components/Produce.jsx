@@ -56,7 +56,7 @@ const Produce = () => {
                 <Validation
                     name={"自己紹介"}
                     input={inputProduce}
-                    max={300}
+                    max={200}
                     min={1}
                     show={showProduceVali}
                     sucess={sucess}

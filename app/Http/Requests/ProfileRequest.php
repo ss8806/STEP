@@ -63,7 +63,7 @@ class ProfileRequest extends FormRequest
     {
         return [
             'icon'  => 'file|mimes:jpeg,png,jpg,gif|min:1|max:9000',
-            'editProduce'  => 'min:1|max:300',
+            'editProduce'  => 'min:1|max:200',
             'editEmail' => 'min:1|max:30|email',
         ];
     }
