@@ -29,7 +29,7 @@ return [
         'array'   => ':attributeの項目は、:min個から:max個にしてください。',
     ],
     'boolean'        => ":attributeには、'true'か'false'を指定してください。",
-    'confirmed'      => ':attributeと:attribute確認が一致しません。',
+    'confirmed'      => 'パスワードとパスワード（確認用）が一致しません。',
     'date'           => ':attributeは、正しい日付ではありません。',
     'date_equals'    => ':attributeは:dateに等しい日付でなければなりません。',
     'date_format'    => ":attributeの形式は、':format'と合いません。",
@@ -145,5 +145,9 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'name' => '名前',
+        'email' => 'メールアドレス',
+        'password' => 'パスワード',
+    ],
 ];

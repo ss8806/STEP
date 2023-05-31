@@ -17,7 +17,7 @@
                 <div class="p-form">
                     <label for="email" class="c-label">メールアドレス</label>
                     <div>
-                        <input id="email" type="email" class="c-input p-form__input--auth @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="test@example.com">
+                        <input id="email" type="email" class="c-input p-form__input--auth @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="mail">
                     </div>
                     @error('email')
                         <div class="c-error" role="alert">

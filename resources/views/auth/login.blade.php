@@ -17,7 +17,7 @@
                     @csrf
                     <label for="email" class="c-label">メールアドレス</label>
                     <div>
-                        <input id="email" type="email" class="c-input p-form__input--auth  @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                        <input id="email" type="email" class="c-input p-form__input--auth  @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="mail">
                     </div>
                     @error('email')
                     <div class="c-error" role="alert">
@@ -27,7 +27,7 @@
 
                     <label for="password" class="c-label">パスワード</label>
                     <div class=c-input p-form__input--auth>
-                        <input id="password" type="password" class="c-input p-form__input--auth @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                        <input id="password" type="password" class="c-input p-form__input--auth @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="password">
                     </div>
                     @error('password')
                     <div class="c-error" role="alert">

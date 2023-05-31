@@ -14,9 +14,9 @@
         <div class="p-card__body">
             <form method="POST" action="{{ route('register') }}" class="p-form">
                 @csrf
-                <label for="name" class="c-label">ニックネーム</label>
+                <label for="name" class="c-label">名前</label>
                 <div>
-                    <input id="name" type="text" class="c-input p-form__input--auth @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="お名前">
+                    <input id="name" type="text" class="c-input p-form__input--auth @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="name">
                 </div>
                 @error('name')
                 <div class="c-error" role="alert">
@@ -26,7 +26,7 @@
 
                 <label for="email">メールアドレス</label>
                 <div>
-                    <input id="email" type="email" class="c-input p-form__input--auth @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="メールアドレス">
+                    <input id="email" type="email" class="c-input p-form__input--auth @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="mail">
                 </div>
                 @error('email')
                 <div class="c-error" role="alert">
@@ -36,7 +36,7 @@
 
                 <label for="password" class="c-form__label">パスワード</label>
                 <div>
-                    <input id="password" type="password" class="c-input p-form__input--auth @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="パスワード">
+                    <input id="password" type="password" class="c-input p-form__input--auth @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="password">
                 </div>
                 @error('password')
                 <div class="c-error" role="alert">
