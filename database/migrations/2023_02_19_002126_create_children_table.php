@@ -16,7 +16,7 @@ class CreateChildrenTable extends Migration
         Schema::create('children', function (Blueprint $table) {
             $table->id();
             $table->string('name'); // 子ステップ名
-            $table->string('content'); // 子ステップの内容
+            $table->text('content'); // 子ステップの内容
             $table->unsignedBigInteger('parent_id'); // 親ステップのid
             $table->timestamps();
 

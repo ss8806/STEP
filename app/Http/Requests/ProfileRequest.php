@@ -62,7 +62,7 @@ class ProfileRequest extends FormRequest
     public function rules()
     {
         return [
-            'icon'  => 'file|mimes:jpeg,png,jpg,gif|min:1',
+            'icon'  => 'file|mimes:jpeg,png,jpg,gif|min:1|max:9000',
             'editProduce'  => 'min:1|max:300',
             'editEmail' => 'min:1|max:30|email',
         ];
@@ -73,6 +73,14 @@ class ProfileRequest extends FormRequest
             'icon'  => 'アイコン画像',
             'editProduce'  => '自己紹介',
             'editEmail'  => 'メールアドレス',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'icon.min' => 'ファイルのサイズは1Kbyte以上にしてください',
+            'icon.max' => 'ファイルのサイズは9Mbyte以下にしてください'
         ];
     }
 }

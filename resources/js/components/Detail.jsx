@@ -56,7 +56,7 @@ const Detail = () => {
     return (
         <>
             <section className="p-detail">
-                <p className="p-detail__name">{step.name}</p>
+                <p className="p-detail__stepname">{step.name}</p>
                 <p className="p-detail__content">{step.content}</p>
                 <p>
                     投稿日: {moment(step.updated_at).format("YYYY年MM月DD日")}
@@ -100,7 +100,7 @@ const Detail = () => {
                                         <p className="p-card__stepnum">
                                             STEP{i + 1 + (currentpage - 1) * 8}
                                         </p>
-                                        <p className="u-overflow">
+                                        <p className="p-detail__childname">
                                             {child.name}
                                         </p>
                                     </li>

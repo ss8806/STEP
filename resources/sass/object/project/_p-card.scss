@@ -37,9 +37,9 @@
             }
         }
         &--detail {
-            height: 68px;
+            height: 80px;
             @include sm() {
-                height: 48px;
+                height: 60px;
             }
         }
     }

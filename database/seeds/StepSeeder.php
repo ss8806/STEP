@@ -71,8 +71,8 @@ class StepSeeder extends Seeder
         ]);
         factory(Step::class)->create([
             'id' => '10',
-            'name' => 'お遍路巡りをする',
-            'content' => 'お遍路巡りをして~~~~~~',
+            'name' => '登山をする',
+            'content' => '登山をして~~~~~~',
             'count_child' => '0',
             'user_id' => '3',
         ]);

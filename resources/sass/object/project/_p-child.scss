@@ -14,8 +14,9 @@
     &__content{
         font-size: 18px;
         margin-bottom: 20px;
-        white-space: pre;
-        height: 200px;
+        min-height: 200px;
+        white-space: pre-wrap;
+        word-break: break-all;
     }
 
     &__link{

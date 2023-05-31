@@ -5,21 +5,31 @@
         background-color: white;
     }
 
-    &__name{
+    &__stepname{
         font-size: 24px;
         margin-bottom: 10px;
-        white-space: pre;
+        white-space: pre-wrap;
+        word-break: break-all
     }
 
     &__content{
         font-size: 18px;
         margin-bottom: 20px;
-        white-space: pre;
-        height: 200px;
+        min-height: 200px;
+        white-space: pre-wrap;
+        word-break: break-all;
     }
 
     &__link{
         margin: 10px;
         font-size: 18px;
     }
+
+    &__childname{
+        font-size: 16px;
+        margin-bottom: 10px;
+        white-space: normal;
+        word-break: break-all
+    }
+
 }

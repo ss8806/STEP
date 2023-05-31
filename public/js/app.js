@@ -792,7 +792,7 @@ var Detail = function Detail() {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("section", {
       className: "p-detail",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
-        className: "p-detail__name",
+        className: "p-detail__stepname",
         children: step.name
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
         className: "p-detail__content",
@@ -836,7 +836,7 @@ var Detail = function Detail() {
                   className: "p-card__stepnum",
                   children: ["STEP", i + 1 + (currentpage - 1) * 8]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
-                  className: "u-overflow",
+                  className: "p-detail__childname",
                   children: child.name
                 })]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("li", {

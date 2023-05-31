@@ -243,11 +243,11 @@ a:visited {
   }
 }
 .p-card__header--detail {
-  height: 68px;
+  height: 80px;
 }
 @media screen and (max-width: 414px) {
   .p-card__header--detail {
-    height: 48px;
+    height: 60px;
   }
 }
 .p-card__challengebtn {
@@ -278,8 +278,9 @@ a:visited {
 .p-child__content {
   font-size: 18px;
   margin-bottom: 20px;
-  white-space: pre;
-  height: 200px;
+  min-height: 200px;
+  white-space: pre-wrap;
+  word-break: break-all;
 }
 .p-child__link {
   margin: 10px;
@@ -291,20 +292,28 @@ a:visited {
   padding: 10px;
   background-color: white;
 }
-.p-detail__name {
+.p-detail__stepname {
   font-size: 24px;
   margin-bottom: 10px;
-  white-space: pre;
+  white-space: pre-wrap;
+  word-break: break-all;
 }
 .p-detail__content {
   font-size: 18px;
   margin-bottom: 20px;
-  white-space: pre;
-  height: 200px;
+  min-height: 200px;
+  white-space: pre-wrap;
+  word-break: break-all;
 }
 .p-detail__link {
   margin: 10px;
   font-size: 18px;
+}
+.p-detail__childname {
+  font-size: 16px;
+  margin-bottom: 10px;
+  white-space: normal;
+  word-break: break-all;
 }
 
 .p-dialog__background {
