@@ -16,7 +16,7 @@ class MypageController extends Controller
     {
         $user = Auth::user();
         // 投稿したステップを５件取得
-        $posts = $user->postSteps()->orderBy('id', 'DESC')->paginate(5);
+        $posts = $user->postSteps()->orderBy('id', 'DESC')->paginate(4);
 
         // チャレンジ中ののステップ
 
@@ -48,7 +48,7 @@ class MypageController extends Controller
             ->leftJoinSub($subquery, 'children', 'steps.id', 'children.c_parent_id')
             ->groupBy('steps.id');
         // チャレンジ中のステップを５件取得
-        $challenges = $query->paginate(5);
+        $challenges = $query->paginate(4);
         // チャレンジ中のステップなので初期値は全てtrueになる
         $is_challenged = array();
         foreach ($challenges as $challenge) {
