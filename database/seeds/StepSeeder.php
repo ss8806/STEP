@@ -18,49 +18,49 @@ class StepSeeder extends Seeder
             'name' => '断食をする',
             'content' => '断食をすることにより~~',
             'count_child' => '0',
-            'user_id' => '1',
+            'user_id' => '2',
         ]);
         factory(Step::class)->create([
             'id' => '2',
             'name' => 'ボランティアをする',
             'content' => 'ボランティアをすることによって〜〜〜',
             'count_child' => '0',
-            'user_id' => '2',
+            'user_id' => '1',
         ]);
         factory(Step::class)->create([
             'id' => '3',
             'name' => 'キャンプスポット',
             'content' => 'おすすめのキャンプスポットの紹介',
             'count_child' => '0',
-            'user_id' => '2',
+            'user_id' => '1',
         ]);
         factory(Step::class)->create([
             'id' => '4',
             'name' => '格闘技をして鍛える',
             'content' => '格闘技をすることによって〜〜〜〜〜',
             'count_child' => '0',
-            'user_id' => '2',
+            'user_id' => '1',
         ]);
         factory(Step::class)->create([
             'id' => '5',
             'name' => 'サイクリングをする',
             'content' => 'サイクリングをして~~~~~~',
             'count_child' => '0',
-            'user_id' => '3',
+            'user_id' => '1',
         ]);
         factory(Step::class)->create([
             'id' => '6',
             'name' => 'サウナ通いをする',
             'content' => 'サウナに行き~~~~~~',
             'count_child' => '0',
-            'user_id' => '3',
+            'user_id' => '1',
         ]);
         factory(Step::class)->create([
             'id' => '8',
             'name' => 'PCを自作する',
             'content' => 'PCを自作することによって~~~~~~',
             'count_child' => '0',
-            'user_id' => '2',
+            'user_id' => '1',
         ]);
         factory(Step::class)->create([
             'id' => '9',
@@ -74,7 +74,7 @@ class StepSeeder extends Seeder
             'name' => '登山をする',
             'content' => '登山をして~~~~~~',
             'count_child' => '0',
-            'user_id' => '3',
+            'user_id' => '1',
         ]);
         factory(Step::class)->create([
             'id' => '11',
