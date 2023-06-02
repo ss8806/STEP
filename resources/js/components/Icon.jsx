@@ -90,6 +90,7 @@ const Icon = () => {
                                 id="preview"
                                 className="c-icon p-profile__icon"
                                 src="/images/avatar-default.svg"
+                                srcset="avatar-default.svg 1x, avatar-default@2x.svg 2x"
                             />
                         )}
                     </div>

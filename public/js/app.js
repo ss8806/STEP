@@ -1695,7 +1695,8 @@ var Icon = function Icon() {
           }) || /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
             id: "preview",
             className: "c-icon p-profile__icon",
-            src: "/images/avatar-default.svg"
+            src: "/images/avatar-default.svg",
+            srcset: "avatar-default.svg 1x, avatar-default@2x.svg 2x"
           })
         })
       })]
