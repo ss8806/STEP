@@ -9,7 +9,7 @@
 @if (!empty(Auth::user()->icon))
     <img class="c-icon p-mypage__icon" src="https://backend1219.s3.ap-northeast-1.amazonaws.com/{{Auth::user()->icon}}" >
 @else
-    <img class="c-icon p-mypage__icon" src="/images/avatar-default.svg"srcset="avatar-default.svg 1x, avatar-default@2x.svg 2x">
+    <img class="c-icon p-mypage__icon" src="/images/avatar-default.svg" srcset="images/avatar-default.svg 1x, images/avatar-default@2x.svg 2x" >
 @endif
 <button class="c-btn p-mypage__btn" type=“button” onclick="location.href='profile'">プロフィール編集</button>
 

@@ -11,7 +11,7 @@
             <ul class="p-nav p-nav__menu">
                 @guest
                 <li>
-                    <img class="c-icon p-header__icon" src="/images/avatar-default.svg" srcset="avatar-default.svg 1x, avatar-default@2x.svg 2x>
+                    <img class="c-icon p-header__icon" src="/images/avatar-default.svg" srcset="images/avatar-default.svg 1x, images/avatar-default@2x.svg 2x">
                 </li>
                 <li>ゲストユーザー</li>
                 <li>
@@ -20,9 +20,9 @@
                 @else
                 <li>
                     @if (!empty(Auth::user()->icon))
-                    <img class="c-icon" src="https://backend1219.s3.ap-northeast-1.amazonaws.com/{{Auth::user()->icon}}" >
+                    <img class="c-icon" src="https://backend1219.s3.ap-northeast-1.amazonaws.com/{{Auth::user()->icon}}">
                     @else
-                    <img class="c-icon p-header__icon" src="/images/avatar-default.svg" srcset="avatar-default.svg 1x, avatar-default@2x.svg 2x">
+                    <img class="c-icon p-header__icon" src="/images/avatar-default.svg" srcset="images/avatar-default.svg 1x, images/avatar-default@2x.svg 2x">
                     @endif
                 </li>
                 <li>ようこそ {{ Auth::user()->name }}様</li>

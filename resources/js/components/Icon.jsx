@@ -33,7 +33,7 @@ const Icon = () => {
         reader.readAsDataURL(file);
         reader.onload = () => {
             const result = reader.result;
-            imgTag.src = result;
+            imgTag.srcset = result;
             inputIcon = setIcon(result);
         };
     };
@@ -90,7 +90,7 @@ const Icon = () => {
                                 id="preview"
                                 className="c-icon p-profile__icon"
                                 src="/images/avatar-default.svg"
-                                srcset="avatar-default.svg 1x, avatar-default@2x.svg 2x"
+                                srcset="images/avatar-default.svg 1x, images/avatar-default@2x.svg 2x"
                             />
                         )}
                     </div>

@@ -1643,7 +1643,7 @@ var Icon = function Icon() {
     reader.readAsDataURL(file);
     reader.onload = function () {
       var result = reader.result;
-      imgTag.src = result;
+      imgTag.srcset = result;
       inputIcon = setIcon(result);
     };
   };
@@ -1696,7 +1696,7 @@ var Icon = function Icon() {
             id: "preview",
             className: "c-icon p-profile__icon",
             src: "/images/avatar-default.svg",
-            srcset: "avatar-default.svg 1x, avatar-default@2x.svg 2x"
+            srcset: "images/avatar-default.svg 1x, images/avatar-default@2x.svg 2x"
           })
         })
       })]
